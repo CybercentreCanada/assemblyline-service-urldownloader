@@ -14,14 +14,19 @@ class URLDownloader(ServiceBase):
         self.content_type_filter.append(None)
 
     def fetch_uri(self, uri: str, apply_filter: bool = True) -> str:
-        resp = requests.get(uri)
-        # Only concerned with gathering responses of interest
-        if resp.ok and resp.headers.get('Content-Type') not in self.content_type_filter:
-            resp_fh = NamedTemporaryFile(delete=False)
-            resp_fh.write(resp.content)
-            resp_fh.close()
-            return resp_fh.name
-        return None
+        try:
+            resp = requests.get(uri, allow_redirects=True)
+            # Only concerned with gathering responses of interest
+            if resp.ok:
+                if apply_filter and resp.headers.get('Content-Type') in self.content_type_filter:
+                    return
+                resp_fh = NamedTemporaryFile(delete=False)
+                resp_fh.write(resp.content)
+                resp_fh.close()
+                return resp_fh.name
+        except:
+            pass
+        return
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
