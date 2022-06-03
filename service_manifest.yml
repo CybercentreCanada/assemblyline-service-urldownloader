@@ -1,0 +1,29 @@
+name: URLDownloader
+version: $SERVICE_TAG
+description: This service downloads potentially malicious URLs.
+
+accepts: .*
+rejects: empty|metadata/.*
+
+stage: POST
+category: Static Analysis
+
+file_required: false
+timeout: 300
+disable_cache: false
+
+enabled: true
+is_external: false
+licence_count: 0
+uses_tag_scores: true
+uses_metadata: true
+
+config:
+  content_type_filter:
+    - text/plain
+
+docker_config:
+  image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
+  cpu_cores: 1
+  ram_mb: 512
+  allow_internet_access: true
