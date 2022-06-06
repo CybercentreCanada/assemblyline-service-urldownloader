@@ -18,7 +18,8 @@ class URLDownloader(ServiceBase):
             resp = requests.get(uri, allow_redirects=True)
             # Only concerned with gathering responses of interest
             if resp.ok:
-                if apply_filter and resp.headers.get('Content-Type') in self.content_type_filter:
+                if apply_filter and any(content_type in resp.headers.get('Content-Type')
+                                        for content_type in self.content_type_filter):
                     return
                 resp_fh = NamedTemporaryFile(delete=False)
                 resp_fh.write(resp.content)
