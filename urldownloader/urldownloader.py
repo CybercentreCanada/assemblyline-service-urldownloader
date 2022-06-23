@@ -15,14 +15,14 @@ class URLDownloader(ServiceBase):
 
     def fetch_uri(self, uri: str, apply_filter: bool = True) -> str:
         try:
-            resp = requests.get(uri, allow_redirects=True)
+            resp = requests.head(uri, allow_redirects=True, timeout=10)
             # Only concerned with gathering responses of interest
             if resp.ok:
                 if apply_filter and any(content_type in resp.headers.get('Content-Type')
                                         for content_type in self.content_type_filter):
                     return
                 resp_fh = NamedTemporaryFile(delete=False)
-                resp_fh.write(resp.content)
+                resp_fh.write(requests.get(uri, allow_redirects=True).content)
                 resp_fh.close()
                 return resp_fh.name
         except:
