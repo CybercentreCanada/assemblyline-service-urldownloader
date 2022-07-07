@@ -6,17 +6,23 @@ accepts: .*
 rejects: empty|metadata/.*
 
 stage: POST
-category: Static Analysis
+category: Internet Connected
 
 file_required: false
 timeout: 300
 disable_cache: false
 
 enabled: true
-is_external: false
+is_external: true
 licence_count: 0
 uses_tag_scores: true
 uses_metadata: true
+
+submission_params:
+  - default: 300
+    name: minimum_maliciousness
+    value: 300
+    type: int
 
 config:
   content_type_filter:

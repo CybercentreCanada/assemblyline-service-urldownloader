@@ -32,6 +32,7 @@ class URLDownloader(ServiceBase):
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
         submitted_url = []
+        minimum_maliciousness = request.get_param('minimum_maliciousness')
 
         # Code to be used when responsibility of fetching submitted_url is moved to service from UI
         # -----------------------------------------------------------------------------------------
@@ -44,6 +45,8 @@ class URLDownloader(ServiceBase):
         urls = tags.get('network.static.uri', []) + tags.get('network.dynamic.uri', []) + submitted_url
 
         for tag_value, tag_score in sorted(urls, key=lambda x: x[1]):
+            if tag_score < minimum_maliciousness:
+                break
             # Write response and attach to submission
             fp = self.fetch_uri(tag_value, apply_filter=bool(tag_score < 500))
             request.add_extracted(fp, tag_value, f"Response from {tag_value}",
