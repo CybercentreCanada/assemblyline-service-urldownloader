@@ -13,16 +13,16 @@ class URLDownloader(ServiceBase):
         self.content_type_filter: list = config.get('content_type_filter', [])
         self.content_type_filter.append(None)
 
-    def fetch_uri(self, uri: str, apply_filter: bool = True) -> str:
+    def fetch_uri(self, uri: str, apply_filter: bool = True, headers={}) -> str:
         try:
-            resp = requests.head(uri, allow_redirects=True, timeout=10)
+            resp = requests.head(uri, allow_redirects=True, timeout=10, headers=headers)
             # Only concerned with gathering responses of interest
             if resp.ok:
                 if apply_filter and any(content_type in resp.headers.get('Content-Type')
                                         for content_type in self.content_type_filter):
                     return
                 resp_fh = NamedTemporaryFile(delete=False)
-                resp_fh.write(requests.get(uri, allow_redirects=True).content)
+                resp_fh.write(requests.get(uri, allow_redirects=True, headers=headers).content)
                 resp_fh.close()
                 return resp_fh.name
         except:
@@ -33,6 +33,9 @@ class URLDownloader(ServiceBase):
         result = Result()
         submitted_url = []
         minimum_maliciousness = request.get_param('minimum_maliciousness')
+        headers = {}
+        if request.get_param('user_agent'):
+            headers['User-Agent'] = request.get_param('user_agent')
 
         # Code to be used when responsibility of fetching submitted_url is moved to service from UI
         # -----------------------------------------------------------------------------------------
@@ -48,7 +51,7 @@ class URLDownloader(ServiceBase):
             if tag_score < minimum_maliciousness:
                 break
             # Write response and attach to submission
-            fp = self.fetch_uri(tag_value, apply_filter=bool(tag_score < 500))
+            fp = self.fetch_uri(tag_value, apply_filter=bool(tag_score < 500), headers=headers)
             request.add_extracted(fp, tag_value, f"Response from {tag_value}",
                                   safelist_interface=self.api_interface) if fp else None
 

@@ -23,6 +23,10 @@ submission_params:
     name: minimum_maliciousness
     value: 300
     type: int
+  - default: ""
+    name: user_agent
+    value: ""
+    type: str
 
 config:
   content_type_filter:
