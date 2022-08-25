@@ -69,7 +69,7 @@ class URLDownloader(ServiceBase):
                 else:
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
             except requests.exceptions.ConnectionError as e:
-                exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e)}))
+                exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e).split(':')[-1][:-2]}))
 
             if exception_table.body:
                 result.add_section(exception_table)
