@@ -1,6 +1,5 @@
 import requests
 
-from assemblyline.common import forge
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.result import Result, ResultTableSection, TableRow
@@ -8,17 +7,15 @@ from assemblyline_v4_service.common.result import Result, ResultTableSection, Ta
 from tempfile import NamedTemporaryFile
 from typing import Union
 
-config = forge.get_config()
-SUBMISSION_HEADERS = config.ui.url_submission_headers
-SUBMISSION_PROXIES = config.ui.url_submission_proxies
-
 
 class URLDownloader(ServiceBase):
     def __init__(self, config) -> None:
         super().__init__(config)
+        self.proxy = self.config.get('proxy', {})
+        self.headers = self.config.get('headers', {})
 
     def fetch_uri(self, uri: str, headers={}) -> Union[str, requests.Response]:
-        resp = requests.head(uri, allow_redirects=True, timeout=10, headers=headers, proxies=SUBMISSION_PROXIES)
+        resp = requests.head(uri, allow_redirects=True, timeout=10, headers=headers, proxies=self.proxy)
         # Only concerned with gathering responses of interest
         if resp.ok:
             resp_fh = NamedTemporaryFile(delete=False)
@@ -31,7 +28,7 @@ class URLDownloader(ServiceBase):
         result = Result()
         submitted_url = []
         minimum_maliciousness = request.get_param('minimum_maliciousness')
-        headers = SUBMISSION_HEADERS
+        headers = self.headers
         if request.get_param('user_agent'):
             headers['User-Agent'] = request.get_param('user_agent')
 

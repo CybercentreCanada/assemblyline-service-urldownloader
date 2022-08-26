@@ -14,7 +14,6 @@ disable_cache: false
 
 enabled: true
 is_external: true
-privileged: true
 licence_count: 0
 uses_tag_scores: true
 uses_metadata: true
@@ -28,6 +27,10 @@ submission_params:
     name: user_agent
     value: ""
     type: str
+
+config:
+  proxy: {}
+  headers: {}
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
