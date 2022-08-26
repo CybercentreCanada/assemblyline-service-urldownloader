@@ -29,10 +29,6 @@ submission_params:
     value: ""
     type: str
 
-config:
-  content_type_filter:
-    - text/plain
-
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
   cpu_cores: 1
