@@ -65,7 +65,7 @@ class URLDownloader(ServiceBase):
                     request.add_extracted(fp, tag_value, f"Response from {tag_value}",
                                           safelist_interface=self.api_interface)
                 else:
-                    self.log.debug(f'Server response exception occurred: {e}')
+                    self.log.debug(f'Server response exception occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
             except requests.exceptions.ConnectionError as e:
                 self.log.debug(f'ConnectionError exception occurred: {e}')
