@@ -27,10 +27,15 @@ submission_params:
     name: user_agent
     value: ""
     type: str
+  - default: false
+    name: submitted_url_only
+    value: false
+    type: bool
 
 config:
   proxy: {}
   headers: {}
+  timeout_per_request: 10
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
