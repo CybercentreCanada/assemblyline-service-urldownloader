@@ -47,7 +47,7 @@ class URLDownloader(ServiceBase):
 
         request.temp_submission_data.setdefault('visited_urls', [])
         exception_table = ResultTableSection("Attempted Connection Exceptions")
-        for tag_value, tag_score in sorted(urls, key=lambda x: x[1]):
+        for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
             # Minimize revisiting the same URIs in the same submission
             if tag_score < minimum_maliciousness:
                 break
@@ -58,21 +58,27 @@ class URLDownloader(ServiceBase):
             request.temp_submission_data['visited_urls'].append(tag_value)
             # Write response and attach to submission
             try:
+                self.log.debug(f'Trying {tag_value}')
                 fp = self.fetch_uri(tag_value, headers=headers)
                 if isinstance(fp, str):
+                    self.log.info(f'Success, writing to {fp}...')
                     request.add_extracted(fp, tag_value, f"Response from {tag_value}",
                                           safelist_interface=self.api_interface)
                 else:
+                    self.log.debug(f'Server response exception occurred: {e}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
             except requests.exceptions.ConnectionError as e:
+                self.log.debug(f'ConnectionError exception occurred: {e}')
                 exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e).split(':')[-1][:-2]}))
             except requests.exceptions.ReadTimeout as e:
+                self.log.debug(f'ReadTimeout exception occurred: {e}')
                 if self.proxy and any([proxy in str(e) for proxy in self.proxy.values()]):
                     exception_table.add_row(
                         TableRow({'URI': tag_value, 'REASON': 'Problem using proxy to reach destination.'}))
                 else:
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e).split(':')[-1][:-2]}))
             except Exception as e:
+                self.log.debug(f'General exception occurred: {e}')
                 # Catch any exception to ensure fetched files aren't lost due to arbitrary error
                 exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e).split(':')[-1][:-2]}))
 
