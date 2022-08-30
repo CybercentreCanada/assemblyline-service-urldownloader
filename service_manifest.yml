@@ -17,6 +17,7 @@ is_external: true
 licence_count: 0
 uses_tag_scores: true
 uses_metadata: true
+uses_temp_submission_data: true
 
 submission_params:
   - default: 300
@@ -27,10 +28,22 @@ submission_params:
     name: user_agent
     value: ""
     type: str
+  - default: false
+    name: submitted_url_only
+    value: false
+    type: bool
 
 config:
   proxy: {}
   headers: {}
+  timeout_per_request: 10
+
+heuristics:
+  - heur_id: 1
+    name: Downloader
+    score: 1000
+    filetype: .*
+    description: URL that drops a malicious payload
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
