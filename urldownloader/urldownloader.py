@@ -62,10 +62,14 @@ class URLDownloader(ServiceBase):
 
         request.temp_submission_data.setdefault('visited_urls', {})
 
-        # Check if current file is malicious, if so tag URL that downloaded the file
+       # Check if current file is malicious, if so tag URL that downloaded the file
+        task_score = 0
+        for tags_tuples in tags.values():
+            task_score += sum([tag_tuple[1] for tag_tuple in tags_tuples])
+
         malicious_urls = []
         for url, hash in request.temp_submission_data['visited_urls'].items():
-            if request.sha256 == hash:
+            if request.sha256 == hash and task_score >= 1000:
                 malicious_urls.append(url)
 
         if malicious_urls:
