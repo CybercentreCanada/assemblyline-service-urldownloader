@@ -101,7 +101,8 @@ class URLDownloader(ServiceBase):
                     self.log.warning(f'General except occurred: {e}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e)}))
             finally:
-                request.temp_submission_data[tag_value] = sha256
+                request.temp_submission_data['visited_urls'][tag_value] = sha256
+
         if exception_table.body:
             result.add_section(exception_table)
 
