@@ -54,10 +54,10 @@ class URLDownloader(ServiceBase):
         # Make sure this is the first URL fetched
         urls = [(submitted_url, 10000)] if submitted_url and request.task.depth == 0 else []
 
+        tags = request.task.tags
         # Distinguish between only fetching the submitted_url vs all in the submission
         if not request.get_param('submitted_url_only'):
             # Only concerned with static/dynamic URIs found by prior services
-            tags = request.task.tags
             urls.extend(tags.get('network.static.uri', []) + tags.get('network.dynamic.uri', []))
 
         request.temp_submission_data.setdefault('visited_urls', {})
