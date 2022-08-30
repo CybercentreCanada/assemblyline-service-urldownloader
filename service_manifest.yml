@@ -38,6 +38,13 @@ config:
   headers: {}
   timeout_per_request: 10
 
+heuristics:
+  - heur_id: 1
+    name: Downloader
+    score: 1000
+    filetype: .*
+    description: URL that drops a malicious payload
+
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
   cpu_cores: 1
