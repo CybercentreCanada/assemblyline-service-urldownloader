@@ -17,6 +17,7 @@ is_external: true
 licence_count: 0
 uses_tag_scores: true
 uses_metadata: true
+uses_temp_submission_data: true
 
 submission_params:
   - default: 300
