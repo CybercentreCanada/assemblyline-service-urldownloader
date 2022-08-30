@@ -1,11 +1,24 @@
 import requests
+import hashlib
+import json
 
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
-from assemblyline_v4_service.common.result import Result, ResultTableSection, TableRow
+from assemblyline_v4_service.common.result import Result, ResultSection, ResultTableSection, TableRow, Heuristic
 
 from tempfile import NamedTemporaryFile
 from typing import Union
+
+REQUESTS_EXCEPTION_MSG = {
+    requests.RequestException: "There was an ambiguous exception that occurred while handling your request.",
+    requests.ConnectionError: "A Connection error occurred.",
+    requests.HTTPError: "An HTTP error occurred.",
+    requests.URLRequired: "A valid URL is required to make a request.",
+    requests.TooManyRedirects: "Too many redirects.",
+    requests.ConnectTimeout: "The request timed out while trying to connect to the remote server.",
+    requests.ReadTimeout: "The server did not send any data in the allotted amount of time.",
+    requests.Timeout: "The request timed out."
+}
 
 
 class URLDownloader(ServiceBase):
@@ -20,10 +33,12 @@ class URLDownloader(ServiceBase):
         # Only concerned with gathering responses of interest
         if resp.ok:
             resp_fh = NamedTemporaryFile(delete=False)
-            resp_fh.write(requests.get(uri, allow_redirects=True, headers=headers, timeout=self.timeout).content)
+            content = requests.get(uri, allow_redirects=True, headers=headers, timeout=self.timeout).content
+            sha256 = hashlib.sha256(content).hexdigest()
+            resp_fh.write(content)
             resp_fh.close()
-            return resp_fh.name
-        return resp
+            return resp_fh.name, sha256
+        return resp, None
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
@@ -45,43 +60,48 @@ class URLDownloader(ServiceBase):
             tags = request.task.tags
             urls.extend(tags.get('network.static.uri', []) + tags.get('network.dynamic.uri', []))
 
-        request.temp_submission_data.setdefault('visited_urls', [])
+        request.temp_submission_data.setdefault('visited_urls', {})
+
+        # Check if current file is malicious, if so tag URL that downloaded the file
+        malicious_urls = []
+        for url, hash in request.temp_submission_data['visited_urls'].items():
+            if request.sha256 == hash:
+                malicious_urls.append(url)
+
+        if malicious_urls:
+            ResultSection("Malicious URLs Associated to File", body=json.dumps(malicious_urls),
+                          tags={'network.static.uri': malicious_urls}, heuristic=Heuristic(1), parent=result)
+
         exception_table = ResultTableSection("Attempted Connection Exceptions")
         for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
             # Minimize revisiting the same URIs in the same submission
             if tag_score < minimum_maliciousness:
                 break
 
-            if tag_value in request.temp_submission_data['visited_urls']:
+            if tag_value in request.temp_submission_data['visited_urls'].keys():
                 continue
 
-            request.temp_submission_data['visited_urls'].append(tag_value)
             # Write response and attach to submission
+            sha256 = None
             try:
                 self.log.debug(f'Trying {tag_value}')
-                fp = self.fetch_uri(tag_value, headers=headers)
+                fp, sha256 = self.fetch_uri(tag_value, headers=headers)
                 if isinstance(fp, str):
                     self.log.info(f'Success, writing to {fp}...')
                     request.add_extracted(fp, tag_value, f"Response from {tag_value}",
                                           safelist_interface=self.api_interface)
                 else:
-                    self.log.debug(f'Server response exception occurred: {fp.reason}')
+                    self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
-            except requests.exceptions.ConnectionError as e:
-                self.log.debug(f'ConnectionError exception occurred: {e}')
-                exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e).split(':')[-1][:-2]}))
-            except requests.exceptions.ReadTimeout as e:
-                self.log.debug(f'ReadTimeout exception occurred: {e}')
-                if self.proxy and any([proxy in str(e) for proxy in self.proxy.values()]):
-                    exception_table.add_row(
-                        TableRow({'URI': tag_value, 'REASON': 'Problem using proxy to reach destination.'}))
-                else:
-                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e).split(':')[-1][:-2]}))
             except Exception as e:
-                self.log.debug(f'General exception occurred: {e}')
-                # Catch any exception to ensure fetched files aren't lost due to arbitrary error
-                exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e).split(':')[-1][:-2]}))
-
+                if e.__class__ in REQUESTS_EXCEPTION_MSG:
+                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': REQUESTS_EXCEPTION_MSG[e.__class__]}))
+                else:
+                    # Catch any except to ensure fetched files aren't lost due to arbitrary error
+                    self.log.warning(f'General except occurred: {e}')
+                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e)}))
+            finally:
+                request.temp_submission_data[tag_value] = sha256
         if exception_table.body:
             result.add_section(exception_table)
 
