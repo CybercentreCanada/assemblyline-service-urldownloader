@@ -29,7 +29,7 @@ submission_params:
     value: ""
     type: str
   - default: false
-    name: submitted_url_only
+    name: analyze_submitted_url
     value: false
     type: bool
 
