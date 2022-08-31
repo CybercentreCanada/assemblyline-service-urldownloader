@@ -48,11 +48,11 @@ class URLDownloader(ServiceBase):
         if request.get_param('user_agent'):
             headers['User-Agent'] = request.get_param('user_agent')
 
-        # Code to be used when responsibility of fetching submitted_url is moved to service from UI
-        # -----------------------------------------------------------------------------------------
+        urls = []
         submitted_url = request.task.metadata.get('submitted_url')
-        # Make sure this is the first URL fetched
-        urls = [(submitted_url, 10000)] if submitted_url and request.task.depth == 0 else []
+        if request.get_param('analyze_submitted_url') and submitted_url and request.task.depth == 0:
+            # Make sure this is the first URL fetched
+            urls = [(submitted_url, 10000)]
 
         tags = request.task.tags
         # Distinguish between only fetching the submitted_url vs all in the submission
@@ -62,7 +62,7 @@ class URLDownloader(ServiceBase):
 
         request.temp_submission_data.setdefault('visited_urls', {})
 
-       # Check if current file is malicious, if so tag URL that downloaded the file
+        # Check if current file is malicious, if so tag URL that downloaded the file
         task_score = 0
         for tags_tuples in tags.values():
             task_score += sum([tag_tuple[1] for tag_tuple in tags_tuples])
