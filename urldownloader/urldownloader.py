@@ -56,7 +56,7 @@ class URLDownloader(ServiceBase):
 
         tags = request.task.tags
         # Distinguish between only fetching the submitted_url vs all in the submission
-        if not request.get_param('submitted_url_only'):
+        if not request.get_param('analyze_submitted_url'):
             # Only concerned with static/dynamic URIs found by prior services
             urls.extend(tags.get('network.static.uri', []) + tags.get('network.dynamic.uri', []))
 
