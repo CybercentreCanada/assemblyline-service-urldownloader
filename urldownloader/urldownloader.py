@@ -44,9 +44,6 @@ class URLDownloader(ServiceBase):
         result = Result()
         submitted_url = []
         minimum_maliciousness = request.get_param('minimum_maliciousness')
-        headers = self.headers
-        if request.get_param('user_agent'):
-            headers['User-Agent'] = request.get_param('user_agent')
 
         urls = []
         submitted_url = request.task.metadata.get('submitted_url')
@@ -61,6 +58,9 @@ class URLDownloader(ServiceBase):
             urls.extend(tags.get('network.static.uri', []) + tags.get('network.dynamic.uri', []))
 
         request.temp_submission_data.setdefault('visited_urls', {})
+
+        # Headers that other AL services have sourced for fetching
+        al_url_headers = request.temp_submission_data['url_headers']
 
         # Check if current file is malicious, if so tag URL that downloaded the file
         task_score = 0
@@ -85,6 +85,11 @@ class URLDownloader(ServiceBase):
             if tag_value in request.temp_submission_data['visited_urls'].keys():
                 continue
 
+            headers = self.headers
+            if request.get_param('user_agent'):
+                headers['User-Agent'] = request.get_param('user_agent')
+
+            headers.update(al_url_headers.get(tag_value, {}))
             # Write response and attach to submission
             sha256 = None
             try:
