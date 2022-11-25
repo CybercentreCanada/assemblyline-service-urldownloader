@@ -60,7 +60,7 @@ class URLDownloader(ServiceBase):
         request.temp_submission_data.setdefault('visited_urls', {})
 
         # Headers that other AL services have sourced for fetching
-        al_url_headers = request.temp_submission_data['url_headers']
+        al_url_headers = request.temp_submission_data.get('url_headers', {})
 
         # Check if current file is malicious, if so tag URL that downloaded the file
         task_score = 0
