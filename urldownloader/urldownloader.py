@@ -43,7 +43,11 @@ class URLDownloader(ServiceBase):
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
         submitted_url = []
-        minimum_maliciousness = request.get_param('minimum_maliciousness')
+
+        minimum_maliciousness = int(request.get_param('minimum_maliciousness'))
+        headers = self.headers
+        if request.get_param('user_agent'):
+            headers['User-Agent'] = request.get_param('user_agent')
 
         urls = []
         submitted_url = request.task.metadata.get('submitted_url')
