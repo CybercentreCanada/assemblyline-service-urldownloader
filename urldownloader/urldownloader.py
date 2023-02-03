@@ -85,7 +85,7 @@ class URLDownloader(ServiceBase):
                           tags={'network.static.uri': malicious_urls}, heuristic=Heuristic(1), parent=result)
 
         exception_table = ResultTableSection("Attempted Connection Exceptions")
-        redirects_table = ResultTableSection("Connection History")
+        redirects_table = ResultTableSection("Connection History", heuristic=Heuristic(2))
         for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
             # Minimize revisiting the same URIs in the same submission
             if tag_score < minimum_maliciousness:

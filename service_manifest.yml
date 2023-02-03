@@ -45,6 +45,12 @@ heuristics:
     filetype: .*
     description: URL that drops a malicious payload
 
+  - heur_id: 2
+    name: Redirection
+    score: 0
+    filetype: .*
+    description: URL contains redirects
+
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
   cpu_cores: 1
