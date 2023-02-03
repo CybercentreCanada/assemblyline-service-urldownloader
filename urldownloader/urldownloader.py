@@ -31,20 +31,27 @@ class URLDownloader(ServiceBase):
     def fetch_uri(self, uri: str, headers={}) -> Union[str, requests.Response]:
         resp = requests.head(uri, allow_redirects=True, timeout=self.timeout, headers=headers, proxies=self.proxy)
         # Only concerned with gathering responses of interest
-        if resp.ok:
+        if resp.ok or resp.status_code == 403:
             resp_fh = NamedTemporaryFile(delete=False)
-            content = requests.get(uri, allow_redirects=True, headers=headers, timeout=self.timeout).content
+            resp = requests.get(uri, allow_redirects=True, headers=headers, timeout=self.timeout)
+            history = [record.headers['Location'] for record in resp.history]
+            # Do we have a history to look back on? (redirects)
+            if history:
+                history.insert(0, uri)
+                # If final destination is blocked by a challenge (ie. CloudFlare), mention this in the history
+                if "needs to review the security of your connection before proceeding." in resp.text:
+                    history.append('<Destination blocked by DDoS Protection>')
+            content = resp.content
             sha256 = hashlib.sha256(content).hexdigest()
             resp_fh.write(content)
             resp_fh.close()
-            return resp_fh.name, sha256
-        return resp, None
+            return resp_fh.name, sha256, history
+        return resp, None, []
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
         submitted_url = []
         minimum_maliciousness = int(request.get_param('minimum_maliciousness'))
-
         urls = []
         submitted_url = request.task.metadata.get('submitted_url')
         if request.get_param('analyze_submitted_url') and submitted_url and request.task.depth == 0:
@@ -77,6 +84,7 @@ class URLDownloader(ServiceBase):
                           tags={'network.static.uri': malicious_urls}, heuristic=Heuristic(1), parent=result)
 
         exception_table = ResultTableSection("Attempted Connection Exceptions")
+        redirects_table = ResultTableSection("Connection History")
         for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
             # Minimize revisiting the same URIs in the same submission
             if tag_score < minimum_maliciousness:
@@ -94,7 +102,7 @@ class URLDownloader(ServiceBase):
             sha256 = None
             try:
                 self.log.debug(f'Trying {tag_value}')
-                fp, sha256 = self.fetch_uri(tag_value, headers=headers)
+                fp, sha256, history = self.fetch_uri(tag_value, headers=headers)
                 if isinstance(fp, str):
                     self.log.info(f'Success, writing to {fp}...')
                     if sha256 != request.sha256:
@@ -103,6 +111,10 @@ class URLDownloader(ServiceBase):
                 else:
                     self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
+
+                if history:
+                    redirects_table.add_row(TableRow({'URI': tag_value, 'HISTORY': ' → '.join(history)}))
+
             except Exception as e:
                 if e.__class__ in REQUESTS_EXCEPTION_MSG:
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': REQUESTS_EXCEPTION_MSG[e.__class__]}))
@@ -113,6 +125,8 @@ class URLDownloader(ServiceBase):
             finally:
                 request.temp_submission_data['visited_urls'][tag_value] = sha256
 
+        if redirects_table.body:
+            result.add_section(redirects_table)
         if exception_table.body:
             result.add_section(exception_table)
 
