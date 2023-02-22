@@ -1,11 +1,14 @@
+import os
 import requests
 import hashlib
 import json
 
+from assemblyline.common.identify import Identify
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
-from assemblyline_v4_service.common.result import Result, ResultSection, ResultTableSection, TableRow, Heuristic
+from assemblyline_v4_service.common.result import Result, ResultSection, ResultImageSection, ResultTableSection, TableRow, Heuristic,
 
+from html2image import Html2Image
 from tempfile import NamedTemporaryFile
 from typing import Union
 
@@ -27,6 +30,7 @@ class URLDownloader(ServiceBase):
         self.proxy = self.config.get('proxy', {})
         self.headers = self.config.get('headers', {})
         self.timeout = self.config.get('timeout_per_request', 10)
+        self.identify = Identify()
 
     def fetch_uri(self, uri: str, headers={}) -> Union[str, requests.Response]:
         resp = requests.head(uri, allow_redirects=True, timeout=self.timeout, headers=headers, proxies=self.proxy)
@@ -85,6 +89,7 @@ class URLDownloader(ServiceBase):
 
         exception_table = ResultTableSection("Attempted Connection Exceptions")
         redirects_table = ResultTableSection("Connection History", heuristic=Heuristic(2))
+        screenshot_section = ResultImageSection("Screenshots of visited pages")
         for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
             # Minimize revisiting the same URIs in the same submission
             if tag_score < minimum_maliciousness:
@@ -104,6 +109,21 @@ class URLDownloader(ServiceBase):
                 self.log.debug(f'Trying {tag_value}')
                 fp, sha256, history = self.fetch_uri(tag_value, headers=headers)
                 if isinstance(fp, str):
+                    if self.identify.fileinfo(fp)['type'] == 'code/html':
+                        hti = Html2Image(browser='chrome', output_path=self.working_directory, custom_flags=[
+                            '--hide-scrollbars',
+                            '--no-sandbox'
+                        ])
+                        output_file = f"{tag_value}.png"
+                        # If identified to be an HTML document, render it and add to section
+                        with NamedTemporaryFile(suffix=".html") as html_file:
+                            html_file.write(open(fp).read())
+                            html_file.flush()
+                            hti.screenshot(html_file=html_file.name, save_as=output_file)
+                        screenshot_section.add_image(path=os.path.join(self.working_directory, output_file),
+                                                     name=output_file,
+                                                     description=f"Screenshot of {tag_value}")
+
                     self.log.info(f'Success, writing to {fp}...')
                     if sha256 != request.sha256:
                         request.add_extracted(fp, tag_value, f"Response from {tag_value}",
@@ -125,6 +145,8 @@ class URLDownloader(ServiceBase):
             finally:
                 request.temp_submission_data['visited_urls'][tag_value] = sha256
 
+        if screenshot_section.body:
+            result.add_section(screenshot_section)
         if redirects_table.body:
             result.add_section(redirects_table)
         if exception_table.body:
