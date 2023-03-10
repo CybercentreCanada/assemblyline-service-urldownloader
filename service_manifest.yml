@@ -24,7 +24,7 @@ submission_params:
     name: minimum_maliciousness
     value: 300
     type: int
-  - default: ""
+  - default: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
     name: user_agent
     value: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
     type: str
