@@ -127,7 +127,7 @@ class URLDownloader(ServiceBase):
                     self.log.info(f'Success, writing to {fp}...')
                     if sha256 != request.sha256:
                         request.add_extracted(fp, tag_value, f"Response from {tag_value}",
-                                              safelist_interface=self.api_interface)
+                                              safelist_interface=self.api_interface, parent_relation="DOWNLOADED")
                 else:
                     self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
