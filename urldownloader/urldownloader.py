@@ -55,8 +55,6 @@ class URLDownloader(ServiceBase):
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
-        submitted_url = []
-
         minimum_maliciousness = int(request.get_param('minimum_maliciousness'))
         urls = []
         submitted_url = request.task.metadata.get('submitted_url')
