@@ -11,6 +11,7 @@ from assemblyline_v4_service.common.result import Result, ResultSection, ResultI
 from html2image import Html2Image
 from tempfile import NamedTemporaryFile
 from typing import Union
+from urllib.parse import urlparse
 
 REQUESTS_EXCEPTION_MSG = {
     requests.RequestException: "There was an ambiguous exception that occurred while handling your request.",
@@ -54,8 +55,6 @@ class URLDownloader(ServiceBase):
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
-        submitted_url = []
-
         minimum_maliciousness = int(request.get_param('minimum_maliciousness'))
         urls = []
         submitted_url = request.task.metadata.get('submitted_url')
@@ -127,8 +126,9 @@ class URLDownloader(ServiceBase):
 
                     self.log.info(f'Success, writing to {fp}...')
                     if sha256 != request.sha256:
-                        request.add_extracted(fp, tag_value, f"Response from {tag_value}",
-                                              safelist_interface=self.api_interface)
+                        filename = os.path.basename(urlparse(tag_value).path) or "index.html"
+                        request.add_extracted(fp, filename, f"Response from {tag_value}",
+                                              safelist_interface=self.api_interface, parent_relation="DOWNLOADED")
                 else:
                     self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
