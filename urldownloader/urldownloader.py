@@ -1,5 +1,4 @@
 import os
-import re
 import requests
 import hashlib
 import json
@@ -24,13 +23,6 @@ REQUESTS_EXCEPTION_MSG = {
     requests.ReadTimeout: "The server did not send any data in the allotted amount of time.",
     requests.Timeout: "The request timed out."
 }
-
-SANDBOX_ACCEPT_PATTERN = "(executable/(windows|linux)|java|audiovisual|meta)/.*|" \
-    "document/(installer/windows|office/(excel|ole|powerpoint|rtf|unknown|word|mhtml|onenote)|pdf$)|"\
-    "code/(javascript|jscript|python|vbs|wsf|html|ps1|batch|hta|vbe)|"\
-    "shortcut/windows|archive/(chm|iso|rar|vhd|udf|zip)|"\
-    "text/windows/registry|" \
-    "audiovisual/flash"
 
 
 class URLDownloader(ServiceBase):
@@ -138,7 +130,7 @@ class URLDownloader(ServiceBase):
                         filename = os.path.basename(urlparse(tag_value).path) or "index.html"
                         request.add_extracted(fp, filename, f"Response from {tag_value}",
                                               safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
-                                              allow_dynamic_recursion=bool(re.match(SANDBOX_ACCEPT_PATTERN, file_type)))
+                                              allow_dynamic_recursion=True)
                 else:
                     self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
