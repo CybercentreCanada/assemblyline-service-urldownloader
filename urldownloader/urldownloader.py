@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 import hashlib
 import json
@@ -23,6 +24,13 @@ REQUESTS_EXCEPTION_MSG = {
     requests.ReadTimeout: "The server did not send any data in the allotted amount of time.",
     requests.Timeout: "The request timed out."
 }
+
+SANDBOX_ACCEPT_PATTERN = "(executable/(windows|linux)|java|audiovisual|meta)/.*|" \
+    "document/(installer/windows|office/(excel|ole|powerpoint|rtf|unknown|word|mhtml|onenote)|pdf$)|"\
+    "code/(javascript|jscript|python|vbs|wsf|html|ps1|batch|hta|vbe)|"\
+    "shortcut/windows|archive/(chm|iso|rar|vhd|udf|zip)|"\
+    "text/windows/registry|" \
+    "audiovisual/flash"
 
 
 class URLDownloader(ServiceBase):
@@ -109,7 +117,8 @@ class URLDownloader(ServiceBase):
                 self.log.debug(f'Trying {tag_value}')
                 fp, sha256, history = self.fetch_uri(tag_value, headers=headers)
                 if isinstance(fp, str):
-                    if self.identify.fileinfo(fp)['type'] == 'code/html':
+                    file_type = self.identify.fileinfo(fp)['type']
+                    if file_type == 'code/html':
                         hti = Html2Image(browser='chrome', output_path=self.working_directory, custom_flags=[
                             '--hide-scrollbars',
                             '--no-sandbox'
@@ -128,7 +137,8 @@ class URLDownloader(ServiceBase):
                     if sha256 != request.sha256:
                         filename = os.path.basename(urlparse(tag_value).path) or "index.html"
                         request.add_extracted(fp, filename, f"Response from {tag_value}",
-                                              safelist_interface=self.api_interface, parent_relation="DOWNLOADED")
+                                              safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
+                                              allow_dynamic_recursion=re.match(SANDBOX_ACCEPT_PATTERN, file_type))
                 else:
                     self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
