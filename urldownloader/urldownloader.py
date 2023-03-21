@@ -138,7 +138,7 @@ class URLDownloader(ServiceBase):
                         filename = os.path.basename(urlparse(tag_value).path) or "index.html"
                         request.add_extracted(fp, filename, f"Response from {tag_value}",
                                               safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
-                                              allow_dynamic_recursion=re.match(SANDBOX_ACCEPT_PATTERN, file_type))
+                                              allow_dynamic_recursion=bool(re.match(SANDBOX_ACCEPT_PATTERN, file_type)))
                 else:
                     self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
