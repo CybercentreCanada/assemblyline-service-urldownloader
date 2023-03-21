@@ -55,7 +55,6 @@ class URLDownloader(ServiceBase):
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
-        submitted_url = []
         minimum_maliciousness = int(request.get_param('minimum_maliciousness'))
         urls = []
         submitted_url = request.task.metadata.get('submitted_url')
@@ -110,7 +109,8 @@ class URLDownloader(ServiceBase):
                 self.log.debug(f'Trying {tag_value}')
                 fp, sha256, history = self.fetch_uri(tag_value, headers=headers)
                 if isinstance(fp, str):
-                    if self.identify.fileinfo(fp)['type'] == 'code/html':
+                    file_type = self.identify.fileinfo(fp)['type']
+                    if file_type == 'code/html':
                         hti = Html2Image(browser='chrome', output_path=self.working_directory, custom_flags=[
                             '--hide-scrollbars',
                             '--no-sandbox'
@@ -129,7 +129,8 @@ class URLDownloader(ServiceBase):
                     if sha256 != request.sha256:
                         filename = os.path.basename(urlparse(tag_value).path) or "index.html"
                         request.add_extracted(fp, filename, f"Response from {tag_value}",
-                                              safelist_interface=self.api_interface, parent_relation="DOWNLOADED")
+                                              safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
+                                              allow_dynamic_recursion=True)
                 else:
                     self.log.debug(f'Server response except occurred: {fp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
