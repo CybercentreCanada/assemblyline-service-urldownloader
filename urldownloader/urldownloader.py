@@ -1,6 +1,5 @@
 import os
 import requests
-import hashlib
 import json
 
 from assemblyline.common.identify import Identify
@@ -10,7 +9,7 @@ from assemblyline_v4_service.common.result import Result, ResultSection, ResultI
 
 from html2image import Html2Image
 from tempfile import NamedTemporaryFile
-from typing import Union
+from typing import List, Optional, Tuple
 from urllib.parse import urlparse
 
 REQUESTS_EXCEPTION_MSG = {
@@ -33,12 +32,11 @@ class URLDownloader(ServiceBase):
         self.timeout = self.config.get('timeout_per_request', 10)
         self.identify = Identify(use_cache=False)
 
-    def fetch_uri(self, uri: str, headers={}) -> Union[str, requests.Response]:
+    def fetch_uri(self, uri: str, headers={}) -> Tuple[requests.Response, Optional[str], List[str]]:
         resp = requests.head(uri, allow_redirects=True, timeout=self.timeout, headers=headers, proxies=self.proxy)
         # Only concerned with gathering responses of interest
         if resp.ok or resp.status_code == 403:
-            resp_fh = NamedTemporaryFile(delete=False)
-            resp = requests.get(uri, allow_redirects=True, headers=headers, timeout=self.timeout)
+            resp = requests.get(uri, allow_redirects=True, headers=headers, timeout=self.timeout, proxies=self.proxy)
             history = [record.headers['Location'] for record in resp.history]
             # Do we have a history to look back on? (redirects)
             if history:
@@ -47,10 +45,12 @@ class URLDownloader(ServiceBase):
                 if "needs to review the security of your connection before proceeding." in resp.text:
                     history.append('<Destination blocked by DDoS Protection>')
             content = resp.content
-            sha256 = hashlib.sha256(content).hexdigest()
-            resp_fh.write(content)
-            resp_fh.close()
-            return resp_fh.name, sha256, history
+            if content:
+                resp_fh = NamedTemporaryFile(delete=False)
+                resp_fh.write(content)
+                resp_fh.close()
+                return resp, resp_fh.name, history
+            return resp, None, history
         return resp, None, []
 
     def execute(self, request: ServiceRequest) -> None:
@@ -87,6 +87,7 @@ class URLDownloader(ServiceBase):
             ResultSection("Malicious URLs Associated to File", body=json.dumps(malicious_urls),
                           tags={'network.static.uri': malicious_urls}, heuristic=Heuristic(1), parent=result)
 
+        connections_table = ResultTableSection("Connections")
         exception_table = ResultTableSection("Attempted Connection Exceptions")
         redirects_table = ResultTableSection("Connection History", heuristic=Heuristic(2))
         screenshot_section = ResultImageSection(request, title_text="Screenshots of visited pages")
@@ -107,9 +108,11 @@ class URLDownloader(ServiceBase):
             sha256 = None
             try:
                 self.log.debug(f'Trying {tag_value}')
-                fp, sha256, history = self.fetch_uri(tag_value, headers=headers)
+                resp, fp, history = self.fetch_uri(tag_value, headers=headers)
                 if isinstance(fp, str):
-                    file_type = self.identify.fileinfo(fp)['type']
+                    file_info = self.identify.fileinfo(fp)
+                    file_type = file_info['type']
+                    sha256 = file_info['sha256']
                     if file_type == 'code/html':
                         hti = Html2Image(browser='chrome', output_path=self.working_directory, custom_flags=[
                             '--hide-scrollbars',
@@ -131,9 +134,15 @@ class URLDownloader(ServiceBase):
                         request.add_extracted(fp, filename, f"Response from {tag_value}",
                                               safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
                                               allow_dynamic_recursion=True)
+                    connections_table.add_row(TableRow({'URI': tag_value,
+                                                        'CONTENT PEEK (FIRST 50 BYTES)': str(resp.content[:50])}))
+                elif not resp.ok:
+                    self.log.debug(f'Server response except occurred: {resp.reason}')
+                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': resp.reason}))
                 else:
-                    self.log.debug(f'Server response except occurred: {fp.reason}')
-                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': fp.reason}))
+                    # Give general information about the established connections
+                    connections_table.add_row(TableRow({'URI': tag_value,
+                                                        'CONTENT PEEK (FIRST 50 BYTES)': "<No data response>"}))
 
                 if history:
                     redirects_table.add_row(TableRow({'URI': tag_value, 'HISTORY': ' → '.join(history)}))
@@ -148,6 +157,8 @@ class URLDownloader(ServiceBase):
             finally:
                 request.temp_submission_data['visited_urls'][tag_value] = sha256
 
+        if connections_table.body:
+            result.add_section(connections_table)
         if screenshot_section.body:
             result.add_section(screenshot_section)
         if redirects_table.body:
