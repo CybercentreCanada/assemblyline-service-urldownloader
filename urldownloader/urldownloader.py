@@ -3,6 +3,7 @@ import requests
 import json
 
 from assemblyline.common.identify import Identify
+from assemblyline.common.str_utils import safe_str
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.result import Result, ResultSection, ResultImageSection, ResultTableSection, TableRow, Heuristic
@@ -87,7 +88,7 @@ class URLDownloader(ServiceBase):
             ResultSection("Malicious URLs Associated to File", body=json.dumps(malicious_urls),
                           tags={'network.static.uri': malicious_urls}, heuristic=Heuristic(1), parent=result)
 
-        connections_table = ResultTableSection("Connections")
+        connections_table = ResultTableSection("Established Connections")
         exception_table = ResultTableSection("Attempted Connection Exceptions")
         redirects_table = ResultTableSection("Connection History", heuristic=Heuristic(2))
         screenshot_section = ResultImageSection(request, title_text="Screenshots of visited pages")
@@ -135,9 +136,9 @@ class URLDownloader(ServiceBase):
                                               safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
                                               allow_dynamic_recursion=True)
                     connections_table.add_row(TableRow({'URI': tag_value,
-                                                        'CONTENT PEEK (FIRST 50 BYTES)': str(resp.content[:50])}))
+                                                        'CONTENT PEEK (FIRST 50 BYTES)': safe_str(resp.content[:50])}))
                 elif not resp.ok:
-                    self.log.debug(f'Server response except occurred: {resp.reason}')
+                    self.log.debug(f'Server response exception occurred: {resp.reason}')
                     exception_table.add_row(TableRow({'URI': tag_value, 'REASON': resp.reason}))
                 else:
                     # Give general information about the established connections
