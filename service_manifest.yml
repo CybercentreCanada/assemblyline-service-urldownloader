@@ -51,6 +51,17 @@ heuristics:
     filetype: .*
     description: URL contains redirects
 
+  - heur_id: 3
+    name: IP-based URL Request
+    score: 0
+    filetype: .*
+    description: Download using a server IP
+    # Scoring needs to be evaluated
+    signature_score_map:
+      ipv4: 0
+      ipv6: 0
+
+
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
   cpu_cores: 1
