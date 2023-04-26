@@ -1,9 +1,11 @@
 import os
+import re
 import requests
 import json
 
 from assemblyline.common.identify import Identify
 from assemblyline.common.str_utils import safe_str
+from assemblyline.odm.base import IP_ONLY_REGEX, IPV4_ONLY_REGEX
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.result import Result, ResultSection, ResultImageSection, ResultTableSection, TableRow, Heuristic
@@ -88,75 +90,94 @@ class URLDownloader(ServiceBase):
             ResultSection("Malicious URLs Associated to File", body=json.dumps(malicious_urls),
                           tags={'network.static.uri': malicious_urls}, heuristic=Heuristic(1), parent=result)
 
+        potential_ip_download = ResultTableSection(title_text="Potential IP-related File Downloads", auto_collapse=True)
         connections_table = ResultTableSection("Established Connections")
         exception_table = ResultTableSection("Attempted Connection Exceptions")
         redirects_table = ResultTableSection("Connection History", heuristic=Heuristic(2))
         screenshot_section = ResultImageSection(request, title_text="Screenshots of visited pages")
+        fetch_url = True
         for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
-            # Minimize revisiting the same URIs in the same submission
+            # Stop fetching if we're past the maliciousness threshold
             if tag_score < minimum_maliciousness:
-                break
+                fetch_url = False
 
-            if tag_value in request.temp_submission_data['visited_urls'].keys():
-                continue
+            if fetch_url:
+                # Minimize revisiting the same URIs in the same submission
+                if tag_value in request.temp_submission_data['visited_urls'].keys():
+                    continue
 
-            headers = self.headers
-            if request.get_param('user_agent'):
-                headers['User-Agent'] = request.get_param('user_agent')
+                headers = self.headers
+                if request.get_param('user_agent'):
+                    headers['User-Agent'] = request.get_param('user_agent')
 
-            headers.update(al_url_headers.get(tag_value, {}))
-            # Write response and attach to submission
-            sha256 = None
-            try:
-                self.log.debug(f'Trying {tag_value}')
-                resp, fp, history = self.fetch_uri(tag_value, headers=headers)
-                if isinstance(fp, str):
-                    file_info = self.identify.fileinfo(fp)
-                    file_type = file_info['type']
-                    sha256 = file_info['sha256']
-                    if file_type == 'code/html':
-                        hti = Html2Image(browser='chrome', output_path=self.working_directory, custom_flags=[
-                            '--hide-scrollbars',
-                            '--no-sandbox'
-                        ])
-                        output_file = f"{tag_value.replace('/', '_')}.png"
-                        # If identified to be an HTML document, render it and add to section
-                        with NamedTemporaryFile(suffix=".html") as html_file:
-                            html_file.write(open(fp, 'rb').read())
-                            html_file.flush()
-                            hti.screenshot(html_file=html_file.name, save_as=output_file)
-                        screenshot_section.add_image(path=os.path.join(self.working_directory, output_file),
-                                                     name=f'{tag_value}.png',
-                                                     description=f"Screenshot of {tag_value}")
+                headers.update(al_url_headers.get(tag_value, {}))
+                # Write response and attach to submission
+                sha256 = None
+                try:
+                    self.log.debug(f'Trying {tag_value}')
+                    resp, fp, history = self.fetch_uri(tag_value, headers=headers)
+                    if isinstance(fp, str):
+                        file_info = self.identify.fileinfo(fp)
+                        file_type = file_info['type']
+                        sha256 = file_info['sha256']
+                        if file_type == 'code/html':
+                            hti = Html2Image(browser='chrome', output_path=self.working_directory, custom_flags=[
+                                '--hide-scrollbars',
+                                '--no-sandbox'
+                            ])
+                            output_file = f"{tag_value.replace('/', '_')}.png"
+                            # If identified to be an HTML document, render it and add to section
+                            with NamedTemporaryFile(suffix=".html") as html_file:
+                                html_file.write(open(fp, 'rb').read())
+                                html_file.flush()
+                                hti.screenshot(html_file=html_file.name, save_as=output_file)
+                            screenshot_section.add_image(path=os.path.join(self.working_directory, output_file),
+                                                        name=f'{tag_value}.png',
+                                                        description=f"Screenshot of {tag_value}")
 
-                    self.log.info(f'Success, writing to {fp}...')
-                    if sha256 != request.sha256:
-                        filename = os.path.basename(urlparse(tag_value).path) or "index.html"
-                        request.add_extracted(fp, filename, f"Response from {tag_value}",
-                                              safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
-                                              allow_dynamic_recursion=True)
-                    connections_table.add_row(TableRow({'URI': tag_value,
-                                                        'CONTENT PEEK (FIRST 50 BYTES)': safe_str(resp.content[:50])}))
-                elif not resp.ok:
-                    self.log.debug(f'Server response exception occurred: {resp.reason}')
-                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': resp.reason}))
-                else:
-                    # Give general information about the established connections
-                    connections_table.add_row(TableRow({'URI': tag_value,
-                                                        'CONTENT PEEK (FIRST 50 BYTES)': "<No data response>"}))
+                        self.log.info(f'Success, writing to {fp}...')
+                        if sha256 != request.sha256:
+                            filename = os.path.basename(urlparse(tag_value).path) or "index.html"
+                            request.add_extracted(fp, filename, f"Response from {tag_value}",
+                                                safelist_interface=self.api_interface, parent_relation="DOWNLOADED",
+                                                allow_dynamic_recursion=True)
+                        connections_table.add_row(TableRow({'URI': tag_value,
+                                                            'CONTENT PEEK (FIRST 50 BYTES)': safe_str(resp.content[:50])}))
+                    elif not resp.ok:
+                        self.log.debug(f'Server response exception occurred: {resp.reason}')
+                        exception_table.add_row(TableRow({'URI': tag_value, 'REASON': resp.reason}))
+                    else:
+                        # Give general information about the established connections
+                        connections_table.add_row(TableRow({'URI': tag_value,
+                                                            'CONTENT PEEK (FIRST 50 BYTES)': "<No data response>"}))
 
-                if history:
-                    redirects_table.add_row(TableRow({'URI': tag_value, 'HISTORY': ' → '.join(history)}))
+                    if history:
+                        redirects_table.add_row(TableRow({'URI': tag_value, 'HISTORY': ' → '.join(history)}))
 
-            except Exception as e:
-                if e.__class__ in REQUESTS_EXCEPTION_MSG:
-                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': REQUESTS_EXCEPTION_MSG[e.__class__]}))
-                else:
-                    # Catch any except to ensure fetched files aren't lost due to arbitrary error
-                    self.log.warning(f'General except occurred: {e}')
-                    exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e)}))
-            finally:
-                request.temp_submission_data['visited_urls'][tag_value] = sha256
+                except Exception as e:
+                    if e.__class__ in REQUESTS_EXCEPTION_MSG:
+                        exception_table.add_row(TableRow({'URI': tag_value, 'REASON': REQUESTS_EXCEPTION_MSG[e.__class__]}))
+                    else:
+                        # Catch any except to ensure fetched files aren't lost due to arbitrary error
+                        self.log.warning(f'General except occurred: {e}')
+                        exception_table.add_row(TableRow({'URI': tag_value, 'REASON': str(e)}))
+                finally:
+                    request.temp_submission_data['visited_urls'][tag_value] = sha256
+            else:
+                # Analyse the URL for the possibility of it being a something we should download
+                parsed_url = urlparse(tag_value)
+                if re.match(IP_ONLY_REGEX, parsed_url.hostname) and '.' in os.path.basename(parsed_url.path):
+                    # Assumption: If URL host is an IP and the path suggests it's downloading a file, it warrants attention
+                    ip_version = '4' if re.match(IPV4_ONLY_REGEX, parsed_url.hostname) else '6'
+                    potential_ip_download.add_row(TableRow({'URL': tag_value,
+                                                            'HOSTNAME': parsed_url.hostname,
+                                                            'IP_VERSION': ip_version,
+                                                            'PATH': parsed_url.path}))
+                    potential_ip_download.add_tag('network.static.uri', tag_value)
+                    potential_ip_download.add_tag('network.static.ip', parsed_url.hostname)
+                    if not potential_ip_download.heuristic:
+                        potential_ip_download.set_heuristic(3)
+                    potential_ip_download.heuristic.add_signature_id(f"ipv{ip_version}")
 
         if connections_table.body:
             result.add_section(connections_table)
@@ -166,5 +187,7 @@ class URLDownloader(ServiceBase):
             result.add_section(redirects_table)
         if exception_table.body:
             result.add_section(exception_table)
+        if potential_ip_download.body:
+            result.add_section(potential_ip_download)
 
         request.result = result
