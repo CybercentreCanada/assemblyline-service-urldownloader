@@ -61,15 +61,14 @@ class URLDownloader(ServiceBase):
         minimum_maliciousness = int(request.get_param('minimum_maliciousness'))
         urls = []
         submitted_url = request.task.metadata.get('submitted_url')
-        if request.get_param('analyze_submitted_url') and submitted_url and request.task.depth == 0:
+        if request.get_param('include_submitted_url') and submitted_url and request.task.depth == 0:
             # Make sure this is the first URL fetched
             urls = [(submitted_url, 10000)]
 
         tags = request.task.tags
-        # Distinguish between only fetching the submitted_url vs all in the submission
-        if not request.get_param('analyze_submitted_url'):
-            # Only concerned with static/dynamic URIs found by prior services
-            urls.extend(tags.get('network.static.uri', []) + tags.get('network.dynamic.uri', []))
+
+        # Only concerned with static/dynamic URIs found by prior services
+        urls.extend(tags.get('network.static.uri', []) + tags.get('network.dynamic.uri', []))
 
         request.temp_submission_data.setdefault('visited_urls', {})
 
