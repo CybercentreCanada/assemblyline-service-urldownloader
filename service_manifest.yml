@@ -29,7 +29,7 @@ submission_params:
     value: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
     type: str
   - default: false
-    name: analyze_submitted_url
+    name: include_submitted_url
     value: false
     type: bool
 
