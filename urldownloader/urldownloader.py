@@ -1,19 +1,25 @@
+import json
 import os
 import re
-import requests
-import json
+from tempfile import NamedTemporaryFile
+from typing import List, Optional, Tuple
+from urllib.parse import urlparse
 
+import requests
 from assemblyline.common.identify import Identify
 from assemblyline.common.str_utils import safe_str
 from assemblyline.odm.base import IP_ONLY_REGEX, IPV4_ONLY_REGEX
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
-from assemblyline_v4_service.common.result import Result, ResultSection, ResultImageSection, ResultTableSection, TableRow, Heuristic
-
+from assemblyline_v4_service.common.result import (
+    Heuristic,
+    Result,
+    ResultImageSection,
+    ResultSection,
+    ResultTableSection,
+    TableRow,
+)
 from html2image import Html2Image
-from tempfile import NamedTemporaryFile
-from typing import List, Optional, Tuple
-from urllib.parse import urlparse
 
 REQUESTS_EXCEPTION_MSG = {
     requests.RequestException: "There was an ambiguous exception that occurred while handling your request.",
