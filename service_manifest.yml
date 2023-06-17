@@ -61,6 +61,24 @@ heuristics:
       ipv4: 0
       ipv6: 0
 
+  - heur_id: 4
+    name: High Port Usage
+    score: 0
+    filetype: .*
+    description: URI contains a host with a high port value
+    signature_score_map:
+      domain: 0
+      ip: 0
+
+  - heur_id: 5
+    name: Discovery Tool in URI Path
+    score: 0
+    filetype: .*
+    description: URI contains a native OS tool name, presumably used for reconnaissance
+    signature_score_map:
+      windows: 0
+      linux: 0
+
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG

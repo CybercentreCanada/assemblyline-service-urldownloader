@@ -33,6 +33,14 @@ REQUESTS_EXCEPTION_MSG = {
 }
 
 
+# Threshold to trigger heuristic regarding high port usage in URI
+HIGH_PORT_MINIMUM = 1024
+
+# Common tools native to the platform that can be used for recon
+WINDOWS_TOOLS = ["ipconfig", "whoami", "dir", "pwd", "ver", "schtasks", "route", "hostname", "netsh"]
+LINUX_TOOLS = ["ip", "whoami", "ls", "pwd", "uname", "cat", "crontab", "route", "hostname", "iptables"]
+
+
 class URLDownloader(ServiceBase):
     def __init__(self, config) -> None:
         super().__init__(config)
@@ -104,6 +112,8 @@ class URLDownloader(ServiceBase):
         connections_table = ResultTableSection("Established Connections")
         exception_table = ResultTableSection("Attempted Connection Exceptions")
         redirects_table = ResultTableSection("Connection History", heuristic=Heuristic(2))
+        high_port_table = ResultTableSection("High Port Usage", heuristic=Heuristic(4))
+        tool_table = ResultTableSection("Discovery Tool Found in URI Path", heuristic=Heuristic(4))
         screenshot_section = ResultImageSection(request, title_text="Screenshots of visited pages")
         fetch_url = True
         for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
@@ -214,6 +224,27 @@ class URLDownloader(ServiceBase):
                     if not potential_ip_download.heuristic:
                         potential_ip_download.set_heuristic(3)
                     potential_ip_download.heuristic.add_signature_id(f"ipv{ip_version}")
+
+                if parsed_url.port and parsed_url.port > HIGH_PORT_MINIMUM:
+                    # High port usage associated to host
+                    high_port_table.heuristic.add_signature_id(
+                        "ip" if re.match(IP_ONLY_REGEX, parsed_url.hostname) else "domain"
+                    )
+                    high_port_table.add_row(
+                        TableRow({"URI": tag_value, "HOST": parsed_url.hostname, "PORT": parsed_url.port})
+                    )
+
+                # Check if URI path is greater than the smallest tool we can look for (ie. '/ls')
+                if parsed_url.path and len(parsed_url.path) > 2:
+                    for tool in LINUX_TOOLS + WINDOWS_TOOLS:
+                        if tool in parsed_url.path:
+                            # Native OS tool found in URI path
+                            if tool in LINUX_TOOLS:
+                                tool_table.heuristic.add_signature_id("linux")
+                            if tool in WINDOWS_TOOLS:
+                                tool_table.heuristic.add_signature_id("windows")
+
+                            tool_table.add_row(TableRow({"URI": tag_value, "HOST": parsed_url.hostname, "TOOL": tool}))
 
         if connections_table.body:
             result.add_section(connections_table)
