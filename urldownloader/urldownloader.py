@@ -254,6 +254,10 @@ class URLDownloader(ServiceBase):
             result.add_section(exception_table)
         if potential_ip_download.body:
             result.add_section(potential_ip_download)
+        if high_port_table.body:
+            result.add_section(high_port_table)
+        if tool_table.body:
+            result.add_section(tool_table)
         if screenshot_section.body:
             result.add_section(screenshot_section)
 
