@@ -145,16 +145,20 @@ class URLDownloader(ServiceBase):
                             # If identified to be an HTML document, render it and add to section
                             self.log.info(f"Taking a screenshot of {tag_value}")
                             try:
+                                chrome_args = [
+                                    "google-chrome",
+                                    "--headless",
+                                    "--hide-scrollbars",
+                                    "--no-sandbox",
+                                    "--virtual-time-budget=5000",
+                                    f"--screenshot={os.path.join(self.working_directory, output_file)}",
+                                ]
+                                if self.proxy:
+                                    chrome_args.append(
+                                        f'--proxy-server="{";".join([f"{k}={v}" for k, v in self.proxy.items()])}"'
+                                    )
                                 subprocess.run(
-                                    [
-                                        "google-chrome",
-                                        "--headless",
-                                        "--hide-scrollbars",
-                                        "--no-sandbox",
-                                        "--virtual-time-budget=5000",
-                                        f"--screenshot={os.path.join(self.working_directory, output_file)}",
-                                        tag_value,
-                                    ],
+                                    chrome_args + [tag_value],
                                     timeout=10,
                                     capture_output=True,
                                 )
