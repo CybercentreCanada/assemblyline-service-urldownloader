@@ -39,6 +39,7 @@ HIGH_PORT_MINIMUM = 1024
 # Common tools native to the platform that can be used for recon
 WINDOWS_TOOLS = ["ipconfig", "whoami", "dir", "pwd", "ver", "schtasks", "route", "hostname", "netsh"]
 LINUX_TOOLS = ["ip", "whoami", "ls", "pwd", "uname", "cat", "crontab", "route", "hostname", "iptables"]
+CHROME_REQUEST_TIMEOUT = int(os.environ.get("CHROME_REQUEST_TIMEOUT", "10"))
 
 
 class URLDownloader(ServiceBase):
@@ -159,7 +160,7 @@ class URLDownloader(ServiceBase):
                                     )
                                 subprocess.run(
                                     chrome_args + [tag_value],
-                                    timeout=10,
+                                    timeout=CHROME_REQUEST_TIMEOUT,
                                     capture_output=True,
                                 )
                                 screenshot_section.add_image(
