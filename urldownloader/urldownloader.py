@@ -155,7 +155,7 @@ class URLDownloader(ServiceBase):
                                 ]
                                 if self.proxy:
                                     chrome_args.append(
-                                        f'--proxy-server="{";".join([f"{k}={v}" for k, v in self.proxy.items()])}"'
+                                        f'--proxy-server={";".join([f"{k}={v}" for k, v in self.proxy.items()])}'
                                     )
                                 subprocess.run(
                                     chrome_args + [tag_value],
