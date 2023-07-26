@@ -37,6 +37,7 @@ config:
   proxy: {}
   headers: {}
   timeout_per_request: 10
+  minimum_maliciousness_limit: 1
 
 heuristics:
   - heur_id: 1
