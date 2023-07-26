@@ -48,6 +48,7 @@ class URLDownloader(ServiceBase):
         self.headers = self.config.get("headers", {})
         self.timeout = self.config.get("timeout_per_request", 10)
         self.identify = Identify(use_cache=False)
+        self.minimum_maliciousness_limit = self.config.get("minimum_maliciousness_limit", 1)
 
     def fetch_uri(self, uri: str, headers={}) -> Tuple[requests.Response, Optional[str], List[str]]:
         resp = requests.head(uri, allow_redirects=True, timeout=self.timeout, headers=headers, proxies=self.proxy)
@@ -73,6 +74,8 @@ class URLDownloader(ServiceBase):
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
         minimum_maliciousness = int(request.get_param("minimum_maliciousness"))
+        if minimum_maliciousness < self.minimum_maliciousness_limit:
+            minimum_maliciousness = self.minimum_maliciousness_limit
         urls = []
         submitted_url = request.task.metadata.get("submitted_url")
         if request.get_param("include_submitted_url") and submitted_url and request.task.depth == 0:
