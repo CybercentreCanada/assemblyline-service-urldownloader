@@ -138,7 +138,7 @@ class URLDownloader(ServiceBase):
                     self.log.debug(f"Trying {tag_value}")
                     resp, fp, history = self.fetch_uri(tag_value, headers=headers)
                     if isinstance(fp, str):
-                        file_info = self.identify.fileinfo(fp)
+                        file_info = self.identify.fileinfo(fp, skip_fuzzy_hashes=True)
                         file_type = file_info["type"]
                         sha256 = file_info["sha256"]
                         if file_type == "code/html":
