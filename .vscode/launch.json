@@ -12,7 +12,7 @@
             "cwd": "${workspaceFolder}",
             "args": [
                 "-d",
-                "urldownloader.urldownloader.URLDownloader",
+                "urldownloader.URLDownloader",
                 "/path/to/sample"
             ],
             "justMyCode": false,
@@ -25,7 +25,7 @@
             "env": {
                 "SERVICE_MANIFEST_PATH": "service_manifest.yml",
                 "PRIVILEGED": "true",
-                "SERVICE_PATH": "urldownloader.urldownloader.URLDownloader",
+                "SERVICE_PATH": "urldownloader.URLDownloader",
                 "TASKING_DIR": "/tmp/URLDownloader"
             },
             "console": "internalConsole",

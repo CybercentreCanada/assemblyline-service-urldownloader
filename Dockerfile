@@ -1,7 +1,7 @@
 ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
-ENV SERVICE_PATH urldownloader.urldownloader.URLDownloader
+ENV SERVICE_PATH urldownloader.URLDownloader
 
 USER root
 
