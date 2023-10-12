@@ -1,269 +1,220 @@
 import json
 import os
-import re
-import subprocess
-from tempfile import NamedTemporaryFile
-from typing import List, Optional, Tuple
-from urllib.parse import urlparse
+import time
 
 import requests
+import yaml
 from assemblyline.common.identify import Identify
-from assemblyline.common.str_utils import safe_str
-from assemblyline.odm.base import IP_ONLY_REGEX, IPV4_ONLY_REGEX
+from assemblyline_service_utilities.common.tag_helper import add_tag
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.result import (
-    Heuristic,
     Result,
     ResultImageSection,
+    ResultKeyValueSection,
+    ResultOrderedKeyValueSection,
     ResultSection,
     ResultTableSection,
     TableRow,
 )
-
-REQUESTS_EXCEPTION_MSG = {
-    requests.RequestException: "There was an ambiguous exception that occurred while handling your request.",
-    requests.ConnectionError: "A Connection error occurred.",
-    requests.HTTPError: "An HTTP error occurred.",
-    requests.URLRequired: "A valid URL is required to make a request.",
-    requests.TooManyRedirects: "Too many redirects.",
-    requests.ConnectTimeout: "The request timed out while trying to connect to the remote server.",
-    requests.ReadTimeout: "The server did not send any data in the allotted amount of time.",
-    requests.Timeout: "The request timed out.",
-}
-
-
-# Threshold to trigger heuristic regarding high port usage in URI
-HIGH_PORT_MINIMUM = 1024
-
-# Common tools native to the platform that can be used for recon
-WINDOWS_TOOLS = ["ipconfig", "whoami", "dir", "pwd", "ver", "schtasks", "route", "hostname", "netsh"]
-LINUX_TOOLS = ["ip", "whoami", "ls", "pwd", "uname", "cat", "crontab", "route", "hostname", "iptables"]
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 class URLDownloader(ServiceBase):
     def __init__(self, config) -> None:
         super().__init__(config)
-        self.proxy = self.config.get("proxy", {})
-        self.headers = self.config.get("headers", {})
-        self.timeout = self.config.get("timeout_per_request", 10)
         self.identify = Identify(use_cache=False)
-        self.minimum_maliciousness_limit = self.config.get("minimum_maliciousness_limit", 1)
-
-    def fetch_uri(self, uri: str, headers={}) -> Tuple[requests.Response, Optional[str], List[str]]:
-        resp = requests.head(uri, allow_redirects=True, timeout=self.timeout, headers=headers, proxies=self.proxy)
-        # Only concerned with gathering responses of interest
-        if resp.ok or resp.status_code == 403:
-            resp = requests.get(uri, allow_redirects=True, headers=headers, timeout=self.timeout, proxies=self.proxy)
-            history = [record.headers["Location"] for record in resp.history]
-            # Do we have a history to look back on? (redirects)
-            if history:
-                history.insert(0, uri)
-                # If final destination is blocked by a challenge (ie. CloudFlare), mention this in the history
-                if "needs to review the security of your connection before proceeding." in resp.text:
-                    history.append("<Destination blocked by DDoS Protection>")
-            content = resp.content
-            if content:
-                resp_fh = NamedTemporaryFile(delete=False)
-                resp_fh.write(content)
-                resp_fh.close()
-                return resp, resp_fh.name, history
-            return resp, None, history
-        return resp, None, []
+        self.request_timeout = self.config.get("request_timeout", 90)
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
-        minimum_maliciousness = max(int(request.get_param("minimum_maliciousness")), self.minimum_maliciousness_limit)
-        urls = []
-        submitted_url = request.task.metadata.get("submitted_url")
-        if request.get_param("include_submitted_url") and submitted_url and request.task.depth == 0:
-            # Make sure this is the first URL fetched
-            urls = [(submitted_url, 10000)]
+        request.result = result
 
-        tags = request.task.tags
+        with open(request.file_path, "r") as f:
+            data = yaml.safe_load(f)
 
-        # Only concerned with static/dynamic URIs found by prior services
-        urls.extend(tags.get("network.static.uri", []) + tags.get("network.dynamic.uri", []))
+        data.pop("uri")
+        headers = data.pop("headers", {})
+        if data or headers:
+            params_section = ResultOrderedKeyValueSection(
+                f"{request.task.fileinfo.uri_info.scheme.upper()} Params", parent=request.result
+            )
+            for k, v in data.items():
+                params_section.add_item(k, v)
+            for k, v in headers.items():
+                params_section.add_item(k, v)
+            params_section.promote_as_uri_params()
 
-        request.temp_submission_data.setdefault("visited_urls", {})
+        verb = data.pop("verb", "GET")
+        if verb == "GET":
+            if data or headers:
+                ignored_params_section = ResultKeyValueSection("Ignored params", parent=params_section)
+                ignored_params_section.update_items(data)
+                ignored_params_section.update_items(headers)
 
-        # Headers that other AL services have sourced for fetching
-        al_url_headers = request.temp_submission_data.get("url_headers", {})
-
-        # Check if current file is malicious, if so tag URL that downloaded the file
-        task_score = 0
-        for tags_tuples in tags.values():
-            task_score += sum([tag_tuple[1] for tag_tuple in tags_tuples])
-
-        malicious_urls = []
-        for url, hash in request.temp_submission_data["visited_urls"].items():
-            if request.sha256 == hash and task_score >= 1000:
-                malicious_urls.append(url)
-
-        if malicious_urls:
-            ResultSection(
-                "Malicious URLs Associated to File",
-                body=json.dumps(malicious_urls),
-                tags={"network.static.uri": malicious_urls},
-                heuristic=Heuristic(1),
-                parent=result,
+            chrome_options = Options()
+            # chrome_options.add_argument("--disable-extensions")
+            chrome_options.add_argument("--headless=new")
+            chrome_options.add_argument("--network_log.preserve-log=true")
+            chrome_options.add_argument("--hide-scrollbars")
+            chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL"})
+            download_folder = os.path.join(self.working_directory, "downloads")
+            os.makedirs(download_folder, exist_ok=True)
+            chrome_options.add_experimental_option(
+                "prefs",
+                {
+                    "download.default_directory": download_folder,
+                    "download.prompt_for_download": False,
+                    "download.directory_upgrade": True,
+                    "safebrowsing.enabled": True,
+                },
             )
 
-        potential_ip_download = ResultTableSection(title_text="Potential IP-related File Downloads", auto_collapse=True)
-        connections_table = ResultTableSection("Established Connections")
-        exception_table = ResultTableSection("Attempted Connection Exceptions")
-        redirects_table = ResultTableSection("Connection History", heuristic=Heuristic(2))
-        high_port_table = ResultTableSection("High Port Usage", heuristic=Heuristic(4))
-        tool_table = ResultTableSection("Discovery Tool Found in URI Path", heuristic=Heuristic(4))
-        screenshot_section = ResultImageSection(request, title_text="Screenshots of visited pages")
-        fetch_url = True
-        for tag_value, tag_score in sorted(urls, key=lambda x: x[1], reverse=True):
-            # Stop fetching if we're past the maliciousness threshold
-            if tag_score < minimum_maliciousness:
-                fetch_url = False
+            driver = webdriver.Chrome(options=chrome_options)
+            driver.set_window_size(1600, 900)
+            driver.get(request.task.fileinfo.uri_info.uri)
 
-            if fetch_url:
-                # Minimize revisiting the same URIs in the same submission
-                if tag_value in request.temp_submission_data["visited_urls"].keys():
-                    continue
+            time.sleep(5)
+            time_slept = 5
 
-                headers = self.headers
-                if request.get_param("user_agent"):
-                    headers["User-Agent"] = request.get_param("user_agent")
-
-                headers.update(al_url_headers.get(tag_value, {}))
-                # Write response and attach to submission
-                sha256 = None
-                try:
-                    self.log.debug(f"Trying {tag_value}")
-                    resp, fp, history = self.fetch_uri(tag_value, headers=headers)
-                    if isinstance(fp, str):
-                        file_info = self.identify.fileinfo(fp, skip_fuzzy_hashes=True)
-                        file_type = file_info["type"]
-                        sha256 = file_info["sha256"]
-                        if file_type == "code/html":
-                            output_file = f"{tag_value.replace('/', '_')}.png"
-                            # If identified to be an HTML document, render it and add to section
-                            self.log.info(f"Taking a screenshot of {tag_value}")
-                            try:
-                                chrome_args = [
-                                    "google-chrome",
-                                    "--headless",
-                                    "--hide-scrollbars",
-                                    "--no-sandbox",
-                                    "--virtual-time-budget=5000",
-                                    f"--screenshot={os.path.join(self.working_directory, output_file)}",
-                                ]
-                                if self.proxy:
-                                    chrome_args.append(
-                                        f'--proxy-server={";".join([f"{k}={v}" for k, v in self.proxy.items()])}'
-                                    )
-                                subprocess.run(
-                                    chrome_args + [tag_value],
-                                    timeout=10,
-                                    capture_output=True,
-                                )
-                                screenshot_section.add_image(
-                                    path=os.path.join(self.working_directory, output_file),
-                                    name=f"{tag_value}.png",
-                                    description=f"Screenshot of {tag_value}",
-                                )
-                            except subprocess.TimeoutExpired:
-                                pass
-
-                        self.log.info(f"Success, writing to {fp}...")
-                        if sha256 != request.sha256:
-                            filename = os.path.basename(urlparse(tag_value).path) or "index.html"
-                            request.add_extracted(
-                                fp,
-                                filename,
-                                f"Response from {tag_value}",
-                                safelist_interface=self.api_interface,
-                                parent_relation="DOWNLOADED",
-                                allow_dynamic_recursion=True,
+            all_perfs = []
+            redirects = []
+            downloads = {}
+            process_perf(driver.get_log("performance"), all_perfs, downloads, redirects)
+            while any(download_params["state"] != "completed" for download_params in downloads.values()):
+                if time_slept > self.request_timeout:
+                    uncompleted_downloads = ResultSection(
+                        "Download could not complete in the allocated internal time limit", parent=request.result
+                    )
+                    for download_params in downloads.values():
+                        if download_params["state"] != "completed":
+                            uncompleted_downloads.add_line(
+                                f'{download_params["receivedBytes"]}/{download_params["totalBytes"]}'
                             )
-                        connections_table.add_row(
-                            TableRow({"URI": tag_value, "CONTENT PEEK (FIRST 50 BYTES)": safe_str(resp.content[:50])})
-                        )
-                    elif not resp.ok:
-                        self.log.debug(f"Server response exception occurred: {resp.reason}")
-                        exception_table.add_row(TableRow({"URI": tag_value, "REASON": resp.reason}))
-                    else:
-                        # Give general information about the established connections
-                        connections_table.add_row(
-                            TableRow({"URI": tag_value, "CONTENT PEEK (FIRST 50 BYTES)": "<No data response>"})
-                        )
+                    break
+                time.sleep(2)
+                time_slept += 2
+                process_perf(driver.get_log("performance"), all_perfs, downloads, redirects)
 
-                    if history:
-                        redirects_table.add_row(TableRow({"URI": tag_value, "HISTORY": " → ".join(history)}))
+            screenshot_path = os.path.join(self.working_directory, "screenshot.png")
+            driver.save_screenshot(screenshot_path)
+            if os.path.exists(screenshot_path):
+                screenshot_section = ResultImageSection(
+                    request, title_text="Screenshot of visited page", parent=request.result
+                )
+                screenshot_section.add_image(
+                    path=screenshot_path,
+                    name="screenshot.png",
+                    description=f"Screenshot of {request.task.fileinfo.uri_info.uri}",
+                )
+                screenshot_section.promote_as_screenshot()
 
-                except Exception as e:
-                    if e.__class__ in REQUESTS_EXCEPTION_MSG:
-                        exception_table.add_row(
-                            TableRow({"URI": tag_value, "REASON": REQUESTS_EXCEPTION_MSG[e.__class__]})
-                        )
-                    else:
-                        # Catch any except to ensure fetched files aren't lost due to arbitrary error
-                        self.log.warning(f"General except occurred: {e}")
-                        exception_table.add_row(TableRow({"URI": tag_value, "REASON": str(e)}))
-                finally:
-                    request.temp_submission_data["visited_urls"][tag_value] = sha256
-            else:
-                # Analyse the URL for the possibility of it being a something we should download
-                parsed_url = urlparse(tag_value)
-                if re.match(IP_ONLY_REGEX, parsed_url.hostname) and "." in os.path.basename(parsed_url.path):
-                    # Assumption: If URL host is an IP and the path suggests it's downloading a file, it warrants attention
-                    ip_version = "4" if re.match(IPV4_ONLY_REGEX, parsed_url.hostname) else "6"
-                    potential_ip_download.add_row(
+            if redirects:
+                redirect_section = ResultTableSection("Redirections", parent=request.result)
+                ResultTableSection("URLs")
+                for redirect in redirects:
+                    redirect_section.add_row(TableRow(redirect))
+                    add_tag(redirect_section, "network.static.uri", redirect["redirecting_url"])
+                    redirect_section.add_tag("network.static.ip", redirect["redirecting_ip"])
+                    add_tag(redirect_section, "network.static.uri", redirect["redirecting_to"])
+                redirect_section.set_column_order(["status", "redirecting_url", "redirecting_ip", "redirecting_to"])
+
+            if downloads:
+                download_section = ResultTableSection("Downloaded file(s)", parent=request.result)
+                for download_params in downloads.values():
+                    download_section.add_row(
                         TableRow(
-                            {
-                                "URL": tag_value,
-                                "HOSTNAME": parsed_url.hostname,
-                                "IP_VERSION": ip_version,
-                                "PATH": parsed_url.path,
-                            }
+                            dict(
+                                suggestedFilename=download_params["suggestedFilename"],
+                                state=download_params["state"],
+                                bytes=f'{download_params["receivedBytes"]}/{download_params["totalBytes"]}',
+                                url=download_params["url"],
+                            )
                         )
                     )
-                    potential_ip_download.add_tag("network.static.uri", tag_value)
-                    potential_ip_download.add_tag("network.static.ip", parsed_url.hostname)
-                    if not potential_ip_download.heuristic:
-                        potential_ip_download.set_heuristic(3)
-                    potential_ip_download.heuristic.add_signature_id(f"ipv{ip_version}")
+                    # This could break if it does not use the suggestedFilename, or maybe if there is multiple of
+                    # the same filename, it would add a ' (1)' at the end?
+                    download_path = os.path.join(download_folder, download_params["suggestedFilename"])
+                    file_info = self.identify.fileinfo(download_path, skip_fuzzy_hashes=True)
+                    if file_info["type"].startswith("archive"):
+                        request.add_extracted(download_path, file_info["sha256"], "Archive from the URI")
+                    else:
+                        request.add_supplementary(download_path, file_info["sha256"], "Downloaded content from the URI")
 
-                if parsed_url.port and parsed_url.port > HIGH_PORT_MINIMUM:
-                    # High port usage associated to host
-                    high_port_table.heuristic.add_signature_id(
-                        "ip" if re.match(IP_ONLY_REGEX, parsed_url.hostname) else "domain"
+                download_section.set_column_order(["suggestedFilename", "state", "bytes", "url"])
+            with open(os.path.join(self.working_directory, "all_perfs.json"), "w") as f:
+                f.write(json.dumps(all_perfs))
+            request.add_supplementary(
+                os.path.join(self.working_directory, "all_perfs.json"), "all_perfs.json", "Complete performance log"
+            )
+
+            driver.quit()
+        else:
+            # Non-GET request
+            r = requests.request(
+                verb,
+                request.task.fileinfo.uri_info.uri,
+                headers=headers,
+                data=data.get("data", None),
+                json=data.get("json", None),
+            )
+            requests_content_path = os.path.join(self.working_directory, "requests_content")
+            with open(requests_content_path, "wb") as f:
+                f.write(r.content)
+            file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True)
+            if file_info["type"].startswith("archive"):
+                request.add_extracted(requests_content_path, file_info["sha256"], "Archive from the URI")
+            else:
+                request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
+
+
+def process_perf(perf, all_perfs, downloads, redirects):
+    for p in perf:
+        # print(p)
+        m = json.loads(p["message"])["message"]
+        all_perfs.append(m)
+        # print(m)
+        if m["method"] == "Page.downloadWillBegin":
+            downloads[m["params"]["guid"]] = m["params"]
+        if m["method"] == "Page.downloadProgress":
+            downloads[m["params"]["guid"]].update(m["params"])
+
+        if "redirectResponse" in m["params"]:
+            if "location" in m["params"]["redirectResponse"]["headers"]:
+                redirect_location = m["params"]["redirectResponse"]["headers"]["location"]
+            elif "Location" in m["params"]["redirectResponse"]["headers"]:
+                redirect_location = m["params"]["redirectResponse"]["headers"]["Location"]
+            remote_ip = m["params"]["redirectResponse"]["remoteIPAddress"]
+            redirects.append(
+                {
+                    "status": m["params"]["redirectResponse"]["status"],
+                    "redirecting_url": m["params"]["redirectResponse"]["url"],
+                    "redirecting_ip": remote_ip,
+                    "redirecting_to": redirect_location,
+                }
+            )
+
+        if (
+            m["method"] == "Network.responseReceived"
+            and "response" in m["params"]
+            and "headers" in m["params"]["response"]
+            and "refresh" in m["params"]["response"]["headers"]
+        ):
+            try:
+                refresh = m["params"]["response"]["headers"]["refresh"].split(";", 1)
+                if int(refresh[0]) <= 15 and refresh[1].startswith("url="):
+                    redirect_location = refresh[1][4:]
+                    remote_ip = m["params"]["response"]["remoteIPAddress"]
+                    redirects.append(
+                        {
+                            "status": m["params"]["response"]["status"],
+                            "redirecting_url": m["params"]["response"]["url"],
+                            "redirecting_ip": remote_ip,
+                            "redirecting_to": redirect_location,
+                        }
                     )
-                    high_port_table.add_row(
-                        TableRow({"URI": tag_value, "HOST": parsed_url.hostname, "PORT": parsed_url.port})
-                    )
 
-                # Check if URI path is greater than the smallest tool we can look for (ie. '/ls')
-                if parsed_url.path and len(parsed_url.path) > 2:
-                    for tool in LINUX_TOOLS + WINDOWS_TOOLS:
-                        if tool in parsed_url.path:
-                            # Native OS tool found in URI path
-                            if tool in LINUX_TOOLS:
-                                tool_table.heuristic.add_signature_id("linux")
-                            if tool in WINDOWS_TOOLS:
-                                tool_table.heuristic.add_signature_id("windows")
-
-                            tool_table.add_row(TableRow({"URI": tag_value, "HOST": parsed_url.hostname, "TOOL": tool}))
-
-        if connections_table.body:
-            result.add_section(connections_table)
-        if redirects_table.body:
-            result.add_section(redirects_table)
-        if exception_table.body:
-            result.add_section(exception_table)
-        if potential_ip_download.body:
-            result.add_section(potential_ip_download)
-        if high_port_table.body:
-            result.add_section(high_port_table)
-        if tool_table.body:
-            result.add_section(tool_table)
-        if screenshot_section.body:
-            result.add_section(screenshot_section)
-
-        request.result = result
+            except Exception:
+                # Maybe log that we weren't able to parse the refresh
+                pass

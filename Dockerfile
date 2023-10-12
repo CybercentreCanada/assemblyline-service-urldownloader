@@ -17,6 +17,9 @@ USER assemblyline
 WORKDIR /opt/al_service
 COPY . .
 
+# Install python dependencies
+RUN pip install --no-cache-dir --user --requirement requirements.txt && rm -rf ~/.cache/pip
+
 # Patch version in manifest
 ARG version=4.0.0.dev1
 USER root
