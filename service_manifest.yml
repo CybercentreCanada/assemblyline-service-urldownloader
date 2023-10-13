@@ -8,9 +8,7 @@ rejects: empty|metadata/.*
 stage: CORE
 category: Internet Connected
 
-file_required: false
 timeout: 300
-disable_cache: false
 
 enabled: true
 is_external: true
