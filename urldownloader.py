@@ -36,20 +36,11 @@ class URLDownloader(ServiceBase):
 
         data.pop("uri")
         headers = data.pop("headers", {})
-        if data or headers:
-            params_section = ResultOrderedKeyValueSection(
-                f"{request.task.fileinfo.uri_info.scheme.upper()} Params", parent=request.result
-            )
-            for k, v in data.items():
-                params_section.add_item(k, v)
-            for k, v in headers.items():
-                params_section.add_item(k, v)
-            params_section.promote_as_uri_params()
 
         verb = data.pop("verb", "GET")
         if verb == "GET":
             if data or headers:
-                ignored_params_section = ResultKeyValueSection("Ignored params", parent=params_section)
+                ignored_params_section = ResultKeyValueSection("Ignored params", parent=request.result)
                 ignored_params_section.update_items(data)
                 ignored_params_section.update_items(headers)
 
