@@ -37,8 +37,105 @@ REQUESTS_EXCEPTION_MSG = {
 HIGH_PORT_MINIMUM = 1024
 
 # Common tools native to the platform that can be used for recon
-WINDOWS_TOOLS = ["ipconfig", "whoami", "dir", "pwd", "ver", "schtasks", "route", "hostname", "netsh"]
-LINUX_TOOLS = ["ip", "whoami", "ls", "pwd", "uname", "cat", "crontab", "route", "hostname", "iptables"]
+WINDOWS_TOOLS = ["dir", "hostname", "ipconfig", "netsh", "pwd", "route", "schtasks", "ver", "whoami"]
+LINUX_TOOLS = ["cat", "crontab", "hostname", "ip", "iptables", "ls", "pwd", "route", "uname", "whoami"]
+
+# Tools used for recon, sourced from https://github.com/ail-project/ail-framework/blob/master/bin/modules/Tools.py
+RECON_TOOLS = [
+    "amap",
+    "arachni",
+    "armitage",
+    "arpscan",
+    "automater",
+    "backdoorfactory",
+    "beef",
+    "braa",
+    "cdpsnarf",
+    "cge",
+    "ciscotorch",
+    "dig",
+    "dirb",
+    "dmytry",
+    "dnmap",
+    "dnscan",
+    "dnsdict6",
+    "dnsenum",
+    "dnsmap",
+    "dnsrecon",
+    "dnstracer",
+    "dotdotpwn",
+    "dsfs",
+    "dsjs",
+    "dsss",
+    "dsxs",
+    "enum4linux",
+    "fierce",
+    "fimap",
+    "firewalk",
+    "fragroute",
+    "fragrouter",
+    "golismero",
+    "goofile",
+    "grabber",
+    "hping3",
+    "hydra",
+    "identywaf",
+    "intrace",
+    "inurlbr",
+    "ip",
+    "ismtp",
+    "jbossautopwn",
+    "john",
+    "joomscan",
+    "keimpx",
+    "knock",
+    "lbd",
+    "ls",
+    "maskprocessor",
+    "masscan",
+    "miranda",
+    "msfconsole",
+    "ncat",
+    "ncrack",
+    "nessus",
+    "netcat",
+    "nikto",
+    "nmap",
+    "nslookup",
+    "ohrwurm",
+    "openvas",
+    "oscanner",
+    "p0f",
+    "patator",
+    "phrasendrescher",
+    "polenum",
+    "rainbowcrack",
+    "rcracki_mt",
+    "reconng",
+    "rhawk",
+    "searchsploit",
+    "sfuzz",
+    "sidguess",
+    "skipfish",
+    "smbmap",
+    "sqlmap",
+    "sqlninja",
+    "sqlsus",
+    "sslcaudit",
+    "sslstrip",
+    "sslyze",
+    "striker",
+    "tcpdump",
+    "theharvester",
+    "uniscan",
+    "unixprivesccheck",
+    "wafw00f",
+    "whatwaf",
+    "whois",
+    "wig",
+    "wpscan",
+    "yersinia",
+]
 
 
 class URLDownloader(ServiceBase):
@@ -212,7 +309,8 @@ class URLDownloader(ServiceBase):
                 # Analyse the URL for the possibility of it being a something we should download
                 parsed_url = urlparse(tag_value)
                 if re.match(IP_ONLY_REGEX, parsed_url.hostname) and "." in os.path.basename(parsed_url.path):
-                    # Assumption: If URL host is an IP and the path suggests it's downloading a file, it warrants attention
+                    # Assumption: If URL host is an IP and the path suggests it's downloading a file, it warrants
+                    # attention
                     ip_version = "4" if re.match(IPV4_ONLY_REGEX, parsed_url.hostname) else "6"
                     potential_ip_download.add_row(
                         TableRow(
@@ -241,13 +339,15 @@ class URLDownloader(ServiceBase):
 
                 # Check if URI path is greater than the smallest tool we can look for (ie. '/ls')
                 if parsed_url.path and len(parsed_url.path) > 2:
-                    for tool in LINUX_TOOLS + WINDOWS_TOOLS:
+                    for tool in LINUX_TOOLS + WINDOWS_TOOLS + RECON_TOOLS:
                         if tool in parsed_url.path:
                             # Native OS tool found in URI path
                             if tool in LINUX_TOOLS:
                                 tool_table.heuristic.add_signature_id("linux")
                             if tool in WINDOWS_TOOLS:
                                 tool_table.heuristic.add_signature_id("windows")
+                            if tool in RECON_TOOLS:
+                                tool_table.heuristic.add_signature_id("recon")
 
                             tool_table.add_row(TableRow({"URI": tag_value, "HOST": parsed_url.hostname, "TOOL": tool}))
 
