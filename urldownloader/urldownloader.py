@@ -339,8 +339,8 @@ class URLDownloader(ServiceBase):
 
                 # Check if URI path is greater than the smallest tool we can look for (ie. '/ls')
                 if parsed_url.path and len(parsed_url.path) > 2:
+                    path_split = parsed_url.path.split("/")
                     for tool in LINUX_TOOLS + WINDOWS_TOOLS + RECON_TOOLS:
-                        path_split = parsed_url.path.split("/")
                         if tool in path_split:
                             # Native OS tool found in URI path
                             if tool in LINUX_TOOLS:
