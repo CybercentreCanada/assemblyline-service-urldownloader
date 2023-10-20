@@ -23,7 +23,7 @@
         "120",
         "--experimental"
     ],
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "none",
     "python.formatting.blackArgs": [
         "--line-length=120"
     ],
@@ -35,4 +35,7 @@
         "--ignore=E203,W503"
     ],
     "python.linting.pylintEnabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
 }
