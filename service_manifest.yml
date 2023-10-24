@@ -2,7 +2,7 @@ name: URLDownloader
 version: $SERVICE_TAG
 description: This service downloads potentially malicious URLs.
 
-accepts: uri/.*
+accepts: uri/https?
 rejects: empty|metadata/.*
 
 stage: CORE
