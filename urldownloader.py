@@ -46,6 +46,7 @@ class URLDownloader(ServiceBase):
 
             chrome_options = Options()
             # chrome_options.add_argument("--disable-extensions")
+            chrome_options.add_argument("--no-sandbox")
             chrome_options.add_argument("--headless=new")
             chrome_options.add_argument("--network_log.preserve-log=true")
             chrome_options.add_argument("--hide-scrollbars")
