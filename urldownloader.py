@@ -12,12 +12,12 @@ from assemblyline_v4_service.common.result import (
     Result,
     ResultImageSection,
     ResultKeyValueSection,
-    ResultOrderedKeyValueSection,
     ResultSection,
     ResultTableSection,
     TableRow,
 )
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.chrome.options import Options
 
 
@@ -64,7 +64,11 @@ class URLDownloader(ServiceBase):
 
             driver = webdriver.Chrome(options=chrome_options)
             driver.set_window_size(1600, 900)
-            driver.get(request.task.fileinfo.uri_info.uri)
+            driver.set_page_load_timeout(self.request_timeout)
+            try:
+                driver.get(request.task.fileinfo.uri_info.uri)
+            except TimeoutException:
+                pass
 
             time.sleep(5)
             time_slept = 5
