@@ -85,3 +85,4 @@ cython_debug/
 
 *.pyc
 chromedriver
+KangoorooStandalone.jar
