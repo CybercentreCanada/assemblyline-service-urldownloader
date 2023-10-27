@@ -7,12 +7,15 @@ USER root
 
 RUN apt update -y && \
     apt install -y wget default-jre unzip && \
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    apt install -y ./google-chrome-stable_current_amd64.deb && \
+    VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) &&\
+    wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$VERS-1_amd64.deb &&\
+    apt install -y ./google-chrome-stable_amd64.deb && \
     rm -rf /var/lib/apt/lists/* && \
-    wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$(google-chrome --version | awk '{print $NF}')/linux64/chromedriver-linux64.zip && \
-    unzip -j -d /opt/al_service ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
-    rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip
+    mkdir /opt/al_service/kangooroo &&\
+    wget -O ./chromedriver-linux64.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$VERS/linux64/chromedriver-linux64.zip && \
+    unzip -j -d /opt/al_service/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
+    rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip &&\
+    wget -O /opt/al_service/kangooroo/KangoorooStandalone.jar https://alpytest.blob.core.windows.net/pytest/KangoorooStandalone.jar
 
 # Switch to assemblyline user
 USER assemblyline

@@ -15,7 +15,7 @@ enabled: true
 is_external: true
 
 config:
-  request_timeout: 90
+  request_timeout: 150
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG

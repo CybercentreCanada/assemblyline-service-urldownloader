@@ -1,0 +1,1569 @@
+{
+  "extra": {
+    "drop_file": false,
+    "score": 0,
+    "sections": [
+      {
+        "auto_collapse": false,
+        "body": "[[\"response_code\", 200], [\"requested_url\", \"https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795\"], [\"requested_url_ip\", \"172.64.151.192\"], [\"actual_url\", \"https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795\"], [\"actual_url_ip\", \"172.64.151.192\"]]",
+        "body_config": {},
+        "body_format": "ORDERED_KEY_VALUE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "news.slashdot.org"
+              ],
+              "ip": [
+                "172.64.151.192"
+              ],
+              "uri": [
+                "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+              ],
+              "uri_path": [
+                "/comments.pl?sid=11253499&cid=55399795"
+              ]
+            }
+          }
+        },
+        "title_text": "Results",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"27c2598dc7258df1ce7f9ce636a125a6aa422b9b84866e0468b7f5fe59863a08\", \"description\": \"Screenshot of https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"b6533e20e9e2cca81fddd286940f1e1d827e6369731602fbbc08a3d666eb6c4a\", \"description\": \"Screenshot of https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795 (thumbnail)\"}}]",
+        "body_config": {},
+        "body_format": "IMAGE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": "SCREENSHOT",
+        "tags": {},
+        "title_text": "Screenshot of visited page",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"img\": {\"name\": \"favicon.ico\", \"sha256\": \"3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb\", \"description\": \"Favicon of https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795\"}, \"thumb\": {\"name\": \"favicon.ico.thumb\", \"sha256\": \"3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb\", \"description\": \"Favicon of https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795 (thumbnail)\"}}]",
+        "body_config": {},
+        "body_format": "IMAGE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Favicon of visited page",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"status\": 302, \"redirecting_url\": \"https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795\", \"redirecting_ip\": \"13.107.42.14\", \"redirecting_to\": \"/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true\"}, {\"status\": 302, \"redirecting_url\": \"https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true\", \"redirecting_ip\": \"13.107.42.14\", \"redirecting_to\": \"https://www.linkedin.com/px/li_sync?redirect=https%3A%2F%2Fpx.ads.linkedin.com%2Fcollect%3Fv%3D2%26fmt%3Djs%26pid%3D113712%26time%3D1698341598628%26url%3Dhttps%253A%252F%252Fnews.slashdot.org%252Fcomments.pl%253Fsid%253D11253499%2526cid%253D55399795%26cookiesTest%3Dtrue%26liSync%3Dtrue\"}, {\"status\": 302, \"redirecting_url\": \"https://ps.eyeota.net/pixel?pid=r8hrb20&t=gif\", \"redirecting_ip\": \"34.231.251.31\", \"redirecting_to\": \"/pixel/bounce/?pid=r8hrb20&t=gif\"}, {\"status\": 302, \"redirecting_url\": \"https://ps.eyeota.net/pixel/bounce/?pid=r8hrb20&t=gif\", \"redirecting_ip\": \"34.231.251.31\", \"redirecting_to\": \"https://ml314.com/utsync.ashx?eid=50052&et=0&fp=20Boj05tfCZt35jNdBGTWSMvzNOq_GUyiyxgU42MjOl0&gdpr=0&gdpr_consent=&return=https%3A%2F%2Fps.eyeota.net%2Fmatch%3Fbid%3Dr8hrb20%26uid%3Dnil%26referrer_pid%3Dr8hrb20\"}, {\"status\": 302, \"redirecting_url\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1\", \"redirecting_ip\": \"35.71.131.137\", \"redirecting_to\": \"https://match.adsrvr.org/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1\"}, {\"status\": 302, \"redirecting_url\": \"https://match.adsrvr.org/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1\", \"redirecting_ip\": \"35.71.131.137\", \"redirecting_to\": \"https://ml314.com/utsync.ashx?eid=53819&et=0&fp=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent=\"}, {\"status\": 307, \"redirecting_url\": \"https://idsync.rlcdn.com/395886.gif?partner_uid=3639494941643636806\", \"redirecting_ip\": \"35.190.60.146\", \"redirecting_to\": \"https://idsync.rlcdn.com/1000.gif?memo=CO6UGBIeChoIARCuXxoTMzYzOTQ5NDk0MTY0MzYzNjgwNhAAGg0I38XqqQYSBQjoBxAAQgBKAA\"}, {\"status\": 307, \"redirecting_url\": \"https://idsync.rlcdn.com/1000.gif?memo=CO6UGBIeChoIARCuXxoTMzYzOTQ5NDk0MTY0MzYzNjgwNhAAGg0I38XqqQYSBQjoBxAAQgBKAA\", \"redirecting_ip\": \"35.190.60.146\", \"redirecting_to\": \"https://ml314.com/csync.ashx?fp=fbe776e716ec90b68c443096910e67b185116f7c9ffcf3c2c843deb256e44bdff4cb09cee1a4f8eb&person_id=3639494941643636806&eid=50082\"}, {\"status\": 302, \"redirecting_url\": \"https://sync.crwdcntrl.net/map/c=6985/tp=BOMB?https://ml314.com/csync.ashx%3Ffp%3D%24%7Bprofile_id%7D%26eid%3D50146%26person_id%3D3639494941643636806\", \"redirecting_ip\": \"44.198.203.3\", \"redirecting_to\": \"https://sync.crwdcntrl.net/map/ct=y/c=6985/tp=BOMB?https://ml314.com/csync.ashx%3Ffp%3D%24%7Bprofile_id%7D%26eid%3D50146%26person_id%3D3639494941643636806\"}, {\"status\": 302, \"redirecting_url\": \"https://www.linkedin.com/px/li_sync?redirect=https%3A%2F%2Fpx.ads.linkedin.com%2Fcollect%3Fv%3D2%26fmt%3Djs%26pid%3D113712%26time%3D1698341598628%26url%3Dhttps%253A%252F%252Fnews.slashdot.org%252Fcomments.pl%253Fsid%253D11253499%2526cid%253D55399795%26cookiesTest%3Dtrue%26liSync%3Dtrue\", \"redirecting_ip\": \"13.107.42.14\", \"redirecting_to\": \"https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true&liSync=true\"}, {\"status\": 302, \"redirecting_url\": \"https://dpm.demdex.net/ibs:dpid=22052&dpuuid=3639494941643636806&redir=\", \"redirecting_ip\": \"54.145.126.188\", \"redirecting_to\": \"https://dpm.demdex.net/demconf.jpg?et:ibs%7cdata:dpid=22052&dpuuid=3639494941643636806&redir=\"}, {\"status\": 302, \"redirecting_url\": \"https://sync.crwdcntrl.net/map/ct=y/c=6985/tp=BOMB?https://ml314.com/csync.ashx%3Ffp%3D%24%7Bprofile_id%7D%26eid%3D50146%26person_id%3D3639494941643636806\", \"redirecting_ip\": \"44.198.203.3\", \"redirecting_to\": \"https://ml314.com/csync.ashx?fp=6653b57a34645c020bf84719c859bbfc&eid=50146&person_id=3639494941643636806\"}, {\"status\": 302, \"redirecting_url\": \"https://ml314.com/utsync.ashx?eid=50052&et=0&fp=20Boj05tfCZt35jNdBGTWSMvzNOq_GUyiyxgU42MjOl0&gdpr=0&gdpr_consent=&return=https%3A%2F%2Fps.eyeota.net%2Fmatch%3Fbid%3Dr8hrb20%26uid%3Dnil%26referrer_pid%3Dr8hrb20\", \"redirecting_ip\": \"34.117.77.79\", \"redirecting_to\": \"https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20\"}, {\"status\": 302, \"redirecting_url\": \"https://ib.adnxs.com/getuid?https://tag.crsspxl.com/m.gif?anid=$UID\", \"redirecting_ip\": \"68.67.160.117\", \"redirecting_to\": \"https://tag.crsspxl.com/m.gif?anid=4464854860846992537\"}, {\"status\": 307, \"redirecting_url\": \"https://idsync.rlcdn.com/366518.gif?partner_uid=3476744686053029940\", \"redirecting_ip\": \"35.190.60.146\", \"redirecting_to\": \"https://pippio.com/api/sync?pid=5324&it=1&iv=9d0de836dfce56f03a533f01ae20768ed3e057e8f507e7134239a0d2a53ae797791426b5417dce21&_=2\"}, {\"status\": 302, \"redirecting_url\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1\", \"redirecting_ip\": \"35.71.131.137\", \"redirecting_to\": \"https://tag.crsspxl.com/m.gif?tdid=f4c86124-b187-4313-af83-0cc1e9102073\"}, {\"status\": 302, \"redirecting_url\": \"https://sync.mathtag.com/sync/img?mt_exid=10012&redir=https://tag.crsspxl.com/m.gif?mmid=[MM_UUID]\", \"redirecting_ip\": \"216.200.232.249\", \"redirecting_to\": \"https://tag.crsspxl.com/m.gif?mmid=237e653a-a2e1-4b00-86b7-e689683c3445\"}, {\"status\": 302, \"redirecting_url\": \"https://cm.g.doubleclick.net/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA==\", \"redirecting_ip\": \"142.251.33.162\", \"redirecting_to\": \"https://tag.crsspxl.com/m.gif?id=&google_gid=CAESEBleucqUfv-FekScUDeNJ8Q&google_cver=1\"}, {\"status\": 307, \"redirecting_url\": \"https://pippio.com/api/sync?pid=5324&it=1&iv=9d0de836dfce56f03a533f01ae20768ed3e057e8f507e7134239a0d2a53ae797791426b5417dce21&_=2\", \"redirecting_ip\": \"107.178.254.65\", \"redirecting_to\": \"https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA\"}, {\"status\": 302, \"redirecting_url\": \"https://cms.analytics.yahoo.com/cms?partner_id=CROEL\", \"redirecting_ip\": \"34.200.65.202\", \"redirecting_to\": \"https://ups.analytics.yahoo.com/ups/58701/cms?partner_id=CROEL\"}, {\"status\": 302, \"redirecting_url\": \"https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA\", \"redirecting_ip\": \"142.251.33.162\", \"redirecting_to\": \"https://pippio.com/api/sync/ddp?pid=2&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA&google_gid=CAESENcYxNZwkW9Ii-ovH7BAuNk&google_cver=1\"}, {\"status\": 307, \"redirecting_url\": \"https://pippio.com/api/sync/ddp?pid=2&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA&google_gid=CAESENcYxNZwkW9Ii-ovH7BAuNk&google_cver=1\", \"redirecting_ip\": \"107.178.254.65\", \"redirecting_to\": \"https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=\"}, {\"status\": 302, \"redirecting_url\": \"https://u.openx.net/w/1.0/cm?id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D\", \"redirecting_ip\": \"34.98.64.218\", \"redirecting_to\": \"https://u.openx.net/w/1.0/cm?cc=1&id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D\"}, {\"status\": 302, \"redirecting_url\": \"https://u.openx.net/w/1.0/cm?cc=1&id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D\", \"redirecting_ip\": \"34.98.64.218\", \"redirecting_to\": \"https://tag.crsspxl.com/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552\"}, {\"status\": 303, \"redirecting_url\": \"https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=\", \"redirecting_ip\": \"34.98.67.3\", \"redirecting_to\": \"https://idsync.rlcdn.com/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b\"}, {\"status\": 302, \"redirecting_url\": \"https://e.dlx.addthis.com/e/a-1625/s-3300?cb=1698341600805\", \"redirecting_ip\": \"72.247.168.200\", \"redirecting_to\": \"https://e.dlx.addthis.com/e/a-1625/s-3300?cb=1698341600805&rd=Y\"}, {\"status\": 302, \"redirecting_url\": \"https://u.openx.net/w/1.0/cm?gdpr=0&gdpr_consent=&id=7ead435e-a2cd-4cbf-8876-adb66822613f&ph=c6b01e12-aa62-4ae6-9e10-71346e597c31&r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3DF2Stothm3wg5g6opTuaPadz9%26source_user_id%3D&gpp=&gpp_sid=\", \"redirecting_ip\": \"34.98.64.218\", \"redirecting_to\": \"https://match.sharethrough.com/sync/v1?source_id=F2Stothm3wg5g6opTuaPadz9&source_user_id=&gpp=&gpp_sid=441f45b5-cb9a-4100-8cec-67eb3851d445\"}, {\"status\": 302, \"redirecting_url\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=\", \"redirecting_ip\": \"35.71.131.137\", \"redirecting_to\": \"https://match.sharethrough.com/sync/v1?source_id=5b286190338513af73f09c28&source_user_id=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent=\"}, {\"status\": 302, \"redirecting_url\": \"https://e.dlx.addthis.com/e/a-1625/s-3300?cb=1698341600805&rd=Y\", \"redirecting_ip\": \"72.247.168.200\", \"redirecting_to\": \"https://stags.bluekai.com/site/1407?partner=1&uhint=na_id=2023102617332200011075520285&redir=https%3A%2F%2Fx.dlx.addthis.com%2Fe%2Fbk_sync.xgi%3Fna_exid%3D%24_BK_UUID\"}, {\"status\": 302, \"redirecting_url\": \"https://ups.analytics.yahoo.com/ups/58701/cms?partner_id=CROEL\", \"redirecting_ip\": \"34.200.65.202\", \"redirecting_to\": \"https://tag.crsspxl.com/m.gif?yahoo_id=y-RURQomVE2pOQnrwKnFScawqnC2v_nkSALLw-~A\"}, {\"status\": 302, \"redirecting_url\": \"https://pixel.rubiconproject.com/exchange/sync.php?p=18694&gdpr=0&gdpr_consent=&gpp=&gpp_sid=\", \"redirecting_ip\": \"69.173.151.100\", \"redirecting_to\": \"https://match.sharethrough.com/sync/v1?source_id=UiRtTsXAfjmfSDAKnR1FjWsu&source_user_id=LO7GQNHY-R-A7RJ&gdpr=0\"}, {\"status\": 302, \"redirecting_url\": \"https://ssp.disqus.com/redirectuser?r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3D7rkJAhPCWXbw9Lq5dZxc6TvN%26source_user_id%3D%24UID&partner=sharethrough&gpp=&gpp_sid=\", \"redirecting_ip\": \"54.167.138.170\", \"redirecting_to\": \"https://sync.go.sonobi.com/us?gdpr=&gdpr_consent=&us_privacy=&loc=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D18%26buyeruid%3D%5BUID%5D%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB\"}, {\"status\": 302, \"redirecting_url\": \"https://stags.bluekai.com/site/1407?partner=1&uhint=na_id=2023102617332200011075520285&redir=https%3A%2F%2Fx.dlx.addthis.com%2Fe%2Fbk_sync.xgi%3Fna_exid%3D%24_BK_UUID\", \"redirecting_ip\": \"72.247.168.200\", \"redirecting_to\": \"https://x.dlx.addthis.com/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok\"}, {\"status\": 302, \"redirecting_url\": \"https://image8.pubmatic.com/AdServer/ImgSync?p=0\", \"redirecting_ip\": \"8.28.7.82\", \"redirecting_to\": \"/AdServer/ImgSync?p=0&rdf=1\"}, {\"status\": 302, \"redirecting_url\": \"https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1\", \"redirecting_ip\": \"8.28.7.82\", \"redirecting_to\": \"https://cm.g.doubleclick.net/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent=\"}, {\"status\": 302, \"redirecting_url\": \"https://sync.go.sonobi.com/us?gdpr=&gdpr_consent=&us_privacy=&loc=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D18%26buyeruid%3D%5BUID%5D%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB\", \"redirecting_ip\": \"69.166.1.66\", \"redirecting_to\": \"https://ssp.disqus.com/match?bidder=18&buyeruid=6f8f2882-a7df-41e6-a9db-89cfe3e27a43&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB\"}, {\"status\": 302, \"redirecting_url\": \"https://ssp.disqus.com/match?bidder=18&buyeruid=6f8f2882-a7df-41e6-a9db-89cfe3e27a43&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB\", \"redirecting_ip\": \"54.167.138.170\", \"redirecting_to\": \"https://bh.contextweb.com/bh/rtset?pid=562894&ev=1&us_privacy=&rurl=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D29%26buyeruid%3D%25%25VGUID%25%25%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC%26gdpr%3D%26gdpr_consent%3D\"}, {\"status\": 302, \"redirecting_url\": \"https://cm.g.doubleclick.net/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent=\", \"redirecting_ip\": \"142.251.33.162\", \"redirecting_to\": \"https://image2.pubmatic.com/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTM0MjImdGw9MTI5NjAw&gdpr=-1&gdpr_consent=\"}, {\"status\": 302, \"redirecting_url\": \"https://bh.contextweb.com/bh/rtset?pid=562894&ev=1&us_privacy=&rurl=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D29%26buyeruid%3D%25%25VGUID%25%25%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC%26gdpr%3D%26gdpr_consent%3D\", \"redirecting_ip\": \"198.148.27.131\", \"redirecting_to\": \"https://ssp.disqus.com/match?bidder=29&buyeruid=Gvcso2SNaaDZ&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC&gdpr=&gdpr_consent=&ev=1&us_privacy=&pid=562894\"}, {\"status\": 302, \"redirecting_url\": \"https://ssp.disqus.com/match?bidder=29&buyeruid=Gvcso2SNaaDZ&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC&gdpr=&gdpr_consent=&ev=1&us_privacy=&pid=562894\", \"redirecting_ip\": \"54.167.138.170\", \"redirecting_to\": \"https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442\"}, {\"status\": 302, \"redirecting_url\": \"https://image2.pubmatic.com/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTM0MjImdGw9MTI5NjAw&gdpr=-1&gdpr_consent=\", \"redirecting_ip\": \"104.36.113.107\", \"redirecting_to\": \"https://image8.pubmatic.com/AdServer/ImgSync?sec=1&gdpr=0&gdpr_consent=\"}]",
+        "body_config": {
+          "column_order": [
+            "status",
+            "redirecting_url",
+            "redirecting_ip",
+            "redirecting_to"
+          ]
+        },
+        "body_format": "TABLE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "file": {
+            "string": {
+              "extracted": [
+                "/pixel/bounce/?pid=r8hrb20&t=gif",
+                "/AdServer/ImgSync?p=0&rdf=1"
+              ]
+            }
+          },
+          "network": {
+            "static": {
+              "domain": [
+                "px.ads.linkedin.com",
+                "2Fnews.slashdot.org",
+                "www.linkedin.com",
+                "ps.eyeota.net",
+                "ml314.com",
+                "match.adsrvr.org",
+                "idsync.rlcdn.com",
+                "sync.crwdcntrl.net",
+                "dpm.demdex.net",
+                "ib.adnxs.com",
+                "tag.crsspxl.com",
+                "pippio.com",
+                "sync.mathtag.com",
+                "cm.g.doubleclick.net",
+                "cms.analytics.yahoo.com",
+                "ups.analytics.yahoo.com",
+                "tags.rd.linksynergy.com",
+                "u.openx.net",
+                "e.dlx.addthis.com",
+                "match.sharethrough.com",
+                "stags.bluekai.com",
+                "pixel.rubiconproject.com",
+                "ssp.disqus.com",
+                "sync.go.sonobi.com",
+                "x.dlx.addthis.com",
+                "image8.pubmatic.com",
+                "bh.contextweb.com",
+                "image2.pubmatic.com"
+              ],
+              "ip": [
+                "13.107.42.14",
+                "34.231.251.31",
+                "35.71.131.137",
+                "35.190.60.146",
+                "44.198.203.3",
+                "54.145.126.188",
+                "34.117.77.79",
+                "68.67.160.117",
+                "216.200.232.249",
+                "142.251.33.162",
+                "107.178.254.65",
+                "34.200.65.202",
+                "34.98.64.218",
+                "34.98.67.3",
+                "72.247.168.200",
+                "69.173.151.100",
+                "54.167.138.170",
+                "8.28.7.82",
+                "69.166.1.66",
+                "198.148.27.131",
+                "104.36.113.107"
+              ],
+              "uri": [
+                "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+                "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true",
+                "https://www.linkedin.com/px/li_sync?redirect=https%3A%2F%2Fpx.ads.linkedin.com%2Fcollect%3Fv%3D2%26fmt%3Djs%26pid%3D113712%26time%3D1698341598628%26url%3Dhttps%253A%252F%252Fnews.slashdot.org%252Fcomments.pl%253Fsid%253D11253499%2526cid%253D55399795%26cookiesTest%3Dtrue%26liSync%3Dtrue",
+                "https://ps.eyeota.net/pixel?pid=r8hrb20&t=gif",
+                "https://ps.eyeota.net/pixel/bounce/?pid=r8hrb20&t=gif",
+                "https://ml314.com/utsync.ashx?eid=50052&et=0&fp=20Boj05tfCZt35jNdBGTWSMvzNOq_GUyiyxgU42MjOl0&gdpr=0&gdpr_consent=&return=https%3A%2F%2Fps.eyeota.net%2Fmatch%3Fbid%3Dr8hrb20%26uid%3Dnil%26referrer_pid%3Dr8hrb20",
+                "https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1",
+                "https://match.adsrvr.org/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1",
+                "https://ml314.com/utsync.ashx?eid=53819&et=0&fp=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent=",
+                "https://idsync.rlcdn.com/395886.gif?partner_uid=3639494941643636806",
+                "https://idsync.rlcdn.com/1000.gif?memo=CO6UGBIeChoIARCuXxoTMzYzOTQ5NDk0MTY0MzYzNjgwNhAAGg0I38XqqQYSBQjoBxAAQgBKAA",
+                "https://ml314.com/csync.ashx?fp=fbe776e716ec90b68c443096910e67b185116f7c9ffcf3c2c843deb256e44bdff4cb09cee1a4f8eb&person_id=3639494941643636806&eid=50082",
+                "https://sync.crwdcntrl.net/map/c=6985/tp=BOMB?https://ml314.com/csync.ashx%3Ffp%3D%24%7Bprofile_id%7D%26eid%3D50146%26person_id%3D3639494941643636806",
+                "https://sync.crwdcntrl.net/map/ct=y/c=6985/tp=BOMB?https://ml314.com/csync.ashx%3Ffp%3D%24%7Bprofile_id%7D%26eid%3D50146%26person_id%3D3639494941643636806",
+                "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true&liSync=true",
+                "https://dpm.demdex.net/ibs:dpid=22052&dpuuid=3639494941643636806&redir=",
+                "https://dpm.demdex.net/demconf.jpg?et:ibs%7cdata:dpid=22052&dpuuid=3639494941643636806&redir=",
+                "https://ml314.com/csync.ashx?fp=6653b57a34645c020bf84719c859bbfc&eid=50146&person_id=3639494941643636806",
+                "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",
+                "https://ib.adnxs.com/getuid?https://tag.crsspxl.com/m.gif?anid=$UID",
+                "https://tag.crsspxl.com/m.gif?anid=4464854860846992537",
+                "https://idsync.rlcdn.com/366518.gif?partner_uid=3476744686053029940",
+                "https://pippio.com/api/sync?pid=5324&it=1&iv=9d0de836dfce56f03a533f01ae20768ed3e057e8f507e7134239a0d2a53ae797791426b5417dce21&_=2",
+                "https://match.adsrvr.org/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1",
+                "https://tag.crsspxl.com/m.gif?tdid=f4c86124-b187-4313-af83-0cc1e9102073",
+                "https://sync.mathtag.com/sync/img?mt_exid=10012&redir=https://tag.crsspxl.com/m.gif?mmid=[MM_UUID]",
+                "https://tag.crsspxl.com/m.gif?mmid=237e653a-a2e1-4b00-86b7-e689683c3445",
+                "https://cm.g.doubleclick.net/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA==",
+                "https://tag.crsspxl.com/m.gif?id=&google_gid=CAESEBleucqUfv-FekScUDeNJ8Q&google_cver=1",
+                "https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA",
+                "https://cms.analytics.yahoo.com/cms?partner_id=CROEL",
+                "https://ups.analytics.yahoo.com/ups/58701/cms?partner_id=CROEL",
+                "https://pippio.com/api/sync/ddp?pid=2&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA&google_gid=CAESENcYxNZwkW9Ii-ovH7BAuNk&google_cver=1",
+                "https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=",
+                "https://u.openx.net/w/1.0/cm?id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D",
+                "https://u.openx.net/w/1.0/cm?cc=1&id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D",
+                "https://tag.crsspxl.com/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552",
+                "https://idsync.rlcdn.com/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b",
+                "https://e.dlx.addthis.com/e/a-1625/s-3300?cb=1698341600805",
+                "https://e.dlx.addthis.com/e/a-1625/s-3300?cb=1698341600805&rd=Y",
+                "https://u.openx.net/w/1.0/cm?gdpr=0&gdpr_consent=&id=7ead435e-a2cd-4cbf-8876-adb66822613f&ph=c6b01e12-aa62-4ae6-9e10-71346e597c31&r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3DF2Stothm3wg5g6opTuaPadz9%26source_user_id%3D&gpp=&gpp_sid=",
+                "https://match.sharethrough.com/sync/v1?source_id=F2Stothm3wg5g6opTuaPadz9&source_user_id=&gpp=&gpp_sid=441f45b5-cb9a-4100-8cec-67eb3851d445",
+                "https://match.adsrvr.org/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=",
+                "https://match.sharethrough.com/sync/v1?source_id=5b286190338513af73f09c28&source_user_id=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent=",
+                "https://stags.bluekai.com/site/1407?partner=1&uhint=na_id=2023102617332200011075520285&redir=https%3A%2F%2Fx.dlx.addthis.com%2Fe%2Fbk_sync.xgi%3Fna_exid%3D%24_BK_UUID",
+                "https://tag.crsspxl.com/m.gif?yahoo_id=y-RURQomVE2pOQnrwKnFScawqnC2v_nkSALLw-~A",
+                "https://pixel.rubiconproject.com/exchange/sync.php?p=18694&gdpr=0&gdpr_consent=&gpp=&gpp_sid=",
+                "https://match.sharethrough.com/sync/v1?source_id=UiRtTsXAfjmfSDAKnR1FjWsu&source_user_id=LO7GQNHY-R-A7RJ&gdpr=0",
+                "https://ssp.disqus.com/redirectuser?r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3D7rkJAhPCWXbw9Lq5dZxc6TvN%26source_user_id%3D%24UID&partner=sharethrough&gpp=&gpp_sid=",
+                "https://sync.go.sonobi.com/us?gdpr=&gdpr_consent=&us_privacy=&loc=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D18%26buyeruid%3D%5BUID%5D%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB",
+                "https://x.dlx.addthis.com/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok",
+                "https://image8.pubmatic.com/AdServer/ImgSync?p=0",
+                "https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1",
+                "https://cm.g.doubleclick.net/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent=",
+                "https://ssp.disqus.com/match?bidder=18&buyeruid=6f8f2882-a7df-41e6-a9db-89cfe3e27a43&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB",
+                "https://bh.contextweb.com/bh/rtset?pid=562894&ev=1&us_privacy=&rurl=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D29%26buyeruid%3D%25%25VGUID%25%25%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC%26gdpr%3D%26gdpr_consent%3D",
+                "https://image2.pubmatic.com/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTM0MjImdGw9MTI5NjAw&gdpr=-1&gdpr_consent=",
+                "https://ssp.disqus.com/match?bidder=29&buyeruid=Gvcso2SNaaDZ&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC&gdpr=&gdpr_consent=&ev=1&us_privacy=&pid=562894",
+                "https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442",
+                "https://image8.pubmatic.com/AdServer/ImgSync?sec=1&gdpr=0&gdpr_consent="
+              ],
+              "uri_path": [
+                "/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+                "/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true",
+                "/px/li_sync?redirect=https%3A%2F%2Fpx.ads.linkedin.com%2Fcollect%3Fv%3D2%26fmt%3Djs%26pid%3D113712%26time%3D1698341598628%26url%3Dhttps%253A%252F%252Fnews.slashdot.org%252Fcomments.pl%253Fsid%253D11253499%2526cid%253D55399795%26cookiesTest%3Dtrue%26liSync%3Dtrue",
+                "/pixel?pid=r8hrb20&t=gif",
+                "/pixel/bounce/?pid=r8hrb20&t=gif",
+                "/utsync.ashx?eid=50052&et=0&fp=20Boj05tfCZt35jNdBGTWSMvzNOq_GUyiyxgU42MjOl0&gdpr=0&gdpr_consent=&return=https%3A%2F%2Fps.eyeota.net%2Fmatch%3Fbid%3Dr8hrb20%26uid%3Dnil%26referrer_pid%3Dr8hrb20",
+                "/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1",
+                "/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1",
+                "/utsync.ashx?eid=53819&et=0&fp=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent=",
+                "/395886.gif?partner_uid=3639494941643636806",
+                "/1000.gif?memo=CO6UGBIeChoIARCuXxoTMzYzOTQ5NDk0MTY0MzYzNjgwNhAAGg0I38XqqQYSBQjoBxAAQgBKAA",
+                "/csync.ashx?fp=fbe776e716ec90b68c443096910e67b185116f7c9ffcf3c2c843deb256e44bdff4cb09cee1a4f8eb&person_id=3639494941643636806&eid=50082",
+                "/map/c=6985/tp=BOMB?https:",
+                "/map/ct=y/c=6985/tp=BOMB?https:",
+                "/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true&liSync=true",
+                "/ibs:dpid=22052&dpuuid=3639494941643636806&redir=",
+                "/demconf.jpg?et:ibs%7cdata:dpid=22052&dpuuid=3639494941643636806&redir=",
+                "/csync.ashx?fp=6653b57a34645c020bf84719c859bbfc&eid=50146&person_id=3639494941643636806",
+                "/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",
+                "/getuid?https:",
+                "/m.gif?anid=4464854860846992537",
+                "/366518.gif?partner_uid=3476744686053029940",
+                "/api/sync?pid=5324&it=1&iv=9d0de836dfce56f03a533f01ae20768ed3e057e8f507e7134239a0d2a53ae797791426b5417dce21&_=2",
+                "/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1",
+                "/m.gif?tdid=f4c86124-b187-4313-af83-0cc1e9102073",
+                "/sync/img?mt_exid=10012&redir=https:",
+                "/m.gif?mmid=237e653a-a2e1-4b00-86b7-e689683c3445",
+                "/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA==",
+                "/m.gif?id=&google_gid=CAESEBleucqUfv-FekScUDeNJ8Q&google_cver=1",
+                "/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA",
+                "/cms?partner_id=CROEL",
+                "/ups/58701/cms?partner_id=CROEL",
+                "/api/sync/ddp?pid=2&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA&google_gid=CAESENcYxNZwkW9Ii-ovH7BAuNk&google_cver=1",
+                "/rcs?ns=lr&uid3=",
+                "/w/1.0/cm?id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D",
+                "/w/1.0/cm?cc=1&id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D",
+                "/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552",
+                "/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b",
+                "/e/a-1625/s-3300?cb=1698341600805",
+                "/e/a-1625/s-3300?cb=1698341600805&rd=Y",
+                "/w/1.0/cm?gdpr=0&gdpr_consent=&id=7ead435e-a2cd-4cbf-8876-adb66822613f&ph=c6b01e12-aa62-4ae6-9e10-71346e597c31&r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3DF2Stothm3wg5g6opTuaPadz9%26source_user_id%3D&gpp=&gpp_sid=",
+                "/sync/v1?source_id=F2Stothm3wg5g6opTuaPadz9&source_user_id=&gpp=&gpp_sid=441f45b5-cb9a-4100-8cec-67eb3851d445",
+                "/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=",
+                "/sync/v1?source_id=5b286190338513af73f09c28&source_user_id=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent=",
+                "/site/1407?partner=1&uhint=na_id=2023102617332200011075520285&redir=https%3A%2F%2Fx.dlx.addthis.com%2Fe%2Fbk_sync.xgi%3Fna_exid%3D%24_BK_UUID",
+                "/m.gif?yahoo_id=y-RURQomVE2pOQnrwKnFScawqnC2v_nkSALLw-~A",
+                "/exchange/sync.php?p=18694&gdpr=0&gdpr_consent=&gpp=&gpp_sid=",
+                "/sync/v1?source_id=UiRtTsXAfjmfSDAKnR1FjWsu&source_user_id=LO7GQNHY-R-A7RJ&gdpr=0",
+                "/redirectuser?r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3D7rkJAhPCWXbw9Lq5dZxc6TvN%26source_user_id%3D%24UID&partner=sharethrough&gpp=&gpp_sid=",
+                "/us?gdpr=&gdpr_consent=&us_privacy=&loc=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D18%26buyeruid%3D%5BUID%5D%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB",
+                "/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok",
+                "/AdServer/ImgSync?p=0",
+                "/AdServer/ImgSync?p=0&rdf=1",
+                "/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent=",
+                "/match?bidder=18&buyeruid=6f8f2882-a7df-41e6-a9db-89cfe3e27a43&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB",
+                "/bh/rtset?pid=562894&ev=1&us_privacy=&rurl=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D29%26buyeruid%3D%25%25VGUID%25%25%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC%26gdpr%3D%26gdpr_consent%3D",
+                "/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTM0MjImdGw9MTI5NjAw&gdpr=-1&gdpr_consent=",
+                "/match?bidder=29&buyeruid=Gvcso2SNaaDZ&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC&gdpr=&gdpr_consent=&ev=1&us_privacy=&pid=562894",
+                "/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442",
+                "/AdServer/ImgSync?sec=1&gdpr=0&gdpr_consent="
+              ]
+            }
+          }
+        },
+        "title_text": "Redirections",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"Filename\": \"\\\"f.txt\\\"\", \"Size\": 90710, \"mimeType\": \"text/javascript; charset=UTF-8\", \"url\": \"https://securepubads.g.doubleclick.net/tag/js/gpt.js\", \"SHA256\": \"5ffdee78c92d3cd920b567196b60bd651aa07d99bdeba93132126431cf5b7b75\"}, {\"Filename\": \"\\\"f.txt\\\"\", \"Size\": 431880, \"mimeType\": \"text/javascript; charset=UTF-8\", \"url\": \"https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202310190101/pubads_impl_fy2012.js?cb=31078824\", \"SHA256\": \"49db66ae1889e3ae58a38124422c4d6648b19cf9f233b12412db9b565b5d85b0\"}, {\"Filename\": \"\\\"f.txt\\\"\", \"Size\": 30851, \"mimeType\": \"text/javascript; charset=UTF-8\", \"url\": \"https://tpc.googlesyndication.com/pagead/js/r20231024/r20110914/abg_lite.js\", \"SHA256\": \"a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6\"}, {\"Filename\": \"\\\"f.txt\\\"\", \"Size\": 2965, \"mimeType\": \"text/javascript; charset=UTF-8\", \"url\": \"https://tpc.googlesyndication.com/pagead/js/r20231024/r20110914/client/window_focus.js\", \"SHA256\": \"88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a\"}, {\"Filename\": \"\\\"f.txt\\\"\", \"Size\": 16126, \"mimeType\": \"application/json; charset=UTF-8\", \"url\": \"https://pagead2.googlesyndication.com/getconfig/sodar?sv=200&tid=gpt&tv=m202310190101&st=env\", \"SHA256\": \"de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a\"}]",
+        "body_config": {
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
+        },
+        "body_format": "TABLE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Downloaded file(s)",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"Filename\": \"https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795\", \"Size\": 62634, \"mimeType\": \"text/html; charset=utf-8\", \"url\": \"https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795\", \"SHA256\": \"c51cbb55dc71fcd8f77037a44089a3fcb5a9b3b7ce38bed912d5892f13ecb2d5\"}, {\"Filename\": \"https://d3tglifpd8whs6.cloudfront.net/js/prebid/slash-homepage/slash-homepage.min.js\", \"Size\": 303702, \"mimeType\": \"application/javascript; charset=utf-8\", \"url\": \"https://d3tglifpd8whs6.cloudfront.net/js/prebid/slash-homepage/slash-homepage.min.js\", \"SHA256\": \"219b817171e49ce17d1e1aae855290c94750a8300c1ce6a9c4ffda8c6fca75a6\"}, {\"Filename\": \"https://a.fsdn.com/sd/classic.ssl.css?4cff0049eac0f5ce\", \"Size\": 143704, \"mimeType\": \"text/css\", \"url\": \"https://a.fsdn.com/sd/classic.ssl.css?4cff0049eac0f5ce\", \"SHA256\": \"fd7cabe19f3902c002ab8b7f62071a64f732368a035e6925704d723214ae1438\"}, {\"Filename\": \"https://a.fsdn.com/sd/css/app.css?4cff0049eac0f5ce\", \"Size\": 91531, \"mimeType\": \"text/css\", \"url\": \"https://a.fsdn.com/sd/css/app.css?4cff0049eac0f5ce\", \"SHA256\": \"1f0d56bbf30621757c426a5ee211a372f52058c618a671357815944e305bb816\"}, {\"Filename\": \"https://a.fsdn.com/sd/all-minified.js?4cff0049eac0f5ce\", \"Size\": 430076, \"mimeType\": \"application/javascript\", \"url\": \"https://a.fsdn.com/sd/all-minified.js?4cff0049eac0f5ce\", \"SHA256\": \"98e340a87db63d243b5be3e021c52d9ceed87b491d3699cd292dbc2ce7a53c5e\"}, {\"Filename\": \"https://a.fsdn.com/con/js/sftheme/cmp2.js\", \"Size\": 30566, \"mimeType\": \"application/javascript\", \"url\": \"https://a.fsdn.com/con/js/sftheme/cmp2.js\", \"SHA256\": \"290d2841595f28d86c1241da72d604561e4a20e9357f5a7fcd97df3872018afe\"}, {\"Filename\": \"https://a.fsdn.com/con/css/sftheme/sandiego/cmp.css?2020-06-11\", \"Size\": 4659, \"mimeType\": \"text/css\", \"url\": \"https://a.fsdn.com/con/css/sftheme/sandiego/cmp.css?2020-06-11\", \"SHA256\": \"4baae150a27bc5716ba8f5160fbd2414f5b731c470d8ee0956612dafa106e950\"}, {\"Filename\": \"https://a.fsdn.com/sd/comments-minified.js?4cff0049eac0f5ce\", \"Size\": 47128, \"mimeType\": \"application/javascript\", \"url\": \"https://a.fsdn.com/sd/comments-minified.js?4cff0049eac0f5ce\", \"SHA256\": \"f895c2180e32c4ce4d271d356df846c691375a07bb28adeb0c2e073095a2fe99\"}, {\"Filename\": \"https://a.fsdn.com/sd/js/scripts/adgenerator.js?4cff0049eac0f5ce\", \"Size\": 22, \"mimeType\": \"application/javascript\", \"url\": \"https://a.fsdn.com/sd/js/scripts/adgenerator.js?4cff0049eac0f5ce\", \"SHA256\": \"83b56810f90ecc4b4ca00f2d6225cd7c75441b42b740afbe17e0adac12890140\"}, {\"Filename\": \"https://slashdot.org/country.js\", \"Size\": 79, \"mimeType\": \"application/javascript\", \"url\": \"https://slashdot.org/country.js\", \"SHA256\": \"ad94744abfc58e8e2ab2b6e22d1b74fab5cc940a39bf168f46b62dcf54550fe4\"}, {\"Filename\": \"https://www.gstatic.com/images/icons/gplus-16.png\", \"Size\": 737, \"mimeType\": \"image/png\", \"url\": \"https://www.gstatic.com/images/icons/gplus-16.png\", \"SHA256\": \"354379d305ca1e2b2f7beef5b3ac7899ce6ddcabdeb7daf12488c061468b893c\"}, {\"Filename\": \"inline; filename=\\\"ccpa-optout.webp\\\"\", \"Size\": 752, \"mimeType\": \"image/webp\", \"url\": \"https://a.fsdn.com/sd/ccpa-optout.png\", \"SHA256\": \"51c01128c75f73bae9484dc59afedea41bc6607f42ec337d63c875f8a5f3a826\"}, {\"Filename\": \"https://a.fsdn.com/sd/sdlogo.svg\", \"Size\": 2185, \"mimeType\": \"image/svg+xml\", \"url\": \"https://a.fsdn.com/sd/sdlogo.svg\", \"SHA256\": \"d292c6a5ab551ade07eb768187ccc5ea823ad2d1422f702fc76d0b336b11704d\"}, {\"Filename\": \"https://a.fsdn.com/sd/font/sdicon.woff?4cff0049eac0f5ce\", \"Size\": 45436, \"mimeType\": \"font/woff\", \"url\": \"https://a.fsdn.com/sd/font/sdicon.woff?4cff0049eac0f5ce\", \"SHA256\": \"62d3f3007e3da2a050d78c23ef02563250b8947bde7e0eeb46ba5c2a8e43705e\"}, {\"Filename\": \"inline; filename=\\\"glyphish-icons-16-w.webp\\\"\", \"Size\": 30966, \"mimeType\": \"image/webp\", \"url\": \"https://a.fsdn.com/sd/classic/img/glyphish-icons-16-w.png\", \"SHA256\": \"75b0d4f39e871b52515fa926129aaedce98a2862613405ad9b6817ab12e6c583\"}, {\"Filename\": \"inline; filename=\\\"slashdot_favicon_white.webp\\\"\", \"Size\": 218, \"mimeType\": \"image/webp\", \"url\": \"https://a.fsdn.com/sd/slashdot_favicon_white.png\", \"SHA256\": \"7d69ef53a3d432381c98575031992ba0b4d14b351fa359c9e75214de4fd9414d\"}, {\"Filename\": \"https://slashdot.org/images/js.gif?444\", \"Size\": 49, \"mimeType\": \"image/gif\", \"url\": \"https://slashdot.org/images/js.gif?444\", \"SHA256\": \"099434ae347f0b95f785642e40b26f0c127c7559744d0452180ac8d2f7c3efd0\"}, {\"Filename\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"Size\": 779, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"SHA256\": \"5a2e3a8269e57686d2e6ae5aec1c75808f4ebc393c478a0c94ad139a80597f50\"}, {\"Filename\": \"https://tag.crsspxl.com/s1.js?d=2397&cb=1698341596299\", \"Size\": 1480, \"mimeType\": \"text/javascript\", \"url\": \"https://tag.crsspxl.com/s1.js?d=2397&cb=1698341596299\", \"SHA256\": \"11eacf13686f2b8560bda50c63e691ac9708a88132aa51f5616c0c44c904b1bf\"}, {\"Filename\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"Size\": 536, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"SHA256\": \"45a3c0a41501953aa0ed4e065e165b3c479e5a3d052ccd984d482023c9d21d79\"}, {\"Filename\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"Size\": 664, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"SHA256\": \"010ea9169d4065f74e1d6eb65ac3300895a234ea81ab7ad3598e1130e314f3ed\"}, {\"Filename\": \"https://btloader.com/tag?o=5098683085881344&upapi=true\", \"Size\": 18179, \"mimeType\": \"application/javascript\", \"url\": \"https://btloader.com/tag?o=5098683085881344&upapi=true\", \"SHA256\": \"9266048e760af84271a31d514688b13c892174dc74f9a02fe78231ac1e30bc20\"}, {\"Filename\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"Size\": 636, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"SHA256\": \"b226c2e3e2fd9bbb3ca87ae6efb13005d5559a441ed83c59da7f672bed6c76e0\"}, {\"Filename\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"Size\": 888, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"SHA256\": \"d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287\"}, {\"Filename\": \"https://ap.lijit.com/rtb/bid?src=prebid_prebid_8.13.0\", \"Size\": 94, \"mimeType\": \"application/json\", \"url\": \"https://ap.lijit.com/rtb/bid?src=prebid_prebid_8.13.0\", \"SHA256\": \"03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e\"}, {\"Filename\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/display.min.js\", \"Size\": 38310, \"mimeType\": \"application/javascript\", \"url\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/display.min.js\", \"SHA256\": \"f720d4434341a72ecaba1614be552b3d629bedc9da07aabf9660c6dff96cdce1\"}, {\"Filename\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"Size\": 822, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1\", \"SHA256\": \"b8c21dccfeed18919dc361f8e7ca380ce090e343767d584524e93d13c74056f1\"}, {\"Filename\": \"https://ib.adnxs.com/ut/v3/prebid\", \"Size\": 702, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://ib.adnxs.com/ut/v3/prebid\", \"SHA256\": \"9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6\"}, {\"Filename\": \"https://analytics.slashdotmedia.com/sd.js\", \"Size\": 65458, \"mimeType\": \"application/javascript; charset=utf-8\", \"url\": \"https://analytics.slashdotmedia.com/sd.js\", \"SHA256\": \"5c166a5d40aeefd0679a14f95e47ff28824e66abba82adfa30be41803cc25632\"}, {\"Filename\": \"https://ml314.com/tag.aspx?2692023\", \"Size\": 32213, \"mimeType\": \"application/javascript\", \"url\": \"https://ml314.com/tag.aspx?2692023\", \"SHA256\": \"556b62129d954b0d5b92c4f286ec0234774ac6d41353a3c84f8349fa94d88cf1\"}, {\"Filename\": \"https://www.stack-sonar.com/ping.js\", \"Size\": 6018, \"mimeType\": \"application/javascript\", \"url\": \"https://www.stack-sonar.com/ping.js\", \"SHA256\": \"30ffa03f71b651ba0851f8cb6bb6cb774bb1ca0efe27de779194dbc428f2ec34\"}, {\"Filename\": \"https://ssl.google-analytics.com/ga.js\", \"Size\": 46274, \"mimeType\": \"text/javascript\", \"url\": \"https://ssl.google-analytics.com/ga.js\", \"SHA256\": \"1259ea99bd76596239bfd3102c679eb0a5052578dc526b0452f4d42f8bcdd45f\"}, {\"Filename\": \"https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51\", \"Size\": 644, \"mimeType\": \"application/javascript\", \"url\": \"https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51\", \"SHA256\": \"656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438\"}, {\"Filename\": \"https://ssl.google-analytics.com/r/__utm.gif?utmwv=5.7.2&utms=1&utmn=566683381&utmhn=news.slashdot.org&utme=8(User%20Type*Page)9(Anon*comments)&utmcs=UTF-8&utmsr=1280x720&utmvp=1280x720&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=-&utmdt=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&utmhid=1005119224&utmr=-&utmp=%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&utmht=1698341598039&utmac=UA-199823890-2&utmcc=__utma%3D57409013.1336942688.1698341598.1698341598.1698341598.1%3B%2B__utmz%3D57409013.1698341598.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmjid=1615997497&utmredir=1&utmu=qRAAACAAAAAAAAAAAAAAAAAE~\", \"Size\": 35, \"mimeType\": \"image/gif\", \"url\": \"https://ssl.google-analytics.com/r/__utm.gif?utmwv=5.7.2&utms=1&utmn=566683381&utmhn=news.slashdot.org&utme=8(User%20Type*Page)9(Anon*comments)&utmcs=UTF-8&utmsr=1280x720&utmvp=1280x720&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=-&utmdt=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&utmhid=1005119224&utmr=-&utmp=%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&utmht=1698341598039&utmac=UA-199823890-2&utmcc=__utma%3D57409013.1336942688.1698341598.1698341598.1698341598.1%3B%2B__utmz%3D57409013.1698341598.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmjid=1615997497&utmredir=1&utmu=qRAAACAAAAAAAAAAAAAAAAAE~\", \"SHA256\": \"1efa3c6a9b6e3d359fd883afbe7ed58646d42f7111f720c0ee58bdb2eed6af5c\"}, {\"Filename\": \"https://ad-delivery.net/px.gif?ch=1&e=0.9873019043032811\", \"Size\": 43, \"mimeType\": \"image/gif\", \"url\": \"https://ad-delivery.net/px.gif?ch=1&e=0.9873019043032811\", \"SHA256\": \"e506b1fa98e4de5e55dd5c8c491deb877e9d5243ee90369d1e4802862f10c8ad\"}, {\"Filename\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/css/v1_6_1.css\", \"Size\": 22423, \"mimeType\": \"text/css\", \"url\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/css/v1_6_1.css\", \"SHA256\": \"52fe780d03e98dcb4524e857426d1f7d10559ae6454cc38e551a8e307e93eaff\"}, {\"Filename\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/js/imp.min.js\", \"Size\": 975, \"mimeType\": \"application/javascript\", \"url\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/js/imp.min.js\", \"SHA256\": \"199f663b1a66c7a8e537f5dea8d81130275d196fd6a49bcf113bb24890bc7fdc\"}, {\"Filename\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/js/ind-imp.min.js\", \"Size\": 1000, \"mimeType\": \"application/javascript\", \"url\": \"https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/js/ind-imp.min.js\", \"SHA256\": \"e5d4f2c71d4d92ebca415fbdf96e7a98795534cf09a8d47e4ea6e2306034349d\"}, {\"Filename\": \"https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20\", \"Size\": 71915, \"mimeType\": \"text/plain; charset=UTF-8\", \"url\": \"https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20\", \"SHA256\": \"acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122\"}, {\"Filename\": \"https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20\", \"Size\": 637, \"mimeType\": \"text/plain; charset=UTF-8\", \"url\": \"https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20\", \"SHA256\": \"de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57\"}, {\"Filename\": \"https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=15680&site_id=103246&zone_id=488692%3B488694%3B488692%3B488694%3B488694%3B488694&size_id=2%3B2%3B15%3B15%3B15%3B15&alt_size_ids=55%2C57%3B%3B10%2C54%3B10%2C54%3B10%2C54%3B10%2C54&p_pos=atf%3Bbtf%3Batf%3Bbtf%3Bbtf%3Bbtf&rf=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tg_i.domain=news.slashdot.org&tg_i.page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tk_flint=pbjs_lite_v8.13.0&l_pb_bid_id=230a2f5b5193c99%3B2459af5b1b55c68%3B257c7d225ffa178%3B26c9e18bd867c0d%3B271285774e33086%3B2807df53b977853&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&slots=6&rand=0.06432152772395772\", \"Size\": 941, \"mimeType\": \"application/json\", \"url\": \"https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=15680&site_id=103246&zone_id=488692%3B488694%3B488692%3B488694%3B488694%3B488694&size_id=2%3B2%3B15%3B15%3B15%3B15&alt_size_ids=55%2C57%3B%3B10%2C54%3B10%2C54%3B10%2C54%3B10%2C54&p_pos=atf%3Bbtf%3Batf%3Bbtf%3Bbtf%3Bbtf&rf=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tg_i.domain=news.slashdot.org&tg_i.page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tk_flint=pbjs_lite_v8.13.0&l_pb_bid_id=230a2f5b5193c99%3B2459af5b1b55c68%3B257c7d225ffa178%3B26c9e18bd867c0d%3B271285774e33086%3B2807df53b977853&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&slots=6&rand=0.06432152772395772\", \"SHA256\": \"33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43\"}, {\"Filename\": \"https://snap.licdn.com/li.lms-analytics/insight.min.js\", \"Size\": 12436, \"mimeType\": \"application/javascript;charset=utf-8\", \"url\": \"https://snap.licdn.com/li.lms-analytics/insight.min.js\", \"SHA256\": \"51f361716f7032e7456f1032326fdc3881a9462a0e8539ee3b02ad3f8316e0c5\"}, {\"Filename\": \"https://x.dlx.addthis.com/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok\", \"Size\": 43, \"mimeType\": \"image/gif\", \"url\": \"https://x.dlx.addthis.com/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok\", \"SHA256\": \"f5e64de14b2b607e29faa286221b2fa15dbb22ff29c551e41c009bcb9e0400ba\"}, {\"Filename\": \"https://snap.licdn.com/li.lms-analytics/insight.old.min.js\", \"Size\": 8455, \"mimeType\": \"application/x-javascript;charset=utf-8\", \"url\": \"https://snap.licdn.com/li.lms-analytics/insight.old.min.js\", \"SHA256\": \"5b3086a886aa8649ecbf496ac913a1aa443926cd2fff610be2d136c9598bcd8b\"}, {\"Filename\": \"https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250\", \"Size\": 1078, \"mimeType\": \"image/x-icon\", \"url\": \"https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250\", \"SHA256\": \"d9d7923ffb361776873b82ee9d8437739dbe0e2ee7771278660f6e45a8788530\"}, {\"Filename\": \"https://pbid.pro-market.net/engine?site=143573;size=1x1;e=0;dt=0;category=tt1kyd71%20-%20nf4j;kw=die2ua%200%20%20ruqmi%209evznl%20sq6%202xe6k7%20%20it%20i62et0rff%20b%20d22wtzn%20eihpka4g%201xgk%20uw%20lye%20x33kid;rnd=(1698341598719)\", \"Size\": 412, \"mimeType\": \"text/html\", \"url\": \"https://pbid.pro-market.net/engine?site=143573;size=1x1;e=0;dt=0;category=tt1kyd71%20-%20nf4j;kw=die2ua%200%20%20ruqmi%209evznl%20sq6%202xe6k7%20%20it%20i62et0rff%20b%20d22wtzn%20eihpka4g%201xgk%20uw%20lye%20x33kid;rnd=(1698341598719)\", \"SHA256\": \"79ecee018f875bbb96ee0c0f8f06fc4e4371c1ac450d9294a04cbee4db599db6\"}, {\"Filename\": \"https://api.btloader.com/country\", \"Size\": 16, \"mimeType\": \"application/json\", \"url\": \"https://api.btloader.com/country\", \"SHA256\": \"8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225\"}, {\"Filename\": \"https://widget-api.jobbio.com/channels/slashdot-jobs?widgets=true\", \"Size\": 871, \"mimeType\": \"application/json\", \"url\": \"https://widget-api.jobbio.com/channels/slashdot-jobs?widgets=true\", \"SHA256\": \"45d52dc10945dfbdc640ab2748a2aaadc89c4c335300ddebc8cc03f82ce9415a\"}, {\"Filename\": \"https://ads.pro-market.net/ads/scripts/dda4-1-9.js\", \"Size\": 28319, \"mimeType\": \"application/x-javascript\", \"url\": \"https://ads.pro-market.net/ads/scripts/dda4-1-9.js\", \"SHA256\": \"747aea5fe62af2ffb4944f7cf436ad2433433e40d21a3e41848028d4f889030b\"}, {\"Filename\": \"https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap\", \"Size\": 14640, \"mimeType\": \"text/css; charset=utf-8\", \"url\": \"https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap\", \"SHA256\": \"2177ae3e829faf96e725d696a6bcb2e3ec1ec261796b60a46ea25b857d2ac469\"}, {\"Filename\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1\", \"Size\": 167, \"mimeType\": \"\", \"url\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1\", \"SHA256\": \"15e37f665680d63890581b43ac480532dd369d1d1bdb3789df450fc932d8ff1b\"}, {\"Filename\": \"https://match.adsrvr.org/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1\", \"Size\": 241, \"mimeType\": \"\", \"url\": \"https://match.adsrvr.org/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1\", \"SHA256\": \"fdb7a0755be84bf111ba0e83ef75a817d1938a7b579c593095c0153c6c6262f5\"}, {\"Filename\": \"https://ce.lijit.com/merge?pid=5110&3pid=3476744686053029940\", \"Size\": 43, \"mimeType\": \"image/gif\", \"url\": \"https://ce.lijit.com/merge?pid=5110&3pid=3476744686053029940\", \"SHA256\": \"143063354d791d9e39c78562b79955a3b830609a1e0c88ea956ba618bd72cb24\"}, {\"Filename\": \"https://widget-api.jobbio.com/channels/slashdot-jobs/feed?search=&page_size=4&source=slashdot-jobs_horizontal_jobs_widget&widgets=true&page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795\", \"Size\": 3771, \"mimeType\": \"application/json\", \"url\": \"https://widget-api.jobbio.com/channels/slashdot-jobs/feed?search=&page_size=4&source=slashdot-jobs_horizontal_jobs_widget&widgets=true&page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795\", \"SHA256\": \"95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a\"}, {\"Filename\": \"https://idsync.rlcdn.com/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b\", \"Size\": 42, \"mimeType\": \"image/gif\", \"url\": \"https://idsync.rlcdn.com/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b\", \"SHA256\": \"750dd90405811f7db3c998cd18227b9f355b26fde9529454aeef8c4cf187ecf9\"}, {\"Filename\": \"https://eb5b69091333a0ee3ea3a81fe1636601.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html\", \"Size\": 6162, \"mimeType\": \"text/html\", \"url\": \"https://eb5b69091333a0ee3ea3a81fe1636601.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html\", \"SHA256\": \"468959e93f9b4e6f07c6a8f8d0e93d8fcb37d76a8615a93ec153f5842247ba99\"}, {\"Filename\": \"https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20\", \"Size\": 70, \"mimeType\": \"image/gif\", \"url\": \"https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20\", \"SHA256\": \"b6fc204d9555dc776e2c1da1e67564d183e93cfff6c5f0e69e771f5ce9d9ebea\"}, {\"Filename\": \"https://tpc.googlesyndication.com/simgad/12181677395581006442\", \"Size\": 38149, \"mimeType\": \"image/png\", \"url\": \"https://tpc.googlesyndication.com/simgad/12181677395581006442\", \"SHA256\": \"bbf3ee0f5c28a13ab6b100d76cbbc6416385fdabda393e907f4682e269a135fc\"}, {\"Filename\": \"https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914\", \"Size\": 191959, \"mimeType\": \"text/javascript\", \"url\": \"https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914\", \"SHA256\": \"4e155284926ba010442d774fd493ff925a0256bd427f54596b1244791a3fa170\"}, {\"Filename\": \"https://tag.crsspxl.com/s2.html?d=2397&t=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&u=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795\", \"Size\": 1570, \"mimeType\": \"text/html\", \"url\": \"https://tag.crsspxl.com/s2.html?d=2397&t=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&u=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795\", \"SHA256\": \"503e95598892b37cdc82dd507e2df3a83b58401967f6c0527eef1d063b63f7c5\"}, {\"Filename\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1\", \"Size\": 173, \"mimeType\": \"\", \"url\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1\", \"SHA256\": \"526ff9d19aec809cd5cff33ceef7d974594abaa0ccee9e2e2db3bd1739a1f9f9\"}, {\"Filename\": \"https://tag.crsspxl.com/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552\", \"Size\": 43, \"mimeType\": \"image/gif\", \"url\": \"https://tag.crsspxl.com/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552\", \"SHA256\": \"95a7f55ae02c753e951f58b6dbcfdafd97afcc6d05022062173492fecae7f4c6\"}, {\"Filename\": \"https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940\", \"Size\": 62, \"mimeType\": \"image/gif\", \"url\": \"https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940\", \"SHA256\": \"982130933c928f4beef4eab6a2a0f5ca83c4fd1309dad50e2d490f9af4016e05\"}, {\"Filename\": \"https://cm.g.doubleclick.net/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA==\", \"Size\": 291, \"mimeType\": \"text/html; charset=UTF-8\", \"url\": \"https://cm.g.doubleclick.net/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA==\", \"SHA256\": \"1c0742c58b04f3ef379e4a24c20ec89ce2c2d97cc58ed914b2db19a0b08c1bbe\"}, {\"Filename\": \"https://cm.g.doubleclick.net/pixel?google_nid=3476744686053029940&google_hm=MjY4LTU2MS0zNzM2\", \"Size\": 170, \"mimeType\": \"image/png\", \"url\": \"https://cm.g.doubleclick.net/pixel?google_nid=3476744686053029940&google_hm=MjY4LTU2MS0zNzM2\", \"SHA256\": \"ffb78ff872c8969140bf3e6ef82afe6fdd1988a767ed42f20e47362ea02d503b\"}, {\"Filename\": \"https://sync.crwdcntrl.net/map/c=3602/tp=CPPB/tpid=3476744686053029940/gdpr=0&gdpr_consent=\", \"Size\": 49, \"mimeType\": \"image/gif\", \"url\": \"https://sync.crwdcntrl.net/map/c=3602/tp=CPPB/tpid=3476744686053029940/gdpr=0&gdpr_consent=\", \"SHA256\": \"be1dd7e0eb1348727c1d3a886956f7147698193299b9a4a81f529631c5016005\"}, {\"Filename\": \"https://cms.analytics.yahoo.com/cms?partner_id=CROEL\", \"Size\": 344, \"mimeType\": \"text/html\", \"url\": \"https://cms.analytics.yahoo.com/cms?partner_id=CROEL\", \"SHA256\": \"f4334287e08cacda3067b1540993d99e42e4a84512e310f48c9db76b99d2dd0e\"}, {\"Filename\": \"https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA\", \"Size\": 454, \"mimeType\": \"text/html; charset=UTF-8\", \"url\": \"https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA\", \"SHA256\": \"14da2c88c1f7da98731b4fd43227c1d55a50fc200609921dbf6123f792287a1a\"}, {\"Filename\": \"https://tpc.googlesyndication.com/sodar/sodar2.js\", \"Size\": 17314, \"mimeType\": \"text/javascript\", \"url\": \"https://tpc.googlesyndication.com/sodar/sodar2.js\", \"SHA256\": \"61c32059a5e94075a7ecff678b33907966fc9cfa384daa01aa057f872da14dbb\"}, {\"Filename\": \"https://tpc.googlesyndication.com/sodar/sodar2/225/runner.html\", \"Size\": 12817, \"mimeType\": \"text/html\", \"url\": \"https://tpc.googlesyndication.com/sodar/sodar2/225/runner.html\", \"SHA256\": \"55a119c0394f901a8a297e109c17b5e5402689708b999ab10691c16179f32a4a\"}, {\"Filename\": \"https://pagead2.googlesyndication.com/bg/y08pV31sM45xEike2vHNAQ_usQ3N3SApGkbB1F_zlUU.js\", \"Size\": 39492, \"mimeType\": \"text/javascript\", \"url\": \"https://pagead2.googlesyndication.com/bg/y08pV31sM45xEike2vHNAQ_usQ3N3SApGkbB1F_zlUU.js\", \"SHA256\": \"cb4f29577d6c338e7112291edaf1cd010feeb10dcddd20291a46c1d45ff39545\"}, {\"Filename\": \"https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=\", \"Size\": 111, \"mimeType\": \"text/html; charset=utf-8\", \"url\": \"https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=\", \"SHA256\": \"4fcda48fd92f2d20e388d06b2bd26ed34ad479a3045d779cfa8478a4f78fd8b0\"}, {\"Filename\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=\", \"Size\": 323, \"mimeType\": \"\", \"url\": \"https://match.adsrvr.org/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=\", \"SHA256\": \"63b280e2ffb8cf73f1a4f9f7545c859f9ebbe419c0a109dc9e7f3489026cddcc\"}, {\"Filename\": \"https://www.google.com/recaptcha/api2/aframe\", \"Size\": 829, \"mimeType\": \"text/html; charset=utf-8\", \"url\": \"https://www.google.com/recaptcha/api2/aframe\", \"SHA256\": \"11c6e9af47a1acc9b603a998ca0438e5e7a2d826bf3aad0ef0589eb1b9fbe3c9\"}, {\"Filename\": \"https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442\", \"Size\": 68, \"mimeType\": \"image/png\", \"url\": \"https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442\", \"SHA256\": \"6872c3a56ee3d87df85850854d056f0b30cd32bfc758420fe230e80ac8592a99\"}, {\"Filename\": \"https://engagefront.theweathernetwork.com/pxl?stid&id=b1609564-a417-4927-abaf-ad2136bd7392&gpp=&gpp_sid=\", \"Size\": 47, \"mimeType\": \"image/gif\", \"url\": \"https://engagefront.theweathernetwork.com/pxl?stid&id=b1609564-a417-4927-abaf-ad2136bd7392&gpp=&gpp_sid=\", \"SHA256\": \"223b2873891b34319b79f591bbae90a0e775286837d355801c0c7d3d102b6777\"}, {\"Filename\": \"https://image8.pubmatic.com/AdServer/ImgSync?p=0\", \"Size\": 54, \"mimeType\": \"text/html; charset=utf-8\", \"url\": \"https://image8.pubmatic.com/AdServer/ImgSync?p=0\", \"SHA256\": \"789c53d32da3b35f3766b2855b112be47b1044cd9303bcea0e37613ab0911bba\"}, {\"Filename\": \"https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1\", \"Size\": 170, \"mimeType\": \"text/html; charset=utf-8\", \"url\": \"https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1\", \"SHA256\": \"8a14fbeb53126a7d1e6d748a8805711ad7f75d66d294f7139c376fa23dbbd2fb\"}, {\"Filename\": \"https://cm.g.doubleclick.net/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent=\", \"Size\": 314, \"mimeType\": \"text/html; charset=UTF-8\", \"url\": \"https://cm.g.doubleclick.net/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent=\", \"SHA256\": \"f4ee5740aa50d0b51757a48cfe8081e8c3898e0a5040103ae850a61f0204f717\"}]",
+        "body_config": {
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
+        },
+        "body_format": "TABLE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Content file(s)",
+        "zeroize_on_tag_safe": false
+      }
+    ]
+  },
+  "files": {
+    "extracted": [
+      {
+        "name": "\"f.txt\"",
+        "sha256": "49db66ae1889e3ae58a38124422c4d6648b19cf9f233b12412db9b565b5d85b0"
+      },
+      {
+        "name": "\"f.txt\"",
+        "sha256": "5ffdee78c92d3cd920b567196b60bd651aa07d99bdeba93132126431cf5b7b75"
+      },
+      {
+        "name": "\"f.txt\"",
+        "sha256": "88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a"
+      },
+      {
+        "name": "\"f.txt\"",
+        "sha256": "a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6"
+      },
+      {
+        "name": "\"f.txt\"",
+        "sha256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a"
+      }
+    ],
+    "supplementary": [
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "010ea9169d4065f74e1d6eb65ac3300895a234ea81ab7ad3598e1130e314f3ed"
+      },
+      {
+        "name": "https://ap.lijit.com/rtb/bid?src=prebid_prebid_8.13.0",
+        "sha256": "03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e"
+      },
+      {
+        "name": "https://slashdot.org/images/js.gif?444",
+        "sha256": "099434ae347f0b95f785642e40b26f0c127c7559744d0452180ac8d2f7c3efd0"
+      },
+      {
+        "name": "https://www.google.com/recaptcha/api2/aframe",
+        "sha256": "11c6e9af47a1acc9b603a998ca0438e5e7a2d826bf3aad0ef0589eb1b9fbe3c9"
+      },
+      {
+        "name": "https://tag.crsspxl.com/s1.js?d=2397&cb=1698341596299",
+        "sha256": "11eacf13686f2b8560bda50c63e691ac9708a88132aa51f5616c0c44c904b1bf"
+      },
+      {
+        "name": "https://ssl.google-analytics.com/ga.js",
+        "sha256": "1259ea99bd76596239bfd3102c679eb0a5052578dc526b0452f4d42f8bcdd45f"
+      },
+      {
+        "name": "https://ce.lijit.com/merge?pid=5110&3pid=3476744686053029940",
+        "sha256": "143063354d791d9e39c78562b79955a3b830609a1e0c88ea956ba618bd72cb24"
+      },
+      {
+        "name": "https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA",
+        "sha256": "14da2c88c1f7da98731b4fd43227c1d55a50fc200609921dbf6123f792287a1a"
+      },
+      {
+        "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1",
+        "sha256": "15e37f665680d63890581b43ac480532dd369d1d1bdb3789df450fc932d8ff1b"
+      },
+      {
+        "name": "https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/js/imp.min.js",
+        "sha256": "199f663b1a66c7a8e537f5dea8d81130275d196fd6a49bcf113bb24890bc7fdc"
+      },
+      {
+        "name": "https://cm.g.doubleclick.net/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA==",
+        "sha256": "1c0742c58b04f3ef379e4a24c20ec89ce2c2d97cc58ed914b2db19a0b08c1bbe"
+      },
+      {
+        "name": "https://ssl.google-analytics.com/r/__utm.gif?utmwv=5.7.2&utms=1&utmn=566683381&utmhn=news.slashdot.org&utme=8(User%20Type*Page)9(Anon*comments)&utmcs=UTF-8&utmsr=1280x720&utmvp=1280x720&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=-&utmdt=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&utmhid=1005119224&utmr=-&utmp=%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&utmht=1698341598039&utmac=UA-199823890-2&utmcc=__utma%3D57409013.1336942688.1698341598.1698341598.1698341598.1%3B%2B__utmz%3D57409013.1698341598.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmjid=1615997497&utmredir=1&utmu=qRAAACAAAAAAAAAAAAAAAAAE~",
+        "sha256": "1efa3c6a9b6e3d359fd883afbe7ed58646d42f7111f720c0ee58bdb2eed6af5c"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/css/app.css?4cff0049eac0f5ce",
+        "sha256": "1f0d56bbf30621757c426a5ee211a372f52058c618a671357815944e305bb816"
+      },
+      {
+        "name": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap",
+        "sha256": "2177ae3e829faf96e725d696a6bcb2e3ec1ec261796b60a46ea25b857d2ac469"
+      },
+      {
+        "name": "https://d3tglifpd8whs6.cloudfront.net/js/prebid/slash-homepage/slash-homepage.min.js",
+        "sha256": "219b817171e49ce17d1e1aae855290c94750a8300c1ce6a9c4ffda8c6fca75a6"
+      },
+      {
+        "name": "https://engagefront.theweathernetwork.com/pxl?stid&id=b1609564-a417-4927-abaf-ad2136bd7392&gpp=&gpp_sid=",
+        "sha256": "223b2873891b34319b79f591bbae90a0e775286837d355801c0c7d3d102b6777"
+      },
+      {
+        "name": "screenshot.png",
+        "sha256": "27c2598dc7258df1ce7f9ce636a125a6aa422b9b84866e0468b7f5fe59863a08"
+      },
+      {
+        "name": "https://a.fsdn.com/con/js/sftheme/cmp2.js",
+        "sha256": "290d2841595f28d86c1241da72d604561e4a20e9357f5a7fcd97df3872018afe"
+      },
+      {
+        "name": "https://www.stack-sonar.com/ping.js",
+        "sha256": "30ffa03f71b651ba0851f8cb6bb6cb774bb1ca0efe27de779194dbc428f2ec34"
+      },
+      {
+        "name": "favicon.ico",
+        "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
+      },
+      {
+        "name": "favicon.ico.thumb",
+        "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
+      },
+      {
+        "name": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=15680&site_id=103246&zone_id=488692%3B488694%3B488692%3B488694%3B488694%3B488694&size_id=2%3B2%3B15%3B15%3B15%3B15&alt_size_ids=55%2C57%3B%3B10%2C54%3B10%2C54%3B10%2C54%3B10%2C54&p_pos=atf%3Bbtf%3Batf%3Bbtf%3Bbtf%3Bbtf&rf=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tg_i.domain=news.slashdot.org&tg_i.page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tk_flint=pbjs_lite_v8.13.0&l_pb_bid_id=230a2f5b5193c99%3B2459af5b1b55c68%3B257c7d225ffa178%3B26c9e18bd867c0d%3B271285774e33086%3B2807df53b977853&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&slots=6&rand=0.06432152772395772",
+        "sha256": "33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43"
+      },
+      {
+        "name": "https://www.gstatic.com/images/icons/gplus-16.png",
+        "sha256": "354379d305ca1e2b2f7beef5b3ac7899ce6ddcabdeb7daf12488c061468b893c"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "45a3c0a41501953aa0ed4e065e165b3c479e5a3d052ccd984d482023c9d21d79"
+      },
+      {
+        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs?widgets=true",
+        "sha256": "45d52dc10945dfbdc640ab2748a2aaadc89c4c335300ddebc8cc03f82ce9415a"
+      },
+      {
+        "name": "https://eb5b69091333a0ee3ea3a81fe1636601.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html",
+        "sha256": "468959e93f9b4e6f07c6a8f8d0e93d8fcb37d76a8615a93ec153f5842247ba99"
+      },
+      {
+        "name": "https://a.fsdn.com/con/css/sftheme/sandiego/cmp.css?2020-06-11",
+        "sha256": "4baae150a27bc5716ba8f5160fbd2414f5b731c470d8ee0956612dafa106e950"
+      },
+      {
+        "name": "https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914",
+        "sha256": "4e155284926ba010442d774fd493ff925a0256bd427f54596b1244791a3fa170"
+      },
+      {
+        "name": "https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=",
+        "sha256": "4fcda48fd92f2d20e388d06b2bd26ed34ad479a3045d779cfa8478a4f78fd8b0"
+      },
+      {
+        "name": "https://tag.crsspxl.com/s2.html?d=2397&t=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&u=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+        "sha256": "503e95598892b37cdc82dd507e2df3a83b58401967f6c0527eef1d063b63f7c5"
+      },
+      {
+        "name": "inline; filename=\"ccpa-optout.webp\"",
+        "sha256": "51c01128c75f73bae9484dc59afedea41bc6607f42ec337d63c875f8a5f3a826"
+      },
+      {
+        "name": "https://snap.licdn.com/li.lms-analytics/insight.min.js",
+        "sha256": "51f361716f7032e7456f1032326fdc3881a9462a0e8539ee3b02ad3f8316e0c5"
+      },
+      {
+        "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1",
+        "sha256": "526ff9d19aec809cd5cff33ceef7d974594abaa0ccee9e2e2db3bd1739a1f9f9"
+      },
+      {
+        "name": "https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/css/v1_6_1.css",
+        "sha256": "52fe780d03e98dcb4524e857426d1f7d10559ae6454cc38e551a8e307e93eaff"
+      },
+      {
+        "name": "https://ml314.com/tag.aspx?2692023",
+        "sha256": "556b62129d954b0d5b92c4f286ec0234774ac6d41353a3c84f8349fa94d88cf1"
+      },
+      {
+        "name": "https://tpc.googlesyndication.com/sodar/sodar2/225/runner.html",
+        "sha256": "55a119c0394f901a8a297e109c17b5e5402689708b999ab10691c16179f32a4a"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "5a2e3a8269e57686d2e6ae5aec1c75808f4ebc393c478a0c94ad139a80597f50"
+      },
+      {
+        "name": "https://snap.licdn.com/li.lms-analytics/insight.old.min.js",
+        "sha256": "5b3086a886aa8649ecbf496ac913a1aa443926cd2fff610be2d136c9598bcd8b"
+      },
+      {
+        "name": "https://analytics.slashdotmedia.com/sd.js",
+        "sha256": "5c166a5d40aeefd0679a14f95e47ff28824e66abba82adfa30be41803cc25632"
+      },
+      {
+        "name": "https://tpc.googlesyndication.com/sodar/sodar2.js",
+        "sha256": "61c32059a5e94075a7ecff678b33907966fc9cfa384daa01aa057f872da14dbb"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/font/sdicon.woff?4cff0049eac0f5ce",
+        "sha256": "62d3f3007e3da2a050d78c23ef02563250b8947bde7e0eeb46ba5c2a8e43705e"
+      },
+      {
+        "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=",
+        "sha256": "63b280e2ffb8cf73f1a4f9f7545c859f9ebbe419c0a109dc9e7f3489026cddcc"
+      },
+      {
+        "name": "https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51",
+        "sha256": "656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438"
+      },
+      {
+        "name": "https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442",
+        "sha256": "6872c3a56ee3d87df85850854d056f0b30cd32bfc758420fe230e80ac8592a99"
+      },
+      {
+        "name": "https://ads.pro-market.net/ads/scripts/dda4-1-9.js",
+        "sha256": "747aea5fe62af2ffb4944f7cf436ad2433433e40d21a3e41848028d4f889030b"
+      },
+      {
+        "name": "https://idsync.rlcdn.com/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b",
+        "sha256": "750dd90405811f7db3c998cd18227b9f355b26fde9529454aeef8c4cf187ecf9"
+      },
+      {
+        "name": "inline; filename=\"glyphish-icons-16-w.webp\"",
+        "sha256": "75b0d4f39e871b52515fa926129aaedce98a2862613405ad9b6817ab12e6c583"
+      },
+      {
+        "name": "https://image8.pubmatic.com/AdServer/ImgSync?p=0",
+        "sha256": "789c53d32da3b35f3766b2855b112be47b1044cd9303bcea0e37613ab0911bba"
+      },
+      {
+        "name": "https://pbid.pro-market.net/engine?site=143573;size=1x1;e=0;dt=0;category=tt1kyd71%20-%20nf4j;kw=die2ua%200%20%20ruqmi%209evznl%20sq6%202xe6k7%20%20it%20i62et0rff%20b%20d22wtzn%20eihpka4g%201xgk%20uw%20lye%20x33kid;rnd=(1698341598719)",
+        "sha256": "79ecee018f875bbb96ee0c0f8f06fc4e4371c1ac450d9294a04cbee4db599db6"
+      },
+      {
+        "name": "inline; filename=\"slashdot_favicon_white.webp\"",
+        "sha256": "7d69ef53a3d432381c98575031992ba0b4d14b351fa359c9e75214de4fd9414d"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/js/scripts/adgenerator.js?4cff0049eac0f5ce",
+        "sha256": "83b56810f90ecc4b4ca00f2d6225cd7c75441b42b740afbe17e0adac12890140"
+      },
+      {
+        "name": "https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1",
+        "sha256": "8a14fbeb53126a7d1e6d748a8805711ad7f75d66d294f7139c376fa23dbbd2fb"
+      },
+      {
+        "name": "https://api.btloader.com/country",
+        "sha256": "8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225"
+      },
+      {
+        "name": "https://btloader.com/tag?o=5098683085881344&upapi=true",
+        "sha256": "9266048e760af84271a31d514688b13c892174dc74f9a02fe78231ac1e30bc20"
+      },
+      {
+        "name": "https://tag.crsspxl.com/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552",
+        "sha256": "95a7f55ae02c753e951f58b6dbcfdafd97afcc6d05022062173492fecae7f4c6"
+      },
+      {
+        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed?search=&page_size=4&source=slashdot-jobs_horizontal_jobs_widget&widgets=true&page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+        "sha256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a"
+      },
+      {
+        "name": "https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940",
+        "sha256": "982130933c928f4beef4eab6a2a0f5ca83c4fd1309dad50e2d490f9af4016e05"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/all-minified.js?4cff0049eac0f5ce",
+        "sha256": "98e340a87db63d243b5be3e021c52d9ceed87b491d3699cd292dbc2ce7a53c5e"
+      },
+      {
+        "name": "https://ib.adnxs.com/ut/v3/prebid",
+        "sha256": "9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6"
+      },
+      {
+        "name": "session.har",
+        "sha256": "a687e3716831d228d5676ec032cb6d298736882d66f919b13283490813fa9d36"
+      },
+      {
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20",
+        "sha256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122"
+      },
+      {
+        "name": "https://slashdot.org/country.js",
+        "sha256": "ad94744abfc58e8e2ab2b6e22d1b74fab5cc940a39bf168f46b62dcf54550fe4"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "b226c2e3e2fd9bbb3ca87ae6efb13005d5559a441ed83c59da7f672bed6c76e0"
+      },
+      {
+        "name": "screenshot.png.thumb",
+        "sha256": "b6533e20e9e2cca81fddd286940f1e1d827e6369731602fbbc08a3d666eb6c4a"
+      },
+      {
+        "name": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",
+        "sha256": "b6fc204d9555dc776e2c1da1e67564d183e93cfff6c5f0e69e771f5ce9d9ebea"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "b8c21dccfeed18919dc361f8e7ca380ce090e343767d584524e93d13c74056f1"
+      },
+      {
+        "name": "https://tpc.googlesyndication.com/simgad/12181677395581006442",
+        "sha256": "bbf3ee0f5c28a13ab6b100d76cbbc6416385fdabda393e907f4682e269a135fc"
+      },
+      {
+        "name": "https://sync.crwdcntrl.net/map/c=3602/tp=CPPB/tpid=3476744686053029940/gdpr=0&gdpr_consent=",
+        "sha256": "be1dd7e0eb1348727c1d3a886956f7147698193299b9a4a81f529631c5016005"
+      },
+      {
+        "name": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795",
+        "sha256": "c51cbb55dc71fcd8f77037a44089a3fcb5a9b3b7ce38bed912d5892f13ecb2d5"
+      },
+      {
+        "name": "https://pagead2.googlesyndication.com/bg/y08pV31sM45xEike2vHNAQ_usQ3N3SApGkbB1F_zlUU.js",
+        "sha256": "cb4f29577d6c338e7112291edaf1cd010feeb10dcddd20291a46c1d45ff39545"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/sdlogo.svg",
+        "sha256": "d292c6a5ab551ade07eb768187ccc5ea823ad2d1422f702fc76d0b336b11704d"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287"
+      },
+      {
+        "name": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250",
+        "sha256": "d9d7923ffb361776873b82ee9d8437739dbe0e2ee7771278660f6e45a8788530"
+      },
+      {
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20",
+        "sha256": "de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57"
+      },
+      {
+        "name": "https://ad-delivery.net/px.gif?ch=1&e=0.9873019043032811",
+        "sha256": "e506b1fa98e4de5e55dd5c8c491deb877e9d5243ee90369d1e4802862f10c8ad"
+      },
+      {
+        "name": "https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/js/ind-imp.min.js",
+        "sha256": "e5d4f2c71d4d92ebca415fbdf96e7a98795534cf09a8d47e4ea6e2306034349d"
+      },
+      {
+        "name": "https://cms.analytics.yahoo.com/cms?partner_id=CROEL",
+        "sha256": "f4334287e08cacda3067b1540993d99e42e4a84512e310f48c9db76b99d2dd0e"
+      },
+      {
+        "name": "https://cm.g.doubleclick.net/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent=",
+        "sha256": "f4ee5740aa50d0b51757a48cfe8081e8c3898e0a5040103ae850a61f0204f717"
+      },
+      {
+        "name": "https://x.dlx.addthis.com/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok",
+        "sha256": "f5e64de14b2b607e29faa286221b2fa15dbb22ff29c551e41c009bcb9e0400ba"
+      },
+      {
+        "name": "https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/display.min.js",
+        "sha256": "f720d4434341a72ecaba1614be552b3d629bedc9da07aabf9660c6dff96cdce1"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/comments-minified.js?4cff0049eac0f5ce",
+        "sha256": "f895c2180e32c4ce4d271d356df846c691375a07bb28adeb0c2e073095a2fe99"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/classic.ssl.css?4cff0049eac0f5ce",
+        "sha256": "fd7cabe19f3902c002ab8b7f62071a64f732368a035e6925704d723214ae1438"
+      },
+      {
+        "name": "https://match.adsrvr.org/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1",
+        "sha256": "fdb7a0755be84bf111ba0e83ef75a817d1938a7b579c593095c0153c6c6262f5"
+      },
+      {
+        "name": "https://cm.g.doubleclick.net/pixel?google_nid=3476744686053029940&google_hm=MjY4LTU2MS0zNzM2",
+        "sha256": "ffb78ff872c8969140bf3e6ef82afe6fdd1988a767ed42f20e47362ea02d503b"
+      }
+    ]
+  },
+  "results": {
+    "heuristics": [],
+    "tags": {
+      "file.string.extracted": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/AdServer/ImgSync?p=0&rdf=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/pixel/bounce/?pid=r8hrb20&t=gif"
+        }
+      ],
+      "network.static.domain": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "2Fnews.slashdot.org"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "bh.contextweb.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "cm.g.doubleclick.net"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "cms.analytics.yahoo.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "dpm.demdex.net"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "e.dlx.addthis.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "ib.adnxs.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "idsync.rlcdn.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "image2.pubmatic.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "image8.pubmatic.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "match.adsrvr.org"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "match.sharethrough.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "ml314.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "news.slashdot.org"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "pippio.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "pixel.rubiconproject.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "ps.eyeota.net"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "px.ads.linkedin.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "ssp.disqus.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "stags.bluekai.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "sync.crwdcntrl.net"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "sync.go.sonobi.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "sync.mathtag.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "tag.crsspxl.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "tags.rd.linksynergy.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "u.openx.net"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "ups.analytics.yahoo.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "www.linkedin.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "x.dlx.addthis.com"
+        }
+      ],
+      "network.static.ip": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "104.36.113.107"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "107.178.254.65"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "13.107.42.14"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "142.251.33.162"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "172.64.151.192"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "198.148.27.131"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "216.200.232.249"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "34.117.77.79"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "34.200.65.202"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "34.231.251.31"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "34.98.64.218"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "34.98.67.3"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "35.190.60.146"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "35.71.131.137"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "44.198.203.3"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "54.145.126.188"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "54.167.138.170"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "68.67.160.117"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "69.166.1.66"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "69.173.151.100"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "72.247.168.200"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "8.28.7.82"
+        }
+      ],
+      "network.static.uri": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://bh.contextweb.com/bh/rtset?pid=562894&ev=1&us_privacy=&rurl=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D29%26buyeruid%3D%25%25VGUID%25%25%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC%26gdpr%3D%26gdpr_consent%3D"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://cm.g.doubleclick.net/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA=="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://cm.g.doubleclick.net/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://cms.analytics.yahoo.com/cms?partner_id=CROEL"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://dpm.demdex.net/demconf.jpg?et:ibs%7cdata:dpid=22052&dpuuid=3639494941643636806&redir="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://dpm.demdex.net/ibs:dpid=22052&dpuuid=3639494941643636806&redir="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://e.dlx.addthis.com/e/a-1625/s-3300?cb=1698341600805"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://e.dlx.addthis.com/e/a-1625/s-3300?cb=1698341600805&rd=Y"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ib.adnxs.com/getuid?https://tag.crsspxl.com/m.gif?anid=$UID"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://idsync.rlcdn.com/1000.gif?memo=CO6UGBIeChoIARCuXxoTMzYzOTQ5NDk0MTY0MzYzNjgwNhAAGg0I38XqqQYSBQjoBxAAQgBKAA"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://idsync.rlcdn.com/366518.gif?partner_uid=3476744686053029940"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://idsync.rlcdn.com/395886.gif?partner_uid=3639494941643636806"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://idsync.rlcdn.com/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://image2.pubmatic.com/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTM0MjImdGw9MTI5NjAw&gdpr=-1&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://image8.pubmatic.com/AdServer/ImgSync?p=0"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://image8.pubmatic.com/AdServer/ImgSync?sec=1&gdpr=0&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.adsrvr.org/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.sharethrough.com/sync/v1?source_id=5b286190338513af73f09c28&source_user_id=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.sharethrough.com/sync/v1?source_id=F2Stothm3wg5g6opTuaPadz9&source_user_id=&gpp=&gpp_sid=441f45b5-cb9a-4100-8cec-67eb3851d445"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://match.sharethrough.com/sync/v1?source_id=UiRtTsXAfjmfSDAKnR1FjWsu&source_user_id=LO7GQNHY-R-A7RJ&gdpr=0"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ml314.com/csync.ashx?fp=6653b57a34645c020bf84719c859bbfc&eid=50146&person_id=3639494941643636806"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ml314.com/csync.ashx?fp=fbe776e716ec90b68c443096910e67b185116f7c9ffcf3c2c843deb256e44bdff4cb09cee1a4f8eb&person_id=3639494941643636806&eid=50082"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ml314.com/utsync.ashx?eid=50052&et=0&fp=20Boj05tfCZt35jNdBGTWSMvzNOq_GUyiyxgU42MjOl0&gdpr=0&gdpr_consent=&return=https%3A%2F%2Fps.eyeota.net%2Fmatch%3Fbid%3Dr8hrb20%26uid%3Dnil%26referrer_pid%3Dr8hrb20"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ml314.com/utsync.ashx?eid=53819&et=0&fp=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://pippio.com/api/sync/ddp?pid=2&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA&google_gid=CAESENcYxNZwkW9Ii-ovH7BAuNk&google_cver=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://pippio.com/api/sync?pid=5324&it=1&iv=9d0de836dfce56f03a533f01ae20768ed3e057e8f507e7134239a0d2a53ae797791426b5417dce21&_=2"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://pixel.rubiconproject.com/exchange/sync.php?p=18694&gdpr=0&gdpr_consent=&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ps.eyeota.net/pixel/bounce/?pid=r8hrb20&t=gif"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ps.eyeota.net/pixel?pid=r8hrb20&t=gif"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://px.ads.linkedin.com/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true&liSync=true"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ssp.disqus.com/match?bidder=18&buyeruid=6f8f2882-a7df-41e6-a9db-89cfe3e27a43&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ssp.disqus.com/match?bidder=29&buyeruid=Gvcso2SNaaDZ&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC&gdpr=&gdpr_consent=&ev=1&us_privacy=&pid=562894"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ssp.disqus.com/redirectuser?r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3D7rkJAhPCWXbw9Lq5dZxc6TvN%26source_user_id%3D%24UID&partner=sharethrough&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://stags.bluekai.com/site/1407?partner=1&uhint=na_id=2023102617332200011075520285&redir=https%3A%2F%2Fx.dlx.addthis.com%2Fe%2Fbk_sync.xgi%3Fna_exid%3D%24_BK_UUID"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://sync.crwdcntrl.net/map/c=6985/tp=BOMB?https://ml314.com/csync.ashx%3Ffp%3D%24%7Bprofile_id%7D%26eid%3D50146%26person_id%3D3639494941643636806"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://sync.crwdcntrl.net/map/ct=y/c=6985/tp=BOMB?https://ml314.com/csync.ashx%3Ffp%3D%24%7Bprofile_id%7D%26eid%3D50146%26person_id%3D3639494941643636806"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://sync.go.sonobi.com/us?gdpr=&gdpr_consent=&us_privacy=&loc=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D18%26buyeruid%3D%5BUID%5D%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://sync.mathtag.com/sync/img?mt_exid=10012&redir=https://tag.crsspxl.com/m.gif?mmid=[MM_UUID]"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://tag.crsspxl.com/m.gif?anid=4464854860846992537"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://tag.crsspxl.com/m.gif?id=&google_gid=CAESEBleucqUfv-FekScUDeNJ8Q&google_cver=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://tag.crsspxl.com/m.gif?mmid=237e653a-a2e1-4b00-86b7-e689683c3445"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://tag.crsspxl.com/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://tag.crsspxl.com/m.gif?tdid=f4c86124-b187-4313-af83-0cc1e9102073"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://tag.crsspxl.com/m.gif?yahoo_id=y-RURQomVE2pOQnrwKnFScawqnC2v_nkSALLw-~A"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://tags.rd.linksynergy.com/rcs?ns=lr&uid3="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://u.openx.net/w/1.0/cm?cc=1&id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://u.openx.net/w/1.0/cm?gdpr=0&gdpr_consent=&id=7ead435e-a2cd-4cbf-8876-adb66822613f&ph=c6b01e12-aa62-4ae6-9e10-71346e597c31&r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3DF2Stothm3wg5g6opTuaPadz9%26source_user_id%3D&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://u.openx.net/w/1.0/cm?id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://ups.analytics.yahoo.com/ups/58701/cms?partner_id=CROEL"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://www.linkedin.com/px/li_sync?redirect=https%3A%2F%2Fpx.ads.linkedin.com%2Fcollect%3Fv%3D2%26fmt%3Djs%26pid%3D113712%26time%3D1698341598628%26url%3Dhttps%253A%252F%252Fnews.slashdot.org%252Fcomments.pl%253Fsid%253D11253499%2526cid%253D55399795%26cookiesTest%3Dtrue%26liSync%3Dtrue"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://x.dlx.addthis.com/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok"
+        }
+      ],
+      "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/1000.gif?memo=CO6UGBIeChoIARCuXxoTMzYzOTQ5NDk0MTY0MzYzNjgwNhAAGg0I38XqqQYSBQjoBxAAQgBKAA"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/366518.gif?partner_uid=3476744686053029940"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/395886.gif?partner_uid=3639494941643636806"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/458249.gif?partner_uid=b162d9c9-0b4d-4c22-b756-42f8ef12943b"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/AdServer/ImgSync?p=0"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/AdServer/ImgSync?p=0&rdf=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/AdServer/ImgSync?sec=1&gdpr=0&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTM0MjImdGw9MTI5NjAw&gdpr=-1&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/api/sync/ddp?pid=2&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA&google_gid=CAESENcYxNZwkW9Ii-ovH7BAuNk&google_cver=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/api/sync?pid=5324&it=1&iv=9d0de836dfce56f03a533f01ae20768ed3e057e8f507e7134239a0d2a53ae797791426b5417dce21&_=2"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/bh/rtset?pid=562894&ev=1&us_privacy=&rurl=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D29%26buyeruid%3D%25%25VGUID%25%25%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC%26gdpr%3D%26gdpr_consent%3D"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/cms?partner_id=CROEL"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/collect?v=2&fmt=js&pid=113712&time=1698341598628&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&cookiesTest=true&liSync=true"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/comments.pl?sid=11253499&cid=55399795"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/csync.ashx?fp=6653b57a34645c020bf84719c859bbfc&eid=50146&person_id=3639494941643636806"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/csync.ashx?fp=fbe776e716ec90b68c443096910e67b185116f7c9ffcf3c2c843deb256e44bdff4cb09cee1a4f8eb&person_id=3639494941643636806&eid=50082"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/demconf.jpg?et:ibs%7cdata:dpid=22052&dpuuid=3639494941643636806&redir="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/e/a-1625/s-3300?cb=1698341600805"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/e/a-1625/s-3300?cb=1698341600805&rd=Y"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/e/bk_sync.xgi?na_exid=3AP51OPY99YKopok"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/exchange/sync.php?p=18694&gdpr=0&gdpr_consent=&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/getuid?https:"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/ibs:dpid=22052&dpuuid=3639494941643636806&redir="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/m.gif?anid=4464854860846992537"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/m.gif?id=&google_gid=CAESEBleucqUfv-FekScUDeNJ8Q&google_cver=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/m.gif?mmid=237e653a-a2e1-4b00-86b7-e689683c3445"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/m.gif?tdid=f4c86124-b187-4313-af83-0cc1e9102073"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/m.gif?yahoo_id=y-RURQomVE2pOQnrwKnFScawqnC2v_nkSALLw-~A"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/map/c=6985/tp=BOMB?https:"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/map/ct=y/c=6985/tp=BOMB?https:"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/match?bidder=18&buyeruid=6f8f2882-a7df-41e6-a9db-89cfe3e27a43&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/match?bidder=29&buyeruid=Gvcso2SNaaDZ&r=Cid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgC&gdpr=&gdpr_consent=&ev=1&us_privacy=&pid=562894"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/pixel/bounce/?pid=r8hrb20&t=gif"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA=="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/pixel?google_nid=pubmatic&google_hm=MkFCRjU1NDctMTRFMC00Rjg3LThFN0EtOUY1NzlBRDRBMjkz&gdpr=-1&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/pixel?pid=r8hrb20&t=gif"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/px/li_sync?redirect=https%3A%2F%2Fpx.ads.linkedin.com%2Fcollect%3Fv%3D2%26fmt%3Djs%26pid%3D113712%26time%3D1698341598628%26url%3Dhttps%253A%252F%252Fnews.slashdot.org%252Fcomments.pl%253Fsid%253D11253499%2526cid%253D55399795%26cookiesTest%3Dtrue%26liSync%3Dtrue"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/rcs?ns=lr&uid3="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/redirectuser?r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3D7rkJAhPCWXbw9Lq5dZxc6TvN%26source_user_id%3D%24UID&partner=sharethrough&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/site/1407?partner=1&uhint=na_id=2023102617332200011075520285&redir=https%3A%2F%2Fx.dlx.addthis.com%2Fe%2Fbk_sync.xgi%3Fna_exid%3D%24_BK_UUID"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/sync/img?mt_exid=10012&redir=https:"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/sync/v1?source_id=5b286190338513af73f09c28&source_user_id=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/sync/v1?source_id=F2Stothm3wg5g6opTuaPadz9&source_user_id=&gpp=&gpp_sid=441f45b5-cb9a-4100-8cec-67eb3851d445"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/sync/v1?source_id=UiRtTsXAfjmfSDAKnR1FjWsu&source_user_id=LO7GQNHY-R-A7RJ&gdpr=0"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/track/cmb/generic?ttd_pid=d0tro1j&ttd_tpi=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/ups/58701/cms?partner_id=CROEL"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/us?gdpr=&gdpr_consent=&us_privacy=&loc=https%3A%2F%2Fssp.disqus.com%2Fmatch%3Fbidder%3D18%26buyeruid%3D%5BUID%5D%26r%3DCid1YS0zNWNhM2ZmOC1lMjlhLTM3YTktOTZlNS1jMWFjOGI1Yjc0NDIQ____________ASqAAWh0dHBzOi8vbWF0Y2guc2hhcmV0aHJvdWdoLmNvbS9zeW5jL3YxP3NvdXJjZV9pZD03cmtKQWhQQ1dYYnc5THE1ZFp4YzZUdk4mc291cmNlX3VzZXJfaWQ9dWEtMzVjYTNmZjgtZTI5YS0zN2E5LTk2ZTUtYzFhYzhiNWI3NDQyMgISHTgB"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/utsync.ashx?eid=50052&et=0&fp=20Boj05tfCZt35jNdBGTWSMvzNOq_GUyiyxgU42MjOl0&gdpr=0&gdpr_consent=&return=https%3A%2F%2Fps.eyeota.net%2Fmatch%3Fbid%3Dr8hrb20%26uid%3Dnil%26referrer_pid%3Dr8hrb20"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/utsync.ashx?eid=53819&et=0&fp=f4c86124-b187-4313-af83-0cc1e9102073&gdpr=0&gdpr_consent="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/w/1.0/cm?cc=1&id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/w/1.0/cm?gdpr=0&gdpr_consent=&id=7ead435e-a2cd-4cbf-8876-adb66822613f&ph=c6b01e12-aa62-4ae6-9e10-71346e597c31&r=https%3A%2F%2Fmatch.sharethrough.com%2Fsync%2Fv1%3Fsource_id%3DF2Stothm3wg5g6opTuaPadz9%26source_user_id%3D&gpp=&gpp_sid="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/w/1.0/cm?id=d3d03dbd-5946-4cba-8d30-3c0226699028&r=https%3A%2F%2Ftag.crsspxl.com%2Fm.gif%3Foxid%3D"
+        }
+      ]
+    },
+    "temp_submission_data": {}
+  }
+}

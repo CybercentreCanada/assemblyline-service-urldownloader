@@ -1,0 +1,128 @@
+{
+  "extra": {
+    "drop_file": false,
+    "score": 0,
+    "sections": [
+      {
+        "auto_collapse": false,
+        "body": "[[\"response_code\", 200], [\"requested_url\", \"https://getsamplefiles.com/download/zip/sample-1.zip\"], [\"requested_url_ip\", \"68.183.46.179\"], [\"actual_url\", \"https://getsamplefiles.com/download/zip/sample-1.zip\"], [\"actual_url_ip\", \"68.183.46.179\"]]",
+        "body_config": {},
+        "body_format": "ORDERED_KEY_VALUE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "getsamplefiles.com"
+              ],
+              "ip": [
+                "68.183.46.179"
+              ],
+              "uri": [
+                "https://getsamplefiles.com/download/zip/sample-1.zip"
+              ],
+              "uri_path": [
+                "/download/zip/sample-1.zip"
+              ]
+            }
+          }
+        },
+        "title_text": "Results",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a\", \"description\": \"Screenshot of https://getsamplefiles.com/download/zip/sample-1.zip\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26\", \"description\": \"Screenshot of https://getsamplefiles.com/download/zip/sample-1.zip (thumbnail)\"}}]",
+        "body_config": {},
+        "body_format": "IMAGE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": "SCREENSHOT",
+        "tags": {},
+        "title_text": "Screenshot of visited page",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"Filename\": \"sample-1.zip\", \"Size\": 1099121, \"mimeType\": \"application/zip\", \"url\": \"https://getsamplefiles.com/download/zip/sample-1.zip\", \"SHA256\": \"630dd17dca48ae7a1556fab5b97a307459b603b481e7e5b5bc934ce00074285e\"}]",
+        "body_config": {
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
+        },
+        "body_format": "TABLE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Downloaded file(s)",
+        "zeroize_on_tag_safe": false
+      }
+    ]
+  },
+  "files": {
+    "extracted": [
+      {
+        "name": "sample-1.zip",
+        "sha256": "630dd17dca48ae7a1556fab5b97a307459b603b481e7e5b5bc934ce00074285e"
+      }
+    ],
+    "supplementary": [
+      {
+        "name": "screenshot.png",
+        "sha256": "10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a"
+      },
+      {
+        "name": "session.har",
+        "sha256": "2f0fb118fb6464c89ea2b49a82c5fa46564d107afe8dc406b6629708951ee5b2"
+      },
+      {
+        "name": "screenshot.png.thumb",
+        "sha256": "9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26"
+      }
+    ]
+  },
+  "results": {
+    "heuristics": [],
+    "tags": {
+      "network.static.domain": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "getsamplefiles.com"
+        }
+      ],
+      "network.static.ip": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "68.183.46.179"
+        }
+      ],
+      "network.static.uri": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://getsamplefiles.com/download/zip/sample-1.zip"
+        }
+      ],
+      "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/download/zip/sample-1.zip"
+        }
+      ]
+    },
+    "temp_submission_data": {}
+  }
+}

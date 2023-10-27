@@ -1,0 +1,140 @@
+{
+  "extra": {
+    "drop_file": false,
+    "score": 0,
+    "sections": [
+      {
+        "auto_collapse": false,
+        "body": "{\"Accept\": \"application/*\"}",
+        "body_config": {},
+        "body_format": "KEY_VALUE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Ignored params",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[[\"response_code\", 200], [\"requested_url\", \"https://json.schemastore.org/eslintrc.json\"], [\"requested_url_ip\", \"20.42.128.105\"], [\"actual_url\", \"https://json.schemastore.org/eslintrc.json\"], [\"actual_url_ip\", \"20.42.128.105\"]]",
+        "body_config": {},
+        "body_format": "ORDERED_KEY_VALUE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "json.schemastore.org"
+              ],
+              "ip": [
+                "20.42.128.105"
+              ],
+              "uri": [
+                "https://json.schemastore.org/eslintrc.json"
+              ],
+              "uri_path": [
+                "/eslintrc.json"
+              ]
+            }
+          }
+        },
+        "title_text": "Results",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"72f6f3f34fb3d12969d3c9d0cc16bba01fc3dc0a8fa0a2ad246c1ce795ddf77d\", \"description\": \"Screenshot of https://json.schemastore.org/eslintrc.json\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"d119ac4b4db7ddad75b02a2e78f2c05d01b90f97448a038f4bd45f077920eaaf\", \"description\": \"Screenshot of https://json.schemastore.org/eslintrc.json (thumbnail)\"}}]",
+        "body_config": {},
+        "body_format": "IMAGE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": "SCREENSHOT",
+        "tags": {},
+        "title_text": "Screenshot of visited page",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": "[{\"Filename\": \"https://json.schemastore.org/eslintrc.json\", \"Size\": 56387, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://json.schemastore.org/eslintrc.json\", \"SHA256\": \"3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5\"}]",
+        "body_config": {
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
+        },
+        "body_format": "TABLE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Content file(s)",
+        "zeroize_on_tag_safe": false
+      }
+    ]
+  },
+  "files": {
+    "extracted": [],
+    "supplementary": [
+      {
+        "name": "https://json.schemastore.org/eslintrc.json",
+        "sha256": "3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5"
+      },
+      {
+        "name": "screenshot.png",
+        "sha256": "72f6f3f34fb3d12969d3c9d0cc16bba01fc3dc0a8fa0a2ad246c1ce795ddf77d"
+      },
+      {
+        "name": "session.har",
+        "sha256": "9eb1f72da81d1628bf9a367e9ed8a537fc74985f22a92a6f4eece2ae1d4e4922"
+      },
+      {
+        "name": "screenshot.png.thumb",
+        "sha256": "d119ac4b4db7ddad75b02a2e78f2c05d01b90f97448a038f4bd45f077920eaaf"
+      }
+    ]
+  },
+  "results": {
+    "heuristics": [],
+    "tags": {
+      "network.static.domain": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "json.schemastore.org"
+        }
+      ],
+      "network.static.ip": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "20.42.128.105"
+        }
+      ],
+      "network.static.uri": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://json.schemastore.org/eslintrc.json"
+        }
+      ],
+      "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/eslintrc.json"
+        }
+      ]
+    },
+    "temp_submission_data": {}
+  }
+}
