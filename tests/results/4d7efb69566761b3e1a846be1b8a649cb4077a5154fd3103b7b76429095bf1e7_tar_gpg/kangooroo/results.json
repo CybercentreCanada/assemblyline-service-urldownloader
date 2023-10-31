@@ -1,0 +1,24 @@
+{
+  "response_code": 200,
+  "connection_success": true,
+  "fetch_object_success": true,
+  "requested_url": "http://refreshmet.com/Package.tar.gpg",
+  "requested_url_ip": "185.161.209.243",
+  "actual_url": "http://refreshmet.com/Package.tar.gpg",
+  "actual_url_ip": "185.161.209.243",
+  "server_info": {
+    "Date": "Tue, 31 Oct 2023 18:45:26 GMT",
+    "Server": "Apache/2.4.56 (Debian)",
+    "Last-Modified": "Wed, 18 Oct 2023 15:55:48 GMT",
+    "ETag": "\"1aed01-607ffac4a4714\"",
+    "Accept-Ranges": "bytes",
+    "Content-Length": "1764609",
+    "Content-Type": "application/x-tar"
+  },
+  "has_timed_out": false,
+  "processing_time": 15066,
+  "messages": [],
+  "creationDate": "Oct 31, 2023, 6:45:40 PM",
+  "engineName": "Standalone-Kangooroo",
+  "engineVersion": "1.0.1"
+}

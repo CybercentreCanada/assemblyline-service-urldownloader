@@ -83,12 +83,13 @@
     ]
   },
   "files": {
-    "extracted": [],
-    "supplementary": [
+    "extracted": [
       {
         "name": "https://json.schemastore.org/eslintrc.json",
         "sha256": "3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5"
-      },
+      }
+    ],
+    "supplementary": [
       {
         "name": "screenshot.png",
         "sha256": "72f6f3f34fb3d12969d3c9d0cc16bba01fc3dc0a8fa0a2ad246c1ce795ddf77d"

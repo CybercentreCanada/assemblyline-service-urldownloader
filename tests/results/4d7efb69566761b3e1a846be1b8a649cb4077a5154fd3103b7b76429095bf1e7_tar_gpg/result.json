@@ -5,7 +5,7 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "[[\"response_code\", 200], [\"requested_url\", \"https://getsamplefiles.com/download/zip/sample-1.zip\"], [\"requested_url_ip\", \"68.183.46.179\"], [\"actual_url\", \"https://getsamplefiles.com/download/zip/sample-1.zip\"], [\"actual_url_ip\", \"68.183.46.179\"]]",
+        "body": "[[\"response_code\", 200], [\"requested_url\", \"http://refreshmet.com/Package.tar.gpg\"], [\"requested_url_ip\", \"185.161.209.243\"], [\"actual_url\", \"http://refreshmet.com/Package.tar.gpg\"], [\"actual_url_ip\", \"185.161.209.243\"]]",
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
         "classification": "TLP:C",
@@ -16,16 +16,16 @@
           "network": {
             "static": {
               "domain": [
-                "getsamplefiles.com"
+                "refreshmet.com"
               ],
               "ip": [
-                "68.183.46.179"
+                "185.161.209.243"
               ],
               "uri": [
-                "https://getsamplefiles.com/download/zip/sample-1.zip"
+                "http://refreshmet.com/Package.tar.gpg"
               ],
               "uri_path": [
-                "/download/zip/sample-1.zip"
+                "/Package.tar.gpg"
               ]
             }
           }
@@ -35,7 +35,7 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a\", \"description\": \"Screenshot of https://getsamplefiles.com/download/zip/sample-1.zip\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26\", \"description\": \"Screenshot of https://getsamplefiles.com/download/zip/sample-1.zip (thumbnail)\"}}]",
+        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a\", \"description\": \"Screenshot of http://refreshmet.com/Package.tar.gpg\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26\", \"description\": \"Screenshot of http://refreshmet.com/Package.tar.gpg (thumbnail)\"}}]",
         "body_config": {},
         "body_format": "IMAGE",
         "classification": "TLP:C",
@@ -48,7 +48,7 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"Filename\": \"sample-1.zip\", \"Size\": 1099121, \"mimeType\": \"application/zip\", \"url\": \"https://getsamplefiles.com/download/zip/sample-1.zip\", \"SHA256\": \"aacc269929eb3813429f4d15fb45ade9c7d0276b55421817f052a3ecb366b2e6\"}]",
+        "body": "[{\"Filename\": \"http://refreshmet.com/Package.tar.gpg\", \"Size\": 1764609, \"mimeType\": \"application/x-tar\", \"url\": \"http://refreshmet.com/Package.tar.gpg\", \"SHA256\": \"8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea\"}]",
         "body_config": {
           "column_order": [
             "Filename",
@@ -64,7 +64,7 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Downloaded file(s)",
+        "title_text": "Content file(s)",
         "zeroize_on_tag_safe": false
       }
     ]
@@ -72,8 +72,8 @@
   "files": {
     "extracted": [
       {
-        "name": "sample-1.zip",
-        "sha256": "aacc269929eb3813429f4d15fb45ade9c7d0276b55421817f052a3ecb366b2e6"
+        "name": "http://refreshmet.com/Package.tar.gpg",
+        "sha256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea"
       }
     ],
     "supplementary": [
@@ -83,7 +83,7 @@
       },
       {
         "name": "session.har",
-        "sha256": "2f0fb118fb6464c89ea2b49a82c5fa46564d107afe8dc406b6629708951ee5b2"
+        "sha256": "15b865786026222c1e9b0b70c3094e67fdcd7b751d6831ad38d1330d2e3bf702"
       },
       {
         "name": "screenshot.png.thumb",
@@ -98,28 +98,28 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "getsamplefiles.com"
+          "value": "refreshmet.com"
         }
       ],
       "network.static.ip": [
         {
           "heur_id": null,
           "signatures": [],
-          "value": "68.183.46.179"
+          "value": "185.161.209.243"
         }
       ],
       "network.static.uri": [
         {
           "heur_id": null,
           "signatures": [],
-          "value": "https://getsamplefiles.com/download/zip/sample-1.zip"
+          "value": "http://refreshmet.com/Package.tar.gpg"
         }
       ],
       "network.static.uri_path": [
         {
           "heur_id": null,
           "signatures": [],
-          "value": "/download/zip/sample-1.zip"
+          "value": "/Package.tar.gpg"
         }
       ]
     },

@@ -1,3 +1,4 @@
+import base64
 import hashlib
 import json
 import os
@@ -171,7 +172,17 @@ class URLDownloader(ServiceBase):
                         pass
 
                 if "size" in entry["response"]["content"] and entry["response"]["content"]["size"] != 0:
-                    content = entry["response"]["content"]["text"].encode()
+                    content_text = entry["response"]["content"]["text"]
+                    if (
+                        "encoding" in entry["response"]["content"]
+                        and entry["response"]["content"]["encoding"] == "base64"
+                    ):
+                        try:
+                            content = base64.b64decode(content_text)
+                        except Exception:
+                            content = content_text.encode()
+                    else:
+                        content = content_text.encode()
                     content_md5 = hashlib.md5(content).hexdigest()
                     content_path = os.path.join(self.working_directory, content_md5)
                     with open(content_path, "wb") as f:
@@ -219,7 +230,11 @@ class URLDownloader(ServiceBase):
                             )
                         )
                     )
-                    if download_params["type"] == "download" or file_info["type"].startswith("archive"):
+                    if (
+                        download_params["type"] == "download"
+                        or file_info["type"].startswith("archive")
+                        or len(downloads) == 1
+                    ):
                         request.add_extracted(
                             download_params["path"], download_params["filename"], download_params["url"]
                         )
