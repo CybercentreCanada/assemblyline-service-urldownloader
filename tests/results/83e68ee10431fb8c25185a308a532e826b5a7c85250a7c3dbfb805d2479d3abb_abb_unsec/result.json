@@ -1,0 +1,71 @@
+{
+  "extra": {
+    "drop_file": false,
+    "score": 0,
+    "sections": [
+      {
+        "auto_collapse": false,
+        "body": "[[\"response_code\", 0], [\"requested_url\", \"http://155.138.224.36/abb/unsec\"], [\"requested_url_ip\", \"155.138.224.36\"], [\"actual_url_ip\", \"155.138.224.36\"]]",
+        "body_config": {},
+        "body_format": "ORDERED_KEY_VALUE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "network": {
+            "static": {
+              "ip": [
+                "155.138.224.36"
+              ],
+              "uri": [
+                "http://155.138.224.36/abb/unsec"
+              ],
+              "uri_path": [
+                "/abb/unsec"
+              ]
+            }
+          }
+        },
+        "title_text": "Results",
+        "zeroize_on_tag_safe": false
+      }
+    ]
+  },
+  "files": {
+    "extracted": [],
+    "supplementary": [
+      {
+        "name": "session.har",
+        "sha256": "785bbe3e4386e4d6672bc90958fde7257dbe9b8c55cb6cd709824ec0ca05db73"
+      }
+    ]
+  },
+  "results": {
+    "heuristics": [],
+    "tags": {
+      "network.static.ip": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "155.138.224.36"
+        }
+      ],
+      "network.static.uri": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "http://155.138.224.36/abb/unsec"
+        }
+      ],
+      "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/abb/unsec"
+        }
+      ]
+    },
+    "temp_submission_data": {}
+  }
+}

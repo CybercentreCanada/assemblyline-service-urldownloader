@@ -81,13 +81,15 @@ class URLDownloader(ServiceBase):
             result_section = ResultOrderedKeyValueSection("Results", parent=request.result)
             result_section.add_item("response_code", results["response_code"])
             result_section.add_item("requested_url", results["requested_url"])
-            result_section.add_item("requested_url_ip", results["requested_url_ip"])
-            result_section.add_item("actual_url", results["actual_url"])
-            result_section.add_item("actual_url_ip", results["actual_url_ip"])
             add_tag(result_section, "network.static.uri", results["requested_url"])
+            result_section.add_item("requested_url_ip", results["requested_url_ip"])
             result_section.add_tag("network.static.ip", results["requested_url_ip"])
-            add_tag(result_section, "network.static.uri", results["actual_url"])
+            if "actual_url" in results:
+                result_section.add_item("actual_url", results["actual_url"])
+                add_tag(result_section, "network.static.uri", results["actual_url"])
+            result_section.add_item("actual_url_ip", results["actual_url_ip"])
             result_section.add_tag("network.static.ip", results["actual_url_ip"])
+
             if results["requested_url_ip"] != results["actual_url_ip"]:
                 source_file = os.path.join(output_folder, "source.html")
                 if os.path.exists(source_file):
