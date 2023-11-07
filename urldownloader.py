@@ -40,8 +40,8 @@ class URLDownloader(ServiceBase):
             data = yaml.safe_load(f)
 
         data.pop("uri")
-        verb = data.pop("verb", "GET")
-        if verb == "GET":
+        method = data.pop("method", "GET")
+        if method == "GET":
             headers = data.pop("headers", {})
             if data or headers:
                 ignored_params_section = ResultKeyValueSection("Ignored params", parent=request.result)
@@ -252,7 +252,7 @@ class URLDownloader(ServiceBase):
         else:
             # Non-GET request
             r = requests.request(
-                verb,
+                method,
                 request.task.fileinfo.uri_info.uri,
                 headers=data.get("headers", {}),
                 data=data.get("data", None),
