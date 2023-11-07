@@ -40,9 +40,9 @@ class URLDownloader(ServiceBase):
             data = yaml.safe_load(f)
 
         data.pop("uri")
-        headers = data.pop("headers", {})
         verb = data.pop("verb", "GET")
         if verb == "GET":
+            headers = data.pop("headers", {})
             if data or headers:
                 ignored_params_section = ResultKeyValueSection("Ignored params", parent=request.result)
                 ignored_params_section.update_items(data)
@@ -134,8 +134,6 @@ class URLDownloader(ServiceBase):
             downloads = {}
             redirects = []
             for entry in entries:
-                # print(entry)
-
                 # Convert Kangooroo's list of header to a proper dictionary
                 entry["request"]["headers"] = {
                     header["name"]: header["value"] for header in entry["request"]["headers"]
@@ -144,6 +142,7 @@ class URLDownloader(ServiceBase):
                     header["name"]: header["value"] for header in entry["response"]["headers"]
                 }
 
+                # Figure out if there is an http redirect
                 if entry["response"]["status"] in [301, 302, 303, 307, 308]:
                     redirects.append(
                         {
@@ -154,6 +153,7 @@ class URLDownloader(ServiceBase):
                         }
                     )
 
+                # Some redirects and hidden in the headers with 200 response codes
                 if "refresh" in entry["response"]["headers"]:
                     try:
                         refresh = entry["response"]["headers"]["refresh"].split(";", 1)
@@ -171,6 +171,7 @@ class URLDownloader(ServiceBase):
                         # Maybe log that we weren't able to parse the refresh
                         pass
 
+                # Find all content that was downloaded from the servers
                 if "size" in entry["response"]["content"] and entry["response"]["content"]["size"] != 0:
                     content_text = entry["response"]["content"]["text"]
                     if (
@@ -193,10 +194,12 @@ class URLDownloader(ServiceBase):
 
                     downloads[content_md5]["filename"] = entry["request"]["url"]
 
+                    # The headers could contain the name of the downloaded file
                     if "Content-Disposition" in entry["response"]["headers"]:
                         downloads[content_md5]["filename"] = entry["response"]["headers"]["Content-Disposition"]
                         if downloads[content_md5]["filename"].startswith("attachment; filename="):
                             downloads[content_md5]["filename"] = downloads[content_md5]["filename"][21:]
+                            # Flag that file as a proper download instead of an anciliary file
                             downloads[content_md5]["type"] = "download"
 
                     downloads[content_md5]["size"] = entry["response"]["content"]["size"]
@@ -251,7 +254,7 @@ class URLDownloader(ServiceBase):
             r = requests.request(
                 verb,
                 request.task.fileinfo.uri_info.uri,
-                headers=headers,
+                headers=data.get("headers", {}),
                 data=data.get("data", None),
                 json=data.get("json", None),
             )
