@@ -12,10 +12,25 @@
             "cwd": "${workspaceFolder}",
             "args": [
                 "-d",
-                "urldownloader.urldownloader.URLDownloader",
+                "urldownloader.URLDownloader",
                 "/path/to/sample"
             ],
             "justMyCode": false,
         },
+        {
+            "name": "[Service] URLDownloader - Privileged",
+            "type": "python",
+            "request": "launch",
+            "module": "assemblyline_v4_service.run_privileged_service",
+            "env": {
+                "SERVICE_MANIFEST_PATH": "service_manifest.yml",
+                "PRIVILEGED": "true",
+                "SERVICE_PATH": "urldownloader.URLDownloader",
+                "TASKING_DIR": "/tmp/URLDownloader"
+            },
+            "console": "internalConsole",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false,
+        }
     ]
 }

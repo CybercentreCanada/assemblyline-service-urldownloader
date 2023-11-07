@@ -2,84 +2,20 @@ name: URLDownloader
 version: $SERVICE_TAG
 description: This service downloads potentially malicious URLs.
 
-accepts: .*
+accepts: uri/https?
 rejects: empty|metadata/.*
 
-stage: POST
+stage: CORE
 category: Internet Connected
 
-file_required: false
 timeout: 300
 disable_cache: false
 
 enabled: true
 is_external: true
-licence_count: 0
-uses_tag_scores: true
-uses_metadata: true
-uses_temp_submission_data: true
-
-submission_params:
-  - default: 300
-    name: minimum_maliciousness
-    value: 300
-    type: int
-  - default: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-    name: user_agent
-    value: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-    type: str
-  - default: false
-    name: include_submitted_url
-    value: false
-    type: bool
 
 config:
-  proxy: {}
-  headers: {}
-  timeout_per_request: 10
-  minimum_maliciousness_limit: 1
-
-heuristics:
-  - heur_id: 1
-    name: Downloader
-    score: 1000
-    filetype: .*
-    description: URL that drops a malicious payload
-
-  - heur_id: 2
-    name: Redirection
-    score: 0
-    filetype: .*
-    description: URL contains redirects
-
-  - heur_id: 3
-    name: IP-based URL Request
-    score: 0
-    filetype: .*
-    description: Download using a server IP
-    # Scoring needs to be evaluated
-    signature_score_map:
-      ipv4: 0
-      ipv6: 0
-
-  - heur_id: 4
-    name: High Port Usage
-    score: 0
-    filetype: .*
-    description: URI contains a host with a high port value
-    signature_score_map:
-      domain: 0
-      ip: 0
-
-  - heur_id: 5
-    name: Discovery Tool in URI Path
-    score: 0
-    filetype: .*
-    description: URI contains a native OS tool name, presumably used for reconnaissance
-    signature_score_map:
-      windows: 0
-      linux: 0
-
+  request_timeout: 150
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG

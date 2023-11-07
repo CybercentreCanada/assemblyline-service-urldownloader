@@ -1,0 +1,35 @@
+{
+  "response_code": 200,
+  "connection_success": true,
+  "fetch_object_success": true,
+  "requested_url": "https://json.schemastore.org/eslintrc.json",
+  "requested_url_ip": "20.42.128.105",
+  "actual_url": "https://json.schemastore.org/eslintrc.json",
+  "actual_url_ip": "20.42.128.105",
+  "server_info": {
+    "Content-Length": "8668",
+    "Content-Type": "application/json; charset\u003dutf-8",
+    "Date": "Thu, 26 Oct 2023 17:31:53 GMT",
+    "Server": "Microsoft-IIS/10.0",
+    "Accept-Ranges": "bytes",
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "public,max-age\u003d31536000",
+    "Content-Encoding": "gzip",
+    "ETag": "\"09c10cf5f2bd91:0\"",
+    "Last-Modified": "Wed, 18 Jan 2023 17:10:48 GMT",
+    "Vary": "Accept-Encoding, If-Modified-Since",
+    "Content-Security-Policy": "object-src \u0027none\u0027;",
+    "Arr-Disable-Session-Affinity": "True"
+  },
+  "has_timed_out": false,
+  "processing_time": 25236,
+  "messages": [
+    {
+      "type": "WARN",
+      "message": "The height of the screenshot truncated to 10000px (instead of 22886px)"
+    }
+  ],
+  "creationDate": "Oct 26, 2023, 5:32:17 PM",
+  "engineName": "Standalone-Kangooroo",
+  "engineVersion": "1.0.1"
+}

@@ -1,0 +1,32 @@
+{
+  "response_code": 200,
+  "connection_success": true,
+  "fetch_object_success": true,
+  "requested_url": "https://getsamplefiles.com/download/zip/sample-1.zip",
+  "requested_url_ip": "68.183.46.179",
+  "actual_url": "https://getsamplefiles.com/download/zip/sample-1.zip",
+  "actual_url_ip": "68.183.46.179",
+  "server_info": {
+    "Server": "nginx/1.22.0 (Ubuntu)",
+    "Content-Type": "application/zip",
+    "Content-Length": "1099121",
+    "Connection": "keep-alive",
+    "Cache-Control": "public",
+    "Date": "Thu, 26 Oct 2023 17:32:38 GMT",
+    "Last-Modified": "Sat, 31 Dec 2022 13:31:03 GMT",
+    "Content-Disposition": "attachment; filename\u003dsample-1.zip",
+    "Accept-Ranges": "bytes",
+    "Set-Cookie": "get_sample_files_session\u003deyJpdiI6IjNsRVVjU1lNL0k0M0NwMFZPWUQwNEE9PSIsInZhbHVlIjoiRGZkNFg0RWxlRVNWRm53TTlMblZmNERhY1F2Q3BkWHpVQmcyWC9TRG5DUVJMYk1jVXpXN3JGVzlYeU1XQURYWktvclYzVWgvalhNV3pEcjhJMDE3UnprSjdYMEhVS0RISkVnV2V0TkQ0UWpPck04MWRNdjd0enpQbHVCWTNUZzEiLCJtYWMiOiI4OTVkZTI0YjBlZjY5NWFhZmU2NmU4YzEwNTkwNzBmNGIxOTliOWFhN2NiOGViZDhmNDQ5NDJmZGMxMDhlMjczIiwidGFnIjoiIn0%3D; expires\u003dThu, 26 Oct 2023 19:32:38 GMT; Max-Age\u003d7200; path\u003d/; httponly; samesite\u003dlax",
+    "Strict-Transport-Security": "max-age\u003d31536000; includeSubDomains",
+    "X-XSS-Protection": "1; mode\u003dblock",
+    "X-Content-Type-Options": "nosniff",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,OPTIONS,POST"
+  },
+  "has_timed_out": false,
+  "processing_time": 23609,
+  "messages": [],
+  "creationDate": "Oct 26, 2023, 5:32:59 PM",
+  "engineName": "Standalone-Kangooroo",
+  "engineVersion": "1.0.1"
+}

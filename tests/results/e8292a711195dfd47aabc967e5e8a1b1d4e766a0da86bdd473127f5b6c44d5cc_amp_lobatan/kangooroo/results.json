@@ -1,0 +1,21 @@
+{
+  "response_code": 404,
+  "connection_success": true,
+  "fetch_object_success": false,
+  "requested_url": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
+  "requested_url_ip": "142.251.41.46",
+  "actual_url": "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
+  "actual_url_ip": "67.212.189.210",
+  "server_info": {
+    "Date": "Thu, 26 Oct 2023 17:28:41 GMT",
+    "Server": "Apache",
+    "Content-Length": "315",
+    "Content-Type": "text/html; charset\u003diso-8859-1"
+  },
+  "has_timed_out": false,
+  "processing_time": 25144,
+  "messages": [],
+  "creationDate": "Oct 26, 2023, 5:29:04 PM",
+  "engineName": "Standalone-Kangooroo",
+  "engineVersion": "1.0.1"
+}

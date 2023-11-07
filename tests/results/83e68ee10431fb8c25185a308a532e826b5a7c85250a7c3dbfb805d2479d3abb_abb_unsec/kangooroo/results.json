@@ -1,0 +1,20 @@
+{
+  "response_code": 0,
+  "connection_success": false,
+  "fetch_object_success": false,
+  "requested_url": "http://155.138.224.36/abb/unsec",
+  "requested_url_ip": "155.138.224.36",
+  "actual_url_ip": "155.138.224.36",
+  "server_info": {},
+  "has_timed_out": false,
+  "processing_time": 62430,
+  "messages": [
+    {
+      "type": "WARN",
+      "message": "Timeout of 60 sec. reached"
+    }
+  ],
+  "creationDate": "Oct 31, 2023, 5:44:52 PM",
+  "engineName": "Standalone-Kangooroo",
+  "engineVersion": "1.0.1"
+}
