@@ -20,5 +20,6 @@ config:
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
   cpu_cores: 1
-  ram_mb: 512
+  ram_mb_min: 512
+  ram_mb: 1024
   allow_internet_access: true

@@ -75,6 +75,10 @@ class URLDownloader(ServiceBase):
             output_folder = os.path.join(kangooroo_config["output_folder"], url_md5)
 
             results_filepath = os.path.join(output_folder, "results.json")
+            if not os.path.exists(results_filepath):
+                raise Exception(
+                    "Kangooroo was probably OOMKilled. Check for memory usage and increase limit as needed."
+                )
             with open(results_filepath, "r") as f:
                 results = json.load(f)
 
