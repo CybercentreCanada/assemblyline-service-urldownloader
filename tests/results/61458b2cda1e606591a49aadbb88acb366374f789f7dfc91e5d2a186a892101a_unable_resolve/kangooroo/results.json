@@ -1,0 +1,13 @@
+{
+  "response_code": 0,
+  "connection_success": false,
+  "fetch_object_success": false,
+  "requested_url": "http://gacyryw.com/login.php",
+  "server_info": {},
+  "has_timed_out": false,
+  "processing_time": 4430,
+  "messages": [],
+  "creationDate": "Nov 8, 2023, 7:33:31 PM",
+  "engineName": "Standalone-Kangooroo",
+  "engineVersion": "1.0.1"
+}

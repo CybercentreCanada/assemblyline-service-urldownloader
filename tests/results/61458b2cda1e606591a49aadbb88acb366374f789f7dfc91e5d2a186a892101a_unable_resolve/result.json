@@ -5,7 +5,7 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "[[\"response_code\", 0], [\"requested_url\", \"http://155.138.224.36/abb/unsec\"], [\"requested_url_ip\", \"155.138.224.36\"], [\"actual_url_ip\", \"155.138.224.36\"]]",
+        "body": "[[\"response_code\", 0], [\"requested_url\", \"http://gacyryw.com/login.php\"]]",
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
         "classification": "TLP:C",
@@ -15,14 +15,14 @@
         "tags": {
           "network": {
             "static": {
-              "ip": [
-                "155.138.224.36"
+              "domain": [
+                "gacyryw.com"
               ],
               "uri": [
-                "http://155.138.224.36/abb/unsec"
+                "http://gacyryw.com/login.php"
               ],
               "uri_path": [
-                "/abb/unsec"
+                "/login.php"
               ]
             }
           }
@@ -32,7 +32,7 @@
       },
       {
         "auto_collapse": false,
-        "body": "http://155.138.224.36/abb/unsec: No response received",
+        "body": "http://gacyryw.com/login.php: Unable to resolve host: gacyryw.com",
         "body_config": {},
         "body_format": "TEXT",
         "classification": "TLP:C",
@@ -50,32 +50,32 @@
     "supplementary": [
       {
         "name": "session.har",
-        "sha256": "785bbe3e4386e4d6672bc90958fde7257dbe9b8c55cb6cd709824ec0ca05db73"
+        "sha256": "54c8fba8713a4365603c3c8681ee5cab8de124fa14c35f537ce128502e2c0504"
       }
     ]
   },
   "results": {
     "heuristics": [],
     "tags": {
-      "network.static.ip": [
+      "network.static.domain": [
         {
           "heur_id": null,
           "signatures": [],
-          "value": "155.138.224.36"
+          "value": "gacyryw.com"
         }
       ],
       "network.static.uri": [
         {
           "heur_id": null,
           "signatures": [],
-          "value": "http://155.138.224.36/abb/unsec"
+          "value": "http://gacyryw.com/login.php"
         }
       ],
       "network.static.uri_path": [
         {
           "heur_id": null,
           "signatures": [],
-          "value": "/abb/unsec"
+          "value": "/login.php"
         }
       ]
     },

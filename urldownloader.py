@@ -17,6 +17,7 @@ from assemblyline_v4_service.common.result import (
     ResultKeyValueSection,
     ResultOrderedKeyValueSection,
     ResultTableSection,
+    ResultTextSection,
     TableRow,
 )
 from PIL import UnidentifiedImageError
@@ -87,15 +88,21 @@ class URLDownloader(ServiceBase):
             result_section.add_item("response_code", results["response_code"])
             result_section.add_item("requested_url", results["requested_url"])
             add_tag(result_section, "network.static.uri", results["requested_url"])
-            result_section.add_item("requested_url_ip", results["requested_url_ip"])
-            result_section.add_tag("network.static.ip", results["requested_url_ip"])
+            if "requested_url_ip" in results:
+                result_section.add_item("requested_url_ip", results["requested_url_ip"])
+                result_section.add_tag("network.static.ip", results["requested_url_ip"])
             if "actual_url" in results:
                 result_section.add_item("actual_url", results["actual_url"])
                 add_tag(result_section, "network.static.uri", results["actual_url"])
-            result_section.add_item("actual_url_ip", results["actual_url_ip"])
-            result_section.add_tag("network.static.ip", results["actual_url_ip"])
+            if "actual_url_ip" in results:
+                result_section.add_item("actual_url_ip", results["actual_url_ip"])
+                result_section.add_tag("network.static.ip", results["actual_url_ip"])
 
-            if results["requested_url_ip"] != results["actual_url_ip"]:
+            if (
+                "requested_url_ip" in results
+                and "actual_url_ip" in results
+                and results["requested_url_ip"] != results["actual_url_ip"]
+            ):
                 source_file = os.path.join(output_folder, "source.html")
                 if os.path.exists(source_file):
                     request.add_extracted(source_file, "source.html", "Final html page")
@@ -137,6 +144,7 @@ class URLDownloader(ServiceBase):
             # Find any downloaded file
             downloads = {}
             redirects = []
+            response_errors = []
             for entry in entries:
                 # Convert Kangooroo's list of header to a proper dictionary
                 entry["request"]["headers"] = {
@@ -211,6 +219,9 @@ class URLDownloader(ServiceBase):
                     downloads[content_md5]["mimeType"] = entry["response"]["content"]["mimeType"]
                     downloads[content_md5]["fileinfo"] = self.identify.fileinfo(content_path, skip_fuzzy_hashes=True)
 
+                if "_errorMessage" in entry["response"]:
+                    response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
+
             if redirects:
                 redirect_section = ResultTableSection("Redirections", parent=request.result)
                 ResultTableSection("URLs")
@@ -253,6 +264,11 @@ class URLDownloader(ServiceBase):
                     request.result.add_section(download_section)
                 if content_section.body:
                     request.result.add_section(content_section)
+
+            if response_errors:
+                redirect_section = ResultTextSection("Responses Error", parent=request.result)
+                for response_url, response_error in response_errors:
+                    redirect_section.add_line(f"{response_url}: {response_error}")
         else:
             # Non-GET request
             r = requests.request(
