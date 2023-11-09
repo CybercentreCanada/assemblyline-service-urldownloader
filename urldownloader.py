@@ -32,6 +32,7 @@ class URLDownloader(ServiceBase):
         self.request_timeout = self.config.get("request_timeout", 150)
         with open(os.path.join(KANGOOROO_FOLDER, "conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
+        self.proxies = self.config["proxies"]
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
@@ -54,6 +55,14 @@ class URLDownloader(ServiceBase):
             os.makedirs(kangooroo_config["temporary_folder"], exist_ok=True)
             kangooroo_config["output_folder"] = os.path.join(self.working_directory, "output")
             os.makedirs(kangooroo_config["output_folder"], exist_ok=True)
+
+            if self.config["proxies"][request.get_param("proxy")]:
+                proxy = self.config["proxies"][request.get_param("proxy")]
+                host, port = proxy[request.file_type[4:]].split(":", 2)
+                kangooroo_config["kang-upstream-proxy"]["ip"] = host
+                kangooroo_config["kang-upstream-proxy"]["port"] = port
+            else:
+                kangooroo_config.pop("kang-upstream-proxy", None)
 
             with tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False, mode="w") as temp_conf:
                 yaml.dump(kangooroo_config, temp_conf)
@@ -275,6 +284,7 @@ class URLDownloader(ServiceBase):
                 method,
                 request.task.fileinfo.uri_info.uri,
                 headers=data.get("headers", {}),
+                proxies=self.config["proxies"][request.get_param("proxy")],
                 data=data.get("data", None),
                 json=data.get("json", None),
             )
