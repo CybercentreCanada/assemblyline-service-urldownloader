@@ -26,7 +26,8 @@ submission_params:
   - default: "no_proxy"
     name: proxy
     type: list
-    value: ["no_proxy", "localhost_proxy"]
+    value: "no_proxy"
+    list: ["no_proxy", "localhost_proxy"]
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
