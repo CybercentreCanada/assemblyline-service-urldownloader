@@ -32,7 +32,6 @@ class URLDownloader(ServiceBase):
         self.request_timeout = self.config.get("request_timeout", 150)
         with open(os.path.join(KANGOOROO_FOLDER, "conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
-        self.proxies = self.config["proxies"]
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
