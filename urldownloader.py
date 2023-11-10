@@ -124,9 +124,11 @@ class URLDownloader(ServiceBase):
                 and "actual_url_ip" in results
                 and results["requested_url_ip"] != results["actual_url_ip"]
             ):
-                source_file = os.path.join(output_folder, "source.html")
-                if os.path.exists(source_file):
-                    request.add_extracted(source_file, "source.html", "Final html page")
+                result_section.add_tag("file.behavior", "IP Redirection change")
+
+            source_file = os.path.join(output_folder, "source.html")
+            if os.path.exists(source_file):
+                request.add_extracted(source_file, "source.html", "Final html page")
 
             # Screenshot section
             screenshot_path = os.path.join(output_folder, "screenshot.png")

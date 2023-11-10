@@ -5,7 +5,16 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "[[\"response_code\", 0], [\"requested_url\", \"http://gacyryw.com/login.php\"]]",
+        "body": [
+          [
+            "response_code",
+            0
+          ],
+          [
+            "requested_url",
+            "http://gacyryw.com/login.php"
+          ]
+        ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
         "classification": "TLP:C",

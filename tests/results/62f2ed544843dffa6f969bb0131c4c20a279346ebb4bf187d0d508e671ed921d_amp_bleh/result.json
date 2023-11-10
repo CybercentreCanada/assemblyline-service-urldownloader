@@ -5,7 +5,28 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "[[\"response_code\", 200], [\"requested_url\", \"https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com\"], [\"requested_url_ip\", \"142.251.41.36\"], [\"actual_url\", \"https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com\"], [\"actual_url_ip\", \"200.58.110.234\"]]",
+        "body": [
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com"
+          ],
+          [
+            "requested_url_ip",
+            "142.251.41.36"
+          ],
+          [
+            "actual_url",
+            "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com"
+          ],
+          [
+            "actual_url_ip",
+            "200.58.110.234"
+          ]
+        ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
         "classification": "TLP:C",
@@ -13,6 +34,11 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {
+          "file": {
+            "behavior": [
+              "IP Redirection change"
+            ]
+          },
           "network": {
             "static": {
               "domain": [
@@ -38,7 +64,20 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"da8d1c4491eb6d37774bfd06a9006f0ecbb971fa8ae50a56762c150abbeab5e6\", \"description\": \"Screenshot of https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"e0b9f33eb5486d15e7bb0a53da290d2ac288bd6e49204d1f367081a910470dfd\", \"description\": \"Screenshot of https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com (thumbnail)\"}}]",
+        "body": [
+          {
+            "img": {
+              "description": "Screenshot of https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+              "name": "screenshot.png",
+              "sha256": "da8d1c4491eb6d37774bfd06a9006f0ecbb971fa8ae50a56762c150abbeab5e6"
+            },
+            "thumb": {
+              "description": "Screenshot of https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com (thumbnail)",
+              "name": "screenshot.png.thumb",
+              "sha256": "e0b9f33eb5486d15e7bb0a53da290d2ac288bd6e49204d1f367081a910470dfd"
+            }
+          }
+        ],
         "body_config": {},
         "body_format": "IMAGE",
         "classification": "TLP:C",
@@ -51,7 +90,14 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"status\": 302, \"redirecting_url\": \"https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com\", \"redirecting_ip\": \"142.251.41.36\", \"redirecting_to\": \"https://andbaco.com/SnIBYCS/bleh@bleh.com\"}]",
+        "body": [
+          {
+            "redirecting_ip": "142.251.41.36",
+            "redirecting_to": "https://andbaco.com/SnIBYCS/bleh@bleh.com",
+            "redirecting_url": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+            "status": 302
+          }
+        ],
         "body_config": {
           "column_order": [
             "status",
@@ -91,7 +137,29 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"Filename\": \"https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com\", \"Size\": 238, \"mimeType\": \"text/html; charset=UTF-8\", \"url\": \"https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com\", \"SHA256\": \"9fb2dcbb08ac2a9d012b7071f944b91aec2c1678af4a89274235b4fb3110dae8\"}, {\"Filename\": \"https://andbaco.com/SnIBYCS/bleh@bleh.com\", \"Size\": 123, \"mimeType\": \"text/html; charset=UTF-8\", \"url\": \"https://andbaco.com/SnIBYCS/bleh@bleh.com\", \"SHA256\": \"cd8db8bc01944b77a3ed39b2bccfc7e3c80f7b0867c959f8d2b0d7346a094bdc\"}, {\"Filename\": \"https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com\", \"Size\": 338412, \"mimeType\": \"text/html; charset=utf-8\", \"url\": \"https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com\", \"SHA256\": \"67cb6a4fac39c8d2746c9f4b49f9babcf02857ba22adfa4a4f76cd5077cb0b6b\"}]",
+        "body": [
+          {
+            "Filename": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+            "SHA256": "9fb2dcbb08ac2a9d012b7071f944b91aec2c1678af4a89274235b4fb3110dae8",
+            "Size": 238,
+            "mimeType": "text/html; charset=UTF-8",
+            "url": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com"
+          },
+          {
+            "Filename": "https://andbaco.com/SnIBYCS/bleh@bleh.com",
+            "SHA256": "cd8db8bc01944b77a3ed39b2bccfc7e3c80f7b0867c959f8d2b0d7346a094bdc",
+            "Size": 123,
+            "mimeType": "text/html; charset=UTF-8",
+            "url": "https://andbaco.com/SnIBYCS/bleh@bleh.com"
+          },
+          {
+            "Filename": "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com",
+            "SHA256": "67cb6a4fac39c8d2746c9f4b49f9babcf02857ba22adfa4a4f76cd5077cb0b6b",
+            "Size": 338412,
+            "mimeType": "text/html; charset=utf-8",
+            "url": "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com"
+          }
+        ],
         "body_config": {
           "column_order": [
             "Filename",
@@ -149,6 +217,13 @@
   "results": {
     "heuristics": [],
     "tags": {
+      "file.behavior": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "IP Redirection change"
+        }
+      ],
       "network.static.domain": [
         {
           "heur_id": null,

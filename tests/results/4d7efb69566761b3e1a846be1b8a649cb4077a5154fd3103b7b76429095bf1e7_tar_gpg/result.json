@@ -5,7 +5,28 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "[[\"response_code\", 200], [\"requested_url\", \"http://refreshmet.com/Package.tar.gpg\"], [\"requested_url_ip\", \"185.161.209.243\"], [\"actual_url\", \"http://refreshmet.com/Package.tar.gpg\"], [\"actual_url_ip\", \"185.161.209.243\"]]",
+        "body": [
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "http://refreshmet.com/Package.tar.gpg"
+          ],
+          [
+            "requested_url_ip",
+            "185.161.209.243"
+          ],
+          [
+            "actual_url",
+            "http://refreshmet.com/Package.tar.gpg"
+          ],
+          [
+            "actual_url_ip",
+            "185.161.209.243"
+          ]
+        ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
         "classification": "TLP:C",
@@ -35,7 +56,20 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a\", \"description\": \"Screenshot of http://refreshmet.com/Package.tar.gpg\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26\", \"description\": \"Screenshot of http://refreshmet.com/Package.tar.gpg (thumbnail)\"}}]",
+        "body": [
+          {
+            "img": {
+              "description": "Screenshot of http://refreshmet.com/Package.tar.gpg",
+              "name": "screenshot.png",
+              "sha256": "10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a"
+            },
+            "thumb": {
+              "description": "Screenshot of http://refreshmet.com/Package.tar.gpg (thumbnail)",
+              "name": "screenshot.png.thumb",
+              "sha256": "9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26"
+            }
+          }
+        ],
         "body_config": {},
         "body_format": "IMAGE",
         "classification": "TLP:C",
@@ -48,7 +82,15 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"Filename\": \"http://refreshmet.com/Package.tar.gpg\", \"Size\": 1764609, \"mimeType\": \"application/x-tar\", \"url\": \"http://refreshmet.com/Package.tar.gpg\", \"SHA256\": \"8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea\"}]",
+        "body": [
+          {
+            "Filename": "http://refreshmet.com/Package.tar.gpg",
+            "SHA256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea",
+            "Size": 1764609,
+            "mimeType": "application/x-tar",
+            "url": "http://refreshmet.com/Package.tar.gpg"
+          }
+        ],
         "body_config": {
           "column_order": [
             "Filename",
@@ -74,6 +116,10 @@
       {
         "name": "http://refreshmet.com/Package.tar.gpg",
         "sha256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea"
+      },
+      {
+        "name": "source.html",
+        "sha256": "a7fe83ec64bb23eb28090598db3d166ed98e52e39d1afbbfd74c579553f93e4e"
       }
     ],
     "supplementary": [
