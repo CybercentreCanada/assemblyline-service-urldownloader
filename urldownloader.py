@@ -4,6 +4,7 @@ import json
 import os
 import subprocess
 import tempfile
+from urllib.parse import urlparse
 
 import requests
 import yaml
@@ -57,9 +58,21 @@ class URLDownloader(ServiceBase):
 
             if self.config["proxies"][request.get_param("proxy")]:
                 proxy = self.config["proxies"][request.get_param("proxy")]
-                host, port = proxy[request.file_type[4:]].split(":", 2)
-                kangooroo_config["kang-upstream-proxy"]["ip"] = host
-                kangooroo_config["kang-upstream-proxy"]["port"] = port
+                if isinstance(proxy, dict):
+                    proxy = proxy[request.task.fileinfo.uri_info.scheme]
+                url_proxy = urlparse(proxy)
+                if not url_proxy.netloc:
+                    # If the proxy was written as
+                    # "127.0.0.1:8080"
+                    # "user@127.0.0.1:8080"
+                    # "user:password@127.0.0.1:8080"
+                    url_proxy = urlparse(f"http://{proxy}")
+                kangooroo_config["kang-upstream-proxy"]["ip"] = url_proxy.hostname
+                kangooroo_config["kang-upstream-proxy"]["port"] = url_proxy.port
+                if url_proxy.username:
+                    kangooroo_config["kang-upstream-proxy"]["username"] = url_proxy.username
+                if url_proxy.password:
+                    kangooroo_config["kang-upstream-proxy"]["password"] = url_proxy.password
             else:
                 kangooroo_config.pop("kang-upstream-proxy", None)
 
