@@ -181,8 +181,12 @@ class URLDownloader(ServiceBase):
                         {
                             "status": entry["response"]["status"],
                             "redirecting_url": entry["request"]["url"],
-                            "redirecting_ip": entry["serverIPAddress"],
-                            "redirecting_to": entry["response"]["redirectURL"],
+                            "redirecting_ip": entry["serverIPAddress"]
+                            if "serverIPAddress" in entry
+                            else "Not Available",
+                            "redirecting_to": entry["response"]["redirectURL"]
+                            if "redirectURL" in entry["response"]
+                            else "Not Available",
                         }
                     )
 
@@ -195,7 +199,9 @@ class URLDownloader(ServiceBase):
                                 {
                                     "status": entry["response"]["status"],
                                     "redirecting_url": entry["request"]["url"],
-                                    "redirecting_ip": entry["serverIPAddress"],
+                                    "redirecting_ip": entry["serverIPAddress"]
+                                    if "serverIPAddress" in entry
+                                    else "Not Available",
                                     "redirecting_to": refresh[1][4:],
                                 }
                             )
