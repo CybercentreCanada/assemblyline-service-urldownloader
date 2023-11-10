@@ -6,6 +6,10 @@ version: '1.0.1'
 #COQUI_STT_ROOT Might want to move this folder to somewhere more appropriate
 coqui_stt_folder: '/home/al/coqui-stt/'
 
+kang-upstream-proxy:
+  ip: '192.168.0.1'
+  port: 8080
+
 temporary_folder: './tmp/'
 output_folder: './output/'
 

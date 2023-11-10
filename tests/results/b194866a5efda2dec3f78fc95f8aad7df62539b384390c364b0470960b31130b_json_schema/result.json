@@ -5,7 +5,9 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "{\"Accept\": \"application/*\"}",
+        "body": {
+          "Accept": "application/*"
+        },
         "body_config": {},
         "body_format": "KEY_VALUE",
         "classification": "TLP:C",
@@ -18,7 +20,28 @@
       },
       {
         "auto_collapse": false,
-        "body": "[[\"response_code\", 200], [\"requested_url\", \"https://json.schemastore.org/eslintrc.json\"], [\"requested_url_ip\", \"20.42.128.105\"], [\"actual_url\", \"https://json.schemastore.org/eslintrc.json\"], [\"actual_url_ip\", \"20.42.128.105\"]]",
+        "body": [
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "https://json.schemastore.org/eslintrc.json"
+          ],
+          [
+            "requested_url_ip",
+            "20.42.128.105"
+          ],
+          [
+            "actual_url",
+            "https://json.schemastore.org/eslintrc.json"
+          ],
+          [
+            "actual_url_ip",
+            "20.42.128.105"
+          ]
+        ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
         "classification": "TLP:C",
@@ -48,7 +71,20 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"img\": {\"name\": \"screenshot.png\", \"sha256\": \"72f6f3f34fb3d12969d3c9d0cc16bba01fc3dc0a8fa0a2ad246c1ce795ddf77d\", \"description\": \"Screenshot of https://json.schemastore.org/eslintrc.json\"}, \"thumb\": {\"name\": \"screenshot.png.thumb\", \"sha256\": \"d119ac4b4db7ddad75b02a2e78f2c05d01b90f97448a038f4bd45f077920eaaf\", \"description\": \"Screenshot of https://json.schemastore.org/eslintrc.json (thumbnail)\"}}]",
+        "body": [
+          {
+            "img": {
+              "description": "Screenshot of https://json.schemastore.org/eslintrc.json",
+              "name": "screenshot.png",
+              "sha256": "72f6f3f34fb3d12969d3c9d0cc16bba01fc3dc0a8fa0a2ad246c1ce795ddf77d"
+            },
+            "thumb": {
+              "description": "Screenshot of https://json.schemastore.org/eslintrc.json (thumbnail)",
+              "name": "screenshot.png.thumb",
+              "sha256": "d119ac4b4db7ddad75b02a2e78f2c05d01b90f97448a038f4bd45f077920eaaf"
+            }
+          }
+        ],
         "body_config": {},
         "body_format": "IMAGE",
         "classification": "TLP:C",
@@ -61,7 +97,15 @@
       },
       {
         "auto_collapse": false,
-        "body": "[{\"Filename\": \"https://json.schemastore.org/eslintrc.json\", \"Size\": 56387, \"mimeType\": \"application/json; charset=utf-8\", \"url\": \"https://json.schemastore.org/eslintrc.json\", \"SHA256\": \"3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5\"}]",
+        "body": [
+          {
+            "Filename": "https://json.schemastore.org/eslintrc.json",
+            "SHA256": "3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5",
+            "Size": 56387,
+            "mimeType": "application/json; charset=utf-8",
+            "url": "https://json.schemastore.org/eslintrc.json"
+          }
+        ],
         "body_config": {
           "column_order": [
             "Filename",
@@ -87,6 +131,10 @@
       {
         "name": "https://json.schemastore.org/eslintrc.json",
         "sha256": "3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5"
+      },
+      {
+        "name": "source.html",
+        "sha256": "7253b762cbc8b6fa150a461edfe5aee6040892212e9c0da97da216c85058dc5c"
       }
     ],
     "supplementary": [

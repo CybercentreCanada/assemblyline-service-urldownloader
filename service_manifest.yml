@@ -16,6 +16,18 @@ is_external: true
 
 config:
   request_timeout: 150
+  proxies:
+    no_proxy:
+    localhost_proxy:
+      http: 127.0.0.1:8080
+      https: 127.0.0.1:8080
+
+submission_params:
+  - default: "no_proxy"
+    name: proxy
+    type: list
+    value: "no_proxy"
+    list: ["no_proxy", "localhost_proxy"]
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG

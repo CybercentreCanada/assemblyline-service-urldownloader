@@ -4,6 +4,7 @@ import json
 import os
 import subprocess
 import tempfile
+from urllib.parse import urlparse
 
 import requests
 import yaml
@@ -30,7 +31,7 @@ class URLDownloader(ServiceBase):
         super().__init__(config)
         self.identify = Identify(use_cache=False)
         self.request_timeout = self.config.get("request_timeout", 150)
-        with open(os.path.join(KANGOOROO_FOLDER, "conf.yml"), "r") as f:
+        with open(os.path.join(KANGOOROO_FOLDER, "default_conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
 
     def execute(self, request: ServiceRequest) -> None:
@@ -54,6 +55,26 @@ class URLDownloader(ServiceBase):
             os.makedirs(kangooroo_config["temporary_folder"], exist_ok=True)
             kangooroo_config["output_folder"] = os.path.join(self.working_directory, "output")
             os.makedirs(kangooroo_config["output_folder"], exist_ok=True)
+
+            if self.config["proxies"][request.get_param("proxy")]:
+                proxy = self.config["proxies"][request.get_param("proxy")]
+                if isinstance(proxy, dict):
+                    proxy = proxy[request.task.fileinfo.uri_info.scheme]
+                url_proxy = urlparse(proxy)
+                if not url_proxy.netloc:
+                    # If the proxy was written as
+                    # "127.0.0.1:8080"
+                    # "user@127.0.0.1:8080"
+                    # "user:password@127.0.0.1:8080"
+                    url_proxy = urlparse(f"http://{proxy}")
+                kangooroo_config["kang-upstream-proxy"]["ip"] = url_proxy.hostname
+                kangooroo_config["kang-upstream-proxy"]["port"] = url_proxy.port
+                if url_proxy.username:
+                    kangooroo_config["kang-upstream-proxy"]["username"] = url_proxy.username
+                if url_proxy.password:
+                    kangooroo_config["kang-upstream-proxy"]["password"] = url_proxy.password
+            else:
+                kangooroo_config.pop("kang-upstream-proxy", None)
 
             with tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False, mode="w") as temp_conf:
                 yaml.dump(kangooroo_config, temp_conf)
@@ -103,9 +124,11 @@ class URLDownloader(ServiceBase):
                 and "actual_url_ip" in results
                 and results["requested_url_ip"] != results["actual_url_ip"]
             ):
-                source_file = os.path.join(output_folder, "source.html")
-                if os.path.exists(source_file):
-                    request.add_extracted(source_file, "source.html", "Final html page")
+                result_section.add_tag("file.behavior", "IP Redirection change")
+
+            source_file = os.path.join(output_folder, "source.html")
+            if os.path.exists(source_file):
+                request.add_extracted(source_file, "source.html", "Final html page")
 
             # Screenshot section
             screenshot_path = os.path.join(output_folder, "screenshot.png")
@@ -160,8 +183,12 @@ class URLDownloader(ServiceBase):
                         {
                             "status": entry["response"]["status"],
                             "redirecting_url": entry["request"]["url"],
-                            "redirecting_ip": entry["serverIPAddress"],
-                            "redirecting_to": entry["response"]["redirectURL"],
+                            "redirecting_ip": entry["serverIPAddress"]
+                            if "serverIPAddress" in entry
+                            else "Not Available",
+                            "redirecting_to": entry["response"]["redirectURL"]
+                            if "redirectURL" in entry["response"]
+                            else "Not Available",
                         }
                     )
 
@@ -174,7 +201,9 @@ class URLDownloader(ServiceBase):
                                 {
                                     "status": entry["response"]["status"],
                                     "redirecting_url": entry["request"]["url"],
-                                    "redirecting_ip": entry["serverIPAddress"],
+                                    "redirecting_ip": entry["serverIPAddress"]
+                                    if "serverIPAddress" in entry
+                                    else "Not Available",
                                     "redirecting_to": refresh[1][4:],
                                 }
                             )
@@ -275,6 +304,7 @@ class URLDownloader(ServiceBase):
                 method,
                 request.task.fileinfo.uri_info.uri,
                 headers=data.get("headers", {}),
+                proxies=self.config["proxies"][request.get_param("proxy")],
                 data=data.get("data", None),
                 json=data.get("json", None),
             )
