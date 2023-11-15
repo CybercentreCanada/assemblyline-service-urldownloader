@@ -1178,14 +1178,6 @@
   "files": {
     "extracted": [
       {
-        "name": "https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940",
-        "sha256": "0af3aae90b7de9fdceee2ab421378ea2f54c74be81ef43fc6c1790a032755d80"
-      },
-      {
-        "name": "https://cm.g.doubleclick.net/pixel?google_nid=3476744686053029940&google_hm=MjY4LTU2MS0zNzM2",
-        "sha256": "0b8a20373c6dd04e091902226d922b3688143a8938afb9d283d889de7b55ceb5"
-      },
-      {
         "name": "https://www.google.com/recaptcha/api2/aframe",
         "sha256": "11c6e9af47a1acc9b603a998ca0438e5e7a2d826bf3aad0ef0589eb1b9fbe3c9"
       },
@@ -1210,20 +1202,12 @@
         "sha256": "1c0742c58b04f3ef379e4a24c20ec89ce2c2d97cc58ed914b2db19a0b08c1bbe"
       },
       {
-        "name": "app.css",
-        "sha256": "1f0d56bbf30621757c426a5ee211a372f52058c618a671357815944e305bb816"
-      },
-      {
         "name": "slash-homepage.min.js",
         "sha256": "219b817171e49ce17d1e1aae855290c94750a8300c1ce6a9c4ffda8c6fca75a6"
       },
       {
         "name": "cmp2.js",
         "sha256": "290d2841595f28d86c1241da72d604561e4a20e9357f5a7fcd97df3872018afe"
-      },
-      {
-        "name": "https://sync.crwdcntrl.net/map/c=3602/tp=CPPB/tpid=3476744686053029940/gdpr=0&gdpr_consent=",
-        "sha256": "2f561b02a49376e3679acd5975e3790abdff09ecbadfa1e1858c7ba26e3ffcef"
       },
       {
         "name": "ping.js",
@@ -1234,16 +1218,8 @@
         "sha256": "468959e93f9b4e6f07c6a8f8d0e93d8fcb37d76a8615a93ec153f5842247ba99"
       },
       {
-        "name": "https://tpc.googlesyndication.com/simgad/12181677395581006442",
-        "sha256": "475e00b01bbcc668fb199c8a843f0dab992a69788b28243ad004ec7505875934"
-      },
-      {
         "name": "f.txt",
         "sha256": "49db66ae1889e3ae58a38124422c4d6648b19cf9f233b12412db9b565b5d85b0"
-      },
-      {
-        "name": "cmp.css",
-        "sha256": "4baae150a27bc5716ba8f5160fbd2414f5b731c470d8ee0956612dafa106e950"
       },
       {
         "name": "rx_lidar.js",
@@ -1256,18 +1232,6 @@
       {
         "name": "insight.min.js",
         "sha256": "51f361716f7032e7456f1032326fdc3881a9462a0e8539ee3b02ad3f8316e0c5"
-      },
-      {
-        "name": "v1_6_1.css",
-        "sha256": "52fe780d03e98dcb4524e857426d1f7d10559ae6454cc38e551a8e307e93eaff"
-      },
-      {
-        "name": "ccpa-optout.webp",
-        "sha256": "54373f01b5c578532c7726e3fe0b1c7f7b9e3bd53df37855d3d35fc4bde5672d"
-      },
-      {
-        "name": "bk_sync.xgi",
-        "sha256": "548f2d6f4d0d820c6c5ffbeffcbd7f0e73193e2932eefe542accc84762deec87"
       },
       {
         "name": "tag.aspx",
@@ -1290,10 +1254,6 @@
         "sha256": "5ffdee78c92d3cd920b567196b60bd651aa07d99bdeba93132126431cf5b7b75"
       },
       {
-        "name": "https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442",
-        "sha256": "6019c3c9e47dc991f8d9937deafbb0740c2e61e321324798cb508773b0814824"
-      },
-      {
         "name": "sodar2.js",
         "sha256": "61c32059a5e94075a7ecff678b33907966fc9cfa384daa01aa057f872da14dbb"
       },
@@ -1314,20 +1274,12 @@
         "sha256": "7f6380e0e9b394a791b715bd87bfc851a31015f5282ad782c4c95d68bf4589de"
       },
       {
-        "name": "__utm.gif",
-        "sha256": "8337212354871836e6763a41e615916c89bac5b3f1f0adf60ba43c7c806e1015"
-      },
-      {
         "name": "f.txt",
         "sha256": "88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a"
       },
       {
         "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1",
         "sha256": "8d7d4bf99816dfe63b92b3af19ea3e0e67bc462758b206cb1176fcb97a50b1ad"
-      },
-      {
-        "name": "js.gif",
-        "sha256": "8f69e10876805b747a3ad08a818d46ac7e731b1af417ea6e259d9b6b7deb65c5"
       },
       {
         "name": "https://btloader.com/tag?o=5098683085881344&upapi=true",
@@ -1338,24 +1290,8 @@
         "sha256": "98e340a87db63d243b5be3e021c52d9ceed87b491d3699cd292dbc2ce7a53c5e"
       },
       {
-        "name": "m.gif",
-        "sha256": "a065920df8cc4016d67c3a464be90099c9d28ffe7c9e6ee3a18f257efc58cbd7"
-      },
-      {
         "name": "f.txt",
         "sha256": "a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6"
-      },
-      {
-        "name": "https://engagefront.theweathernetwork.com/pxl?stid&id=b1609564-a417-4927-abaf-ad2136bd7392&gpp=&gpp_sid=",
-        "sha256": "af9dbf02c85319fda5ed6e97828a8328ce87a4a11e2a95d506654bf7dee244f4"
-      },
-      {
-        "name": "https://ce.lijit.com/merge?pid=5110&3pid=3476744686053029940",
-        "sha256": "b1442e85b03bdcaf66dc58c7abb98745dd2687d86350be9a298a1d9382ac849b"
-      },
-      {
-        "name": "glyphish-icons-16-w.webp",
-        "sha256": "b96e8ad4434a030474068d9851f6cf17f66c0e1c9fbeced323cd21adc4c5b2d1"
       },
       {
         "name": "comments.pl",
@@ -1374,28 +1310,8 @@
         "sha256": "cb4f29577d6c338e7112291edaf1cd010feeb10dcddd20291a46c1d45ff39545"
       },
       {
-        "name": "px.gif",
-        "sha256": "cf4724b2f736ed1a0ae6bc28f1ead963d9cd2c1fd87b6ef32e7799fc1c5c8bda"
-      },
-      {
-        "name": "favicon.ico",
-        "sha256": "d961b08e4321250926de6f79087594975fe20ad1518de8f91eb711af5d1a6ef8"
-      },
-      {
-        "name": "gplus-16.png",
-        "sha256": "dcd07bf4ffba2d11c6d69171634486c68daa0d87587a55b9a06cf22170cbf28f"
-      },
-      {
-        "name": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",
-        "sha256": "de9d3fd0eb948bd294477d0eda60a73b85caff1794803530d0463193a113da98"
-      },
-      {
         "name": "ind-imp.min.js",
         "sha256": "e5d4f2c71d4d92ebca415fbdf96e7a98795534cf09a8d47e4ea6e2306034349d"
-      },
-      {
-        "name": "458249.gif",
-        "sha256": "ef1955ae757c8b966c83248350331bd3a30f658ced11f387f8ebf05ab3368629"
       },
       {
         "name": "https://cms.analytics.yahoo.com/cms?partner_id=CROEL",
@@ -1412,14 +1328,6 @@
       {
         "name": "comments-minified.js",
         "sha256": "f895c2180e32c4ce4d271d356df846c691375a07bb28adeb0c2e073095a2fe99"
-      },
-      {
-        "name": "slashdot_favicon_white.webp",
-        "sha256": "f97241e6103a32e7415ded731f409a571e8b2bcf3139dd36a5d887ef383a8785"
-      },
-      {
-        "name": "classic.ssl.css",
-        "sha256": "fd7cabe19f3902c002ab8b7f62071a64f732368a035e6925704d723214ae1438"
       }
     ],
     "supplementary": [
@@ -1432,8 +1340,20 @@
         "sha256": "03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e"
       },
       {
+        "name": "https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940",
+        "sha256": "0af3aae90b7de9fdceee2ab421378ea2f54c74be81ef43fc6c1790a032755d80"
+      },
+      {
+        "name": "https://cm.g.doubleclick.net/pixel?google_nid=3476744686053029940&google_hm=MjY4LTU2MS0zNzM2",
+        "sha256": "0b8a20373c6dd04e091902226d922b3688143a8938afb9d283d889de7b55ceb5"
+      },
+      {
         "name": "session.har",
         "sha256": "131ab925722a942aa230855299d226f49e3bfe6d89116a9584ee64c53142e07e"
+      },
+      {
+        "name": "app.css",
+        "sha256": "1f0d56bbf30621757c426a5ee211a372f52058c618a671357815944e305bb816"
       },
       {
         "name": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap",
@@ -1442,6 +1362,10 @@
       {
         "name": "screenshot.png",
         "sha256": "27c2598dc7258df1ce7f9ce636a125a6aa422b9b84866e0468b7f5fe59863a08"
+      },
+      {
+        "name": "https://sync.crwdcntrl.net/map/c=3602/tp=CPPB/tpid=3476744686053029940/gdpr=0&gdpr_consent=",
+        "sha256": "2f561b02a49376e3679acd5975e3790abdff09ecbadfa1e1858c7ba26e3ffcef"
       },
       {
         "name": "favicon.ico",
@@ -1464,12 +1388,36 @@
         "sha256": "45d52dc10945dfbdc640ab2748a2aaadc89c4c335300ddebc8cc03f82ce9415a"
       },
       {
+        "name": "https://tpc.googlesyndication.com/simgad/12181677395581006442",
+        "sha256": "475e00b01bbcc668fb199c8a843f0dab992a69788b28243ad004ec7505875934"
+      },
+      {
+        "name": "cmp.css",
+        "sha256": "4baae150a27bc5716ba8f5160fbd2414f5b731c470d8ee0956612dafa106e950"
+      },
+      {
         "name": "https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=",
         "sha256": "4fcda48fd92f2d20e388d06b2bd26ed34ad479a3045d779cfa8478a4f78fd8b0"
       },
       {
+        "name": "v1_6_1.css",
+        "sha256": "52fe780d03e98dcb4524e857426d1f7d10559ae6454cc38e551a8e307e93eaff"
+      },
+      {
+        "name": "ccpa-optout.webp",
+        "sha256": "54373f01b5c578532c7726e3fe0b1c7f7b9e3bd53df37855d3d35fc4bde5672d"
+      },
+      {
+        "name": "bk_sync.xgi",
+        "sha256": "548f2d6f4d0d820c6c5ffbeffcbd7f0e73193e2932eefe542accc84762deec87"
+      },
+      {
         "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
         "sha256": "5a2e3a8269e57686d2e6ae5aec1c75808f4ebc393c478a0c94ad139a80597f50"
+      },
+      {
+        "name": "https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442",
+        "sha256": "6019c3c9e47dc991f8d9937deafbb0740c2e61e321324798cb508773b0814824"
       },
       {
         "name": "sdicon.woff",
@@ -1484,6 +1432,10 @@
         "sha256": "789c53d32da3b35f3766b2855b112be47b1044cd9303bcea0e37613ab0911bba"
       },
       {
+        "name": "__utm.gif",
+        "sha256": "8337212354871836e6763a41e615916c89bac5b3f1f0adf60ba43c7c806e1015"
+      },
+      {
         "name": "adgenerator.js",
         "sha256": "83b56810f90ecc4b4ca00f2d6225cd7c75441b42b740afbe17e0adac12890140"
       },
@@ -1496,6 +1448,10 @@
         "sha256": "8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225"
       },
       {
+        "name": "js.gif",
+        "sha256": "8f69e10876805b747a3ad08a818d46ac7e731b1af417ea6e259d9b6b7deb65c5"
+      },
+      {
         "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed",
         "sha256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a"
       },
@@ -1504,12 +1460,24 @@
         "sha256": "9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6"
       },
       {
+        "name": "m.gif",
+        "sha256": "a065920df8cc4016d67c3a464be90099c9d28ffe7c9e6ee3a18f257efc58cbd7"
+      },
+      {
         "name": "https://securepubads.g.doubleclick.net/gampad/ads",
         "sha256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122"
       },
       {
         "name": "country.js",
         "sha256": "ad94744abfc58e8e2ab2b6e22d1b74fab5cc940a39bf168f46b62dcf54550fe4"
+      },
+      {
+        "name": "https://engagefront.theweathernetwork.com/pxl?stid&id=b1609564-a417-4927-abaf-ad2136bd7392&gpp=&gpp_sid=",
+        "sha256": "af9dbf02c85319fda5ed6e97828a8328ce87a4a11e2a95d506654bf7dee244f4"
+      },
+      {
+        "name": "https://ce.lijit.com/merge?pid=5110&3pid=3476744686053029940",
+        "sha256": "b1442e85b03bdcaf66dc58c7abb98745dd2687d86350be9a298a1d9382ac849b"
       },
       {
         "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
@@ -1524,8 +1492,24 @@
         "sha256": "b8c21dccfeed18919dc361f8e7ca380ce090e343767d584524e93d13c74056f1"
       },
       {
+        "name": "glyphish-icons-16-w.webp",
+        "sha256": "b96e8ad4434a030474068d9851f6cf17f66c0e1c9fbeced323cd21adc4c5b2d1"
+      },
+      {
+        "name": "px.gif",
+        "sha256": "cf4724b2f736ed1a0ae6bc28f1ead963d9cd2c1fd87b6ef32e7799fc1c5c8bda"
+      },
+      {
         "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
         "sha256": "d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287"
+      },
+      {
+        "name": "favicon.ico",
+        "sha256": "d961b08e4321250926de6f79087594975fe20ad1518de8f91eb711af5d1a6ef8"
+      },
+      {
+        "name": "gplus-16.png",
+        "sha256": "dcd07bf4ffba2d11c6d69171634486c68daa0d87587a55b9a06cf22170cbf28f"
       },
       {
         "name": "https://securepubads.g.doubleclick.net/gampad/ads",
@@ -1534,6 +1518,22 @@
       {
         "name": "f.txt",
         "sha256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a"
+      },
+      {
+        "name": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",
+        "sha256": "de9d3fd0eb948bd294477d0eda60a73b85caff1794803530d0463193a113da98"
+      },
+      {
+        "name": "458249.gif",
+        "sha256": "ef1955ae757c8b966c83248350331bd3a30f658ced11f387f8ebf05ab3368629"
+      },
+      {
+        "name": "slashdot_favicon_white.webp",
+        "sha256": "f97241e6103a32e7415ded731f409a571e8b2bcf3139dd36a5d887ef383a8785"
+      },
+      {
+        "name": "classic.ssl.css",
+        "sha256": "fd7cabe19f3902c002ab8b7f62071a64f732368a035e6925704d723214ae1438"
       }
     ]
   },

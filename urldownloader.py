@@ -316,7 +316,12 @@ class URLDownloader(ServiceBase):
 
                     if (
                         download_params["url"] in target_urls
-                        or not (file_info["type"].startswith("text/") or file_info["type"] == "unknown")
+                        or file_info["type"] == "image/svg"
+                        or not (
+                            file_info["type"].startswith("text/")
+                            or file_info["type"].startswith("image/")
+                            or file_info["type"] in ["unknown", "code/css"]
+                        )
                         or len(downloads) == 1
                     ):
                         request.add_extracted(
