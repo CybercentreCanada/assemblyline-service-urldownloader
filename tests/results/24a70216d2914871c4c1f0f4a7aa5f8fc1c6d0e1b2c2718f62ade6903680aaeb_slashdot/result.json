@@ -798,14 +798,14 @@
             "url": "https://ssl.google-analytics.com/ga.js"
           },
           {
-            "Filename": "https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51",
+            "Filename": "https://ml314.com/utsync.ashx",
             "SHA256": "656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438",
             "Size": 644,
             "mimeType": "application/javascript",
             "url": "https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51"
           },
           {
-            "Filename": "https://ssl.google-analytics.com/r/__utm.gif?utmwv=5.7.2&utms=1&utmn=566683381&utmhn=news.slashdot.org&utme=8(User%20Type*Page)9(Anon*comments)&utmcs=UTF-8&utmsr=1280x720&utmvp=1280x720&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=-&utmdt=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&utmhid=1005119224&utmr=-&utmp=%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&utmht=1698341598039&utmac=UA-199823890-2&utmcc=__utma%3D57409013.1336942688.1698341598.1698341598.1698341598.1%3B%2B__utmz%3D57409013.1698341598.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmjid=1615997497&utmredir=1&utmu=qRAAACAAAAAAAAAAAAAAAAAE~",
+            "Filename": "https://ssl.google-analytics.com/r/__utm.gif",
             "SHA256": "8337212354871836e6763a41e615916c89bac5b3f1f0adf60ba43c7c806e1015",
             "Size": 35,
             "mimeType": "image/gif",
@@ -847,21 +847,21 @@
             "url": "https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/js/ind-imp.min.js"
           },
           {
-            "Filename": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20",
+            "Filename": "https://securepubads.g.doubleclick.net/gampad/ads",
             "SHA256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122",
             "Size": 71915,
             "mimeType": "text/plain; charset=UTF-8",
             "url": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20"
           },
           {
-            "Filename": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20",
+            "Filename": "https://securepubads.g.doubleclick.net/gampad/ads",
             "SHA256": "de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57",
             "Size": 637,
             "mimeType": "text/plain; charset=UTF-8",
             "url": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20"
           },
           {
-            "Filename": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=15680&site_id=103246&zone_id=488692%3B488694%3B488692%3B488694%3B488694%3B488694&size_id=2%3B2%3B15%3B15%3B15%3B15&alt_size_ids=55%2C57%3B%3B10%2C54%3B10%2C54%3B10%2C54%3B10%2C54&p_pos=atf%3Bbtf%3Batf%3Bbtf%3Bbtf%3Bbtf&rf=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tg_i.domain=news.slashdot.org&tg_i.page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tk_flint=pbjs_lite_v8.13.0&l_pb_bid_id=230a2f5b5193c99%3B2459af5b1b55c68%3B257c7d225ffa178%3B26c9e18bd867c0d%3B271285774e33086%3B2807df53b977853&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&slots=6&rand=0.06432152772395772",
+            "Filename": "https://fastlane.rubiconproject.com/a/api/fastlane.json",
             "SHA256": "33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43",
             "Size": 941,
             "mimeType": "application/json",
@@ -896,7 +896,7 @@
             "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250"
           },
           {
-            "Filename": "https://pbid.pro-market.net/engine?site=143573;size=1x1;e=0;dt=0;category=tt1kyd71%20-%20nf4j;kw=die2ua%200%20%20ruqmi%209evznl%20sq6%202xe6k7%20%20it%20i62et0rff%20b%20d22wtzn%20eihpka4g%201xgk%20uw%20lye%20x33kid;rnd=(1698341598719)",
+            "Filename": "https://pbid.pro-market.net/engine",
             "SHA256": "79ecee018f875bbb96ee0c0f8f06fc4e4371c1ac450d9294a04cbee4db599db6",
             "Size": 412,
             "mimeType": "text/html",
@@ -952,7 +952,7 @@
             "url": "https://ce.lijit.com/merge?pid=5110&3pid=3476744686053029940"
           },
           {
-            "Filename": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed?search=&page_size=4&source=slashdot-jobs_horizontal_jobs_widget&widgets=true&page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+            "Filename": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed",
             "SHA256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a",
             "Size": 3771,
             "mimeType": "application/json",
@@ -1008,7 +1008,7 @@
             "url": "https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914"
           },
           {
-            "Filename": "https://tag.crsspxl.com/s2.html?d=2397&t=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&u=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+            "Filename": "https://tag.crsspxl.com/s2.html",
             "SHA256": "503e95598892b37cdc82dd507e2df3a83b58401967f6c0527eef1d063b63f7c5",
             "Size": 1570,
             "mimeType": "text/html",
@@ -1064,7 +1064,7 @@
             "url": "https://cms.analytics.yahoo.com/cms?partner_id=CROEL"
           },
           {
-            "Filename": "https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA",
+            "Filename": "https://cm.g.doubleclick.net/pixel",
             "SHA256": "14da2c88c1f7da98731b4fd43227c1d55a50fc200609921dbf6123f792287a1a",
             "Size": 454,
             "mimeType": "text/html; charset=UTF-8",
@@ -1198,7 +1198,7 @@
         "sha256": "1259ea99bd76596239bfd3102c679eb0a5052578dc526b0452f4d42f8bcdd45f"
       },
       {
-        "name": "https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA",
+        "name": "https://cm.g.doubleclick.net/pixel",
         "sha256": "14da2c88c1f7da98731b4fd43227c1d55a50fc200609921dbf6123f792287a1a"
       },
       {
@@ -1250,7 +1250,7 @@
         "sha256": "4e155284926ba010442d774fd493ff925a0256bd427f54596b1244791a3fa170"
       },
       {
-        "name": "https://tag.crsspxl.com/s2.html?d=2397&t=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&u=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+        "name": "https://tag.crsspxl.com/s2.html",
         "sha256": "503e95598892b37cdc82dd507e2df3a83b58401967f6c0527eef1d063b63f7c5"
       },
       {
@@ -1306,7 +1306,7 @@
         "sha256": "749e535b316f36b4b3e910e5a805c3994374473acd93744df16830cc0d73f350"
       },
       {
-        "name": "https://pbid.pro-market.net/engine?site=143573;size=1x1;e=0;dt=0;category=tt1kyd71%20-%20nf4j;kw=die2ua%200%20%20ruqmi%209evznl%20sq6%202xe6k7%20%20it%20i62et0rff%20b%20d22wtzn%20eihpka4g%201xgk%20uw%20lye%20x33kid;rnd=(1698341598719)",
+        "name": "https://pbid.pro-market.net/engine",
         "sha256": "79ecee018f875bbb96ee0c0f8f06fc4e4371c1ac450d9294a04cbee4db599db6"
       },
       {
@@ -1314,7 +1314,7 @@
         "sha256": "7f6380e0e9b394a791b715bd87bfc851a31015f5282ad782c4c95d68bf4589de"
       },
       {
-        "name": "https://ssl.google-analytics.com/r/__utm.gif?utmwv=5.7.2&utms=1&utmn=566683381&utmhn=news.slashdot.org&utme=8(User%20Type*Page)9(Anon*comments)&utmcs=UTF-8&utmsr=1280x720&utmvp=1280x720&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=-&utmdt=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&utmhid=1005119224&utmr=-&utmp=%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&utmht=1698341598039&utmac=UA-199823890-2&utmcc=__utma%3D57409013.1336942688.1698341598.1698341598.1698341598.1%3B%2B__utmz%3D57409013.1698341598.1.1.utmcsr%3D(direct)%7Cutmccn%3D(direct)%7Cutmcmd%3D(none)%3B&utmjid=1615997497&utmredir=1&utmu=qRAAACAAAAAAAAAAAAAAAAAE~",
+        "name": "https://ssl.google-analytics.com/r/__utm.gif",
         "sha256": "8337212354871836e6763a41e615916c89bac5b3f1f0adf60ba43c7c806e1015"
       },
       {
@@ -1452,7 +1452,7 @@
         "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
       },
       {
-        "name": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=15680&site_id=103246&zone_id=488692%3B488694%3B488692%3B488694%3B488694%3B488694&size_id=2%3B2%3B15%3B15%3B15%3B15&alt_size_ids=55%2C57%3B%3B10%2C54%3B10%2C54%3B10%2C54%3B10%2C54&p_pos=atf%3Bbtf%3Batf%3Bbtf%3Bbtf%3Bbtf&rf=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tg_i.domain=news.slashdot.org&tg_i.page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tk_flint=pbjs_lite_v8.13.0&l_pb_bid_id=230a2f5b5193c99%3B2459af5b1b55c68%3B257c7d225ffa178%3B26c9e18bd867c0d%3B271285774e33086%3B2807df53b977853&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&slots=6&rand=0.06432152772395772",
+        "name": "https://fastlane.rubiconproject.com/a/api/fastlane.json",
         "sha256": "33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43"
       },
       {
@@ -1476,7 +1476,7 @@
         "sha256": "625cd71745541c37495055244a8c139e6f3c784b0f5262503ee0f304ee52944e"
       },
       {
-        "name": "https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51",
+        "name": "https://ml314.com/utsync.ashx",
         "sha256": "656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438"
       },
       {
@@ -1496,7 +1496,7 @@
         "sha256": "8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225"
       },
       {
-        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed?search=&page_size=4&source=slashdot-jobs_horizontal_jobs_widget&widgets=true&page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed",
         "sha256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a"
       },
       {
@@ -1504,7 +1504,7 @@
         "sha256": "9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6"
       },
       {
-        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20",
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads",
         "sha256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122"
       },
       {
@@ -1528,7 +1528,7 @@
         "sha256": "d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287"
       },
       {
-        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20",
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads",
         "sha256": "de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57"
       },
       {
