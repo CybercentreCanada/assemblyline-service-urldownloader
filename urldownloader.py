@@ -26,6 +26,12 @@ from PIL import UnidentifiedImageError
 
 KANGOOROO_FOLDER = os.path.join(os.path.dirname(__file__), "kangooroo")
 
+# Regex from
+# https://stackoverflow.com/questions/40939380/how-to-get-file-name-from-content-disposition
+# Many tests can be found at http://test.greenbytes.de/tech/tc2231/
+UTF8_FILENAME_REGEX = r"filename\*=UTF-8''([\w%\-\.]+)(?:; ?|$)"
+ASCII_FILENAME_REGEX = r"filename=([\"']?)(.*?[^\\])\1(?:; ?|$)"
+
 
 class URLDownloader(ServiceBase):
     def __init__(self, config) -> None:
@@ -235,16 +241,11 @@ class URLDownloader(ServiceBase):
                     # The headers could contain the name of the downloaded file
                     if "Content-Disposition" in entry["response"]["headers"]:
                         downloads[content_md5]["filename"] = entry["response"]["headers"]["Content-Disposition"]
-                        # Regex from
-                        # https://stackoverflow.com/questions/40939380/how-to-get-file-name-from-content-disposition
-                        # Many tests can be found at http://test.greenbytes.de/tech/tc2231/
-                        utf8FilenameRegex = r"filename\*=UTF-8''([\w%\-\.]+)(?:; ?|$)"
-                        asciiFilenameRegex = r"filename=([\"']?)(.*?[^\\])\1(?:; ?|$)"
-                        match = re.search(asciiFilenameRegex, downloads[content_md5]["filename"])
+                        match = re.search(ASCII_FILENAME_REGEX, downloads[content_md5]["filename"])
                         if match:
                             downloads[content_md5]["filename"] = match.group(2)
 
-                        match = re.search(utf8FilenameRegex, downloads[content_md5]["filename"])
+                        match = re.search(UTF8_FILENAME_REGEX, downloads[content_md5]["filename"])
                         if match:
                             downloads[content_md5]["filename"] = match.group(1)
                     else:
