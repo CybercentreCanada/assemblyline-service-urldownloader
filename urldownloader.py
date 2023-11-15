@@ -159,12 +159,12 @@ class URLDownloader(ServiceBase):
 
             # Find any downloaded file
             with open(os.path.join(output_folder, "session.har"), "r") as f:
-                entries = json.load(f)["log"]["entries"]
+                har_content = json.load(f)
 
             downloads = {}
             redirects = []
             response_errors = []
-            for entry in entries:
+            for entry in har_content["log"]["entries"]:
                 # Convert Kangooroo's list of header to a proper dictionary
                 entry["request"]["headers"] = {
                     header["name"]: header["value"] for header in entry["request"]["headers"]
@@ -270,15 +270,13 @@ class URLDownloader(ServiceBase):
                     downloads[content_md5]["mimeType"] = entry["response"]["content"]["mimeType"]
                     downloads[content_md5]["fileinfo"] = fileinfo
 
-                entry.pop("pageref", None)
-
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
 
             # Add the modified entries log
             modified_har_filepath = os.path.join(self.working_directory, "modified_session.har")
             with open(modified_har_filepath, "w") as f:
-                json.dump(entries, f)
+                json.dump(har_content, f)
             request.add_supplementary(modified_har_filepath, "session.har", "Complete session log")
 
             if redirects:

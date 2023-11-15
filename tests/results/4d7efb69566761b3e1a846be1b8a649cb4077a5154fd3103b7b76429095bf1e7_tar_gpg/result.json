@@ -124,12 +124,12 @@
         "sha256": "10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a"
       },
       {
-        "name": "session.har",
-        "sha256": "2ae43e82bdfa800aad278f3a23612a02fbbb4d72b68079705a3085f75c076f9c"
-      },
-      {
         "name": "screenshot.png.thumb",
         "sha256": "9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26"
+      },
+      {
+        "name": "session.har",
+        "sha256": "a260d3d737953a73069f3d5d4c522f90c9ad90ceb3ca26fbc0d70cdd7e2a9671"
       }
     ]
   },

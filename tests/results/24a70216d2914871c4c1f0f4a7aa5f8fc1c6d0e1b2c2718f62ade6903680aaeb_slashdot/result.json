@@ -1432,12 +1432,12 @@
         "sha256": "03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e"
       },
       {
-        "name": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap",
-        "sha256": "2177ae3e829faf96e725d696a6bcb2e3ec1ec261796b60a46ea25b857d2ac469"
+        "name": "session.har",
+        "sha256": "131ab925722a942aa230855299d226f49e3bfe6d89116a9584ee64c53142e07e"
       },
       {
-        "name": "session.har",
-        "sha256": "2604aa3c43275c3e6ad0ee5e655f8e1dad01ec874058525266ed12842bfa032e"
+        "name": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap",
+        "sha256": "2177ae3e829faf96e725d696a6bcb2e3ec1ec261796b60a46ea25b857d2ac469"
       },
       {
         "name": "screenshot.png",
