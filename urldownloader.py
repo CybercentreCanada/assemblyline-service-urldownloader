@@ -248,22 +248,31 @@ class URLDownloader(ServiceBase):
                         if match:
                             downloads[content_md5]["filename"] = match.group(1)
                     else:
-                        downloads[content_md5]["filename"] = entry["request"]["url"]
-                        if len(downloads[content_md5]["filename"]) > 150:
-                            parsed_url = urlparse(downloads[content_md5]["filename"])._replace(fragment="")
-                            downloads[content_md5]["filename"] = parsed_url.geturl()
+                        filename = None
+                        requested_url = urlparse(entry["request"]["url"])
+                        if "." in os.path.basename(requested_url.path):
+                            filename = os.path.basename(requested_url.path)
 
-                        if len(downloads[content_md5]["filename"]) > 150:
-                            parsed_url = parsed_url._replace(params="")
-                            downloads[content_md5]["filename"] = parsed_url.geturl()
+                        if not filename:
+                            possible_filename = entry["request"]["url"]
+                            if len(possible_filename) > 150:
+                                parsed_url = requested_url._replace(fragment="")
+                                possible_filename = parsed_url.geturl()
 
-                        if len(downloads[content_md5]["filename"]) > 150:
-                            parsed_url = parsed_url._replace(query="")
-                            downloads[content_md5]["filename"] = parsed_url.geturl()
+                            if len(possible_filename) > 150:
+                                parsed_url = parsed_url._replace(params="")
+                                possible_filename = parsed_url.geturl()
 
-                        if len(downloads[content_md5]["filename"]) > 150:
-                            parsed_url = parsed_url._replace(path="")
-                            downloads[content_md5]["filename"] = parsed_url.geturl()
+                            if len(possible_filename) > 150:
+                                parsed_url = parsed_url._replace(query="")
+                                possible_filename = parsed_url.geturl()
+
+                            if len(possible_filename) > 150:
+                                parsed_url = parsed_url._replace(path="")
+                                possible_filename = parsed_url.geturl()
+                            filename = possible_filename
+
+                        downloads[content_md5]["filename"] = filename
 
                     downloads[content_md5]["size"] = entry["response"]["content"]["size"]
                     downloads[content_md5]["url"] = entry["request"]["url"]

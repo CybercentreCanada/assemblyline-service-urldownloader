@@ -139,14 +139,14 @@
         "auto_collapse": false,
         "body": [
           {
-            "Filename": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+            "Filename": "bleh@bleh.com",
             "SHA256": "9fb2dcbb08ac2a9d012b7071f944b91aec2c1678af4a89274235b4fb3110dae8",
             "Size": 238,
             "mimeType": "text/html; charset=UTF-8",
             "url": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com"
           },
           {
-            "Filename": "https://andbaco.com/SnIBYCS/bleh@bleh.com",
+            "Filename": "bleh@bleh.com",
             "SHA256": "cd8db8bc01944b77a3ed39b2bccfc7e3c80f7b0867c959f8d2b0d7346a094bdc",
             "Size": 123,
             "mimeType": "text/html; charset=UTF-8",
@@ -187,11 +187,11 @@
         "sha256": "67cb6a4fac39c8d2746c9f4b49f9babcf02857ba22adfa4a4f76cd5077cb0b6b"
       },
       {
-        "name": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+        "name": "bleh@bleh.com",
         "sha256": "9fb2dcbb08ac2a9d012b7071f944b91aec2c1678af4a89274235b4fb3110dae8"
       },
       {
-        "name": "https://andbaco.com/SnIBYCS/bleh@bleh.com",
+        "name": "bleh@bleh.com",
         "sha256": "cd8db8bc01944b77a3ed39b2bccfc7e3c80f7b0867c959f8d2b0d7346a094bdc"
       }
     ],

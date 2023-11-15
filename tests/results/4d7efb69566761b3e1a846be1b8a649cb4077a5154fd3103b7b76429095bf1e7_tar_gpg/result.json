@@ -84,7 +84,7 @@
         "auto_collapse": false,
         "body": [
           {
-            "Filename": "http://refreshmet.com/Package.tar.gpg",
+            "Filename": "Package.tar.gpg",
             "SHA256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea",
             "Size": 1764609,
             "mimeType": "application/x-tar",
@@ -114,7 +114,7 @@
   "files": {
     "extracted": [
       {
-        "name": "http://refreshmet.com/Package.tar.gpg",
+        "name": "Package.tar.gpg",
         "sha256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea"
       }
     ],
