@@ -2,6 +2,7 @@ import base64
 import hashlib
 import json
 import os
+import re
 import subprocess
 import tempfile
 from urllib.parse import urlparse
@@ -24,6 +25,12 @@ from assemblyline_v4_service.common.result import (
 from PIL import UnidentifiedImageError
 
 KANGOOROO_FOLDER = os.path.join(os.path.dirname(__file__), "kangooroo")
+
+# Regex from
+# https://stackoverflow.com/questions/40939380/how-to-get-file-name-from-content-disposition
+# Many tests can be found at http://test.greenbytes.de/tech/tc2231/
+UTF8_FILENAME_REGEX = r"filename\*=UTF-8''([\w%\-\.]+)(?:; ?|$)"
+ASCII_FILENAME_REGEX = r"filename=([\"']?)(.*?[^\\])\1(?:; ?|$)"
 
 
 class URLDownloader(ServiceBase):
@@ -105,6 +112,7 @@ class URLDownloader(ServiceBase):
                 results = json.load(f)
 
             # Main result section
+            target_urls = [results["requested_url"]]
             result_section = ResultOrderedKeyValueSection("Results", parent=request.result)
             result_section.add_item("response_code", results["response_code"])
             result_section.add_item("requested_url", results["requested_url"])
@@ -113,6 +121,7 @@ class URLDownloader(ServiceBase):
                 result_section.add_item("requested_url_ip", results["requested_url_ip"])
                 result_section.add_tag("network.static.ip", results["requested_url_ip"])
             if "actual_url" in results:
+                target_urls.append(results["actual_url"])
                 result_section.add_item("actual_url", results["actual_url"])
                 add_tag(result_section, "network.static.uri", results["actual_url"])
             if "actual_url_ip" in results:
@@ -125,10 +134,6 @@ class URLDownloader(ServiceBase):
                 and results["requested_url_ip"] != results["actual_url_ip"]
             ):
                 result_section.add_tag("file.behavior", "IP Redirection change")
-
-            source_file = os.path.join(output_folder, "source.html")
-            if os.path.exists(source_file):
-                request.add_extracted(source_file, "source.html", "Final html page")
 
             # Screenshot section
             screenshot_path = os.path.join(output_folder, "screenshot.png")
@@ -158,17 +163,14 @@ class URLDownloader(ServiceBase):
                     # Kangooroo is sometime giving html page as favicon...
                     pass
 
-            # Add the har log file
-            har_filepath = os.path.join(output_folder, "session.har")
-            request.add_supplementary(har_filepath, "session.har", "Complete session log")
-            with open(har_filepath, "r") as f:
-                entries = json.load(f)["log"]["entries"]
-
             # Find any downloaded file
+            with open(os.path.join(output_folder, "session.har"), "r") as f:
+                har_content = json.load(f)
+
             downloads = {}
             redirects = []
             response_errors = []
-            for entry in entries:
+            for entry in har_content["log"]["entries"]:
                 # Convert Kangooroo's list of header to a proper dictionary
                 entry["request"]["headers"] = {
                     header["name"]: header["value"] for header in entry["request"]["headers"]
@@ -214,7 +216,7 @@ class URLDownloader(ServiceBase):
 
                 # Find all content that was downloaded from the servers
                 if "size" in entry["response"]["content"] and entry["response"]["content"]["size"] != 0:
-                    content_text = entry["response"]["content"]["text"]
+                    content_text = entry["response"]["content"].pop("text")
                     if (
                         "encoding" in entry["response"]["content"]
                         and entry["response"]["content"]["encoding"] == "base64"
@@ -225,31 +227,67 @@ class URLDownloader(ServiceBase):
                             content = content_text.encode()
                     else:
                         content = content_text.encode()
-                    content_md5 = hashlib.md5(content).hexdigest()
-                    content_path = os.path.join(self.working_directory, content_md5)
-                    with open(content_path, "wb") as f:
-                        f.write(content)
+                    with tempfile.NamedTemporaryFile(
+                        dir=self.working_directory, delete=False, mode="wb"
+                    ) as content_file:
+                        content_file.write(content)
+                    fileinfo = self.identify.fileinfo(content_file.name, skip_fuzzy_hashes=True)
+                    content_md5 = fileinfo["md5"]
+                    entry["response"]["content"]["_replaced"] = fileinfo["sha256"]
 
                     if content_md5 not in downloads:
-                        downloads[content_md5] = {"path": content_path, "type": "content"}
-
-                    downloads[content_md5]["filename"] = entry["request"]["url"]
+                        downloads[content_md5] = {"path": content_file.name}
 
                     # The headers could contain the name of the downloaded file
                     if "Content-Disposition" in entry["response"]["headers"]:
                         downloads[content_md5]["filename"] = entry["response"]["headers"]["Content-Disposition"]
-                        if downloads[content_md5]["filename"].startswith("attachment; filename="):
-                            downloads[content_md5]["filename"] = downloads[content_md5]["filename"][21:]
-                            # Flag that file as a proper download instead of an anciliary file
-                            downloads[content_md5]["type"] = "download"
+                        match = re.search(ASCII_FILENAME_REGEX, downloads[content_md5]["filename"])
+                        if match:
+                            downloads[content_md5]["filename"] = match.group(2)
+
+                        match = re.search(UTF8_FILENAME_REGEX, downloads[content_md5]["filename"])
+                        if match:
+                            downloads[content_md5]["filename"] = match.group(1)
+                    else:
+                        filename = None
+                        requested_url = urlparse(entry["request"]["url"])
+                        if "." in os.path.basename(requested_url.path):
+                            filename = os.path.basename(requested_url.path)
+
+                        if not filename:
+                            possible_filename = entry["request"]["url"]
+                            if len(possible_filename) > 150:
+                                parsed_url = requested_url._replace(fragment="")
+                                possible_filename = parsed_url.geturl()
+
+                            if len(possible_filename) > 150:
+                                parsed_url = parsed_url._replace(params="")
+                                possible_filename = parsed_url.geturl()
+
+                            if len(possible_filename) > 150:
+                                parsed_url = parsed_url._replace(query="")
+                                possible_filename = parsed_url.geturl()
+
+                            if len(possible_filename) > 150:
+                                parsed_url = parsed_url._replace(path="")
+                                possible_filename = parsed_url.geturl()
+                            filename = possible_filename
+
+                        downloads[content_md5]["filename"] = filename
 
                     downloads[content_md5]["size"] = entry["response"]["content"]["size"]
                     downloads[content_md5]["url"] = entry["request"]["url"]
                     downloads[content_md5]["mimeType"] = entry["response"]["content"]["mimeType"]
-                    downloads[content_md5]["fileinfo"] = self.identify.fileinfo(content_path, skip_fuzzy_hashes=True)
+                    downloads[content_md5]["fileinfo"] = fileinfo
 
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
+
+            # Add the modified entries log
+            modified_har_filepath = os.path.join(self.working_directory, "modified_session.har")
+            with open(modified_har_filepath, "w") as f:
+                json.dump(har_content, f)
+            request.add_supplementary(modified_har_filepath, "session.har", "Complete session log")
 
             if redirects:
                 redirect_section = ResultTableSection("Redirections", parent=request.result)
@@ -262,11 +300,10 @@ class URLDownloader(ServiceBase):
                 redirect_section.set_column_order(["status", "redirecting_url", "redirecting_ip", "redirecting_to"])
 
             if downloads:
-                download_section = ResultTableSection("Downloaded file(s)")
-                content_section = ResultTableSection("Content file(s)")
+                content_section = ResultTableSection("Downloaded Content", parent=request.result)
                 for download_params in downloads.values():
                     file_info = download_params["fileinfo"]
-                    (download_section if download_params["type"] == "download" else content_section).add_row(
+                    content_section.add_row(
                         TableRow(
                             dict(
                                 Filename=download_params["filename"],
@@ -277,9 +314,15 @@ class URLDownloader(ServiceBase):
                             )
                         )
                     )
+
                     if (
-                        download_params["type"] == "download"
-                        or file_info["type"].startswith("archive")
+                        download_params["url"] in target_urls
+                        or file_info["type"] == "image/svg"
+                        or not (
+                            file_info["type"].startswith("text/")
+                            or file_info["type"].startswith("image/")
+                            or file_info["type"] in ["unknown", "code/css"]
+                        )
                         or len(downloads) == 1
                     ):
                         request.add_extracted(
@@ -289,10 +332,6 @@ class URLDownloader(ServiceBase):
                         request.add_supplementary(
                             download_params["path"], download_params["filename"], download_params["url"]
                         )
-                if download_section.body:
-                    request.result.add_section(download_section)
-                if content_section.body:
-                    request.result.add_section(content_section)
 
             if response_errors:
                 redirect_section = ResultTextSection("Responses Error", parent=request.result)

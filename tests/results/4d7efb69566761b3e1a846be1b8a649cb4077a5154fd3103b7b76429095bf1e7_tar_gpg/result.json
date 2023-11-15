@@ -84,7 +84,7 @@
         "auto_collapse": false,
         "body": [
           {
-            "Filename": "http://refreshmet.com/Package.tar.gpg",
+            "Filename": "Package.tar.gpg",
             "SHA256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea",
             "Size": 1764609,
             "mimeType": "application/x-tar",
@@ -106,7 +106,7 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Content file(s)",
+        "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
     ]
@@ -114,12 +114,8 @@
   "files": {
     "extracted": [
       {
-        "name": "http://refreshmet.com/Package.tar.gpg",
+        "name": "Package.tar.gpg",
         "sha256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea"
-      },
-      {
-        "name": "source.html",
-        "sha256": "a7fe83ec64bb23eb28090598db3d166ed98e52e39d1afbbfd74c579553f93e4e"
       }
     ],
     "supplementary": [
@@ -128,12 +124,12 @@
         "sha256": "10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a"
       },
       {
-        "name": "session.har",
-        "sha256": "15b865786026222c1e9b0b70c3094e67fdcd7b751d6831ad38d1330d2e3bf702"
-      },
-      {
         "name": "screenshot.png.thumb",
         "sha256": "9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26"
+      },
+      {
+        "name": "session.har",
+        "sha256": "a260d3d737953a73069f3d5d4c522f90c9ad90ceb3ca26fbc0d70cdd7e2a9671"
       }
     ]
   },
