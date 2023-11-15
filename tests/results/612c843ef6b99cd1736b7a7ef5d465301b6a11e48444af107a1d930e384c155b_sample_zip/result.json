@@ -106,17 +106,13 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Downloaded file(s)",
+        "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
     ]
   },
   "files": {
     "extracted": [
-      {
-        "name": "source.html",
-        "sha256": "a7fe83ec64bb23eb28090598db3d166ed98e52e39d1afbbfd74c579553f93e4e"
-      },
       {
         "name": "sample-1.zip",
         "sha256": "aacc269929eb3813429f4d15fb45ade9c7d0276b55421817f052a3ecb366b2e6"
@@ -128,12 +124,12 @@
         "sha256": "10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a"
       },
       {
-        "name": "session.har",
-        "sha256": "2f0fb118fb6464c89ea2b49a82c5fa46564d107afe8dc406b6629708951ee5b2"
-      },
-      {
         "name": "screenshot.png.thumb",
         "sha256": "9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26"
+      },
+      {
+        "name": "session.har",
+        "sha256": "cee1a2c59f36ca93a7578536ef45adcdf16cfd446114f1e7683b601ea536c01d"
       }
     ]
   },

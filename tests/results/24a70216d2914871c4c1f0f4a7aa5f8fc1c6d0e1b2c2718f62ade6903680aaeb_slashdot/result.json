@@ -567,63 +567,6 @@
         "auto_collapse": false,
         "body": [
           {
-            "Filename": "\"f.txt\"",
-            "SHA256": "5ffdee78c92d3cd920b567196b60bd651aa07d99bdeba93132126431cf5b7b75",
-            "Size": 90710,
-            "mimeType": "text/javascript; charset=UTF-8",
-            "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js"
-          },
-          {
-            "Filename": "\"f.txt\"",
-            "SHA256": "49db66ae1889e3ae58a38124422c4d6648b19cf9f233b12412db9b565b5d85b0",
-            "Size": 431880,
-            "mimeType": "text/javascript; charset=UTF-8",
-            "url": "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202310190101/pubads_impl_fy2012.js?cb=31078824"
-          },
-          {
-            "Filename": "\"f.txt\"",
-            "SHA256": "a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6",
-            "Size": 30851,
-            "mimeType": "text/javascript; charset=UTF-8",
-            "url": "https://tpc.googlesyndication.com/pagead/js/r20231024/r20110914/abg_lite.js"
-          },
-          {
-            "Filename": "\"f.txt\"",
-            "SHA256": "88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a",
-            "Size": 2965,
-            "mimeType": "text/javascript; charset=UTF-8",
-            "url": "https://tpc.googlesyndication.com/pagead/js/r20231024/r20110914/client/window_focus.js"
-          },
-          {
-            "Filename": "\"f.txt\"",
-            "SHA256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a",
-            "Size": 16126,
-            "mimeType": "application/json; charset=UTF-8",
-            "url": "https://pagead2.googlesyndication.com/getconfig/sodar?sv=200&tid=gpt&tv=m202310190101&st=env"
-          }
-        ],
-        "body_config": {
-          "column_order": [
-            "Filename",
-            "Size",
-            "mimeType",
-            "url",
-            "SHA256"
-          ]
-        },
-        "body_format": "TABLE",
-        "classification": "TLP:C",
-        "depth": 0,
-        "heuristic": null,
-        "promote_to": null,
-        "tags": {},
-        "title_text": "Downloaded file(s)",
-        "zeroize_on_tag_safe": false
-      },
-      {
-        "auto_collapse": false,
-        "body": [
-          {
             "Filename": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795",
             "SHA256": "c51cbb55dc71fcd8f77037a44089a3fcb5a9b3b7ce38bed912d5892f13ecb2d5",
             "Size": 62634,
@@ -701,7 +644,7 @@
             "url": "https://www.gstatic.com/images/icons/gplus-16.png"
           },
           {
-            "Filename": "inline; filename=\"ccpa-optout.webp\"",
+            "Filename": "ccpa-optout.webp",
             "SHA256": "54373f01b5c578532c7726e3fe0b1c7f7b9e3bd53df37855d3d35fc4bde5672d",
             "Size": 752,
             "mimeType": "image/webp",
@@ -722,14 +665,14 @@
             "url": "https://a.fsdn.com/sd/font/sdicon.woff?4cff0049eac0f5ce"
           },
           {
-            "Filename": "inline; filename=\"glyphish-icons-16-w.webp\"",
+            "Filename": "glyphish-icons-16-w.webp",
             "SHA256": "b96e8ad4434a030474068d9851f6cf17f66c0e1c9fbeced323cd21adc4c5b2d1",
             "Size": 30966,
             "mimeType": "image/webp",
             "url": "https://a.fsdn.com/sd/classic/img/glyphish-icons-16-w.png"
           },
           {
-            "Filename": "inline; filename=\"slashdot_favicon_white.webp\"",
+            "Filename": "slashdot_favicon_white.webp",
             "SHA256": "f97241e6103a32e7415ded731f409a571e8b2bcf3139dd36a5d887ef383a8785",
             "Size": 218,
             "mimeType": "image/webp",
@@ -834,6 +777,13 @@
             "url": "https://ml314.com/tag.aspx?2692023"
           },
           {
+            "Filename": "f.txt",
+            "SHA256": "5ffdee78c92d3cd920b567196b60bd651aa07d99bdeba93132126431cf5b7b75",
+            "Size": 90710,
+            "mimeType": "text/javascript; charset=UTF-8",
+            "url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+          },
+          {
             "Filename": "https://www.stack-sonar.com/ping.js",
             "SHA256": "30ffa03f71b651ba0851f8cb6bb6cb774bb1ca0efe27de779194dbc428f2ec34",
             "Size": 6018,
@@ -867,6 +817,13 @@
             "Size": 43,
             "mimeType": "image/gif",
             "url": "https://ad-delivery.net/px.gif?ch=1&e=0.9873019043032811"
+          },
+          {
+            "Filename": "f.txt",
+            "SHA256": "49db66ae1889e3ae58a38124422c4d6648b19cf9f233b12412db9b565b5d85b0",
+            "Size": 431880,
+            "mimeType": "text/javascript; charset=UTF-8",
+            "url": "https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202310190101/pubads_impl_fy2012.js?cb=31078824"
           },
           {
             "Filename": "https://widgets.jobbio.com/partner_fluid_widgets_v1.6.1/assets/css/v1_6_1.css",
@@ -1023,6 +980,20 @@
             "url": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20"
           },
           {
+            "Filename": "f.txt",
+            "SHA256": "a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6",
+            "Size": 30851,
+            "mimeType": "text/javascript; charset=UTF-8",
+            "url": "https://tpc.googlesyndication.com/pagead/js/r20231024/r20110914/abg_lite.js"
+          },
+          {
+            "Filename": "f.txt",
+            "SHA256": "88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a",
+            "Size": 2965,
+            "mimeType": "text/javascript; charset=UTF-8",
+            "url": "https://tpc.googlesyndication.com/pagead/js/r20231024/r20110914/client/window_focus.js"
+          },
+          {
             "Filename": "https://tpc.googlesyndication.com/simgad/12181677395581006442",
             "SHA256": "475e00b01bbcc668fb199c8a843f0dab992a69788b28243ad004ec7505875934",
             "Size": 38149,
@@ -1098,6 +1069,13 @@
             "Size": 454,
             "mimeType": "text/html; charset=UTF-8",
             "url": "https://cm.g.doubleclick.net/pixel?google_nid=pippio_dmp&google_cm&google_no_sc&m=CMwpElsKVwgBEJInGlA5ZDBkZTgzNmRmY2U1NmYwM2E1MzNmMDFhZTIwNzY4ZWQzZTA1N2U4ZjUwN2U3MTM0MjM5YTBkMmE1M2FlNzk3NzkxNDI2YjU0MTdkY2UyMRAAGgwI4cXqqQYSBAgCEABCAEoA"
+          },
+          {
+            "Filename": "f.txt",
+            "SHA256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a",
+            "Size": 16126,
+            "mimeType": "application/json; charset=UTF-8",
+            "url": "https://pagead2.googlesyndication.com/getconfig/sodar?sv=200&tid=gpt&tv=m202310190101&st=env"
           },
           {
             "Filename": "https://tpc.googlesyndication.com/sodar/sodar2.js",
@@ -1192,47 +1170,13 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Content file(s)",
+        "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
     ]
   },
   "files": {
     "extracted": [
-      {
-        "name": "\"f.txt\"",
-        "sha256": "49db66ae1889e3ae58a38124422c4d6648b19cf9f233b12412db9b565b5d85b0"
-      },
-      {
-        "name": "\"f.txt\"",
-        "sha256": "5ffdee78c92d3cd920b567196b60bd651aa07d99bdeba93132126431cf5b7b75"
-      },
-      {
-        "name": "source.html",
-        "sha256": "7da783db8eeb445b1a709769dc45941a8401a5ea92aa22ccebf26a66c718df97"
-      },
-      {
-        "name": "\"f.txt\"",
-        "sha256": "88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a"
-      },
-      {
-        "name": "\"f.txt\"",
-        "sha256": "a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6"
-      },
-      {
-        "name": "\"f.txt\"",
-        "sha256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a"
-      }
-    ],
-    "supplementary": [
-      {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "010ea9169d4065f74e1d6eb65ac3300895a234ea81ab7ad3598e1130e314f3ed"
-      },
-      {
-        "name": "https://ap.lijit.com/rtb/bid?src=prebid_prebid_8.13.0",
-        "sha256": "03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e"
-      },
       {
         "name": "https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940",
         "sha256": "0af3aae90b7de9fdceee2ab421378ea2f54c74be81ef43fc6c1790a032755d80"
@@ -1270,16 +1214,8 @@
         "sha256": "1f0d56bbf30621757c426a5ee211a372f52058c618a671357815944e305bb816"
       },
       {
-        "name": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap",
-        "sha256": "2177ae3e829faf96e725d696a6bcb2e3ec1ec261796b60a46ea25b857d2ac469"
-      },
-      {
         "name": "https://d3tglifpd8whs6.cloudfront.net/js/prebid/slash-homepage/slash-homepage.min.js",
         "sha256": "219b817171e49ce17d1e1aae855290c94750a8300c1ce6a9c4ffda8c6fca75a6"
-      },
-      {
-        "name": "screenshot.png",
-        "sha256": "27c2598dc7258df1ce7f9ce636a125a6aa422b9b84866e0468b7f5fe59863a08"
       },
       {
         "name": "https://a.fsdn.com/con/js/sftheme/cmp2.js",
@@ -1294,26 +1230,6 @@
         "sha256": "30ffa03f71b651ba0851f8cb6bb6cb774bb1ca0efe27de779194dbc428f2ec34"
       },
       {
-        "name": "favicon.ico",
-        "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
-      },
-      {
-        "name": "favicon.ico.thumb",
-        "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
-      },
-      {
-        "name": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=15680&site_id=103246&zone_id=488692%3B488694%3B488692%3B488694%3B488694%3B488694&size_id=2%3B2%3B15%3B15%3B15%3B15&alt_size_ids=55%2C57%3B%3B10%2C54%3B10%2C54%3B10%2C54%3B10%2C54&p_pos=atf%3Bbtf%3Batf%3Bbtf%3Bbtf%3Bbtf&rf=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tg_i.domain=news.slashdot.org&tg_i.page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tk_flint=pbjs_lite_v8.13.0&l_pb_bid_id=230a2f5b5193c99%3B2459af5b1b55c68%3B257c7d225ffa178%3B26c9e18bd867c0d%3B271285774e33086%3B2807df53b977853&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&slots=6&rand=0.06432152772395772",
-        "sha256": "33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43"
-      },
-      {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "45a3c0a41501953aa0ed4e065e165b3c479e5a3d052ccd984d482023c9d21d79"
-      },
-      {
-        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs?widgets=true",
-        "sha256": "45d52dc10945dfbdc640ab2748a2aaadc89c4c335300ddebc8cc03f82ce9415a"
-      },
-      {
         "name": "https://eb5b69091333a0ee3ea3a81fe1636601.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html",
         "sha256": "468959e93f9b4e6f07c6a8f8d0e93d8fcb37d76a8615a93ec153f5842247ba99"
       },
@@ -1322,16 +1238,16 @@
         "sha256": "475e00b01bbcc668fb199c8a843f0dab992a69788b28243ad004ec7505875934"
       },
       {
+        "name": "f.txt",
+        "sha256": "49db66ae1889e3ae58a38124422c4d6648b19cf9f233b12412db9b565b5d85b0"
+      },
+      {
         "name": "https://a.fsdn.com/con/css/sftheme/sandiego/cmp.css?2020-06-11",
         "sha256": "4baae150a27bc5716ba8f5160fbd2414f5b731c470d8ee0956612dafa106e950"
       },
       {
         "name": "https://www.googletagservices.com/activeview/js/current/rx_lidar.js?cache=r20110914",
         "sha256": "4e155284926ba010442d774fd493ff925a0256bd427f54596b1244791a3fa170"
-      },
-      {
-        "name": "https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=",
-        "sha256": "4fcda48fd92f2d20e388d06b2bd26ed34ad479a3045d779cfa8478a4f78fd8b0"
       },
       {
         "name": "https://tag.crsspxl.com/s2.html?d=2397&t=Canada%27s%20%27Super%20Secret%20Spy%20Agency%27%20Is%20Releasing%20a%20Malware-Fighting%20Tool%20To%20the%20Public%20-%20Slashdot&u=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
@@ -1346,7 +1262,7 @@
         "sha256": "52fe780d03e98dcb4524e857426d1f7d10559ae6454cc38e551a8e307e93eaff"
       },
       {
-        "name": "inline; filename=\"ccpa-optout.webp\"",
+        "name": "ccpa-optout.webp",
         "sha256": "54373f01b5c578532c7726e3fe0b1c7f7b9e3bd53df37855d3d35fc4bde5672d"
       },
       {
@@ -1362,16 +1278,16 @@
         "sha256": "55a119c0394f901a8a297e109c17b5e5402689708b999ab10691c16179f32a4a"
       },
       {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "5a2e3a8269e57686d2e6ae5aec1c75808f4ebc393c478a0c94ad139a80597f50"
-      },
-      {
         "name": "https://snap.licdn.com/li.lms-analytics/insight.old.min.js",
         "sha256": "5b3086a886aa8649ecbf496ac913a1aa443926cd2fff610be2d136c9598bcd8b"
       },
       {
         "name": "https://analytics.slashdotmedia.com/sd.js",
         "sha256": "5c166a5d40aeefd0679a14f95e47ff28824e66abba82adfa30be41803cc25632"
+      },
+      {
+        "name": "f.txt",
+        "sha256": "5ffdee78c92d3cd920b567196b60bd651aa07d99bdeba93132126431cf5b7b75"
       },
       {
         "name": "https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442",
@@ -1382,24 +1298,12 @@
         "sha256": "61c32059a5e94075a7ecff678b33907966fc9cfa384daa01aa057f872da14dbb"
       },
       {
-        "name": "https://a.fsdn.com/sd/font/sdicon.woff?4cff0049eac0f5ce",
-        "sha256": "625cd71745541c37495055244a8c139e6f3c784b0f5262503ee0f304ee52944e"
-      },
-      {
-        "name": "https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51",
-        "sha256": "656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438"
-      },
-      {
         "name": "https://ads.pro-market.net/ads/scripts/dda4-1-9.js",
         "sha256": "747aea5fe62af2ffb4944f7cf436ad2433433e40d21a3e41848028d4f889030b"
       },
       {
         "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=sharethrough&ttd_tpi=1&gdpr=0&gdpr_consent=&gpp=&gpp_sid=",
         "sha256": "749e535b316f36b4b3e910e5a805c3994374473acd93744df16830cc0d73f350"
-      },
-      {
-        "name": "https://image8.pubmatic.com/AdServer/ImgSync?p=0",
-        "sha256": "789c53d32da3b35f3766b2855b112be47b1044cd9303bcea0e37613ab0911bba"
       },
       {
         "name": "https://pbid.pro-market.net/engine?site=143573;size=1x1;e=0;dt=0;category=tt1kyd71%20-%20nf4j;kw=die2ua%200%20%20ruqmi%209evznl%20sq6%202xe6k7%20%20it%20i62et0rff%20b%20d22wtzn%20eihpka4g%201xgk%20uw%20lye%20x33kid;rnd=(1698341598719)",
@@ -1414,16 +1318,8 @@
         "sha256": "8337212354871836e6763a41e615916c89bac5b3f1f0adf60ba43c7c806e1015"
       },
       {
-        "name": "https://a.fsdn.com/sd/js/scripts/adgenerator.js?4cff0049eac0f5ce",
-        "sha256": "83b56810f90ecc4b4ca00f2d6225cd7c75441b42b740afbe17e0adac12890140"
-      },
-      {
-        "name": "https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1",
-        "sha256": "8a14fbeb53126a7d1e6d748a8805711ad7f75d66d294f7139c376fa23dbbd2fb"
-      },
-      {
-        "name": "https://api.btloader.com/country",
-        "sha256": "8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225"
+        "name": "f.txt",
+        "sha256": "88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a"
       },
       {
         "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1",
@@ -1438,32 +1334,16 @@
         "sha256": "9266048e760af84271a31d514688b13c892174dc74f9a02fe78231ac1e30bc20"
       },
       {
-        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed?search=&page_size=4&source=slashdot-jobs_horizontal_jobs_widget&widgets=true&page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
-        "sha256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a"
-      },
-      {
         "name": "https://a.fsdn.com/sd/all-minified.js?4cff0049eac0f5ce",
         "sha256": "98e340a87db63d243b5be3e021c52d9ceed87b491d3699cd292dbc2ce7a53c5e"
-      },
-      {
-        "name": "https://ib.adnxs.com/ut/v3/prebid",
-        "sha256": "9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6"
       },
       {
         "name": "https://tag.crsspxl.com/m.gif?oxid=e9623b56-3011-4105-89aa-f65f761a2552",
         "sha256": "a065920df8cc4016d67c3a464be90099c9d28ffe7c9e6ee3a18f257efc58cbd7"
       },
       {
-        "name": "session.har",
-        "sha256": "a687e3716831d228d5676ec032cb6d298736882d66f919b13283490813fa9d36"
-      },
-      {
-        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20",
-        "sha256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122"
-      },
-      {
-        "name": "https://slashdot.org/country.js",
-        "sha256": "ad94744abfc58e8e2ab2b6e22d1b74fab5cc940a39bf168f46b62dcf54550fe4"
+        "name": "f.txt",
+        "sha256": "a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6"
       },
       {
         "name": "https://engagefront.theweathernetwork.com/pxl?stid&id=b1609564-a417-4927-abaf-ad2136bd7392&gpp=&gpp_sid=",
@@ -1474,19 +1354,7 @@
         "sha256": "b1442e85b03bdcaf66dc58c7abb98745dd2687d86350be9a298a1d9382ac849b"
       },
       {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "b226c2e3e2fd9bbb3ca87ae6efb13005d5559a441ed83c59da7f672bed6c76e0"
-      },
-      {
-        "name": "screenshot.png.thumb",
-        "sha256": "b6533e20e9e2cca81fddd286940f1e1d827e6369731602fbbc08a3d666eb6c4a"
-      },
-      {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "b8c21dccfeed18919dc361f8e7ca380ce090e343767d584524e93d13c74056f1"
-      },
-      {
-        "name": "inline; filename=\"glyphish-icons-16-w.webp\"",
+        "name": "glyphish-icons-16-w.webp",
         "sha256": "b96e8ad4434a030474068d9851f6cf17f66c0e1c9fbeced323cd21adc4c5b2d1"
       },
       {
@@ -1510,20 +1378,12 @@
         "sha256": "cf4724b2f736ed1a0ae6bc28f1ead963d9cd2c1fd87b6ef32e7799fc1c5c8bda"
       },
       {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287"
-      },
-      {
         "name": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250",
         "sha256": "d961b08e4321250926de6f79087594975fe20ad1518de8f91eb711af5d1a6ef8"
       },
       {
         "name": "https://www.gstatic.com/images/icons/gplus-16.png",
         "sha256": "dcd07bf4ffba2d11c6d69171634486c68daa0d87587a55b9a06cf22170cbf28f"
-      },
-      {
-        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20",
-        "sha256": "de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57"
       },
       {
         "name": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",
@@ -1554,12 +1414,126 @@
         "sha256": "f895c2180e32c4ce4d271d356df846c691375a07bb28adeb0c2e073095a2fe99"
       },
       {
-        "name": "inline; filename=\"slashdot_favicon_white.webp\"",
+        "name": "slashdot_favicon_white.webp",
         "sha256": "f97241e6103a32e7415ded731f409a571e8b2bcf3139dd36a5d887ef383a8785"
       },
       {
         "name": "https://a.fsdn.com/sd/classic.ssl.css?4cff0049eac0f5ce",
         "sha256": "fd7cabe19f3902c002ab8b7f62071a64f732368a035e6925704d723214ae1438"
+      }
+    ],
+    "supplementary": [
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "010ea9169d4065f74e1d6eb65ac3300895a234ea81ab7ad3598e1130e314f3ed"
+      },
+      {
+        "name": "https://ap.lijit.com/rtb/bid?src=prebid_prebid_8.13.0",
+        "sha256": "03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e"
+      },
+      {
+        "name": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap",
+        "sha256": "2177ae3e829faf96e725d696a6bcb2e3ec1ec261796b60a46ea25b857d2ac469"
+      },
+      {
+        "name": "session.har",
+        "sha256": "2604aa3c43275c3e6ad0ee5e655f8e1dad01ec874058525266ed12842bfa032e"
+      },
+      {
+        "name": "screenshot.png",
+        "sha256": "27c2598dc7258df1ce7f9ce636a125a6aa422b9b84866e0468b7f5fe59863a08"
+      },
+      {
+        "name": "favicon.ico",
+        "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
+      },
+      {
+        "name": "favicon.ico.thumb",
+        "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
+      },
+      {
+        "name": "https://fastlane.rubiconproject.com/a/api/fastlane.json?account_id=15680&site_id=103246&zone_id=488692%3B488694%3B488692%3B488694%3B488694%3B488694&size_id=2%3B2%3B15%3B15%3B15%3B15&alt_size_ids=55%2C57%3B%3B10%2C54%3B10%2C54%3B10%2C54%3B10%2C54&p_pos=atf%3Bbtf%3Batf%3Bbtf%3Bbtf%3Bbtf&rf=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tg_i.domain=news.slashdot.org&tg_i.page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&tk_flint=pbjs_lite_v8.13.0&l_pb_bid_id=230a2f5b5193c99%3B2459af5b1b55c68%3B257c7d225ffa178%3B26c9e18bd867c0d%3B271285774e33086%3B2807df53b977853&p_screen_res=1280x720&rp_secure=1&rp_maxbids=1&slots=6&rand=0.06432152772395772",
+        "sha256": "33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "45a3c0a41501953aa0ed4e065e165b3c479e5a3d052ccd984d482023c9d21d79"
+      },
+      {
+        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs?widgets=true",
+        "sha256": "45d52dc10945dfbdc640ab2748a2aaadc89c4c335300ddebc8cc03f82ce9415a"
+      },
+      {
+        "name": "https://tags.rd.linksynergy.com/rcs?ns=lr&uid3=",
+        "sha256": "4fcda48fd92f2d20e388d06b2bd26ed34ad479a3045d779cfa8478a4f78fd8b0"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "5a2e3a8269e57686d2e6ae5aec1c75808f4ebc393c478a0c94ad139a80597f50"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/font/sdicon.woff?4cff0049eac0f5ce",
+        "sha256": "625cd71745541c37495055244a8c139e6f3c784b0f5262503ee0f304ee52944e"
+      },
+      {
+        "name": "https://ml314.com/utsync.ashx?pub=&adv=&et=0&eid=771&ct=js&pi=&fp=&clid=&if=0&ps=&cl=&mlt=&data=&&cp=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&pv=1698341597860_zxn7tm1d9&bl=en-us&cb=6961963&return=&ht=&d=&dc=&si=1698341597860_zxn7tm1d9&cid=&s=1280x720&rp=&v=2.5.3.51",
+        "sha256": "656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438"
+      },
+      {
+        "name": "https://image8.pubmatic.com/AdServer/ImgSync?p=0",
+        "sha256": "789c53d32da3b35f3766b2855b112be47b1044cd9303bcea0e37613ab0911bba"
+      },
+      {
+        "name": "https://a.fsdn.com/sd/js/scripts/adgenerator.js?4cff0049eac0f5ce",
+        "sha256": "83b56810f90ecc4b4ca00f2d6225cd7c75441b42b740afbe17e0adac12890140"
+      },
+      {
+        "name": "https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1",
+        "sha256": "8a14fbeb53126a7d1e6d748a8805711ad7f75d66d294f7139c376fa23dbbd2fb"
+      },
+      {
+        "name": "https://api.btloader.com/country",
+        "sha256": "8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225"
+      },
+      {
+        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed?search=&page_size=4&source=slashdot-jobs_horizontal_jobs_widget&widgets=true&page=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795",
+        "sha256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a"
+      },
+      {
+        "name": "https://ib.adnxs.com/ut/v3/prebid",
+        "sha256": "9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6"
+      },
+      {
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_728x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=728x90%7C970x90%7C970x250%7C980x66&ifi=1&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598351&lmt=1698341598&adxs=150&adys=133&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=1&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=728x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D728%252C90%2C970%252C90%2C970%252C250%2C980%252C66&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=1995547977&frm=20",
+        "sha256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122"
+      },
+      {
+        "name": "https://slashdot.org/country.js",
+        "sha256": "ad94744abfc58e8e2ab2b6e22d1b74fab5cc940a39bf168f46b62dcf54550fe4"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "b226c2e3e2fd9bbb3ca87ae6efb13005d5559a441ed83c59da7f672bed6c76e0"
+      },
+      {
+        "name": "screenshot.png.thumb",
+        "sha256": "b6533e20e9e2cca81fddd286940f1e1d827e6369731602fbbc08a3d666eb6c4a"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "b8c21dccfeed18919dc361f8e7ca380ce090e343767d584524e93d13c74056f1"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287"
+      },
+      {
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads?pvsid=1483972503549686&correlator=2981010872975044&eid=31078824&output=ldjh&gdfp_req=1&vrg=202310190101&ptt=17&impl=fif&iu_parts=41014381%2CSlashdot%2CSD_homepage_HubIcon_200x90_A&enc_prev_ius=%2F0%2F1%2F2&prev_iu_szs=200x90%7C220x90&ifi=2&sfv=1-0-40&fsfs=1&fsbs=1&sc=1&cookie_enabled=1&abxe=1&dt=1698341598375&lmt=1698341598&adxs=882&adys=147&biw=1280&bih=720&scr_x=0&scr_y=0&btvi=0&ucis=2&oid=2&u_his=2&u_h=720&u_w=1280&u_ah=720&u_aw=1280&u_cd=24&u_sd=1&dmc=8&bc=31&nvt=1&uach=WyIiLCIiLCIiLCIiLCIiLFtdLDAsbnVsbCwiIixbXSwwXQ..&url=https%3A%2F%2Fnews.slashdot.org%2Fcomments.pl%3Fsid%3D11253499%26cid%3D55399795&vis=1&psz=980x90&msz=200x0&fws=4&ohw=980&ga_vid=2041806110.1698341598&ga_sid=1698341598&ga_hid=1005119224&ga_fc=false&ga_wpids=UA-199823890-2&dlt=1698341594714&idt=3556&prev_scp=sz%3D200%252C90%2C220%252C90&cust_params=requestSource%3DGPT%26usingSafeFrame%3D1&adks=684831519&frm=20",
+        "sha256": "de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57"
+      },
+      {
+        "name": "f.txt",
+        "sha256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a"
       }
     ]
   },

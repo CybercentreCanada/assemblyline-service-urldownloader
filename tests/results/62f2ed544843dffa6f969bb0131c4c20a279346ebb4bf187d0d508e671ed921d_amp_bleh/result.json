@@ -175,23 +175,13 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Content file(s)",
+        "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
     ]
   },
   "files": {
     "extracted": [
-      {
-        "name": "source.html",
-        "sha256": "91a6177e1131df1cbc0bf773e47f6b4d795187bd1edbf8a66e44a69d6185544f"
-      }
-    ],
-    "supplementary": [
-      {
-        "name": "session.har",
-        "sha256": "06b9a172783190c8195002ac1edc3dd02ad8eca3dfe218f78bf4af22bebaed63"
-      },
       {
         "name": "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com",
         "sha256": "67cb6a4fac39c8d2746c9f4b49f9babcf02857ba22adfa4a4f76cd5077cb0b6b"
@@ -203,7 +193,9 @@
       {
         "name": "https://andbaco.com/SnIBYCS/bleh@bleh.com",
         "sha256": "cd8db8bc01944b77a3ed39b2bccfc7e3c80f7b0867c959f8d2b0d7346a094bdc"
-      },
+      }
+    ],
+    "supplementary": [
       {
         "name": "screenshot.png",
         "sha256": "da8d1c4491eb6d37774bfd06a9006f0ecbb971fa8ae50a56762c150abbeab5e6"
@@ -211,6 +203,10 @@
       {
         "name": "screenshot.png.thumb",
         "sha256": "e0b9f33eb5486d15e7bb0a53da290d2ac288bd6e49204d1f367081a910470dfd"
+      },
+      {
+        "name": "session.har",
+        "sha256": "e30ae4be79e339aacc0432fa96c0e08a15b94ab048137715d18b27e5eb78ca24"
       }
     ]
   },

@@ -185,19 +185,13 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Content file(s)",
+        "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
     ]
   },
   "files": {
     "extracted": [
-      {
-        "name": "source.html",
-        "sha256": "a775e3a167a1b367a9ce665e0b0e755e92a6ded6be9460bd750be67655e98915"
-      }
-    ],
-    "supplementary": [
       {
         "name": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
         "sha256": "16c2d5266b2108af9a153ecd8f5d1b033dbd03a98e675ca92d2401bf764b53a1"
@@ -207,8 +201,14 @@
         "sha256": "3a0597439fbcb969fb742fa848a81d1881195ea6d803093699e6e4f55f81c8e7"
       },
       {
+        "name": "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
+        "sha256": "d5a89e26beae0bc03ad18a0b0d1d3d75f87c32047879d25da11970cb5c4662a3"
+      }
+    ],
+    "supplementary": [
+      {
         "name": "session.har",
-        "sha256": "69564e693d924f48a8441a35091e3039368eca7506ed259921ca959df82b63ef"
+        "sha256": "42c2ef4cf3f5c3079da43de42a0e5094f67cdb2ce4c3f0933c5f372fd45e752b"
       },
       {
         "name": "screenshot.png",
@@ -217,10 +217,6 @@
       {
         "name": "screenshot.png.thumb",
         "sha256": "cecc08e3999173bd0548ae309f9e75009eb4a5ec0705af45437b1e65e0569b1b"
-      },
-      {
-        "name": "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
-        "sha256": "d5a89e26beae0bc03ad18a0b0d1d3d75f87c32047879d25da11970cb5c4662a3"
       }
     ]
   },

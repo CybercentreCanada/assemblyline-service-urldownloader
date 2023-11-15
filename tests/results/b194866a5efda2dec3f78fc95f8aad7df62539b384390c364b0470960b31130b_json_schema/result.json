@@ -121,7 +121,7 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Content file(s)",
+        "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
     ]
@@ -131,10 +131,6 @@
       {
         "name": "https://json.schemastore.org/eslintrc.json",
         "sha256": "3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5"
-      },
-      {
-        "name": "source.html",
-        "sha256": "7253b762cbc8b6fa150a461edfe5aee6040892212e9c0da97da216c85058dc5c"
       }
     ],
     "supplementary": [
@@ -144,7 +140,7 @@
       },
       {
         "name": "session.har",
-        "sha256": "9eb1f72da81d1628bf9a367e9ed8a537fc74985f22a92a6f4eece2ae1d4e4922"
+        "sha256": "b63a8fb80864f33b79ff1690cfec47586c235c04f95a1bff236208dee45fa620"
       },
       {
         "name": "screenshot.png.thumb",

@@ -106,7 +106,7 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {},
-        "title_text": "Content file(s)",
+        "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
     ]
@@ -116,10 +116,6 @@
       {
         "name": "http://refreshmet.com/Package.tar.gpg",
         "sha256": "8a2639de6c5ce59b4e8d048616b25b681b3a08715a92184334d07dbdd2b006ea"
-      },
-      {
-        "name": "source.html",
-        "sha256": "a7fe83ec64bb23eb28090598db3d166ed98e52e39d1afbbfd74c579553f93e4e"
       }
     ],
     "supplementary": [
@@ -129,7 +125,7 @@
       },
       {
         "name": "session.har",
-        "sha256": "15b865786026222c1e9b0b70c3094e67fdcd7b751d6831ad38d1330d2e3bf702"
+        "sha256": "2ae43e82bdfa800aad278f3a23612a02fbbb4d72b68079705a3085f75c076f9c"
       },
       {
         "name": "screenshot.png.thumb",
