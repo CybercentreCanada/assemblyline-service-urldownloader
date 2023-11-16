@@ -23,6 +23,7 @@ from assemblyline_v4_service.common.result import (
     TableRow,
 )
 from PIL import UnidentifiedImageError
+from requests.exceptions import ConnectionError
 
 KANGOOROO_FOLDER = os.path.join(os.path.dirname(__file__), "kangooroo")
 
@@ -334,19 +335,25 @@ class URLDownloader(ServiceBase):
                         )
 
             if response_errors:
-                redirect_section = ResultTextSection("Responses Error", parent=request.result)
+                error_section = ResultTextSection("Responses Error", parent=request.result)
                 for response_url, response_error in response_errors:
-                    redirect_section.add_line(f"{response_url}: {response_error}")
+                    error_section.add_line(f"{response_url}: {response_error}")
         else:
             # Non-GET request
-            r = requests.request(
-                method,
-                request.task.fileinfo.uri_info.uri,
-                headers=data.get("headers", {}),
-                proxies=self.config["proxies"][request.get_param("proxy")],
-                data=data.get("data", None),
-                json=data.get("json", None),
-            )
+            try:
+                r = requests.request(
+                    method,
+                    request.task.fileinfo.uri_info.uri,
+                    headers=data.get("headers", {}),
+                    proxies=self.config["proxies"][request.get_param("proxy")],
+                    data=data.get("data", None),
+                    json=data.get("json", None),
+                )
+            except ConnectionError:
+                error_section = ResultTextSection("Error", parent=request.result)
+                error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
+                error_section.add_line("This server is currently unavailable")
+                return
             requests_content_path = os.path.join(self.working_directory, "requests_content")
             with open(requests_content_path, "wb") as f:
                 f.write(r.content)

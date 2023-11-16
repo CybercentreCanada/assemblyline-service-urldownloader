@@ -39,4 +39,3 @@ def test_sample(mock_run, sample):
 
     mock_run.side_effect = wrap_drop_kangooroo_files
     th.run_test_comparison(sample)
-    # th.regenerate_results(sample_sha256=sample)
