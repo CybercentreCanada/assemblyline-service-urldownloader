@@ -22,6 +22,7 @@ from assemblyline_v4_service.common.result import (
     ResultTextSection,
     TableRow,
 )
+from assemblyline_v4_service.common.task import PARENT_RELATION
 from PIL import UnidentifiedImageError
 from requests.exceptions import ConnectionError
 
@@ -327,7 +328,10 @@ class URLDownloader(ServiceBase):
                         or len(downloads) == 1
                     ):
                         request.add_extracted(
-                            download_params["path"], download_params["filename"], download_params["url"]
+                            download_params["path"],
+                            download_params["filename"],
+                            download_params["url"],
+                            parent_relation=PARENT_RELATION.DOWNLOADED,
                         )
                     else:
                         request.add_supplementary(
@@ -359,6 +363,11 @@ class URLDownloader(ServiceBase):
                 f.write(r.content)
             file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True)
             if file_info["type"].startswith("archive"):
-                request.add_extracted(requests_content_path, file_info["sha256"], "Archive from the URI")
+                request.add_extracted(
+                    requests_content_path,
+                    file_info["sha256"],
+                    "Archive from the URI",
+                    parent_relation=PARENT_RELATION.DOWNLOADED,
+                )
             else:
                 request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
