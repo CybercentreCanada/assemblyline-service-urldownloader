@@ -335,7 +335,10 @@ class URLDownloader(ServiceBase):
                         )
                     else:
                         request.add_supplementary(
-                            download_params["path"], download_params["filename"], download_params["url"]
+                            download_params["path"],
+                            download_params["filename"],
+                            download_params["url"],
+                            parent_relation=PARENT_RELATION.DOWNLOADED,
                         )
 
             if response_errors:
