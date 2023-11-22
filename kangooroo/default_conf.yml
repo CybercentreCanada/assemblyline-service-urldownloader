@@ -3,7 +3,6 @@
 
 version: '1.0.1'
 
-#COQUI_STT_ROOT Might want to move this folder to somewhere more appropriate
 coqui_stt_folder: '/home/al/coqui-stt/'
 
 kang-upstream-proxy:
@@ -13,12 +12,10 @@ kang-upstream-proxy:
 temporary_folder: './tmp/'
 output_folder: './output/'
 
-moose:
-  user-agents:
-    # DEFAULT : "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko" // Until 20200416
-    DEFAULT:
-      user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-      size: "1280x720"
-    SMISHING:
-      user-agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
-      size: "375x667"
+browser_settings:
+  DEFAULT:
+    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+    window_size: "1280x720"
+  SMISHING:
+    user_agent: "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
+    window_size: "375x667"
