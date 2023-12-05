@@ -2,7 +2,7 @@ name: URLDownloader
 version: $SERVICE_TAG
 description: This service downloads potentially malicious URLs.
 
-accepts: uri/https?
+accepts: uri/https?$
 rejects: empty|metadata/.*
 
 stage: CORE
@@ -21,6 +21,7 @@ config:
     localhost_proxy:
       http: 127.0.0.1:8080
       https: 127.0.0.1:8080
+  no_sandbox: False
 
 submission_params:
   - default: "no_proxy"
