@@ -86,3 +86,4 @@ cython_debug/
 *.pyc
 chromedriver
 KangoorooStandalone.jar
+coqui-stt.zip

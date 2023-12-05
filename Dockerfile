@@ -19,7 +19,7 @@ RUN apt update -y && \
     unzip -j -d /opt/al_service/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip && \
     # Download the Kangooroo jar from alpytest until it is published on a proper code repository
-    wget -O /opt/al_service/kangooroo/KangoorooStandalone.jar https://alpytest.blob.core.windows.net/pytest/KangoorooStandalone.jar
+    wget -O /opt/al_service/kangooroo/KangoorooStandalone.jar https://alpytest.blob.core.windows.net/pytest/KangoorooStandalone-proxy.jar
 
 # Switch to assemblyline user
 USER assemblyline
