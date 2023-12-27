@@ -1178,6 +1178,14 @@
   "files": {
     "extracted": [
       {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "010ea9169d4065f74e1d6eb65ac3300895a234ea81ab7ad3598e1130e314f3ed"
+      },
+      {
+        "name": "https://ap.lijit.com/rtb/bid?src=prebid_prebid_8.13.0",
+        "sha256": "03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e"
+      },
+      {
         "name": "https://www.google.com/recaptcha/api2/aframe",
         "sha256": "11c6e9af47a1acc9b603a998ca0438e5e7a2d826bf3aad0ef0589eb1b9fbe3c9"
       },
@@ -1214,6 +1222,18 @@
         "sha256": "30ffa03f71b651ba0851f8cb6bb6cb774bb1ca0efe27de779194dbc428f2ec34"
       },
       {
+        "name": "fastlane.json",
+        "sha256": "33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "45a3c0a41501953aa0ed4e065e165b3c479e5a3d052ccd984d482023c9d21d79"
+      },
+      {
+        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs?widgets=true",
+        "sha256": "45d52dc10945dfbdc640ab2748a2aaadc89c4c335300ddebc8cc03f82ce9415a"
+      },
+      {
         "name": "container.html",
         "sha256": "468959e93f9b4e6f07c6a8f8d0e93d8fcb37d76a8615a93ec153f5842247ba99"
       },
@@ -1240,6 +1260,10 @@
       {
         "name": "runner.html",
         "sha256": "55a119c0394f901a8a297e109c17b5e5402689708b999ab10691c16179f32a4a"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "5a2e3a8269e57686d2e6ae5aec1c75808f4ebc393c478a0c94ad139a80597f50"
       },
       {
         "name": "insight.old.min.js",
@@ -1278,6 +1302,10 @@
         "sha256": "88a577b7767cbe34315ff67366be5530949df573931dd9c762c2c2e0434c5b8a"
       },
       {
+        "name": "https://api.btloader.com/country",
+        "sha256": "8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225"
+      },
+      {
         "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=d0tro1j&ttd_tpi=1",
         "sha256": "8d7d4bf99816dfe63b92b3af19ea3e0e67bc462758b206cb1176fcb97a50b1ad"
       },
@@ -1286,12 +1314,32 @@
         "sha256": "9266048e760af84271a31d514688b13c892174dc74f9a02fe78231ac1e30bc20"
       },
       {
+        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed",
+        "sha256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a"
+      },
+      {
         "name": "all-minified.js",
         "sha256": "98e340a87db63d243b5be3e021c52d9ceed87b491d3699cd292dbc2ce7a53c5e"
       },
       {
+        "name": "https://ib.adnxs.com/ut/v3/prebid",
+        "sha256": "9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6"
+      },
+      {
         "name": "f.txt",
         "sha256": "a860e393a22f7cd34a28120e6b5f9bdc433a1eeda614b995c6c22b395afcfbe6"
+      },
+      {
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads",
+        "sha256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "b226c2e3e2fd9bbb3ca87ae6efb13005d5559a441ed83c59da7f672bed6c76e0"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "b8c21dccfeed18919dc361f8e7ca380ce090e343767d584524e93d13c74056f1"
       },
       {
         "name": "comments.pl",
@@ -1308,6 +1356,18 @@
       {
         "name": "y08pV31sM45xEike2vHNAQ_usQ3N3SApGkbB1F_zlUU.js",
         "sha256": "cb4f29577d6c338e7112291edaf1cd010feeb10dcddd20291a46c1d45ff39545"
+      },
+      {
+        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
+        "sha256": "d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287"
+      },
+      {
+        "name": "https://securepubads.g.doubleclick.net/gampad/ads",
+        "sha256": "de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57"
+      },
+      {
+        "name": "f.txt",
+        "sha256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a"
       },
       {
         "name": "ind-imp.min.js",
@@ -1331,14 +1391,6 @@
       }
     ],
     "supplementary": [
-      {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "010ea9169d4065f74e1d6eb65ac3300895a234ea81ab7ad3598e1130e314f3ed"
-      },
-      {
-        "name": "https://ap.lijit.com/rtb/bid?src=prebid_prebid_8.13.0",
-        "sha256": "03fdc634b2ce0605cb8f8ccdee6c0054774c5025a08ad82ef67d401fa818b77e"
-      },
       {
         "name": "https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940",
         "sha256": "0af3aae90b7de9fdceee2ab421378ea2f54c74be81ef43fc6c1790a032755d80"
@@ -1376,18 +1428,6 @@
         "sha256": "3333a0e36cea7e501ddaaa17d7ef15c39617c6e158ed69bc7f370086fa9adeeb"
       },
       {
-        "name": "fastlane.json",
-        "sha256": "33804a0a8df577229a2424475630c02aee8032a47979119a18d95859d2d55c43"
-      },
-      {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "45a3c0a41501953aa0ed4e065e165b3c479e5a3d052ccd984d482023c9d21d79"
-      },
-      {
-        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs?widgets=true",
-        "sha256": "45d52dc10945dfbdc640ab2748a2aaadc89c4c335300ddebc8cc03f82ce9415a"
-      },
-      {
         "name": "https://tpc.googlesyndication.com/simgad/12181677395581006442",
         "sha256": "475e00b01bbcc668fb199c8a843f0dab992a69788b28243ad004ec7505875934"
       },
@@ -1410,10 +1450,6 @@
       {
         "name": "bk_sync.xgi",
         "sha256": "548f2d6f4d0d820c6c5ffbeffcbd7f0e73193e2932eefe542accc84762deec87"
-      },
-      {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "5a2e3a8269e57686d2e6ae5aec1c75808f4ebc393c478a0c94ad139a80597f50"
       },
       {
         "name": "https://match.sharethrough.com/sync/v1?source_id=7rkJAhPCWXbw9Lq5dZxc6TvN&source_user_id=ua-35ca3ff8-e29a-37a9-96e5-c1ac8b5b7442",
@@ -1444,28 +1480,12 @@
         "sha256": "8a14fbeb53126a7d1e6d748a8805711ad7f75d66d294f7139c376fa23dbbd2fb"
       },
       {
-        "name": "https://api.btloader.com/country",
-        "sha256": "8bd69d0dddab8bc553263c254faad469c2a3e08bfb0b737e763f7feabe571225"
-      },
-      {
         "name": "js.gif",
         "sha256": "8f69e10876805b747a3ad08a818d46ac7e731b1af417ea6e259d9b6b7deb65c5"
       },
       {
-        "name": "https://widget-api.jobbio.com/channels/slashdot-jobs/feed",
-        "sha256": "95e7fe07485d269533d32bccf1c16554d6700793a8cc76568503cc7176425b7a"
-      },
-      {
-        "name": "https://ib.adnxs.com/ut/v3/prebid",
-        "sha256": "9fd2254d449d8faa51389e5dc02f0ec44975350d9ecd54cebf29ee8f1885e5e6"
-      },
-      {
         "name": "m.gif",
         "sha256": "a065920df8cc4016d67c3a464be90099c9d28ffe7c9e6ee3a18f257efc58cbd7"
-      },
-      {
-        "name": "https://securepubads.g.doubleclick.net/gampad/ads",
-        "sha256": "acadca978772c377e9453f62126bbe6727bc0ec74d1f4e329d29beb9751a0122"
       },
       {
         "name": "country.js",
@@ -1480,16 +1500,8 @@
         "sha256": "b1442e85b03bdcaf66dc58c7abb98745dd2687d86350be9a298a1d9382ac849b"
       },
       {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "b226c2e3e2fd9bbb3ca87ae6efb13005d5559a441ed83c59da7f672bed6c76e0"
-      },
-      {
         "name": "screenshot.png.thumb",
         "sha256": "b6533e20e9e2cca81fddd286940f1e1d827e6369731602fbbc08a3d666eb6c4a"
-      },
-      {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "b8c21dccfeed18919dc361f8e7ca380ce090e343767d584524e93d13c74056f1"
       },
       {
         "name": "glyphish-icons-16-w.webp",
@@ -1500,24 +1512,12 @@
         "sha256": "cf4724b2f736ed1a0ae6bc28f1ead963d9cd2c1fd87b6ef32e7799fc1c5c8bda"
       },
       {
-        "name": "https://btlr.sharethrough.com/universal/v1?supply_id=WYu2BXv1",
-        "sha256": "d4796502ab8fcada0dce09629d82963d3156908401c3fe9016ffba6ea9fdc287"
-      },
-      {
         "name": "favicon.ico",
         "sha256": "d961b08e4321250926de6f79087594975fe20ad1518de8f91eb711af5d1a6ef8"
       },
       {
         "name": "gplus-16.png",
         "sha256": "dcd07bf4ffba2d11c6d69171634486c68daa0d87587a55b9a06cf22170cbf28f"
-      },
-      {
-        "name": "https://securepubads.g.doubleclick.net/gampad/ads",
-        "sha256": "de356499c3cde483710eb6e5d55bb2f948188e91cbe8fc9daa727b09d5adea57"
-      },
-      {
-        "name": "f.txt",
-        "sha256": "de84daaef82edb62cde2df7e821bf6838f939d1543893c62493f21b5d9dce35a"
       },
       {
         "name": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",

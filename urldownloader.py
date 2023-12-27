@@ -325,7 +325,7 @@ class URLDownloader(ServiceBase):
 
                     if (
                         download_params["url"] in target_urls
-                        or file_info["type"] == "image/svg"
+                        or file_info["type"] in ["image/svg", "text/json"]
                         or not (
                             file_info["type"].startswith("text/")
                             or file_info["type"].startswith("image/")
