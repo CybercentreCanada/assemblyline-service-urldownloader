@@ -38,7 +38,7 @@ submission_params:
     type: str
     value: "image/*|text/*|unknown|code/css"
   - default: true
-    name: regex_extract_unmatched
+    name: extract_unmatched_filetype
     type: bool
     value: true
 

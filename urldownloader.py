@@ -328,7 +328,7 @@ class URLDownloader(ServiceBase):
                         or len(downloads) == 1
                         or re.match(request.get_param("regex_extract_filetype"), file_info["type"])
                         or (
-                            request.get_param("regex_extract_unmatched")
+                            request.get_param("extract_unmatched_filetype")
                             and not re.match(request.get_param("regex_supplementary_filetype"), file_info["type"])
                         )
                     ):
