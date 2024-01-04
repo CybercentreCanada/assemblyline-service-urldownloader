@@ -325,13 +325,12 @@ class URLDownloader(ServiceBase):
 
                     if (
                         download_params["url"] in target_urls
-                        or file_info["type"] in ["image/svg", "text/json"]
-                        or not (
-                            file_info["type"].startswith("text/")
-                            or file_info["type"].startswith("image/")
-                            or file_info["type"] in ["unknown", "code/css"]
-                        )
                         or len(downloads) == 1
+                        or re.match(request.get_param("regex_extract_filetype"), file_info["type"])
+                        or (
+                            request.get_param("regex_extract_unmatched")
+                            and not re.match(request.get_param("regex_supplementary_filetype"), file_info["type"])
+                        )
                     ):
                         request.add_extracted(
                             download_params["path"],

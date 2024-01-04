@@ -29,6 +29,18 @@ submission_params:
     type: list
     value: "no_proxy"
     list: ["no_proxy", "localhost_proxy"]
+  - default: "image/svg|text/json"
+    name: regex_extract_filetype
+    type: str
+    value: "image/svg|text/json"
+  - default: "image/*|text/*|unknown|code/css"
+    name: regex_supplementary_filetype
+    type: str
+    value: "image/*|text/*|unknown|code/css"
+  - default: true
+    name: regex_extract_unmatched
+    type: bool
+    value: true
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
