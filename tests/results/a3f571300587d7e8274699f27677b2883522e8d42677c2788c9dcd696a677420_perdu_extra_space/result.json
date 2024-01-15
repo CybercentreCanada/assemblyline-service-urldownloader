@@ -1,0 +1,189 @@
+{
+  "extra": {
+    "drop_file": false,
+    "score": 0,
+    "sections": [
+      {
+        "auto_collapse": false,
+        "body": "URL 'http://perdu.com ' (8a9c26db8a9d5ad647bd642887c4bfd2) was requested but a different URL was fetched (75d53866bcb20465b3287cf237234464).",
+        "body_config": {},
+        "body_format": "TEXT",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "URL hash mismatch",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": [
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "http://perdu.com"
+          ],
+          [
+            "requested_url_ip",
+            "172.64.80.1"
+          ],
+          [
+            "actual_url",
+            "http://perdu.com/"
+          ],
+          [
+            "actual_url_ip",
+            "172.64.80.1"
+          ]
+        ],
+        "body_config": {},
+        "body_format": "ORDERED_KEY_VALUE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "perdu.com"
+              ],
+              "ip": [
+                "172.64.80.1"
+              ],
+              "uri": [
+                "http://perdu.com",
+                "http://perdu.com/"
+              ],
+              "uri_path": [
+                "/"
+              ]
+            }
+          }
+        },
+        "title_text": "Results",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": [
+          {
+            "img": {
+              "description": "Screenshot of http://perdu.com ",
+              "name": "screenshot.png",
+              "sha256": "39d75f4693c1cfe7bf847391d7988dbff5487eba3d8c2be9704a924965dae585"
+            },
+            "thumb": {
+              "description": "Screenshot of http://perdu.com  (thumbnail)",
+              "name": "screenshot.png.thumb",
+              "sha256": "07e406815c7a634589ff9c371bf6364aea1c04734f0bd98f04e513e5ea66a2ed"
+            }
+          }
+        ],
+        "body_config": {},
+        "body_format": "IMAGE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": "SCREENSHOT",
+        "tags": {},
+        "title_text": "Screenshot of visited page",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": [
+          {
+            "Filename": "http://perdu.com/",
+            "SHA256": "208e330c75ffd93949be0258660973bef8223917f036325020f3a4c51b4ca430",
+            "Size": 204,
+            "mimeType": "text/html",
+            "url": "http://perdu.com/"
+          }
+        ],
+        "body_config": {
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
+        },
+        "body_format": "TABLE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Downloaded Content",
+        "zeroize_on_tag_safe": false
+      }
+    ]
+  },
+  "files": {
+    "extracted": [
+      {
+        "name": "http://perdu.com/",
+        "sha256": "208e330c75ffd93949be0258660973bef8223917f036325020f3a4c51b4ca430"
+      }
+    ],
+    "supplementary": [
+      {
+        "name": "screenshot.png.thumb",
+        "sha256": "07e406815c7a634589ff9c371bf6364aea1c04734f0bd98f04e513e5ea66a2ed"
+      },
+      {
+        "name": "screenshot.png",
+        "sha256": "39d75f4693c1cfe7bf847391d7988dbff5487eba3d8c2be9704a924965dae585"
+      },
+      {
+        "name": "session.har",
+        "sha256": "75b2bf6df3f116d6ca50507595f1fa45884ae6840f248b2096c70bb9d8fbe224"
+      }
+    ]
+  },
+  "results": {
+    "heuristics": [],
+    "tags": {
+      "network.static.domain": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "perdu.com"
+        }
+      ],
+      "network.static.ip": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "172.64.80.1"
+        }
+      ],
+      "network.static.uri": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "http://perdu.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "http://perdu.com/"
+        }
+      ],
+      "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/"
+        }
+      ]
+    },
+    "temp_submission_data": {}
+  }
+}

@@ -1,5 +1,6 @@
 #!/bin/env python
 import hashlib
+import json
 import os
 import shutil
 from unittest.mock import patch
@@ -22,13 +23,14 @@ th = TestHelper(service_class, RESULTS_FOLDER)
 
 def drop_kangooroo_files(sample, kangooroo_args, **kwargs):
     config_path = kangooroo_args[5]  # Assume it's 5 for now
-    uri = kangooroo_args[-1]  # Assume it's -1 for now
     with open(config_path) as f:
         config = yaml.safe_load(f)
 
-    url_md5 = hashlib.md5(uri.encode()).hexdigest()
-    output_folder = os.path.join(config["output_folder"], url_md5)
     kangooroo_input_path = os.path.join(RESULTS_FOLDER, sample, "kangooroo")
+    with open(os.path.join(kangooroo_input_path, "results.json"), "r") as f:
+        results = json.load(f)
+    url_md5 = hashlib.md5(results["requested_url"].encode()).hexdigest()
+    output_folder = os.path.join(config["output_folder"], url_md5)
     shutil.copytree(src=kangooroo_input_path, dst=output_folder)
 
 

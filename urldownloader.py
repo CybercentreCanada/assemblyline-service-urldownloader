@@ -108,6 +108,33 @@ class URLDownloader(ServiceBase):
 
             output_folder = os.path.join(kangooroo_config["output_folder"], url_md5)
 
+            if not os.path.exists(output_folder):
+                # There was a mismatch between what Kangooroo fetched and the URL we requested.
+                possible_folders = os.listdir(kangooroo_config["output_folder"])
+                if len(possible_folders) == 0:
+                    raise Exception(
+                        (
+                            "No Kangooroo output folder found. Kangooroo may have been OOMKilled. "
+                            "Check for memory usage and increase limit as needed."
+                        )
+                    )
+                elif len(possible_folders) != 1:
+                    raise Exception(
+                        (
+                            "Multiple Kangooroo output folders found. Unknown situation happened, you can try "
+                            "submitting this URL again to see if it would help."
+                        )
+                    )
+                else:
+                    url_hash_mismatch = ResultTextSection("URL hash mismatch", parent=request.result)
+                    url_hash_mismatch.add_line(
+                        (
+                            f"URL '{request.task.fileinfo.uri_info.uri}' ({url_md5}) was requested "
+                            f"but a different URL was fetched ({possible_folders[0]})."
+                        )
+                    )
+                    output_folder = os.path.join(kangooroo_config["output_folder"], possible_folders[0])
+
             results_filepath = os.path.join(output_folder, "results.json")
             if not os.path.exists(results_filepath):
                 raise Exception(
