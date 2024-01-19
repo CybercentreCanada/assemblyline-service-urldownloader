@@ -1,6 +1,7 @@
 import base64
 import hashlib
 import json
+import math
 import os
 import re
 import subprocess
@@ -91,6 +92,7 @@ class URLDownloader(ServiceBase):
 
             kangooroo_args = [
                 "java",
+                f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m",
                 "-Dlogback.configurationFile=logback.xml",
                 "-jar",
                 "KangoorooStandalone.jar",

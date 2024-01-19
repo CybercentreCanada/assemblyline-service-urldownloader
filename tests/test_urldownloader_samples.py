@@ -1,3 +1,4 @@
+import argparse
 import hashlib
 import json
 import os
@@ -19,10 +20,13 @@ RESULTS_FOLDER = os.path.join(os.path.dirname(__file__), "results")
 service_class = load_module_by_path("urldownloader.URLDownloader", os.path.join(os.path.dirname(__file__), ".."))
 th = TestHelper(service_class, RESULTS_FOLDER)
 
+kangooroo_parser = argparse.ArgumentParser()
+kangooroo_parser.add_argument("-cf", "--conf-file", action="store", dest="conf")
+
 
 def drop_kangooroo_files(sample, kangooroo_args, **kwargs):
-    config_path = kangooroo_args[5]  # Assume it's 5 for now
-    with open(config_path) as f:
+    namespace, _ = kangooroo_parser.parse_known_args(kangooroo_args)
+    with open(namespace.conf) as f:
         config = yaml.safe_load(f)
 
     kangooroo_input_path = os.path.join(RESULTS_FOLDER, sample, "kangooroo")
