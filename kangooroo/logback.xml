@@ -1,8 +1,5 @@
-<!--
-This is a basic logback.xml file that outputs the log to the console at info level.
- -->
-
 <configuration>
+    <logger name="com.browserup.bup.BrowserUpProxyServer" level="OFF"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
