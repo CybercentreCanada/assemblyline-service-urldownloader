@@ -93,7 +93,7 @@ class URLDownloader(ServiceBase):
             kangooroo_args = [
                 "java",
                 f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m",
-                "-Dlogback.configurationFile=logback.xml",
+                "-Dlogback.configurationFile=./logback.xml",
                 "-jar",
                 "KangoorooStandalone.jar",
                 "--conf-file",
@@ -222,12 +222,14 @@ class URLDownloader(ServiceBase):
                         {
                             "status": entry["response"]["status"],
                             "redirecting_url": entry["request"]["url"],
-                            "redirecting_ip": entry["serverIPAddress"]
-                            if "serverIPAddress" in entry
-                            else "Not Available",
-                            "redirecting_to": entry["response"]["redirectURL"]
-                            if "redirectURL" in entry["response"]
-                            else "Not Available",
+                            "redirecting_ip": (
+                                entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
+                            ),
+                            "redirecting_to": (
+                                entry["response"]["redirectURL"]
+                                if "redirectURL" in entry["response"]
+                                else "Not Available"
+                            ),
                         }
                     )
 
@@ -240,9 +242,9 @@ class URLDownloader(ServiceBase):
                                 {
                                     "status": entry["response"]["status"],
                                     "redirecting_url": entry["request"]["url"],
-                                    "redirecting_ip": entry["serverIPAddress"]
-                                    if "serverIPAddress" in entry
-                                    else "Not Available",
+                                    "redirecting_ip": (
+                                        entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
+                                    ),
                                     "redirecting_to": refresh[1][4:],
                                 }
                             )
@@ -276,7 +278,11 @@ class URLDownloader(ServiceBase):
                         downloads[content_md5] = {"path": content_file.name}
 
                     # The headers could contain the name of the downloaded file
-                    if "Content-Disposition" in entry["response"]["headers"]:
+                    if (
+                        "Content-Disposition" in entry["response"]["headers"]
+                        # Some servers are returning an empty "Content-Disposition"
+                        and entry["response"]["headers"]["Content-Disposition"]
+                    ):
                         downloads[content_md5]["filename"] = entry["response"]["headers"]["Content-Disposition"]
                         match = re.search(ASCII_FILENAME_REGEX, downloads[content_md5]["filename"])
                         if match:
