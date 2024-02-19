@@ -15,7 +15,7 @@ RUN apt update -y && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /opt/al_service/kangooroo && \
     # Download + unzip the latest chromedriver
-    wget -O ./chromedriver-linux64.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$VERS/linux64/chromedriver-linux64.zip && \
+    wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chromedriver-linux64.zip && \
     unzip -j -d /opt/al_service/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip && \
     # Download the Kangooroo jar from alpytest until it is published on a proper code repository
