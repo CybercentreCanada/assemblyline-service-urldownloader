@@ -343,10 +343,37 @@ class URLDownloader(ServiceBase):
                 redirect_section.set_column_order(["status", "redirecting_url", "redirecting_ip", "redirecting_to"])
 
             if downloads:
-                content_section = ResultTableSection("Downloaded Content", parent=request.result)
+                content_section = ResultTableSection("Downloaded Content")
+                safelisted_section = ResultTableSection("Safelisted Content")
                 for download_params in downloads.values():
                     file_info = download_params["fileinfo"]
-                    content_section.add_row(
+                    added = True
+
+                    if (
+                        download_params["url"] in target_urls
+                        or len(downloads) == 1
+                        or re.match(request.get_param("regex_extract_filetype"), file_info["type"])
+                        or (
+                            request.get_param("extract_unmatched_filetype")
+                            and not re.match(request.get_param("regex_supplementary_filetype"), file_info["type"])
+                        )
+                    ):
+                        added = request.add_extracted(
+                            download_params["path"],
+                            download_params["filename"],
+                            download_params["url"],
+                            safelist_interface=self.api_interface,
+                            parent_relation=PARENT_RELATION.DOWNLOADED,
+                        )
+                    else:
+                        request.add_supplementary(
+                            download_params["path"],
+                            download_params["filename"],
+                            download_params["url"],
+                            parent_relation=PARENT_RELATION.DOWNLOADED,
+                        )
+
+                    (content_section if added else safelisted_section).add_row(
                         TableRow(
                             dict(
                                 Filename=download_params["filename"],
@@ -358,28 +385,10 @@ class URLDownloader(ServiceBase):
                         )
                     )
 
-                    if (
-                        download_params["url"] in target_urls
-                        or len(downloads) == 1
-                        or re.match(request.get_param("regex_extract_filetype"), file_info["type"])
-                        or (
-                            request.get_param("extract_unmatched_filetype")
-                            and not re.match(request.get_param("regex_supplementary_filetype"), file_info["type"])
-                        )
-                    ):
-                        request.add_extracted(
-                            download_params["path"],
-                            download_params["filename"],
-                            download_params["url"],
-                            parent_relation=PARENT_RELATION.DOWNLOADED,
-                        )
-                    else:
-                        request.add_supplementary(
-                            download_params["path"],
-                            download_params["filename"],
-                            download_params["url"],
-                            parent_relation=PARENT_RELATION.DOWNLOADED,
-                        )
+                if content_section.body:
+                    request.result.add_section(content_section)
+                if safelisted_section.body:
+                    request.result.add_section(safelisted_section)
 
             if response_errors:
                 error_section = ResultTextSection("Responses Error", parent=request.result)
