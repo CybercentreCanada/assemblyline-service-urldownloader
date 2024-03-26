@@ -25,7 +25,7 @@ from assemblyline_v4_service.common.result import (
 )
 from assemblyline_v4_service.common.task import PARENT_RELATION
 from PIL import UnidentifiedImageError
-from requests.exceptions import ConnectionError
+from requests.exceptions import ConnectionError, TooManyRedirects
 
 KANGOOROO_FOLDER = os.path.join(os.path.dirname(__file__), "kangooroo")
 
@@ -334,7 +334,6 @@ class URLDownloader(ServiceBase):
 
             if redirects:
                 redirect_section = ResultTableSection("Redirections", parent=request.result)
-                ResultTableSection("URLs")
                 for redirect in redirects:
                     redirect_section.add_row(TableRow(redirect))
                     add_tag(redirect_section, "network.static.uri", redirect["redirecting_url"])
@@ -409,6 +408,18 @@ class URLDownloader(ServiceBase):
                 error_section = ResultTextSection("Error", parent=request.result)
                 error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
                 error_section.add_line("This server is currently unavailable")
+                return
+            except TooManyRedirects as e:
+                error_section = ResultTextSection("Too many redirects", parent=request.result)
+                error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
+
+                redirect_section = ResultTableSection("Redirections", parent=error_section)
+                for redirect in e.response.history:
+                    redirect_section.add_row(
+                        TableRow({"status": redirect.status_code, "redirecting_url": redirect.url})
+                    )
+                    add_tag(redirect_section, "network.static.uri", redirect.url)
+                redirect_section.set_column_order(["status", "redirecting_url"])
                 return
             requests_content_path = os.path.join(self.working_directory, "requests_content")
             with open(requests_content_path, "wb") as f:
