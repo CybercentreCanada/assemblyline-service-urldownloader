@@ -325,6 +325,8 @@ class URLDownloader(ServiceBase):
 
                         downloads[content_md5]["filename"] = filename
 
+                    if not downloads[content_md5]["filename"]:
+                        downloads[content_md5]["filename"] = f"UnknownFilename_{fileinfo['sha256'][:8]}"
                     downloads[content_md5]["size"] = entry["response"]["content"]["size"]
                     downloads[content_md5]["url"] = entry["request"]["url"]
                     downloads[content_md5]["mimeType"] = entry["response"]["content"]["mimeType"]
@@ -367,7 +369,7 @@ class URLDownloader(ServiceBase):
                         added = request.add_extracted(
                             download_params["path"],
                             download_params["filename"],
-                            download_params["url"],
+                            download_params["url"] or "Unknown URL",
                             safelist_interface=self.api_interface,
                             parent_relation=PARENT_RELATION.DOWNLOADED,
                         )
@@ -375,7 +377,7 @@ class URLDownloader(ServiceBase):
                         request.add_supplementary(
                             download_params["path"],
                             download_params["filename"],
-                            download_params["url"],
+                            download_params["url"] or "Unknown URL",
                             parent_relation=PARENT_RELATION.DOWNLOADED,
                         )
 
