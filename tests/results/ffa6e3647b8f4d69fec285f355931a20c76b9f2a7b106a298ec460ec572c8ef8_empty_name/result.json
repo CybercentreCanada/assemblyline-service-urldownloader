@@ -1,0 +1,434 @@
+{
+  "extra": {
+    "drop_file": false,
+    "score": 0,
+    "sections": [
+      {
+        "auto_collapse": false,
+        "body": [
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "https://gklnd.pages.dev/"
+          ],
+          [
+            "requested_url_ip",
+            "172.66.45.31"
+          ],
+          [
+            "actual_url",
+            "https://gklnd.pages.dev/"
+          ],
+          [
+            "actual_url_ip",
+            "172.66.45.31"
+          ]
+        ],
+        "body_config": {},
+        "body_format": "ORDERED_KEY_VALUE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "gklnd.pages.dev"
+              ],
+              "ip": [
+                "172.66.45.31"
+              ],
+              "uri": [
+                "https://gklnd.pages.dev/"
+              ],
+              "uri_path": [
+                "/"
+              ]
+            }
+          }
+        },
+        "title_text": "Results",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": [
+          {
+            "img": {
+              "description": "Screenshot of https://gklnd.pages.dev/",
+              "name": "screenshot.png",
+              "sha256": "5319a2a5c92a73a3faf9097760efb36422dd492fc63a9f5e947457f214fc88a5"
+            },
+            "thumb": {
+              "description": "Screenshot of https://gklnd.pages.dev/ (thumbnail)",
+              "name": "screenshot.png.thumb",
+              "sha256": "51f14bddb08ef00b341229cb6827340676a3eca40d67b6115a16f1c5f13bb6b9"
+            }
+          }
+        ],
+        "body_config": {},
+        "body_format": "IMAGE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": "SCREENSHOT",
+        "tags": {},
+        "title_text": "Screenshot of visited page",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
+        "body": [
+          {
+            "Filename": "ai2.mp3",
+            "SHA256": "2080a7c56dc96632ec27275a9687d818c10f3bdc565099cd31641cfeb0edc576",
+            "Size": 24317,
+            "mimeType": "text/html; charset=utf-8",
+            "url": "https://gklnd.pages.dev/ai2.mp3"
+          },
+          {
+            "Filename": "tapa.css",
+            "SHA256": "9c10db31d002d8cd453e1f34dad65da5156c3aa56ce872a86a51a7933585332f",
+            "Size": 19670,
+            "mimeType": "text/css; charset=utf-8",
+            "url": "https://gklnd.pages.dev/tapa.css"
+          },
+          {
+            "Filename": "f24.png",
+            "SHA256": "11d4d0aa8bf0ab597bee785cd9d03301787faee4aae43d66ab53b15f0fe7d849",
+            "Size": 483167,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/f24.png"
+          },
+          {
+            "Filename": "noir.js",
+            "SHA256": "46b5242c5eb6b3b71ef2606f2d0d700142ae58b53c6d018e6bf06bab62437e1b",
+            "Size": 84272,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/noir.js"
+          },
+          {
+            "Filename": "mnc.png",
+            "SHA256": "c5a324f181af16879b6c4c52b731b23392f2816def159b157c4de620cff1cd41",
+            "Size": 187,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/mnc.png"
+          },
+          {
+            "Filename": "msmm.png",
+            "SHA256": "1ab5ef4e7e196cb1ff39df44e1a0a39f6880b906ef6fd6da3cfdbb92ffd33115",
+            "Size": 168,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/msmm.png"
+          },
+          {
+            "Filename": "set.png",
+            "SHA256": "b13a03e0db893734298cbe203bf264407636ffe5dab0a141f83c492d0034dd6a",
+            "Size": 364,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/set.png"
+          },
+          {
+            "Filename": "nvidia.js",
+            "SHA256": "f84bea5397057e0ab07efc0dd7f7b674783df7234276dc010bb88fb84ddfd4a1",
+            "Size": 2051,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/nvidia.js"
+          },
+          {
+            "Filename": "vsc.png",
+            "SHA256": "31c6dbe9d867436244f38566adad57e3870f4c8489c6804280eb564bfac5c1bd",
+            "Size": 722,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/vsc.png"
+          },
+          {
+            "Filename": "jupiter.js",
+            "SHA256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479",
+            "Size": 503,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/jupiter.js"
+          },
+          {
+            "Filename": "progress.js",
+            "SHA256": "ec26e7b3ffc4e5ac78cb13db7c37f7a799f05a58aebf82454a261ee40298b20c",
+            "Size": 264,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/progress.js"
+          },
+          {
+            "Filename": "bx1.png",
+            "SHA256": "8e4039a48ffb24b4cdc57ddd4384a16af9eb7efa678577e280308bc9750a0bbc",
+            "Size": 119006,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/bx1.png"
+          },
+          {
+            "Filename": "bel.png",
+            "SHA256": "4c1606563842cce5f1788329d4417ae3618b33c6365c56a7122439b6ab45c977",
+            "Size": 276,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/bel.png"
+          },
+          {
+            "Filename": "main.js",
+            "SHA256": "16f624b7ce0ec6c382437722455158ffe67735c0afd8a2326ce4a1415cb1327a",
+            "Size": 2067,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/main.js"
+          },
+          {
+            "Filename": "fulls.js",
+            "SHA256": "88e460ada551f268bcce9fc4ef0c8c23cbd4864d5b70324db4f7c89e55d262e9",
+            "Size": 244,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/fulls.js"
+          },
+          {
+            "Filename": "btn.js",
+            "SHA256": "53bf10ee7f7e2fbc50a92980a64c87c95107e4192c719b63b561a641b6209fcf",
+            "Size": 349,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/btn.js"
+          },
+          {
+            "Filename": "esc.js",
+            "SHA256": "46ebb2640aac2186a7cf13f528c03648fa9a498910289cdad41ba87b9770eb14",
+            "Size": 87,
+            "mimeType": "text/javascript; charset=utf-8",
+            "url": "https://gklnd.pages.dev/esc.js"
+          },
+          {
+            "Filename": "dm.png",
+            "SHA256": "7df9f467d23ee1887edb2123cca10a1a9c4624cdcf7199c64e78a8430031f9f5",
+            "Size": 332,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/dm.png"
+          },
+          {
+            "Filename": "cs.png",
+            "SHA256": "b67a7c07a045d7cb0f2e216a557aec0d99405e17c36d1a6b1ff3e2733aa35348",
+            "Size": 2681,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/cs.png"
+          },
+          {
+            "Filename": "pcm.png",
+            "SHA256": "afe332157f4efe355f3181284e99f4331c4d19703ed1678b5316d2933f95e98e",
+            "Size": 1270,
+            "mimeType": "image/png",
+            "url": "https://gklnd.pages.dev/pcm.png"
+          },
+          {
+            "Filename": "re.gif",
+            "SHA256": "4b436b0b6a47db85c88f83dc3fe3fd9a96c0a4018b28832165df929dffe0bc86",
+            "Size": 14751,
+            "mimeType": "image/gif",
+            "url": "https://gklnd.pages.dev/re.gif"
+          },
+          {
+            "Filename": "_Fm7-alert.mp3",
+            "SHA256": "8f24cf514509b9830bcb4a7204463b87fa3e6d9ce47187192130f8230b1990e3",
+            "Size": 193612,
+            "mimeType": "audio/mpeg",
+            "url": "https://gklnd.pages.dev/_Fm7-alert.mp3"
+          },
+          {
+            "Filename": "yaketsuku.mp3",
+            "SHA256": "0589be7715d2320e559eae6bd26f3528e97450c70293da2e1e8ce45f77f99ab1",
+            "Size": 8405,
+            "mimeType": "audio/mpeg",
+            "url": "https://gklnd.pages.dev/yaketsuku.mp3"
+          },
+          {
+            "Filename": "https://www.googletagmanager.com/gtag/js?id=G-32LVP12FP1",
+            "SHA256": "51233f108de3170ed5fa63fe370eec1ecd726916dd9438b66c9bb764dc6a7190",
+            "Size": 297750,
+            "mimeType": "application/javascript; charset=UTF-8",
+            "url": "https://www.googletagmanager.com/gtag/js?id=G-32LVP12FP1"
+          },
+          {
+            "Filename": "UnknownFilename_261c4ca7",
+            "SHA256": "261c4ca72e7bec9b49794d577e7fc9a6348f97af405a24b05bce341dbd3786b0",
+            "Size": 157,
+            "mimeType": "text/html; charset=UTF-8",
+            "url": ""
+          }
+        ],
+        "body_config": {
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
+        },
+        "body_format": "TABLE",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "Downloaded Content",
+        "zeroize_on_tag_safe": false
+      }
+    ]
+  },
+  "files": {
+    "extracted": [
+      {
+        "name": "yaketsuku.mp3",
+        "sha256": "0589be7715d2320e559eae6bd26f3528e97450c70293da2e1e8ce45f77f99ab1"
+      },
+      {
+        "name": "main.js",
+        "sha256": "16f624b7ce0ec6c382437722455158ffe67735c0afd8a2326ce4a1415cb1327a"
+      },
+      {
+        "name": "ai2.mp3",
+        "sha256": "2080a7c56dc96632ec27275a9687d818c10f3bdc565099cd31641cfeb0edc576"
+      },
+      {
+        "name": "UnknownFilename_261c4ca7",
+        "sha256": "261c4ca72e7bec9b49794d577e7fc9a6348f97af405a24b05bce341dbd3786b0"
+      },
+      {
+        "name": "noir.js",
+        "sha256": "46b5242c5eb6b3b71ef2606f2d0d700142ae58b53c6d018e6bf06bab62437e1b"
+      },
+      {
+        "name": "esc.js",
+        "sha256": "46ebb2640aac2186a7cf13f528c03648fa9a498910289cdad41ba87b9770eb14"
+      },
+      {
+        "name": "https://www.googletagmanager.com/gtag/js?id=G-32LVP12FP1",
+        "sha256": "51233f108de3170ed5fa63fe370eec1ecd726916dd9438b66c9bb764dc6a7190"
+      },
+      {
+        "name": "btn.js",
+        "sha256": "53bf10ee7f7e2fbc50a92980a64c87c95107e4192c719b63b561a641b6209fcf"
+      },
+      {
+        "name": "fulls.js",
+        "sha256": "88e460ada551f268bcce9fc4ef0c8c23cbd4864d5b70324db4f7c89e55d262e9"
+      },
+      {
+        "name": "_Fm7-alert.mp3",
+        "sha256": "8f24cf514509b9830bcb4a7204463b87fa3e6d9ce47187192130f8230b1990e3"
+      },
+      {
+        "name": "progress.js",
+        "sha256": "ec26e7b3ffc4e5ac78cb13db7c37f7a799f05a58aebf82454a261ee40298b20c"
+      },
+      {
+        "name": "nvidia.js",
+        "sha256": "f84bea5397057e0ab07efc0dd7f7b674783df7234276dc010bb88fb84ddfd4a1"
+      }
+    ],
+    "supplementary": [
+      {
+        "name": "f24.png",
+        "sha256": "11d4d0aa8bf0ab597bee785cd9d03301787faee4aae43d66ab53b15f0fe7d849"
+      },
+      {
+        "name": "msmm.png",
+        "sha256": "1ab5ef4e7e196cb1ff39df44e1a0a39f6880b906ef6fd6da3cfdbb92ffd33115"
+      },
+      {
+        "name": "jupiter.js",
+        "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
+      },
+      {
+        "name": "vsc.png",
+        "sha256": "31c6dbe9d867436244f38566adad57e3870f4c8489c6804280eb564bfac5c1bd"
+      },
+      {
+        "name": "re.gif",
+        "sha256": "4b436b0b6a47db85c88f83dc3fe3fd9a96c0a4018b28832165df929dffe0bc86"
+      },
+      {
+        "name": "bel.png",
+        "sha256": "4c1606563842cce5f1788329d4417ae3618b33c6365c56a7122439b6ab45c977"
+      },
+      {
+        "name": "screenshot.png.thumb",
+        "sha256": "51f14bddb08ef00b341229cb6827340676a3eca40d67b6115a16f1c5f13bb6b9"
+      },
+      {
+        "name": "screenshot.png",
+        "sha256": "5319a2a5c92a73a3faf9097760efb36422dd492fc63a9f5e947457f214fc88a5"
+      },
+      {
+        "name": "session.har",
+        "sha256": "5e2ef9fd54b06ee862459c0ad241bb246376e0fe4403af008debdb0256ad70f6"
+      },
+      {
+        "name": "dm.png",
+        "sha256": "7df9f467d23ee1887edb2123cca10a1a9c4624cdcf7199c64e78a8430031f9f5"
+      },
+      {
+        "name": "bx1.png",
+        "sha256": "8e4039a48ffb24b4cdc57ddd4384a16af9eb7efa678577e280308bc9750a0bbc"
+      },
+      {
+        "name": "tapa.css",
+        "sha256": "9c10db31d002d8cd453e1f34dad65da5156c3aa56ce872a86a51a7933585332f"
+      },
+      {
+        "name": "pcm.png",
+        "sha256": "afe332157f4efe355f3181284e99f4331c4d19703ed1678b5316d2933f95e98e"
+      },
+      {
+        "name": "set.png",
+        "sha256": "b13a03e0db893734298cbe203bf264407636ffe5dab0a141f83c492d0034dd6a"
+      },
+      {
+        "name": "cs.png",
+        "sha256": "b67a7c07a045d7cb0f2e216a557aec0d99405e17c36d1a6b1ff3e2733aa35348"
+      },
+      {
+        "name": "mnc.png",
+        "sha256": "c5a324f181af16879b6c4c52b731b23392f2816def159b157c4de620cff1cd41"
+      }
+    ]
+  },
+  "results": {
+    "heuristics": [],
+    "tags": {
+      "network.static.domain": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "gklnd.pages.dev"
+        }
+      ],
+      "network.static.ip": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "172.66.45.31"
+        }
+      ],
+      "network.static.uri": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/"
+        }
+      ],
+      "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/"
+        }
+      ]
+    },
+    "temp_submission_data": {}
+  }
+}
