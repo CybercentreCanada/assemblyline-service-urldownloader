@@ -6,11 +6,16 @@ import os
 import re
 import subprocess
 import tempfile
+from datetime import datetime
 from urllib.parse import urlparse
 
 import requests
 import yaml
 from assemblyline.common.identify import Identify
+from assemblyline.odm.base import DATEFORMAT
+from assemblyline.odm.models.ontology.results.malware_config import HTTP as config_HTTP
+from assemblyline.odm.models.ontology.results.network import NetworkHTTP
+from assemblyline.odm.models.ontology.results.sandbox import Sandbox
 from assemblyline_service_utilities.common.tag_helper import add_tag
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
@@ -179,6 +184,19 @@ class URLDownloader(ServiceBase):
             ):
                 result_section.add_tag("file.behavior", "IP Redirection change")
 
+            sandbox_details = {
+                "analysis_metadata": {
+                    "start_time": datetime.strptime(results["creationDate"], "%b %d, %Y, %I:%M:%S %p").strftime(
+                        DATEFORMAT
+                    )
+                },
+                "sandbox_name": results["engineName"],
+                "sandbox_version": results["engineVersion"],
+            }
+            self.ontology.add_result_part(model=Sandbox, data=sandbox_details)
+            http_details = {"uri": results["requested_url"]}
+            self.ontology.add_result_part(model=config_HTTP, data=http_details)
+
             # Screenshot section
             screenshot_path = os.path.join(output_folder, "screenshot.png")
             if os.path.exists(screenshot_path):
@@ -222,6 +240,15 @@ class URLDownloader(ServiceBase):
                 entry["response"]["headers"] = {
                     header["name"]: header["value"] for header in entry["response"]["headers"]
                 }
+
+                http_details = {
+                    "request_uri": entry["request"]["url"],
+                    "request_headers": entry["request"]["headers"],
+                    "request_method": entry["request"]["method"],
+                    "response_headers": entry["response"]["headers"],
+                    "response_status_code": entry["response"]["status"],
+                }
+                self.ontology.add_result_part(model=NetworkHTTP, data=http_details)
 
                 # Figure out if there is an http redirect
                 if entry["response"]["status"] in [301, 302, 303, 307, 308]:
