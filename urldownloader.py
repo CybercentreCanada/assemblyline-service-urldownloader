@@ -55,6 +55,10 @@ class URLDownloader(ServiceBase):
         data.pop("uri")
         method = data.pop("method", "GET")
         if method == "GET":
+            if "\x00" in request.task.fileinfo.uri_info.uri:
+                # We won't try to fetch URIs with a null byte using subprocess.
+                # This would cause a fork_exec issue. We will return an empty result instead.
+                return
             headers = data.pop("headers", {})
             if data or headers:
                 ignored_params_section = ResultKeyValueSection("Ignored params", parent=request.result)
