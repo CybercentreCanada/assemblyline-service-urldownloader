@@ -36,6 +36,7 @@ TIP: If you want to use the same proxy for all schemes (http/https), you can use
 ![proxy-5](readme/proxy-5.png)
 
 After configuring the service proxies, you can look toward the top, under User Specified Parameters, there should be `proxy [list]`.
+
 ![proxy-6](readme/proxy-6.png)
 
 You will be able to add the name of the key you added (`my_new_proxy` in this example) so that the users can select it.
