@@ -205,9 +205,6 @@ class URLDownloader(ServiceBase):
             ):
                 http_result["redirection_url"] = results["actual_url"]
 
-            if results.get("captcha", {}).get("isPresent", False) and "solved" in results["captcha"]:
-                http_result["captcha_solved"] = results["captcha"]["solved"]
-
             if results.get("experimentation", {}).get("params", {}).get("window_size", False):
                 sandbox_details["analysis_metadata"]["window_size"] = results["experimentation"]["params"][
                     "window_size"

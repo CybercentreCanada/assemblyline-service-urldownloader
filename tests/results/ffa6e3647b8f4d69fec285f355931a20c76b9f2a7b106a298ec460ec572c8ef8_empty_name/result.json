@@ -364,10 +364,6 @@
         "sha256": "5319a2a5c92a73a3faf9097760efb36422dd492fc63a9f5e947457f214fc88a5"
       },
       {
-        "name": "session.har",
-        "sha256": "5e2ef9fd54b06ee862459c0ad241bb246376e0fe4403af008debdb0256ad70f6"
-      },
-      {
         "name": "dm.png",
         "sha256": "7df9f467d23ee1887edb2123cca10a1a9c4624cdcf7199c64e78a8430031f9f5"
       },
@@ -390,6 +386,10 @@
       {
         "name": "cs.png",
         "sha256": "b67a7c07a045d7cb0f2e216a557aec0d99405e17c36d1a6b1ff3e2733aa35348"
+      },
+      {
+        "name": "session.har",
+        "sha256": "c47345b812b37b2db5fa5a5d8f94601130e6cab78ef63734995f9c2944eebfd6"
       },
       {
         "name": "mnc.png",
