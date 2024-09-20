@@ -1400,10 +1400,6 @@
         "sha256": "0b8a20373c6dd04e091902226d922b3688143a8938afb9d283d889de7b55ceb5"
       },
       {
-        "name": "session.har",
-        "sha256": "131ab925722a942aa230855299d226f49e3bfe6d89116a9584ee64c53142e07e"
-      },
-      {
         "name": "app.css",
         "sha256": "1f0d56bbf30621757c426a5ee211a372f52058c618a671357815944e305bb816"
       },
@@ -1474,6 +1470,10 @@
       {
         "name": "adgenerator.js",
         "sha256": "83b56810f90ecc4b4ca00f2d6225cd7c75441b42b740afbe17e0adac12890140"
+      },
+      {
+        "name": "session.har",
+        "sha256": "87246ab48bf2eae24a57dd6d78b829c396bab3530ed0b18ba11d59ad37ce6809"
       },
       {
         "name": "https://image8.pubmatic.com/AdServer/ImgSync?p=0&rdf=1",

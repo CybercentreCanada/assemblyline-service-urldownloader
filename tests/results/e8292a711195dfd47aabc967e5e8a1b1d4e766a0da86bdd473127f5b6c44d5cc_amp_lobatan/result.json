@@ -207,12 +207,12 @@
     ],
     "supplementary": [
       {
-        "name": "session.har",
-        "sha256": "5583fc8889aa628f8879d7f3a72a7d4666fad2badebf2c392daddd5c26b80996"
-      },
-      {
         "name": "screenshot.png",
         "sha256": "79395ed5de0c4d6ed346417080a6b58ff7dc78905d1966891d54fb6a1a3a9b59"
+      },
+      {
+        "name": "session.har",
+        "sha256": "b7bf34bf531bd2867b266a67735d6debaaf71768f4f493706b16e11722c7ca28"
       },
       {
         "name": "screenshot.png.thumb",

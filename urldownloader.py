@@ -6,11 +6,16 @@ import os
 import re
 import subprocess
 import tempfile
+from datetime import datetime
 from urllib.parse import urlparse
 
 import requests
 import yaml
 from assemblyline.common.identify import Identify
+from assemblyline.odm.base import DATEFORMAT
+from assemblyline.odm.models.ontology.results.http import HTTP as HTTPResult
+from assemblyline.odm.models.ontology.results.network import NetworkConnection
+from assemblyline.odm.models.ontology.results.sandbox import Sandbox
 from assemblyline_service_utilities.common.tag_helper import add_tag
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
@@ -24,6 +29,7 @@ from assemblyline_v4_service.common.result import (
     TableRow,
 )
 from assemblyline_v4_service.common.task import PARENT_RELATION
+from bs4 import BeautifulSoup
 from PIL import UnidentifiedImageError
 from requests.exceptions import ConnectionError, TooManyRedirects
 
@@ -159,6 +165,19 @@ class URLDownloader(ServiceBase):
             with open(results_filepath, "r") as f:
                 results = json.load(f)
 
+            sandbox_details = {
+                "analysis_metadata": {
+                    "start_time": datetime.strptime(results["creationDate"], "%b %d, %Y, %I:%M:%S %p").strftime(
+                        DATEFORMAT
+                    )
+                },
+                "sandbox_name": results["engineName"],
+                "sandbox_version": results["engineVersion"],
+            }
+            http_result = {
+                "response_code": results["response_code"],
+            }
+
             # Main result section
             target_urls = [results["requested_url"]]
             result_section = ResultOrderedKeyValueSection("Results", parent=request.result)
@@ -182,6 +201,18 @@ class URLDownloader(ServiceBase):
                 and results["requested_url_ip"] != results["actual_url_ip"]
             ):
                 result_section.add_tag("file.behavior", "IP Redirection change")
+
+            if (
+                "requested_url" in results
+                and "actual_url" in results
+                and results["requested_url"] != results["actual_url"]
+            ):
+                http_result["redirection_url"] = results["actual_url"]
+
+            if results.get("experimentation", {}).get("params", {}).get("window_size", False):
+                sandbox_details["analysis_metadata"]["window_size"] = results["experimentation"]["params"][
+                    "window_size"
+                ]
 
             # Screenshot section
             screenshot_path = os.path.join(output_folder, "screenshot.png")
@@ -207,9 +238,25 @@ class URLDownloader(ServiceBase):
                         description=f"Favicon of {request.task.fileinfo.uri_info.uri}",
                     )
                     request.result.add_section(screenshot_section)
+                    fileinfo = self.identify.fileinfo(favicon_path, skip_fuzzy_hashes=True, calculate_entropy=False)
+                    http_result["favicon"] = {
+                        "md5": fileinfo["md5"],
+                        "sha1": fileinfo["sha1"],
+                        "sha256": fileinfo["sha256"],
+                        "size": fileinfo["size"],
+                    }
                 except UnidentifiedImageError:
                     # Kangooroo is sometime giving html page as favicon...
                     pass
+
+            source_path = os.path.join(output_folder, "source.html")
+            if os.path.exists(source_path):
+                with open(source_path, "rb") as f:
+                    data = f.read()
+
+                soup = BeautifulSoup(data, features="lxml")
+                if soup.title and soup.title.string:
+                    http_result["title"] = soup.title.string
 
             # Find any downloaded file
             with open(os.path.join(output_folder, "session.har"), "r") as f:
@@ -220,11 +267,15 @@ class URLDownloader(ServiceBase):
             response_errors = []
             for entry in har_content["log"]["entries"]:
                 # Convert Kangooroo's list of header to a proper dictionary
-                entry["request"]["headers"] = {
-                    header["name"]: header["value"] for header in entry["request"]["headers"]
-                }
-                entry["response"]["headers"] = {
-                    header["name"]: header["value"] for header in entry["response"]["headers"]
+                request_headers = {header["name"]: header["value"] for header in entry["request"]["headers"]}
+                response_headers = {header["name"]: header["value"] for header in entry["response"]["headers"]}
+
+                http_details = {
+                    "request_uri": entry["request"]["url"],
+                    "request_headers": request_headers,
+                    "request_method": entry["request"]["method"],
+                    "response_headers": response_headers,
+                    "response_status_code": entry["response"]["status"],
                 }
 
                 # Figure out if there is an http redirect
@@ -245,9 +296,9 @@ class URLDownloader(ServiceBase):
                     )
 
                 # Some redirects and hidden in the headers with 200 response codes
-                if "refresh" in entry["response"]["headers"]:
+                if "refresh" in response_headers:
                     try:
-                        refresh = entry["response"]["headers"]["refresh"].split(";", 1)
+                        refresh = response_headers["refresh"].split(";", 1)
                         if int(refresh[0]) <= 15 and refresh[1].startswith("url="):
                             redirects.append(
                                 {
@@ -281,20 +332,30 @@ class URLDownloader(ServiceBase):
                         dir=self.working_directory, delete=False, mode="wb"
                     ) as content_file:
                         content_file.write(content)
-                    fileinfo = self.identify.fileinfo(content_file.name, skip_fuzzy_hashes=True)
+                    fileinfo = self.identify.fileinfo(
+                        content_file.name, skip_fuzzy_hashes=True, calculate_entropy=False
+                    )
                     content_md5 = fileinfo["md5"]
                     entry["response"]["content"]["_replaced"] = fileinfo["sha256"]
+                    http_details["response_content_fileinfo"] = {
+                        "md5": fileinfo["md5"],
+                        "sha1": fileinfo["sha1"],
+                        "sha256": fileinfo["sha256"],
+                        "size": fileinfo["size"],
+                    }
+                    if "mimeType" in entry["response"]["content"] and entry["response"]["content"]["mimeType"]:
+                        http_details["response_content_mimetype"] = entry["response"]["content"]["mimeType"]
 
                     if content_md5 not in downloads:
                         downloads[content_md5] = {"path": content_file.name}
 
                     # The headers could contain the name of the downloaded file
                     if (
-                        "Content-Disposition" in entry["response"]["headers"]
+                        "Content-Disposition" in response_headers
                         # Some servers are returning an empty "Content-Disposition"
-                        and entry["response"]["headers"]["Content-Disposition"]
+                        and response_headers["Content-Disposition"]
                     ):
-                        downloads[content_md5]["filename"] = entry["response"]["headers"]["Content-Disposition"]
+                        downloads[content_md5]["filename"] = response_headers["Content-Disposition"]
                         match = re.search(ASCII_FILENAME_REGEX, downloads[content_md5]["filename"])
                         if match:
                             downloads[content_md5]["filename"] = match.group(2)
@@ -339,6 +400,10 @@ class URLDownloader(ServiceBase):
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
 
+                self.ontology.add_result_part(
+                    model=NetworkConnection, data={"http_details": http_details, "connection_type": "http"}
+                )
+
             # Add the modified entries log
             modified_har_filepath = os.path.join(self.working_directory, "modified_session.har")
             with open(modified_har_filepath, "w") as f:
@@ -346,13 +411,20 @@ class URLDownloader(ServiceBase):
             request.add_supplementary(modified_har_filepath, "session.har", "Complete session log")
 
             if redirects:
+                http_result["redirects"] = []
                 redirect_section = ResultTableSection("Redirections", parent=request.result)
                 for redirect in redirects:
                     redirect_section.add_row(TableRow(redirect))
                     add_tag(redirect_section, "network.static.uri", redirect["redirecting_url"])
                     redirect_section.add_tag("network.static.ip", redirect["redirecting_ip"])
                     add_tag(redirect_section, "network.static.uri", redirect["redirecting_to"])
+                    http_result["redirects"].append(
+                        {"from_url": redirect["redirecting_url"], "to_url": redirect["redirecting_to"]}
+                    )
                 redirect_section.set_column_order(["status", "redirecting_url", "redirecting_ip", "redirecting_to"])
+
+            self.ontology.add_result_part(model=Sandbox, data=sandbox_details)
+            self.ontology.add_result_part(model=HTTPResult, data=http_result)
 
             if downloads:
                 content_section = ResultTableSection("Downloaded Content")
@@ -437,7 +509,7 @@ class URLDownloader(ServiceBase):
             requests_content_path = os.path.join(self.working_directory, "requests_content")
             with open(requests_content_path, "wb") as f:
                 f.write(r.content)
-            file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True)
+            file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False)
             if file_info["type"].startswith("archive"):
                 request.add_extracted(
                     requests_content_path,

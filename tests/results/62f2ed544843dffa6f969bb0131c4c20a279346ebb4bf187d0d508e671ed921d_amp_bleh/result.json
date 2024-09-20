@@ -197,16 +197,16 @@
     ],
     "supplementary": [
       {
+        "name": "session.har",
+        "sha256": "6fcd497d4a73a14d9005702989d448077ade8db076e48667a52e87364cb03b17"
+      },
+      {
         "name": "screenshot.png",
         "sha256": "da8d1c4491eb6d37774bfd06a9006f0ecbb971fa8ae50a56762c150abbeab5e6"
       },
       {
         "name": "screenshot.png.thumb",
         "sha256": "e0b9f33eb5486d15e7bb0a53da290d2ac288bd6e49204d1f367081a910470dfd"
-      },
-      {
-        "name": "session.har",
-        "sha256": "fc3168da301bc3d86f010934e7afbda42a937a21a09e67c8bf62e8589a0a8647"
       }
     ]
   },
