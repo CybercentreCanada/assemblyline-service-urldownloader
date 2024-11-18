@@ -61,7 +61,7 @@ class URLDownloader(ServiceBase):
 
         data.pop("uri")
         for no_dl in self.do_not_download_regexes:
-            # If we should not scan that URL
+            # Do nothing if we are not supposed to scan that URL
             if no_dl.match(request.task.fileinfo.uri_info.uri):
                 return
 
