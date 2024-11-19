@@ -47,6 +47,7 @@ class URLDownloader(ServiceBase):
         super().__init__(config)
         self.identify = Identify(use_cache=False)
         self.request_timeout = self.config.get("request_timeout", 150)
+        self.do_not_download_regexes = [re.compile(x) for x in self.config.get("do_not_download_regexes", [])]
         self.no_sandbox = self.config.get("no_sandbox", False)
         with open(os.path.join(KANGOOROO_FOLDER, "default_conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
@@ -59,6 +60,11 @@ class URLDownloader(ServiceBase):
             data = yaml.safe_load(f)
 
         data.pop("uri")
+        for no_dl in self.do_not_download_regexes:
+            # Do nothing if we are not supposed to scan that URL
+            if no_dl.match(request.task.fileinfo.uri_info.uri):
+                return
+
         method = data.pop("method", "GET")
         if method == "GET":
             if "\x00" in request.task.fileinfo.uri_info.uri:
