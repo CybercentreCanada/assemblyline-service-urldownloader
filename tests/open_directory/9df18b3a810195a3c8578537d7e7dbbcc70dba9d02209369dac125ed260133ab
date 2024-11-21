@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="generator" content="WsgiDAV/4.3.0">
+  <title>WsgiDAV - Index of / </title>
+  <link rel="shortcut icon" href="/:dir_browser/favicon.ico">
+  <link rel="stylesheet" href="/:dir_browser/style.css" />
+  <script defer src="/:dir_browser/script.js"></script>
+  <style type="text/css"> A {behavior: url(#default#AnchorClick);} </style>
+</head>
+
+<body onload="onLoad()">
+
+  <h1>
+    <img class="logo" alt="WsgiDAV" title="WsgiDAV" src="/:dir_browser/logo.png">
+    Index of /
+  </h1>
+
+  
+  <p class="auth-user">
+    Authenticated user: "anonymous", realm: "/", access: read-write.</p>
+  <hr>
+
+  <table class="dir-listing" onclick="return onClickTable(event)">
+
+    <colgroup>
+      <col>
+      <col>
+      <col class="right">
+      <col class="right">
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Last modified</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="directory">
+        <td>
+          <a class="" href="./ESAYBSA_YSA830246738229/"  >
+              ESAYBSA_YSA830246738229
+          </a></td>
+        <td>Directory</td>
+        <td>-</td>
+        <td>Wed, 13 Nov 2024 09:28:16 GMT</td>
+      </tr>
+      
+      <tr class="directory">
+        <td>
+          <a class="" href="./KPAY83029474820938/"  >
+              KPAY83029474820938
+          </a></td>
+        <td>Directory</td>
+        <td>-</td>
+        <td>Tue, 12 Nov 2024 18:22:41 GMT</td>
+      </tr>
+      
+      <tr class="directory">
+        <td>
+          <a class="" href="./TSKS_SJDGS9403784USP78394/"  >
+              TSKS_SJDGS9403784USP78394
+          </a></td>
+        <td>Directory</td>
+        <td>-</td>
+        <td>Fri, 15 Nov 2024 13:59:32 GMT</td>
+      </tr>
+      
+      <tr class="directory">
+        <td>
+          <a class="" href="./UP5740936209HJSKUDSA/"  >
+              UP5740936209HJSKUDSA
+          </a></td>
+        <td>Directory</td>
+        <td>-</td>
+        <td>Thu, 14 Nov 2024 19:04:30 GMT</td>
+      </tr>
+      
+      <tr class="directory">
+        <td>
+          <a class="" href="./USP582307USAVBAKSA30FSVA/"  >
+              USP582307USAVBAKSA30FSVA
+          </a></td>
+        <td>Directory</td>
+        <td>-</td>
+        <td>Fri, 15 Nov 2024 17:47:12 GMT</td>
+      </tr>
+      
+      <tr class="directory">
+        <td>
+          <a class="" href="./YSVBS829017USAGBVA/"  >
+              YSVBS829017USAGBVA
+          </a></td>
+        <td>Directory</td>
+        <td>-</td>
+        <td>Fri, 15 Nov 2024 18:22:54 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="bab.zip"  >
+              bab.zip
+          </a></td>
+        <td>ZIP-File</td>
+        <td>51,579,928 Bytes</td>
+        <td>Thu, 07 Nov 2024 09:54:56 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="cam.zip"  >
+              cam.zip
+          </a></td>
+        <td>ZIP-File</td>
+        <td>51,061,380 Bytes</td>
+        <td>Wed, 06 Nov 2024 12:23:36 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="DXJS.zip"  >
+              DXJS.zip
+          </a></td>
+        <td>ZIP-File</td>
+        <td>51,447,489 Bytes</td>
+        <td>Thu, 31 Oct 2024 15:04:07 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="DXJS2.zip"  >
+              DXJS2.zip
+          </a></td>
+        <td>ZIP-File</td>
+        <td>43,717,652 Bytes</td>
+        <td>Thu, 31 Oct 2024 10:32:40 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="FTSP.zip"  >
+              FTSP.zip
+          </a></td>
+        <td>ZIP-File</td>
+        <td>59,977,947 Bytes</td>
+        <td>Wed, 06 Nov 2024 13:29:20 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="new.bat"  >
+              new.bat
+          </a></td>
+        <td>BAT-File</td>
+        <td>30,581 Bytes</td>
+        <td>Tue, 12 Nov 2024 18:02:39 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="new.vbs"  >
+              new.vbs
+          </a></td>
+        <td>VBS-File</td>
+        <td>161 Bytes</td>
+        <td>Fri, 15 Nov 2024 18:19:20 GMT</td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="startuppp.bat"  >
+              startuppp.bat
+          </a></td>
+        <td>BAT-File</td>
+        <td>10,126 Bytes</td>
+        <td>Fri, 15 Nov 2024 10:44:22 GMT</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <hr>
+
+  
+  <p class="trailer"><a href='https://github.com/mar10/wsgidav/'>WsgiDAV/4.3.0</a> - Fri, 15 Nov 2024 18:55:48 GMT</p>
+  
+
+  <object id="winFirefoxPlugin" type="application/x-sharepoint"
+      width="0" height="0" style="visibility: hidden;"></object>
+
+</body>
+</html>
