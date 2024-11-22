@@ -43,7 +43,7 @@ ASCII_FILENAME_REGEX = r"filename=([\"']?)(.*?[^\\])\1(?:; ?|$)"
 
 
 def detect_open_directory(request: ServiceRequest, soup: BeautifulSoup):
-    if not soup.title or "Index of" not in soup.title.string:
+    if not soup.title or "index of" not in soup.title.string.lower():
         return
 
     open_directory_links = []
