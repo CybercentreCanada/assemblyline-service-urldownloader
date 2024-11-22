@@ -42,8 +42,51 @@ UTF8_FILENAME_REGEX = r"filename\*=UTF-8''([\w%\-\.]+)(?:; ?|$)"
 ASCII_FILENAME_REGEX = r"filename=([\"']?)(.*?[^\\])\1(?:; ?|$)"
 
 
+def detect_open_directory(request: ServiceRequest, soup: BeautifulSoup):
+    if not soup.title or "index of" not in soup.title.string.lower():
+        return
+
+    open_directory_links = []
+    open_directory_folders = []
+    for a in soup.find_all("a", href=True):
+        if "://" in a["href"][:10] and a["href"][0] != ".":
+            continue
+        if a["href"][0] == "?":
+            # Probably just some table ordering
+            continue
+        if a["href"][0] == "/":
+            # Check if it is the parent directory
+            if a["href"] in request.task.fileinfo.uri_info.uri:
+                continue
+
+        if a["href"].endswith("/"):
+            open_directory_folders.append(a["href"])
+        else:
+            open_directory_links.append(a["href"])
+
+    if open_directory_links or open_directory_folders:
+        open_directory_section = ResultTextSection("Open Directory Detected", parent=request.result)
+        if open_directory_links:
+            open_directory_section.add_line(f"File{'s' if len(open_directory_links) > 1 else ''}:")
+
+        for link in open_directory_links:
+            # Append the full website, remove the '.' from the link
+            link = f"{request.task.fileinfo.uri_info.uri.rstrip('/')}/{link.lstrip('./')}"
+            open_directory_section.add_line(link)
+            add_tag(open_directory_section, "network.static.uri", link)
+
+        if open_directory_folders:
+            open_directory_section.add_line(f"Folder{'s' if len(open_directory_folders) > 1 else ''}:")
+
+        for link in open_directory_folders:
+            # Append the full website, remove the '.' from the link
+            link = f"{request.task.fileinfo.uri_info.uri.rstrip('/')}/{link.lstrip('./')}"
+            open_directory_section.add_line(link)
+            add_tag(open_directory_section, "network.static.uri", link)
+
+
 class URLDownloader(ServiceBase):
-    def __init__(self, config) -> None:
+    def __init__(self, config=None) -> None:
         super().__init__(config)
         self.identify = Identify(use_cache=False)
         self.request_timeout = self.config.get("request_timeout", 150)
@@ -448,6 +491,15 @@ class URLDownloader(ServiceBase):
                             and not re.match(request.get_param("regex_supplementary_filetype"), file_info["type"])
                         )
                     ):
+                        if download_params["url"] in target_urls:
+                            try:
+                                with open(download_params["path"], "rb") as f:
+                                    data = f.read()
+                                soup = BeautifulSoup(data, features="lxml")
+                                detect_open_directory(request, soup)
+                            except Exception:
+                                pass
+
                         added = request.add_extracted(
                             download_params["path"],
                             download_params["filename"],
