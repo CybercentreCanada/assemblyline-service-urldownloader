@@ -6,6 +6,7 @@ import os
 import re
 import subprocess
 import tempfile
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from urllib.parse import urlparse
 
@@ -51,12 +52,15 @@ def detect_open_directory(request: ServiceRequest, soup: BeautifulSoup):
     for a in soup.find_all("a", href=True):
         if "://" in a["href"][:10] and a["href"][0] != ".":
             continue
+        if a["href"] == "..":
+            # Link to the parent directory
+            continue
         if a["href"][0] == "?":
             # Probably just some table ordering
             continue
         if a["href"][0] == "/":
-            # Check if it is the parent directory
-            if a["href"] in request.task.fileinfo.uri_info.uri:
+            # Check if it is the root or a parent directory
+            if a["href"] == "/" or request.task.fileinfo.uri_info.path.startswith(a["href"]):
                 continue
 
         if a["href"].endswith("/"):
@@ -71,7 +75,9 @@ def detect_open_directory(request: ServiceRequest, soup: BeautifulSoup):
 
         for link in open_directory_links:
             # Append the full website, remove the '.' from the link
-            link = f"{request.task.fileinfo.uri_info.uri.rstrip('/')}/{link.lstrip('./')}"
+            while link[:2] == "./":
+                link = link[2:]
+            link = f"{request.task.fileinfo.uri_info.uri.rstrip('/')}/{link}"
             open_directory_section.add_line(link)
             add_tag(open_directory_section, "network.static.uri", link)
 
@@ -80,9 +86,33 @@ def detect_open_directory(request: ServiceRequest, soup: BeautifulSoup):
 
         for link in open_directory_folders:
             # Append the full website, remove the '.' from the link
-            link = f"{request.task.fileinfo.uri_info.uri.rstrip('/')}/{link.lstrip('./')}"
+            while link[:2] == "./":
+                link = link[2:]
+            link = f"{request.task.fileinfo.uri_info.uri.rstrip('/')}/{link}"
             open_directory_section.add_line(link)
             add_tag(open_directory_section, "network.static.uri", link)
+
+
+def detect_webdav_listing(request: ServiceRequest, content: bytes):
+    root = ET.fromstring(content)
+    namespace = {"d": "DAV:"}
+    links = []
+    for response in root.findall("d:response", namespace):
+        href = response.find("d:href", namespace)
+        if href is not None:
+            links.append(href.text)
+
+    if not links:
+        return
+
+    webdav_section = ResultTextSection("WebDav Listing Detected", parent=request.result)
+    root_url = urlparse(request.task.fileinfo.uri_info.uri)
+    root_url = root_url._replace(fragment="")._replace(params="")._replace(query="")._replace(path="").geturl()
+    for link in links:
+        # Append the root website
+        link = f"{root_url}{link}"
+        webdav_section.add_line(link)
+        add_tag(webdav_section, "network.static.uri", link)
 
 
 class URLDownloader(ServiceBase):
@@ -377,10 +407,12 @@ class URLDownloader(ServiceBase):
                             content = content_text.encode()
                     else:
                         content = content_text.encode()
+
                     with tempfile.NamedTemporaryFile(
                         dir=self.working_directory, delete=False, mode="wb"
                     ) as content_file:
                         content_file.write(content)
+
                     fileinfo = self.identify.fileinfo(
                         content_file.name, skip_fuzzy_hashes=True, calculate_entropy=False
                     )
@@ -446,6 +478,16 @@ class URLDownloader(ServiceBase):
                     downloads[content_md5]["mimeType"] = entry["response"]["content"]["mimeType"]
                     downloads[content_md5]["fileinfo"] = fileinfo
 
+                    if entry["response"]["status"] == 207 and downloads[content_md5]["mimeType"].startswith("text/xml"):
+                        detect_webdav_listing(request, content)
+
+                    if downloads[content_md5]["url"] in target_urls:
+                        try:
+                            soup = BeautifulSoup(content, features="lxml")
+                            detect_open_directory(request, soup)
+                        except Exception:
+                            pass
+
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
 
@@ -491,15 +533,6 @@ class URLDownloader(ServiceBase):
                             and not re.match(request.get_param("regex_supplementary_filetype"), file_info["type"])
                         )
                     ):
-                        if download_params["url"] in target_urls:
-                            try:
-                                with open(download_params["path"], "rb") as f:
-                                    data = f.read()
-                                soup = BeautifulSoup(data, features="lxml")
-                                detect_open_directory(request, soup)
-                            except Exception:
-                                pass
-
                         added = request.add_extracted(
                             download_params["path"],
                             download_params["filename"],

