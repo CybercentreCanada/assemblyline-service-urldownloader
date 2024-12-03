@@ -23,7 +23,7 @@
         "body": [
           [
             "response_code",
-            200
+            "200"
           ],
           [
             "requested_url",
@@ -31,7 +31,7 @@
           ],
           [
             "requested_url_ip",
-            "20.42.128.105"
+            "142.250.112.84"
           ],
           [
             "actual_url",
@@ -39,7 +39,7 @@
           ],
           [
             "actual_url_ip",
-            "20.42.128.105"
+            "142.250.112.84"
           ]
         ],
         "body_config": {},
@@ -55,7 +55,7 @@
                 "json.schemastore.org"
               ],
               "ip": [
-                "20.42.128.105"
+                "142.250.112.84"
               ],
               "uri": [
                 "https://json.schemastore.org/eslintrc.json"
@@ -162,7 +162,7 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "20.42.128.105"
+          "value": "142.250.112.84"
         }
       ],
       "network.static.uri": [
