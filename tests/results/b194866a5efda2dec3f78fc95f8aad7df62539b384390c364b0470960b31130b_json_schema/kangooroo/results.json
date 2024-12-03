@@ -1,35 +1,67 @@
 {
-  "response_code": 200,
-  "connection_success": true,
-  "fetch_object_success": true,
-  "requested_url": "https://json.schemastore.org/eslintrc.json",
-  "requested_url_ip": "20.42.128.105",
-  "actual_url": "https://json.schemastore.org/eslintrc.json",
-  "actual_url_ip": "20.42.128.105",
-  "server_info": {
-    "Content-Length": "8668",
-    "Content-Type": "application/json; charset\u003dutf-8",
-    "Date": "Thu, 26 Oct 2023 17:31:53 GMT",
-    "Server": "Microsoft-IIS/10.0",
-    "Accept-Ranges": "bytes",
-    "Access-Control-Allow-Origin": "*",
-    "Cache-Control": "public,max-age\u003d31536000",
-    "Content-Encoding": "gzip",
-    "ETag": "\"09c10cf5f2bd91:0\"",
-    "Last-Modified": "Wed, 18 Jan 2023 17:10:48 GMT",
-    "Vary": "Accept-Encoding, If-Modified-Since",
-    "Content-Security-Policy": "object-src \u0027none\u0027;",
-    "Arr-Disable-Session-Affinity": "True"
-  },
-  "has_timed_out": false,
-  "processing_time": 25236,
-  "messages": [
-    {
-      "type": "WARN",
-      "message": "The height of the screenshot truncated to 10000px (instead of 22886px)"
+  "experiment": {
+    "engineInfo": {
+      "engineName": "Standalone-Kangooroo",
+      "engineVersion": "2.0.1"
+    },
+    "params": {
+      "url": "https://json.schemastore.org/eslintrc.json",
+      "urlType": "PHISHING",
+      "windowSize": "1280x720",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+      "modules": [
+        "summary"
+      ]
+    },
+    "execution": {
+      "status": "SUCCESS",
+      "messages": [
+        "WARN: The height of the screenshot truncated to 10000px (instead of 23506px)"
+      ],
+      "startTime": "Thu Nov 28 16:38:18 UTC 2024",
+      "processTime": 25494
     }
-  ],
-  "creationDate": "Oct 26, 2023, 5:32:17 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+  },
+  "summary": {
+    "fetchResult": {
+      "fetch_object_success": "true",
+      "has_timed_out": "false",
+      "connection_success": "true",
+      "response_code": "200"
+    },
+    "requestedUrl": {
+      "url": "https://json.schemastore.org/eslintrc.json",
+      "urlMd5": "c5064f140d4cfdbf4d6fbe68f68abbb1",
+      "host": "json.schemastore.org",
+      "ip": "142.250.112.84"
+    },
+    "actualUrl": {
+      "url": "https://json.schemastore.org/eslintrc.json",
+      "urlMd5": "c5064f140d4cfdbf4d6fbe68f68abbb1",
+      "host": "json.schemastore.org",
+      "ip": "142.250.112.84"
+    },
+    "urlRedirects": [],
+    "serverInfo": {
+      "Content-Type": "application/json; charset\u003dutf-8",
+      "Access-Control-Allow-Origin": "https://www.google.com",
+      "Access-Control-Allow-Credentials": "true",
+      "X-Content-Type-Options": "nosniff",
+      "Cache-Control": "no-cache, no-store, max-age\u003d0, must-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+      "Date": "Thu, 28 Nov 2024 16:38:18 GMT",
+      "Strict-Transport-Security": "max-age\u003d31536000; includeSubDomains",
+      "Permissions-Policy": "ch-ua-arch\u003d*, ch-ua-bitness\u003d*, ch-ua-full-version\u003d*, ch-ua-full-version-list\u003d*, ch-ua-model\u003d*, ch-ua-wow64\u003d*, ch-ua-form-factors\u003d*, ch-ua-platform\u003d*, ch-ua-platform-version\u003d*",
+      "Accept-CH": "Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List, Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform, Sec-CH-UA-Platform-Version",
+      "Content-Security-Policy": "script-src \u0027unsafe-inline\u0027 \u0027unsafe-eval\u0027 blob: data: \u0027self\u0027 https://apis.google.com https://ssl.gstatic.com https://www.google.com https://www.googletagmanager.com https://www.gstatic.com https://www.google-analytics.com;report-uri /_/IdentityListAccountsHttp/cspreport/allowlist",
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "reporting-endpoints": "default\u003d\"/_/IdentityListAccountsHttp/web-reports?context\u003deJzj0tHikmJw0ZBiOHxtB5Meyy0mIyA-GPec6SgQO6XPYA0A4svdl1ivA7EQD8evHYt2sQk8uHu2l1FJNym_MD4zJTWvJLOkMiezuCQxOTm_NK-kuDi1qCy1KN7IwMjE0NDQXM_AIr7AAAA9zSeP\"",
+      "Content-Encoding": "gzip",
+      "Server": "ESF",
+      "X-XSS-Protection": "0",
+      "Alt-Svc": "h3\u003d\":443\"; ma\u003d2592000,h3-29\u003d\":443\"; ma\u003d2592000",
+      "Transfer-Encoding": "chunked"
+    }
+  }
 }

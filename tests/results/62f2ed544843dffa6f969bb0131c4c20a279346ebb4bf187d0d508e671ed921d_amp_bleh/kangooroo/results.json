@@ -1,26 +1,55 @@
 {
-  "response_code": 200,
-  "connection_success": true,
-  "fetch_object_success": true,
-  "requested_url": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
-  "requested_url_ip": "142.251.41.36",
-  "actual_url": "https://0nlinejfk2.ecm-chlna.net//?username\u003dbleh@bleh.com",
-  "actual_url_ip": "200.58.110.234",
-  "server_info": {
-    "Date": "Thu, 26 Oct 2023 17:29:16 GMT",
-    "Server": "Apache",
-    "X-Powered-By": "PHP/7.4.25",
-    "Upgrade": "h2,h2c",
-    "Connection": "Upgrade",
-    "Vary": "Accept-Encoding",
-    "Content-Encoding": "gzip",
-    "Transfer-Encoding": "chunked",
-    "Content-Type": "text/html; charset\u003dUTF-8"
+  "experiment": {
+    "engineInfo": {
+      "engineName": "Standalone-Kangooroo",
+      "engineVersion": "2.0.1"
+    },
+    "params": {
+      "url": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+      "urlType": "PHISHING",
+      "windowSize": "1280x720",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+      "modules": [
+        "summary"
+      ]
+    },
+    "execution": {
+      "status": "SUCCESS",
+      "messages": [],
+      "startTime": "Thu Nov 28 14:16:34 UTC 2024",
+      "processTime": 32516
+    }
   },
-  "has_timed_out": false,
-  "processing_time": 30929,
-  "messages": [],
-  "creationDate": "Oct 26, 2023, 5:29:43 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+  "summary": {
+    "fetchResult": {
+      "fetch_object_success": "true",
+      "has_timed_out": "false",
+      "connection_success": "true",
+      "response_code": "200"
+    },
+    "requestedUrl": {
+      "url": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+      "urlMd5": "271209e5c98c33ae5b1e3f8d5570b740",
+      "host": "www.google.com",
+      "ip": "142.251.41.36"
+    },
+    "actualUrl": {
+      "url": "https://0nlinejfk2.ecm-chlna.net//?username\u003dbleh@bleh.com",
+      "urlMd5": "e84bbcfa7c5a3937f0c3a55e0ecd83e2",
+      "host": "andbaco.com",
+      "ip": "200.58.110.234"
+    },
+    "urlRedirects": [],
+    "serverInfo": {
+      "Date": "Thu, 26 Oct 2023 17:29:16 GMT",
+      "Server": "Apache",
+      "X-Powered-By": "PHP/7.4.25",
+      "Upgrade": "h2,h2c",
+      "Connection": "Upgrade",
+      "Vary": "Accept-Encoding",
+      "Content-Encoding": "gzip",
+      "Transfer-Encoding": "chunked",
+      "Content-Type": "text/html; charset\u003dUTF-8"
+    }
+  }
 }
