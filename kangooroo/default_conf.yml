@@ -1,9 +1,7 @@
 # YAML Format
 # http://www.yaml.org/start.html
 
-version: '1.0.1'
-
-coqui_stt_folder: '/home/al/coqui-stt/'
+version: '2.0.1'
 
 kang-upstream-proxy:
   ip: '192.168.0.1'
@@ -14,6 +12,9 @@ output_folder: './output/'
 
 browser_settings:
   DEFAULT:
+    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+    window_size: "1280x720"
+  PHISHING:
     user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
     window_size: "1280x720"
   SMISHING:

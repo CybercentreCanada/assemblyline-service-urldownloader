@@ -33,7 +33,8 @@ def drop_kangooroo_files(sample, kangooroo_args, **kwargs):
     kangooroo_input_path = os.path.join(RESULTS_FOLDER, sample, "kangooroo")
     with open(os.path.join(kangooroo_input_path, "results.json"), "r") as f:
         results = json.load(f)
-    url_md5 = hashlib.md5(results["requested_url"].encode()).hexdigest()
+
+    url_md5 = results["summary"]["requestedUrl"]["urlMd5"]
     output_folder = os.path.join(config["output_folder"], url_md5)
     shutil.copytree(src=kangooroo_input_path, dst=output_folder)
 
