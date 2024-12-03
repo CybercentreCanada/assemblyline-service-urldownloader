@@ -1,21 +1,56 @@
 {
-  "response_code": 404,
-  "connection_success": true,
-  "fetch_object_success": false,
-  "requested_url": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
-  "requested_url_ip": "142.251.41.46",
-  "actual_url": "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
-  "actual_url_ip": "67.212.189.210",
-  "server_info": {
-    "Date": "Thu, 26 Oct 2023 17:28:41 GMT",
-    "Server": "Apache",
-    "Content-Length": "315",
-    "Content-Type": "text/html; charset\u003diso-8859-1"
+  "experiment": {
+    "engineInfo": {
+      "engineVersion": "2.0.1",
+      "engineName": "Standalone-Kangooroo"
+    },
+    "params": {
+      "url": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
+      "urlType": "PHISHING",
+      "windowSize": "1280x720",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+      "modules": [
+        "summary"
+      ]
+    },
+    "execution": {
+      "status": "SUCCESS",
+      "messages": [],
+      "startTime": "Thu Nov 28 16:44:06 UTC 2024",
+      "processTime": 25211
+    }
   },
-  "has_timed_out": false,
-  "processing_time": 25144,
-  "messages": [],
-  "creationDate": "Oct 26, 2023, 5:29:04 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+  "summary": {
+    "fetchResult": {
+      "fetch_object_success": "false",
+      "has_timed_out": "false",
+      "connection_success": "true",
+      "response_code": "404"
+    },
+    "requestedUrl": {
+      "url": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
+      "urlMd5": "be9b5b4e752f5cfe3482f9c46d99acba",
+      "host": "google.com",
+      "ip": "142.251.41.46"
+    },
+    "actualUrl": {
+      "url": "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
+      "urlMd5": "44a86f477dface4ca949560c97e4ae9a",
+      "host": "dcexchanges.com",
+      "ip": "142.251.185.84"
+    },
+    "urlRedirects": [
+      {
+        "from": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ\u003d\u003d",
+        "to": "https://accounts.google.com/ListAccounts?gpsia\u003d1\u0026source\u003dChromiumBrowser\u0026json\u003dstandard",
+        "statusCode": 301
+      }
+    ],
+    "serverInfo": {
+      "Date": "Thu, 26 Oct 2023 17:28:41 GMT",
+      "Server": "Apache",
+      "Content-Length": "315",
+      "Content-Type": "text/html; charset\u003diso-8859-1"
+    }
+  }
 }

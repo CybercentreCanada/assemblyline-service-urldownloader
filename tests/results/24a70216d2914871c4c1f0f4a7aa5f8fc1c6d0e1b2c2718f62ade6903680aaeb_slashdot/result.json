@@ -5,14 +5,27 @@
     "sections": [
       {
         "auto_collapse": false,
+        "body": "URL 'https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795' (380369f835d00015f089274107cf114d) was requested but a different URL was fetched (d86e2b62b352d8f9c944980f534f86fe).",
+        "body_config": {},
+        "body_format": "TEXT",
+        "classification": "TLP:C",
+        "depth": 0,
+        "heuristic": null,
+        "promote_to": null,
+        "tags": {},
+        "title_text": "URL hash mismatch",
+        "zeroize_on_tag_safe": false
+      },
+      {
+        "auto_collapse": false,
         "body": [
           [
             "response_code",
-            200
+            "200"
           ],
           [
             "requested_url",
-            "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+            "https://news.slashdot.org/comments.pl?sidu003d11253499u0026cidu003d55399795"
           ],
           [
             "requested_url_ip",
@@ -20,7 +33,7 @@
           ],
           [
             "actual_url",
-            "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+            "https://news.slashdot.org/comments.pl?sidu003d11253499u0026cidu003d55399795"
           ],
           [
             "actual_url_ip",
@@ -43,10 +56,10 @@
                 "172.64.151.192"
               ],
               "uri": [
-                "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+                "https://news.slashdot.org/comments.pl?sidu003d11253499u0026cidu003d55399795"
               ],
               "uri_path": [
-                "/comments.pl?sid=11253499&cid=55399795"
+                "/comments.pl?sidu003d11253499u0026cidu003d55399795"
               ]
             }
           }
@@ -1965,7 +1978,7 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+          "value": "https://news.slashdot.org/comments.pl?sidu003d11253499u0026cidu003d55399795"
         },
         {
           "heur_id": null,
@@ -2197,7 +2210,7 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "/comments.pl?sid=11253499&cid=55399795"
+          "value": "/comments.pl?sidu003d11253499u0026cidu003d55399795"
         },
         {
           "heur_id": null,
