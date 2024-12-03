@@ -34,8 +34,7 @@ COPY . .
 
 # Install python dependencies
 RUN pip install --no-cache-dir --user --requirement requirements.txt && rm -rf ~/.cache/pip
-# Install whisper AI
-RUN pip install -U openai-whisper && rm -rf ~/.cache/pip
+
 
 # Patch version in manifest
 ARG version=4.0.0.dev1

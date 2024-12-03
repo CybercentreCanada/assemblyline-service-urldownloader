@@ -1,3 +1,6 @@
 assemblyline-service-utilities
 beautifulsoup4
 lxml
+
+# install open AI whisper to use captcha solver for Kangooroo
+openai-whisper
