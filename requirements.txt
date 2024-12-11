@@ -1,3 +1,8 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 assemblyline-service-utilities
 beautifulsoup4
 lxml
+
+# install open AI whisper to use captcha solver for Kangooroo
+torch
+openai-whisper

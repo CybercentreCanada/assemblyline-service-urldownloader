@@ -180,21 +180,21 @@ class URLDownloader(ServiceBase):
                 yaml.dump(kangooroo_config, temp_conf)
 
             kangooroo_args = [
-                "java",
-                f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m",
-                "-Dlogback.configurationFile=./logback.xml",
-                "-jar",
-                "KangoorooStandalone.jar",
+                "./bin/kangooroo",
                 "--conf-file",
                 temp_conf.name,
-                "--dont-use-captcha",  # Don't use captcha for the moment, to be enabled later
+                "-mods",
+                "summary,captcha",
+                "--simple-result",
                 "--url",
-                request.task.fileinfo.uri_info.uri,
+                request.task.fileinfo.uri_info.uri
             ]
             if self.no_sandbox:
                 kangooroo_args.insert(-2, "--no-sandbox")
             try:
-                subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, capture_output=True, timeout=self.request_timeout)
+                subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER,
+                               capture_output=True,
+                               timeout=self.request_timeout)
             except subprocess.TimeoutExpired:
                 timeout_section = ResultTextSection("Request timed out", parent=request.result)
                 timeout_section.add_line(
@@ -244,54 +244,61 @@ class URLDownloader(ServiceBase):
             with open(results_filepath, "r") as f:
                 results = json.load(f)
 
+            result_summary = results.get("summary", {})
+            result_experiment = results.get("experiment", {})
+            result_params = result_experiment.get("params", {})
+            result_execution = result_experiment.get("execution", {})
+
             sandbox_details = {
                 "analysis_metadata": {
-                    "start_time": datetime.strptime(results["creationDate"], "%b %d, %Y, %I:%M:%S %p").strftime(
+                    "start_time": datetime.strptime(result_execution["startTime"], "%a %b %d %H:%M:%S UTC %Y").strftime(
                         DATEFORMAT
                     )
                 },
-                "sandbox_name": results["engineName"],
-                "sandbox_version": results["engineVersion"],
+                "sandbox_name": result_experiment["engineInfo"]["engineName"],
+                "sandbox_version": result_experiment["engineInfo"]["engineVersion"],
             }
             http_result = {
-                "response_code": results["response_code"],
+                "response_code": result_summary["fetchResult"]["response_code"],
             }
 
             # Main result section
-            target_urls = [results["requested_url"]]
+
+            requested_url = result_summary.get("requestedUrl", {})
+            actual_url = result_summary.get("actualUrl", {})
+
+            target_urls = [requested_url["url"]]
             result_section = ResultOrderedKeyValueSection("Results", parent=request.result)
-            result_section.add_item("response_code", results["response_code"])
-            result_section.add_item("requested_url", results["requested_url"])
-            add_tag(result_section, "network.static.uri", results["requested_url"])
-            if "requested_url_ip" in results:
-                result_section.add_item("requested_url_ip", results["requested_url_ip"])
-                result_section.add_tag("network.static.ip", results["requested_url_ip"])
-            if "actual_url" in results:
-                target_urls.append(results["actual_url"])
-                result_section.add_item("actual_url", results["actual_url"])
-                add_tag(result_section, "network.static.uri", results["actual_url"])
-            if "actual_url_ip" in results:
-                result_section.add_item("actual_url_ip", results["actual_url_ip"])
-                result_section.add_tag("network.static.ip", results["actual_url_ip"])
+            result_section.add_item("response_code", result_summary["fetchResult"]["response_code"])
+            result_section.add_item("requested_url", requested_url["url"])
+            add_tag(result_section, "network.static.uri", requested_url["url"])
+            if "ip" in requested_url:
+                result_section.add_item("requested_url_ip", requested_url["ip"])
+                result_section.add_tag("network.static.ip", requested_url["ip"])
+            if actual_url:
+                target_urls.append(actual_url["url"])
+                result_section.add_item("actual_url", actual_url["url"])
+                add_tag(result_section, "network.static.uri", actual_url["url"])
+            if "ip" in actual_url:
+                result_section.add_item("actual_url_ip", actual_url["ip"])
+                result_section.add_tag("network.static.ip", actual_url["ip"])
 
             if (
-                "requested_url_ip" in results
-                and "actual_url_ip" in results
-                and results["requested_url_ip"] != results["actual_url_ip"]
+                ("ip" in  actual_url
+                and "ip" in requested_url)
+                and actual_url["ip"] != requested_url["ip"]
             ):
                 result_section.add_tag("file.behavior", "IP Redirection change")
 
             if (
-                "requested_url" in results
-                and "actual_url" in results
-                and results["requested_url"] != results["actual_url"]
+                (requested_url
+                and actual_url )
+                and requested_url["url"] != actual_url["url"]
             ):
-                http_result["redirection_url"] = results["actual_url"]
+                http_result["redirection_url"] = actual_url["url"]
 
-            if results.get("experimentation", {}).get("params", {}).get("window_size", False):
-                sandbox_details["analysis_metadata"]["window_size"] = results["experimentation"]["params"][
-                    "window_size"
-                ]
+            if result_params.get("windowSize", False):
+                sandbox_details["analysis_metadata"]["window_size"] = result_params["windowSize"]
 
             # Screenshot section
             screenshot_path = os.path.join(output_folder, "screenshot.png")
@@ -499,6 +506,7 @@ class URLDownloader(ServiceBase):
             modified_har_filepath = os.path.join(self.working_directory, "modified_session.har")
             with open(modified_har_filepath, "w") as f:
                 json.dump(har_content, f)
+
             request.add_supplementary(modified_har_filepath, "session.har", "Complete session log")
 
             if redirects:

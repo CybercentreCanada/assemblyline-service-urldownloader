@@ -21,7 +21,7 @@
         "body": [
           [
             "response_code",
-            200
+            "200"
           ],
           [
             "requested_url",
@@ -33,7 +33,7 @@
           ],
           [
             "actual_url",
-            "http://perdu.com/"
+            "https://perdu.com/"
           ],
           [
             "actual_url_ip",
@@ -57,7 +57,7 @@
               ],
               "uri": [
                 "http://perdu.com",
-                "http://perdu.com/"
+                "https://perdu.com/"
               ],
               "uri_path": [
                 "/"
@@ -173,7 +173,7 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "http://perdu.com/"
+          "value": "https://perdu.com/"
         }
       ],
       "network.static.uri_path": [
