@@ -2,7 +2,7 @@ ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.URLDownloader
-ENV KANGOOROO_VERSION=v2.0.1.stable5
+ENV KANGOOROO_VERSION=v2.0.1.dev7
 USER root
 
 RUN apt update -y && \
