@@ -42,6 +42,3 @@ RUN pip install --no-cache-dir --user --requirement requirements.txt && rm -rf ~
 ARG version=4.0.0.dev1
 USER root
 RUN sed -i -e "s/\$SERVICE_TAG/$version/g" service_manifest.yml
-
-# Switch to assemblyline user
-USER assemblyline
