@@ -2,11 +2,11 @@ ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.URLDownloader
-ENV KANGOOROO_VERSION=v2.0.1.stable6
+ENV KANGOOROO_VERSION=v2.0.1.stable7
 USER root
 
 RUN apt update -y && \
-    apt install -y wget default-jre unzip ffmpeg && \
+    apt install -y wget wget default-jre unzip ffmpeg && \
     # Find out what is the latest version of the chrome-for-testing/chromedriver available
     VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
     # Download + Install google-chrome with the version matching the latest chromedriver
