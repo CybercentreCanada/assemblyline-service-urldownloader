@@ -1,4 +1,5 @@
 pytest
 assemblyline-service-utilities
-yaml
+pyyaml
 beautifulsoup4
+assemblyline
