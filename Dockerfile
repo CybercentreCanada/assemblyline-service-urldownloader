@@ -2,7 +2,7 @@ ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.URLDownloader
-ENV KANGOOROO_VERSION=v2.0.1.stable7
+ENV KANGOOROO_VERSION=v2.0.1.stable9
 USER root
 
 RUN apt update -y && \
@@ -34,7 +34,6 @@ COPY . .
 
 # Install python dependencies
 RUN pip install --no-cache-dir --user --requirement requirements.txt && rm -rf ~/.cache/pip
-
 
 # Patch version in manifest
 ARG version=4.0.0.dev1

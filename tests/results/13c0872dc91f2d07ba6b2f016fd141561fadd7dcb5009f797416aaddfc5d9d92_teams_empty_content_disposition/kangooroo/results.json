@@ -25,7 +25,7 @@
       "fetch_object_success": "true",
       "has_timed_out": "false",
       "connection_success": "true",
-      "response_code": "200"
+      "response_code": 200
     },
     "requestedUrl": {
       "url": "https://teams.microsoft.com/_#/one/viewer/teams_ns/https:~2F~2Fsite.com",

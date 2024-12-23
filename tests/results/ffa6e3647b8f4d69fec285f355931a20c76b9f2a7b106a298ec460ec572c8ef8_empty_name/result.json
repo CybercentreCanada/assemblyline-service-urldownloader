@@ -8,7 +8,7 @@
         "body": [
           [
             "response_code",
-            200
+            "200"
           ],
           [
             "requested_url",
@@ -298,10 +298,6 @@
         "sha256": "261c4ca72e7bec9b49794d577e7fc9a6348f97af405a24b05bce341dbd3786b0"
       },
       {
-        "name": "jupiter.js",
-        "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
-      },
-      {
         "name": "noir.js",
         "sha256": "46b5242c5eb6b3b71ef2606f2d0d700142ae58b53c6d018e6bf06bab62437e1b"
       },
@@ -342,6 +338,10 @@
       {
         "name": "msmm.png",
         "sha256": "1ab5ef4e7e196cb1ff39df44e1a0a39f6880b906ef6fd6da3cfdbb92ffd33115"
+      },
+      {
+        "name": "jupiter.js",
+        "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
       },
       {
         "name": "vsc.png",

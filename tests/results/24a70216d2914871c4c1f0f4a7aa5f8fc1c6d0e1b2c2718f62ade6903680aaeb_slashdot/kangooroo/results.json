@@ -5,7 +5,7 @@
       "engineVersion": "2.0.1"
     },
     "params": {
-      "url": "https://news.slashdot.org/comments.pl?sidu003d11253499u0026cidu003d55399795",
+      "url": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795",
       "urlType": "PHISHING",
       "windowSize": "1280x720",
       "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
@@ -22,19 +22,19 @@
   },
   "summary": {
     "fetchResult": {
-      "response_code": "200",
-      "connection_success": "true",
-      "has_timed_out": "false",
-      "fetch_object_success": "true"
+      "response_code": 200,
+      "connection_success": true,
+      "has_timed_out": false,
+      "fetch_object_success": true
     },
     "requestedUrl": {
-      "url": "https://news.slashdot.org/comments.pl?sidu003d11253499u0026cidu003d55399795",
+      "url": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795",
       "urlMd5": "d86e2b62b352d8f9c944980f534f86fe",
       "host": "news.slashdot.org",
       "ip": "172.64.151.192"
     },
     "actualUrl": {
-      "url": "https://news.slashdot.org/comments.pl?sidu003d11253499u0026cidu003d55399795",
+      "url": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795",
       "urlMd5": "d86e2b62b352d8f9c944980f534f86fe",
       "host": "news.slashdot.org",
       "ip": "172.64.151.192"

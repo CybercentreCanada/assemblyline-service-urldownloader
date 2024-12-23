@@ -179,6 +179,10 @@ class URLDownloader(ServiceBase):
             with tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False, mode="w") as temp_conf:
                 yaml.dump(kangooroo_config, temp_conf)
 
+            env_variables = {
+                "JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m"
+            }
+
             kangooroo_args = [
                 "./bin/kangooroo",
                 "--conf-file",
@@ -194,7 +198,7 @@ class URLDownloader(ServiceBase):
             try:
                 subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER,
                                capture_output=True,
-                               timeout=self.request_timeout)
+                               timeout=self.request_timeout, env=env_variables)
             except subprocess.TimeoutExpired:
                 timeout_section = ResultTextSection("Request timed out", parent=request.result)
                 timeout_section.add_line(
@@ -291,8 +295,8 @@ class URLDownloader(ServiceBase):
                 result_section.add_tag("file.behavior", "IP Redirection change")
 
             if (
-                (requested_url
-                and actual_url )
+                ("url" in requested_url
+                and "url" in actual_url )
                 and requested_url["url"] != actual_url["url"]
             ):
                 http_result["redirection_url"] = actual_url["url"]
