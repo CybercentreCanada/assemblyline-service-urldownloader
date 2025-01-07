@@ -1320,7 +1320,7 @@
   "summary": {
     "fetchResult": {
       "fetch_object_success": "true",
-      "response_code": "200",
+      "response_code": 200,
       "connection_success": "true",
       "has_timed_out": "false"
     },

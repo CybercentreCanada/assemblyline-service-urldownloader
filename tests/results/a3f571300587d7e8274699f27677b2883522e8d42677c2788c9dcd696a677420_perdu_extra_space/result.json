@@ -21,7 +21,7 @@
         "body": [
           [
             "response_code",
-            "200"
+            200
           ],
           [
             "requested_url",

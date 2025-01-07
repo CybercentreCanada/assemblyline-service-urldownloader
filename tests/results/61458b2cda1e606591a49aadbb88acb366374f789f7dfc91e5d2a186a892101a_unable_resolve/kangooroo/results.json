@@ -24,7 +24,7 @@
   },
   "summary": {
     "fetchResult": {
-      "response_code": "0",
+      "response_code": 0,
       "fetch_object_success": "false",
       "has_timed_out": "false",
       "connection_success": "false"
