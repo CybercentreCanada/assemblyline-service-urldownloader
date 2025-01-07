@@ -8,7 +8,7 @@
         "body": [
           [
             "response_code",
-            "404"
+            404
           ],
           [
             "requested_url",

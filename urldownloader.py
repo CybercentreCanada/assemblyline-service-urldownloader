@@ -196,9 +196,7 @@ class URLDownloader(ServiceBase):
             if self.no_sandbox:
                 kangooroo_args.insert(-2, "--no-sandbox")
             try:
-                subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER,
-                               capture_output=True,
-                               timeout=self.request_timeout, env=env_variables)
+                subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, capture_output=True, timeout=self.request_timeout, env=env_variables)
             except subprocess.TimeoutExpired:
                 timeout_section = ResultTextSection("Request timed out", parent=request.result)
                 timeout_section.add_line(

@@ -23,9 +23,9 @@
   "summary": {
     "fetchResult": {
       "response_code": 200,
-      "connection_success": true,
-      "has_timed_out": false,
-      "fetch_object_success": true
+      "connection_success": "true",
+      "has_timed_out": "false",
+      "fetch_object_success": "true"
     },
     "requestedUrl": {
       "url": "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795",

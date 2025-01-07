@@ -6,7 +6,7 @@ ENV KANGOOROO_VERSION=v2.0.1.stable9
 USER root
 
 RUN apt update -y && \
-    apt install -y wget wget default-jre unzip ffmpeg build-essential libffi-dev python3 python3-dev python3-pip libfuzzy-dev && \
+    apt install -y wget default-jre unzip ffmpeg && \
     # Find out what is the latest version of the chrome-for-testing/chromedriver available
     VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
     # Download + Install google-chrome with the version matching the latest chromedriver
@@ -39,3 +39,6 @@ RUN pip install --no-cache-dir --user --requirement requirements.txt && rm -rf ~
 ARG version=4.0.0.dev1
 USER root
 RUN sed -i -e "s/\$SERVICE_TAG/$version/g" service_manifest.yml
+
+# Switch to assemblyline user
+USER assemblyline

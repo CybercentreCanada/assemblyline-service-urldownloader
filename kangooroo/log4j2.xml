@@ -9,6 +9,7 @@
         <Root level="info">
             <AppenderRef ref="Console" />
         </Root>
-        <logger name="com.browserup.bup.BrowserUpProxyServer" level="OFF"/>
+    <logger name="com.browserup.bup.BrowserUpProxyServer" level="OFF"/>
     </Loggers>
+   
 </Configuration>
