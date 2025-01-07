@@ -5,19 +5,6 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "URL 'https://teams.microsoft.com/_#/one/viewer/teams_ns/https:~2F~2Fsite.com' (d5cb99bb174947c02848c373f3ce1074) was requested but a different URL was fetched (5e4cc1014eaef0b073027ebaa5359ccd).",
-        "body_config": {},
-        "body_format": "TEXT",
-        "classification": "TLP:C",
-        "depth": 0,
-        "heuristic": null,
-        "promote_to": null,
-        "tags": {},
-        "title_text": "URL hash mismatch",
-        "zeroize_on_tag_safe": false
-      },
-      {
-        "auto_collapse": false,
         "body": [
           [
             "response_code",

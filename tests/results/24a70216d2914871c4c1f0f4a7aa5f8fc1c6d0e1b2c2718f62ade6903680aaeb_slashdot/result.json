@@ -5,19 +5,6 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "URL 'https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795' (380369f835d00015f089274107cf114d) was requested but a different URL was fetched (d86e2b62b352d8f9c944980f534f86fe).",
-        "body_config": {},
-        "body_format": "TEXT",
-        "classification": "TLP:C",
-        "depth": 0,
-        "heuristic": null,
-        "promote_to": null,
-        "tags": {},
-        "title_text": "URL hash mismatch",
-        "zeroize_on_tag_safe": false
-      },
-      {
-        "auto_collapse": false,
         "body": [
           [
             "response_code",
