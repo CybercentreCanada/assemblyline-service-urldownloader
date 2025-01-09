@@ -16,7 +16,7 @@
           ],
           [
             "requested_url_ip",
-            "172.64.80.1"
+            "68.183.46.179"
           ],
           [
             "actual_url",
@@ -24,7 +24,7 @@
           ],
           [
             "actual_url_ip",
-            "172.64.80.1"
+            "68.183.46.179"
           ]
         ],
         "body_config": {},
@@ -40,7 +40,7 @@
                 "getsamplefiles.com"
               ],
               "ip": [
-                "172.64.80.1"
+                "68.183.46.179"
               ],
               "uri": [
                 "https://getsamplefiles.com/download/zip/sample-1.zip"
@@ -147,7 +147,7 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "172.64.80.1"
+          "value": "68.183.46.179"
         }
       ],
       "network.static.uri": [

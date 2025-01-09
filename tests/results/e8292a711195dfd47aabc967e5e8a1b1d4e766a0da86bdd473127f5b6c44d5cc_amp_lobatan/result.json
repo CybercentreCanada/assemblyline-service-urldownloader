@@ -24,7 +24,7 @@
           ],
           [
             "actual_url_ip",
-            "142.251.185.84"
+            "67.212.189.210"
           ]
         ],
         "body_config": {},
@@ -47,7 +47,7 @@
               ],
               "ip": [
                 "142.251.41.46",
-                "142.251.185.84"
+                "67.212.189.210"
               ],
               "uri": [
                 "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
@@ -261,11 +261,6 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "142.251.185.84"
-        },
-        {
-          "heur_id": null,
-          "signatures": [],
           "value": "142.251.41.36"
         },
         {
@@ -277,6 +272,11 @@
           "heur_id": null,
           "signatures": [],
           "value": "142.251.41.46"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "67.212.189.210"
         }
       ],
       "network.static.uri": [
