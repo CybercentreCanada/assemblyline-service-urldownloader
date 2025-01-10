@@ -33,7 +33,7 @@
           ],
           [
             "actual_url",
-            "https://perdu.com/"
+            "http://perdu.com/"
           ],
           [
             "actual_url_ip",
@@ -57,7 +57,7 @@
               ],
               "uri": [
                 "http://perdu.com",
-                "https://perdu.com/"
+                "http://perdu.com/"
               ],
               "uri_path": [
                 "/"
@@ -173,7 +173,7 @@
         {
           "heur_id": null,
           "signatures": [],
-          "value": "https://perdu.com/"
+          "value": "http://perdu.com/"
         }
       ],
       "network.static.uri_path": [
