@@ -340,10 +340,6 @@
         "sha256": "1ab5ef4e7e196cb1ff39df44e1a0a39f6880b906ef6fd6da3cfdbb92ffd33115"
       },
       {
-        "name": "jupiter.js",
-        "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
-      },
-      {
         "name": "vsc.png",
         "sha256": "31c6dbe9d867436244f38566adad57e3870f4c8489c6804280eb564bfac5c1bd"
       },
@@ -394,6 +390,10 @@
       {
         "name": "mnc.png",
         "sha256": "c5a324f181af16879b6c4c52b731b23392f2816def159b157c4de620cff1cd41"
+      },
+      {
+        "name": "jupiter.js",
+        "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
       }
     ]
   },
