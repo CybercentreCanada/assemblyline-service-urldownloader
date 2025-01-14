@@ -1,32 +1,62 @@
 {
-  "response_code": 200,
-  "connection_success": true,
-  "fetch_object_success": true,
-  "requested_url": "https://gklnd.pages.dev/",
-  "requested_url_ip": "172.66.45.31",
-  "actual_url": "https://gklnd.pages.dev/",
-  "actual_url_ip": "172.66.45.31",
-  "server_info": {
-    "Date": "Thu, 04 Apr 2024 17:42:58 GMT",
-    "Content-Type": "text/html; charset\u003dutf-8",
-    "Transfer-Encoding": "chunked",
-    "Connection": "keep-alive",
-    "Access-Control-Allow-Origin": "*",
-    "Cache-Control": "public, max-age\u003d0, must-revalidate",
-    "ETag": "W/\"709f2e39b31b16764f35f7ef8d596af7\"",
-    "referrer-policy": "strict-origin-when-cross-origin",
-    "x-content-type-options": "nosniff",
-    "Report-To": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s\u003dZ73%2FghMJ3E8JRi3E%2FiFfVhXDNRy3K%2BL83w8M6d6c3JDj2YBBJnliTbk68DuviZyhspyYPh4BnUXgPU1nYVOfhKz4DlMEKXU4Jyvikrv4wOzYgEEwieDSS9Z%2BHGPR0YlPgjs%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
-    "NEL": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}",
-    "Vary": "Accept-Encoding",
-    "Server": "cloudflare",
-    "CF-RAY": "86f319169e9ba23b-YYZ",
-    "Content-Encoding": "br",
-    "alt-svc": "h3\u003d\":443\"; ma\u003d86400"
+  "experiment": {
+    "engineInfo": {
+      "engineVersion": "2.0.1",
+      "engineName": "Standalone-Kangooroo"
+    },
+    "params": {
+      "url": "https://gklnd.pages.dev/",
+      "urlType": "PHISHING",
+      "windowSize": "1280x720",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+      "modules": [
+        "summary"
+      ]
+    },
+    "execution": {
+      "status": "SUCCESS",
+      "messages": [],
+      "startTime": "Thu Nov 28 16:44:06 UTC 2024",
+      "processTime": 25211
+    }
   },
-  "has_timed_out": false,
-  "processing_time": 28324,
-  "creationDate": "Apr 4, 2024, 5:43:24 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+  "summary": {
+    "fetchResult": {
+      "fetch_object_success": "true",
+      "has_timed_out": "false",
+      "connection_success": "true",
+      "response_code": 200
+    },
+    "requestedUrl": {
+      "url": "https://gklnd.pages.dev/",
+      "urlMd5": "46d0cb2b100b2798665a2c658bd4dca9",
+      "host": "gklnd.pages.dev",
+      "ip": "172.66.45.31"
+    },
+    "actualUrl": {
+      "url": "https://gklnd.pages.dev/",
+      "urlMd5": "46d0cb2b100b2798665a2c658bd4dca9",
+      "host": "gklnd.pages.dev",
+      "ip": "172.66.45.31"
+    },
+    "urlRedirects": [],
+    "serverInfo": {
+      "Date": "Thu, 04 Apr 2024 17:42:58 GMT",
+      "Content-Type": "text/html; charset\u003dutf-8",
+      "Transfer-Encoding": "chunked",
+      "Connection": "keep-alive",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "public, max-age\u003d0, must-revalidate",
+      "ETag": "W/\"709f2e39b31b16764f35f7ef8d596af7\"",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "x-content-type-options": "nosniff",
+      "Report-To": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s\u003dZ73%2FghMJ3E8JRi3E%2FiFfVhXDNRy3K%2BL83w8M6d6c3JDj2YBBJnliTbk68DuviZyhspyYPh4BnUXgPU1nYVOfhKz4DlMEKXU4Jyvikrv4wOzYgEEwieDSS9Z%2BHGPR0YlPgjs%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+      "NEL": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+      "Vary": "Accept-Encoding",
+      "Server": "cloudflare",
+      "CF-RAY": "86f319169e9ba23b-YYZ",
+      "Content-Encoding": "br",
+      "alt-svc": "h3\u003d\":443\"; ma\u003d86400"
+    }
+  }
 }

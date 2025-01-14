@@ -1,33 +1,62 @@
 {
-  "response_code": 200,
-  "connection_success": true,
-  "fetch_object_success": true,
-  "requested_url": "https://news.slashdot.org/comments.pl?sid\u003d11253499\u0026cid\u003d55399795",
-  "requested_url_ip": "172.64.151.192",
-  "actual_url": "https://news.slashdot.org/comments.pl?sid\u003d11253499\u0026cid\u003d55399795",
-  "actual_url_ip": "172.64.151.192",
-  "server_info": {
-    "Date": "Thu, 26 Oct 2023 17:33:14 GMT",
-    "Content-Type": "text/html; charset\u003dutf-8",
-    "Transfer-Encoding": "chunked",
-    "Connection": "keep-alive",
-    "x-frame-options": "SAMEORIGIN",
-    "content-security-policy": "frame-ancestors \u0027self\u0027; upgrade-insecure-requests",
-    "permissions-policy": "geolocation\u003d(), microphone\u003d(), camera\u003d(), payment\u003d(), document-domain\u003d(), display-capture\u003d(), autoplay\u003d()",
-    "feature-policy": "geolocation \u0027none\u0027; microphone \u0027none\u0027; camera \u0027none\u0027; payment \u0027none\u0027; document-domain \u0027none\u0027; display-capture \u0027none\u0027; autoplay \u0027none\u0027",
-    "x-xrds-location": "https://slashdot.org/slashdot.xrds",
-    "content-security-policy-report-only": "frame-ancestors \u0027self\u0027; upgrade-insecure-requests;form-action \u0027self\u0027 slashdot.us15.list-manage.com;frame-src \u0027self\u0027 *.lijit.com *.btloader.com http://*.pro-market.net *.crsspxl.com *.google.com *.googlesyndication.com *.safeframe.usercontent.goog *.doubleclick.net challenges.cloudflare.com *.recaptcha.net recaptcha.net *.adnxs.com *.indexww.com *.rubiconproject.com *.pubmatic.com *.smartadserver.com *.outbrain.com; object-src \u0027none\u0027;script-src \u0027self\u0027 slashdot.org *.slashdot.org *.slashdotmedia.com a.fsdn.com challenges.cloudflare.com *.lijit.com *.moatads.com *.adsafeprotected.com *.sharethrough.com *.2mdn.net *.adnxs.com *.jobbio.com *.script.ac *.defybrick.com *.aniview.com *.vidazoo.com *.pubmatic.com chimpstatic.com *.mailchimp.com mc.us15.list-manage.com ml314.com *.stack-sonar.com *.licdn.com translate.googleapis.com *.doubleclick.net *.googleadservices.com translate.google.cn *.gstatic.cn *.google.com *.consentmanager.net *.microsofttranslator.com *.gstatic.com *.googletagservices.com *.recaptcha.net recaptcha.net *.google-analytics.com *.googlesyndication.com *.cloudflareinsights.com d3tglifpd8whs6.cloudfront.net rpxnow.com btloader.com *.crsspxl.com http://*.pro-market.net *.4dex.io *.adnxs-simple.com *.rubiconproject.com *.trustarc.com *.truste.com *.doubleverify.com *.tapad.com *.pghub.io *.sharethru.com adservice.google.ad adservice.google.ae adservice.google.at adservice.google.be adservice.google.bg adservice.google.ca adservice.google.ch adservice.google.co.id adservice.google.co.il adservice.google.co.in adservice.google.co.jp adservice.google.co.kr adservice.google.co.th adservice.google.co.uk adservice.google.co.zw adservice.google.com.au adservice.google.com.bo adservice.google.com.hk adservice.google.com.mx adservice.google.com.ph adservice.google.com.pk adservice.google.com.sa adservice.google.com.sg adservice.google.com.tr adservice.google.com.tw adservice.google.com.ua adservice.google.com.vn adservice.google.cz adservice.google.de adservice.google.dk adservice.google.dz adservice.google.ee adservice.google.fi adservice.google.fr adservice.google.gr adservice.google.hu adservice.google.ie adservice.google.it adservice.google.li adservice.google.lu adservice.google.mu adservice.google.mv adservice.google.nl adservice.google.no adservice.google.pl adservice.google.pt adservice.google.ro adservice.google.rs adservice.google.se adservice.google.sk adservice.google.com.br adservice.google.com.ar adservice.google.cl adservice.google.com.co adservice.google.com.cu adservice.google.com.cy adservice.google.es adservice.google.hr adservice.google.im adservice.google.lk adservice.google.me adservice.google.mg adservice.google.com.mm adservice.google.com.ng adservice.google.com.np adservice.google.com.pr adservice.google.com.uy adservice.google.co.za adservice.google.jo adservice.google.bs adservice.google.al adservice.google.co.tz adservice.google.rw adservice.google.hn adservice.google.lt adservice.google.iq adservice.google.si adservice.google.bj adservice.google.co.ao adservice.google.com.gh adservice.google.kz adservice.google.com.eg adservice.google.com.ec adservice.google.co.ve adservice.google.com.py adservice.google.lv adservice.google.mn adservice.google.com.bn adservice.google.tn adservice.google.ml adservice.google.is adservice.google.com.sv adservice.google.com.bz adservice.google.az adservice.google.gt adservice.google.sn adservice.google.cm adservice.google.com.kh adservice.google.ge adservice.google.com.et adservice.google.com.pe adservice.google.com.ly adservice.google.co.mz adservice.google.com.bh adservice.google.com.mt adservice.google.ps adservice.google.so adservice.google.bf adservice.google.co.nz adservice.google.com.gt adservice.google.co.zm adservice.google.je adservice.google.cv adservice.google.la adservice.google.bi adservice.google.com.jm adservice.google.tt adservice.google.com.kw adservice.google.cd adservice.google.gy adservice.google.tg adservice.google.com.af adservice.google.com.lb adservice.google.sr adservice.google.com.ni adservice.google.ki adservice.google.com.na adservice.google.ht adservice.google.nr adservice.google.td adservice.google.co.ls adservice.google.gl adservice.google.bt adservice.google.tm adservice.google.com.vc adservice.google.co.bw adservice.google.vg adservice.google.as adservice.google.cg adservice.google.com.ag adservice.google.com.tj adservice.google.dm adservice.google.to adservice.google.dj adservice.google.cf adservice.google.ws adservice.google.st adservice.google.gm adservice.google.fm adservice.google.com.sb adservice.google.com.pg adservice.google.com.gi adservice.google.com.ai adservice.google.co.ck adservice.google.ru adservice.google.nu adservice.google.com.my adservice.google.com.bd adservice.google.ci adservice.google.co.cr adservice.google.co.ke adservice.google.co.ug adservice.google.co.uz adservice.google.co.vi adservice.google.ms adservice.google.com.fj adservice.google.com.om adservice.google.com.pa adservice.google.com.qa adservice.google.ga adservice.google.gg adservice.google.kg adservice.google.md adservice.google.mk adservice.google.mw adservice.google.ne adservice.google.sm adservice.google.tl adservice.google.sc adservice.google.vu \u0027unsafe-inline\u0027 \u0027unsafe-eval\u0027;",
-    "strict-transport-security": "max-age\u003d31536000",
-    "CF-Cache-Status": "DYNAMIC",
-    "Server": "cloudflare",
-    "CF-RAY": "81c471759e64ab3b-YYZ",
-    "Content-Encoding": "br",
-    "alt-svc": "h3\u003d\":443\"; ma\u003d86400"
+  "experiment": {
+    "engineInfo": {
+      "engineName": "Standalone-Kangooroo",
+      "engineVersion": "2.0.1"
+    },
+    "params": {
+      "url": "https://news.slashdot.org/comments.pl?sid\u003d11253499\u0026cid\u003d55399795",
+      "urlType": "PHISHING",
+      "windowSize": "1280x720",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+      "modules": [
+        "summary"
+      ]
+    },
+    "execution": {
+      "status": "SUCCESS",
+      "messages": [],
+      "startTime": "Mon Nov 25 18:56:18 UTC 2024",
+      "processTime": 30477
+    }
   },
-  "has_timed_out": false,
-  "processing_time": 30477,
-  "messages": [],
-  "creationDate": "Oct 26, 2023, 5:33:43 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+  "summary": {
+    "fetchResult": {
+      "response_code": 200,
+      "connection_success": "true",
+      "has_timed_out": "false",
+      "fetch_object_success": "true"
+    },
+    "requestedUrl": {
+      "url": "https://news.slashdot.org/comments.pl?sid\u003d11253499\u0026cid\u003d55399795",
+      "urlMd5": "380369f835d00015f089274107cf114d",
+      "host": "news.slashdot.org",
+      "ip": "172.64.151.192"
+    },
+    "actualUrl": {
+      "url": "https://news.slashdot.org/comments.pl?sid\u003d11253499\u0026cid\u003d55399795",
+      "urlMd5": "380369f835d00015f089274107cf114d",
+      "host": "news.slashdot.org",
+      "ip": "172.64.151.192"
+    },
+    "urlRedirects": [],
+    "serverInfo": {
+      "Date": "Thu, 26 Oct 2023 17:33:14 GMT",
+      "Content-Type": "text/html; charset\u003dutf-8",
+      "Transfer-Encoding": "chunked",
+      "Connection": "keep-alive",
+      "x-frame-options": "SAMEORIGIN",
+      "content-security-policy": "frame-ancestors \u0027self\u0027; upgrade-insecure-requests",
+      "permissions-policy": "geolocation\u003d(), microphone\u003d(), camera\u003d(), payment\u003d(), document-domain\u003d(), display-capture\u003d(), autoplay\u003d()",
+      "feature-policy": "geolocation \u0027none\u0027; microphone \u0027none\u0027; camera \u0027none\u0027; payment \u0027none\u0027; document-domain \u0027none\u0027; display-capture \u0027none\u0027; autoplay \u0027none\u0027",
+      "x-xrds-location": "https://slashdot.org/slashdot.xrds",
+      "content-security-policy-report-only": "frame-ancestors \u0027self\u0027; upgrade-insecure-requests;form-action \u0027self\u0027 slashdot.us15.list-manage.com;frame-src \u0027self\u0027 *.lijit.com *.btloader.com http://*.pro-market.net *.crsspxl.com *.google.com *.googlesyndication.com *.safeframe.usercontent.goog *.doubleclick.net challenges.cloudflare.com *.recaptcha.net recaptcha.net *.adnxs.com *.indexww.com *.rubiconproject.com *.pubmatic.com *.smartadserver.com *.outbrain.com; object-src \u0027none\u0027;script-src \u0027self\u0027 slashdot.org *.slashdot.org *.slashdotmedia.com a.fsdn.com challenges.cloudflare.com *.lijit.com *.moatads.com *.adsafeprotected.com *.sharethrough.com *.2mdn.net *.adnxs.com *.jobbio.com *.script.ac *.defybrick.com *.aniview.com *.vidazoo.com *.pubmatic.com chimpstatic.com *.mailchimp.com mc.us15.list-manage.com ml314.com *.stack-sonar.com *.licdn.com translate.googleapis.com *.doubleclick.net *.googleadservices.com translate.google.cn *.gstatic.cn *.google.com *.consentmanager.net *.microsofttranslator.com *.gstatic.com *.googletagservices.com *.recaptcha.net recaptcha.net *.google-analytics.com *.googlesyndication.com *.cloudflareinsights.com d3tglifpd8whs6.cloudfront.net rpxnow.com btloader.com *.crsspxl.com http://*.pro-market.net *.4dex.io *.adnxs-simple.com *.rubiconproject.com *.trustarc.com *.truste.com *.doubleverify.com *.tapad.com *.pghub.io *.sharethru.com adservice.google.ad adservice.google.ae adservice.google.at adservice.google.be adservice.google.bg adservice.google.ca adservice.google.ch adservice.google.co.id adservice.google.co.il adservice.google.co.in adservice.google.co.jp adservice.google.co.kr adservice.google.co.th adservice.google.co.uk adservice.google.co.zw adservice.google.com.au adservice.google.com.bo adservice.google.com.hk adservice.google.com.mx adservice.google.com.ph adservice.google.com.pk adservice.google.com.sa adservice.google.com.sg adservice.google.com.tr adservice.google.com.tw adservice.google.com.ua adservice.google.com.vn adservice.google.cz adservice.google.de adservice.google.dk adservice.google.dz adservice.google.ee adservice.google.fi adservice.google.fr adservice.google.gr adservice.google.hu adservice.google.ie adservice.google.it adservice.google.li adservice.google.lu adservice.google.mu adservice.google.mv adservice.google.nl adservice.google.no adservice.google.pl adservice.google.pt adservice.google.ro adservice.google.rs adservice.google.se adservice.google.sk adservice.google.com.br adservice.google.com.ar adservice.google.cl adservice.google.com.co adservice.google.com.cu adservice.google.com.cy adservice.google.es adservice.google.hr adservice.google.im adservice.google.lk adservice.google.me adservice.google.mg adservice.google.com.mm adservice.google.com.ng adservice.google.com.np adservice.google.com.pr adservice.google.com.uy adservice.google.co.za adservice.google.jo adservice.google.bs adservice.google.al adservice.google.co.tz adservice.google.rw adservice.google.hn adservice.google.lt adservice.google.iq adservice.google.si adservice.google.bj adservice.google.co.ao adservice.google.com.gh adservice.google.kz adservice.google.com.eg adservice.google.com.ec adservice.google.co.ve adservice.google.com.py adservice.google.lv adservice.google.mn adservice.google.com.bn adservice.google.tn adservice.google.ml adservice.google.is adservice.google.com.sv adservice.google.com.bz adservice.google.az adservice.google.gt adservice.google.sn adservice.google.cm adservice.google.com.kh adservice.google.ge adservice.google.com.et adservice.google.com.pe adservice.google.com.ly adservice.google.co.mz adservice.google.com.bh adservice.google.com.mt adservice.google.ps adservice.google.so adservice.google.bf adservice.google.co.nz adservice.google.com.gt adservice.google.co.zm adservice.google.je adservice.google.cv adservice.google.la adservice.google.bi adservice.google.com.jm adservice.google.tt adservice.google.com.kw adservice.google.cd adservice.google.gy adservice.google.tg adservice.google.com.af adservice.google.com.lb adservice.google.sr adservice.google.com.ni adservice.google.ki adservice.google.com.na adservice.google.ht adservice.google.nr adservice.google.td adservice.google.co.ls adservice.google.gl adservice.google.bt adservice.google.tm adservice.google.com.vc adservice.google.co.bw adservice.google.vg adservice.google.as adservice.google.cg adservice.google.com.ag adservice.google.com.tj adservice.google.dm adservice.google.to adservice.google.dj adservice.google.cf adservice.google.ws adservice.google.st adservice.google.gm adservice.google.fm adservice.google.com.sb adservice.google.com.pg adservice.google.com.gi adservice.google.com.ai adservice.google.co.ck adservice.google.ru adservice.google.nu adservice.google.com.my adservice.google.com.bd adservice.google.ci adservice.google.co.cr adservice.google.co.ke adservice.google.co.ug adservice.google.co.uz adservice.google.co.vi adservice.google.ms adservice.google.com.fj adservice.google.com.om adservice.google.com.pa adservice.google.com.qa adservice.google.ga adservice.google.gg adservice.google.kg adservice.google.md adservice.google.mk adservice.google.mw adservice.google.ne adservice.google.sm adservice.google.tl adservice.google.sc adservice.google.vu \u0027unsafe-inline\u0027 \u0027unsafe-eval\u0027;",
+      "strict-transport-security": "max-age\u003d31536000",
+      "CF-Cache-Status": "DYNAMIC",
+      "Server": "cloudflare",
+      "CF-RAY": "81c471759e64ab3b-YYZ",
+      "Content-Encoding": "br",
+      "alt-svc": "h3\u003d\":443\"; ma\u003d86400"
+    }
+  }
 }

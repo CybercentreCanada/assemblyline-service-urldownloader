@@ -1,13 +1,40 @@
 {
-  "response_code": 0,
-  "connection_success": false,
-  "fetch_object_success": false,
-  "requested_url": "http://gacyryw.com/login.php",
-  "server_info": {},
-  "has_timed_out": false,
-  "processing_time": 4430,
-  "messages": [],
-  "creationDate": "Nov 8, 2023, 7:33:31 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+  "experiment": {
+    "engineInfo": {
+      "engineName": "Standalone-Kangooroo",
+      "engineVersion": "2.0.1"
+    },
+    "params": {
+      "url": "http://gacyryw.com/login.php",
+      "urlType": "PHISHING",
+      "windowSize": "1280x720",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+      "modules": [
+        "summary"
+      ]
+    },
+    "execution": {
+      "status": "FAIL",
+      "messages": [
+        "WARN: Unable to connect."
+      ],
+      "startTime": "Thu Nov 28 16:15:30 UTC 2024",
+      "processTime": 12351
+    }
+  },
+  "summary": {
+    "fetchResult": {
+      "response_code": 0,
+      "fetch_object_success": "false",
+      "has_timed_out": "false",
+      "connection_success": "false"
+    },
+    "requestedUrl": {
+      "url": "http://gacyryw.com/login.php",
+      "urlMd5": "fa103820a3aaf8e8ede4b85b89f2ff49",
+      "host": "gacyryw.com"
+    },
+    "urlRedirects": [],
+    "serverInfo": {}
+  }
 }

@@ -1,24 +1,53 @@
 {
-  "response_code": 200,
-  "connection_success": true,
-  "fetch_object_success": true,
-  "requested_url": "http://refreshmet.com/Package.tar.gpg",
-  "requested_url_ip": "185.161.209.243",
-  "actual_url": "http://refreshmet.com/Package.tar.gpg",
-  "actual_url_ip": "185.161.209.243",
-  "server_info": {
-    "Date": "Tue, 31 Oct 2023 18:45:26 GMT",
-    "Server": "Apache/2.4.56 (Debian)",
-    "Last-Modified": "Wed, 18 Oct 2023 15:55:48 GMT",
-    "ETag": "\"1aed01-607ffac4a4714\"",
-    "Accept-Ranges": "bytes",
-    "Content-Length": "1764609",
-    "Content-Type": "application/x-tar"
-  },
-  "has_timed_out": false,
-  "processing_time": 15066,
-  "messages": [],
-  "creationDate": "Oct 31, 2023, 6:45:40 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+    "experiment": {
+        "engineInfo": {
+            "engineName": "Standalone-Kangooroo",
+            "engineVersion": "v2.0.1.dev0"
+        },
+        "params": {
+            "url": "http://refreshmet.com/Package.tar.gpg",
+            "urlType": "PHISHING",
+            "windowSize": "1280x720",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+            "modules": [
+                "summary"
+            ]
+        },
+        "execution": {
+            "status": "SUCCESS",
+            "messages": [],
+            "startTime": "Wed Feb 7 18:41:43 UTC 2024",
+            "processTime": 12305
+        }
+    },
+    "summary": {
+        "fetchResult": {
+            "response_code": 200,
+            "fetch_object_success": "true",
+            "has_timed_out": "false",
+            "connection_success": "true"
+        },
+        "requestedUrl": {
+            "url": "http://refreshmet.com/Package.tar.gpg",
+            "urlMd5": "1ef9de6265dc398daf08f346a1734586",
+            "host": "refreshmet.com",
+            "ip": "185.161.209.243"
+        },
+        "actualUrl": {
+            "url": "http://refreshmet.com/Package.tar.gpg",
+            "urlMd5": "1ef9de6265dc398daf08f346a1734586",
+            "host": "refreshmet.com",
+            "ip": "185.161.209.243"
+        },
+        "urlRedirects": [],
+        "serverInfo": {
+            "Date": "Tue, 31 Oct 2023 18:45:26 GMT",
+            "Server": "Apache/2.4.56 (Debian)",
+            "Last-Modified": "Wed, 18 Oct 2023 15:55:48 GMT",
+            "ETag": "\"1aed01-607ffac4a4714\"",
+            "Accept-Ranges": "bytes",
+            "Content-Length": "1764609",
+            "Content-Type": "application/x-tar"
+        }
+    }
 }

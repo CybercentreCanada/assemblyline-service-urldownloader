@@ -1,12 +1,12 @@
 ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
-ENV SERVICE_PATH urldownloader.URLDownloader
-
+ENV SERVICE_PATH=urldownloader.URLDownloader
+ENV KANGOOROO_VERSION=v2.0.1.stable12
 USER root
 
 RUN apt update -y && \
-    apt install -y wget default-jre unzip && \
+    apt install -y wget default-jre unzip ffmpeg && \
     # Find out what is the latest version of the chrome-for-testing/chromedriver available
     VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
     # Download + Install google-chrome with the version matching the latest chromedriver
@@ -18,8 +18,12 @@ RUN apt update -y && \
     wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chromedriver-linux64.zip && \
     unzip -j -d /opt/al_service/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip && \
-    # Download the Kangooroo jar from alpytest until it is published on a proper code repository
-    wget -O /opt/al_service/kangooroo/KangoorooStandalone.jar https://alpytest.blob.core.windows.net/pytest/KangoorooStandalone-proxy.jar
+    # Download and install Kangooroo from Github
+    wget -O ./KangoorooStandalone.zip https://github.com/CybercentreCanada/kangooroo/releases/download/$KANGOOROO_VERSION/KangoorooStandalone.zip && \
+    unzip -j ./KangoorooStandalone.zip KangoorooStandalone/lib/* -d /opt/al_service/kangooroo/lib && \
+    unzip -j ./KangoorooStandalone.zip KangoorooStandalone/bin/* -d /opt/al_service/kangooroo/bin && \
+    rm -f ./KangoorooStandalone.zip
+
 
 # Switch to assemblyline user
 USER assemblyline

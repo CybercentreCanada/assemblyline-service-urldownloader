@@ -1,32 +1,67 @@
 {
-  "response_code": 200,
-  "connection_success": true,
-  "fetch_object_success": true,
-  "requested_url": "https://getsamplefiles.com/download/zip/sample-1.zip",
-  "requested_url_ip": "68.183.46.179",
-  "actual_url": "https://getsamplefiles.com/download/zip/sample-1.zip",
-  "actual_url_ip": "68.183.46.179",
-  "server_info": {
-    "Server": "nginx/1.22.0 (Ubuntu)",
-    "Content-Type": "application/zip",
-    "Content-Length": "1099121",
-    "Connection": "keep-alive",
-    "Cache-Control": "public",
-    "Date": "Thu, 26 Oct 2023 17:32:38 GMT",
-    "Last-Modified": "Sat, 31 Dec 2022 13:31:03 GMT",
-    "Content-Disposition": "attachment; filename\u003dsample-1.zip",
-    "Accept-Ranges": "bytes",
-    "Set-Cookie": "get_sample_files_session\u003deyJpdiI6IjNsRVVjU1lNL0k0M0NwMFZPWUQwNEE9PSIsInZhbHVlIjoiRGZkNFg0RWxlRVNWRm53TTlMblZmNERhY1F2Q3BkWHpVQmcyWC9TRG5DUVJMYk1jVXpXN3JGVzlYeU1XQURYWktvclYzVWgvalhNV3pEcjhJMDE3UnprSjdYMEhVS0RISkVnV2V0TkQ0UWpPck04MWRNdjd0enpQbHVCWTNUZzEiLCJtYWMiOiI4OTVkZTI0YjBlZjY5NWFhZmU2NmU4YzEwNTkwNzBmNGIxOTliOWFhN2NiOGViZDhmNDQ5NDJmZGMxMDhlMjczIiwidGFnIjoiIn0%3D; expires\u003dThu, 26 Oct 2023 19:32:38 GMT; Max-Age\u003d7200; path\u003d/; httponly; samesite\u003dlax",
-    "Strict-Transport-Security": "max-age\u003d31536000; includeSubDomains",
-    "X-XSS-Protection": "1; mode\u003dblock",
-    "X-Content-Type-Options": "nosniff",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,OPTIONS,POST"
+  "experiment": {
+    "engineInfo": {
+      "engineVersion": "2.0.1",
+      "engineName": "Standalone-Kangooroo"
+    },
+    "params": {
+      "url": "https://getsamplefiles.com/download/zip/sample-1.zip",
+      "urlType": "PHISHING",
+      "windowSize": "1280x720",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36",
+      "modules": [
+        "summary"
+      ]
+    },
+    "execution": {
+      "status": "SUCCESS",
+      "messages": [],
+      "startTime": "Thu Nov 28 15:35:49 UTC 2024",
+      "processTime": 24004
+    }
   },
-  "has_timed_out": false,
-  "processing_time": 23609,
-  "messages": [],
-  "creationDate": "Oct 26, 2023, 5:32:59 PM",
-  "engineName": "Standalone-Kangooroo",
-  "engineVersion": "1.0.1"
+  "summary": {
+    "fetchResult": {
+      "response_code": 200,
+      "connection_success": "true",
+      "has_timed_out": "false",
+      "fetch_object_success": "true"
+    },
+    "requestedUrl": {
+      "url": "https://getsamplefiles.com/download/zip/sample-1.zip",
+      "urlMd5": "9e3620c2a77d185713479f9990f7fe54",
+      "host": "getsamplefiles.com",
+      "ip": "68.183.46.179"
+    },
+    "actualUrl": {
+      "url": "https://getsamplefiles.com/download/zip/sample-1.zip",
+      "urlMd5": "9e3620c2a77d185713479f9990f7fe54",
+      "host": "getsamplefiles.com",
+      "ip": "68.183.46.179"
+    },
+    "urlRedirects": [],
+    "serverInfo": {
+      "Date": "Thu, 28 Nov 2024 15:35:49 GMT",
+      "Content-Type": "application/zip",
+      "Content-Length": "1099121",
+      "Connection": "keep-alive",
+      "Cache-Control": "public, max-age\u003d14400",
+      "Last-Modified": "Sat, 31 Dec 2022 13:31:03 GMT",
+      "Content-Disposition": "attachment; filename\u003dsample-1.zip",
+      "Strict-Transport-Security": "max-age\u003d31536000; includeSubDomains",
+      "X-XSS-Protection": "1; mode\u003dblock",
+      "X-Content-Type-Options": "nosniff",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,OPTIONS,POST",
+      "CF-Cache-Status": "HIT",
+      "Accept-Ranges": "bytes",
+      "Report-To": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s\u003dCKSyC%2FHXa5BT2JWmuB94rfLp2XUXET8Jk6tuE2AJf6EH8hc3e%2FQCL27tnMHT0i2E%2B3HYzsb41kvIaRinuiez0npmk67sPkwjPza11MNPtORKJZfm7mSW47WIk2LmY5D60Lxx9%2B4%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+      "NEL": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+      "Vary": "Accept-Encoding",
+      "Server": "cloudflare",
+      "CF-RAY": "8e9b6e18aff936da-YYZ",
+      "alt-svc": "h3\u003d\":443\"; ma\u003d86400",
+      "server-timing": "cfL4;desc\u003d\"?proto\u003dTCP\u0026rtt\u003d4156\u0026min_rtt\u003d3425\u0026rtt_var\u003d1601\u0026sent\u003d6\u0026recv\u003d7\u0026lost\u003d0\u0026retrans\u003d0\u0026sent_bytes\u003d3125\u0026recv_bytes\u003d1091\u0026delivery_rate\u003d1188339\u0026cwnd\u003d253\u0026unsent_bytes\u003d0\u0026cid\u003d389c8ace7f06fa7e\u0026ts\u003d1094\u0026x\u003d0\""
+    }
+  }
 }
