@@ -2,7 +2,7 @@ ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
 # Python path to the service class from your service directory
-ENV SERVICE_PATH=urldownloader.URLDownloader
+ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
 
 ENV KANGOOROO_VERSION=v2.0.1.stable12
 
