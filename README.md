@@ -1,12 +1,45 @@
-# URLDownloader Service
-Assemblyline service that downloads seemingly malicious URLs using MAS' Kangooroo utility
+[![Discord](https://img.shields.io/badge/chat-on%20discord-7289da.svg?sanitize=true)](https://discord.gg/GUAy9wErNu)
+[![](https://img.shields.io/discord/908084610158714900)](https://discord.gg/GUAy9wErNu)
+[![Static Badge](https://img.shields.io/badge/github-assemblyline-blue?logo=github)](https://github.com/CybercentreCanada/assemblyline)
+[![Static Badge](https://img.shields.io/badge/github-assemblyline\_service\_urldownloader-blue?logo=github)](https://github.com/CybercentreCanada/assemblyline-service-urldownloader)
+[![GitHub Issues or Pull Requests by label](https://img.shields.io/github/issues/CybercentreCanada/assemblyline/service-urldownloader)](https://github.com/CybercentreCanada/assemblyline/issues?q=is:issue+is:open+label:service-urldownloader)
+[![License](https://img.shields.io/github/license/CybercentreCanada/assemblyline-service-urldownloader)](./LICENSE)
+# URLdownloader Service
 
-# Kubernetes VS Docker deployment
+## Image variants and tags
+
+Assemblyline services are built from the [Assemblyline service base image](https://hub.docker.com/r/cccs/assemblyline-v4-service-base),
+which is based on Debian 11 with Python 3.11.
+
+Assemblyline services use the following tag definitions:
+
+| **Tag Type** | **Description**                                                                                  |      **Example Tag**       |
+| :----------: | :----------------------------------------------------------------------------------------------- | :------------------------: |
+|    latest    | The most recent build (can be unstable).                                                         |          `latest`          |
+|  build_type  | The type of build used. `dev` is the latest unstable build. `stable` is the latest stable build. |     `stable` or `dev`      |
+|    series    | Complete build details, including version and build type: `version.buildType`.                   | `4.5.stable`, `4.5.1.dev3` |
+
+## Running this service
+
+This is an Assemblyline service. It is designed to run as part of the Assemblyline framework.
+
+If you would like to test this service locally, you can run the Docker image directly from the a shell:
+
+    docker run \
+        --name URLdownloader \
+        --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | awk '{print $2}' | cut -f1 -d"/"`:5003 \
+        --network=host \
+        cccs/assemblyline-service-urldownloader
+
+To add this service to your Assemblyline deployment, follow this
+[guide](https://cybercentrecanada.github.io/assemblyline4_docs/developer_manual/services/run_your_service/#add-the-container-to-your-deployment).
+
+## Kubernetes VS Docker deployment
 In Kubernetes, there is a chance that you do not need to configure the no_sandbox option. If you are executing URLDownloader in a docker-compose setup, and have problem with it always finishing with an error (TimeoutExpired), you can change the "no_sandbox" service variable from the default False to True. This option will be passed on to the google-chrome process and may resolve your issue.
 
 Service variables are found under the Administration tab, in the Services item. More information on service management can be found in our documentation and more specifically [here](https://cybercentrecanada.github.io/assemblyline4_docs/administration/service_management/#service-variables) for service variables.
 
-# How to configure a proxy
+## How to configure a proxy
 The URLDownloader service can be configured to use many proxies (or not) and allow the submitting user to pick from a choice. If you want to force a proxy, you can also have a single entry in the list of choices, and that will make it mandatory. URLDownloader does not rely on the system configuration because we have situations where we have multiple proxies and want to fetch content from different places. It could also happen that the proxies from which we want to fetch be different be different from the proxy used by the rest of the system.
 
 You can configure the URLDownloader service by going to the list of services, and clicking on URLDownloader (or going to `/admin/services/URLDownloader` directly). You should find a tab named `PARAMETERS`. Two parameters are important, the first one being `proxies [json]` and the second being `proxy [list]`. It is easier to understand their relationship by starting with the `proxies [json]`, which should be found under the service variables toward the bottom of the page.
@@ -41,3 +74,7 @@ After configuring the service proxies, you can look toward the top, under User S
 
 You will be able to add the name of the key you added (`my_new_proxy` in this example) so that the users can select it.
 The entry with a star is going to be the default selection if a user does not configure it. You can delete all other entries from here to force a single one.
+
+## Documentation
+
+General Assemblyline documentation can be found at: https://cybercentrecanada.github.io/assemblyline4_docs/

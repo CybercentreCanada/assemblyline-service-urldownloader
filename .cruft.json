@@ -1,0 +1,23 @@
+{
+  "template": "git@github.com:CybercentreCanada/assemblyline-service-template.git",
+  "commit": "349a8390e48c1607f6dc245add2627df07c7bc9b",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "service_name": "urldownloader",
+      "__svc_name": "urldownloader",
+      "__repository": "assemblyline-service-urldownloader",
+      "__pkg_name": "urldownloader",
+      "class_name": "Urldownloader",
+      "short_description": "This Assemblyline service is amazing and does amazing things.",
+      "short_description_fr": "",
+      "stage": "CORE",
+      "category": "Internet Connected",
+      "org_name_full": "Canadian Centre for Cyber Security",
+      "org_name_short": "cccs",
+      "license": "mit",
+      "_template": "git@github.com:CybercentreCanada/assemblyline-service-template.git"
+    }
+  },
+  "directory": null
+}
