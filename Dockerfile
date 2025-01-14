@@ -13,11 +13,10 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
     $(grep -vE "^\s*(#|$)" /tmp/setup/pkglist.txt | tr "\n" " ") && \
-    rm -rf /tmp/setup/pkglist.txt /var/lib/apt/lists/*
-
-# Install chromedriver and kangooroo
-# Find out what is the latest version of the chrome-for-testing/chromedriver available
-RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
+    rm -rf /tmp/setup/pkglist.txt && \
+    # Install chromedriver and kangooroo
+    # Find out what is the latest version of the chrome-for-testing/chromedriver available
+    VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
     wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$VERS-1_amd64.deb && \
     apt install -y ./google-chrome-stable_amd64.deb && \
     rm -rf /var/lib/apt/lists/* && \
