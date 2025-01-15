@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "RunServiceOnce",
+            "name": "RunServiceOnce URLDownloader",
             "type": "python",
             "request": "launch",
             "module": "assemblyline_v4_service.dev.run_service_once",
             "cwd": "${workspaceFolder}",
             "args": [
                 "-d",
-                "urldownloader.URLDownloader",
-                "/path/to/sample"
+                "urldownloader.urldownloader.URLDownloader",
+                "${file}"
             ],
             "justMyCode": false,
         },
@@ -25,7 +25,7 @@
             "env": {
                 "SERVICE_MANIFEST_PATH": "service_manifest.yml",
                 "PRIVILEGED": "true",
-                "SERVICE_PATH": "urldownloader.URLDownloader",
+                "SERVICE_PATH": "urldownloader.urldownloader.URLDownloader",
                 "TASKING_DIR": "/tmp/URLDownloader"
             },
             "console": "internalConsole",

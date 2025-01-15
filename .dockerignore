@@ -31,6 +31,5 @@ coverage.xml
 *.cover
 *.log
 
-**/*.jar
-**/coqui-stt.zip
-**/chromedriver
+-**/*.jar
+-**/chromedriver

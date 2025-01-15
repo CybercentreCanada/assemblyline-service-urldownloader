@@ -1,12 +1,14 @@
+import os
+import time
+
 import argparse
-import hashlib
+import yaml
 import json
 import os
 import shutil
 from unittest.mock import patch
 
 import pytest
-import yaml
 from assemblyline.common.importing import load_module_by_path
 from assemblyline_service_utilities.testing.helper import TestHelper
 
@@ -18,8 +20,9 @@ RESULTS_FOLDER = os.path.join(os.path.dirname(__file__), "results")
 SAMPLES_FOLDER = os.path.join(os.path.dirname(__file__), "samples")
 
 # Initialize test helper
-service_class = load_module_by_path("urldownloader.URLDownloader", os.path.join(os.path.dirname(__file__), ".."))
+service_class = load_module_by_path("urldownloader.urldownloader.URLDownloader", os.path.join(os.path.dirname(__file__), ".."))
 th = TestHelper(service_class, RESULTS_FOLDER, SAMPLES_FOLDER)
+
 
 kangooroo_parser = argparse.ArgumentParser()
 kangooroo_parser.add_argument("-cf", "--conf-file", action="store", dest="conf")
@@ -40,10 +43,12 @@ def drop_kangooroo_files(sample, kangooroo_args, **kwargs):
 
 
 @pytest.mark.parametrize("sample", th.result_list())
-@patch("urldownloader.subprocess.run")
+@patch("urldownloader.urldownloader.subprocess.run")
 def test_sample(mock_run, sample):
     def wrap_drop_kangooroo_files(*args, **kwargs):
         drop_kangooroo_files(sample, *args, **kwargs)
 
     mock_run.side_effect = wrap_drop_kangooroo_files
+    start_time = time.time()
     th.run_test_comparison(sample)
+    print(f"Time elapsed for {sample}: {round(time.time() - start_time)}s")

@@ -1,6 +1,6 @@
-pytest
+assemblyline
 assemblyline-service-utilities
+pytest
 pyyaml
 beautifulsoup4
-assemblyline
 lxml

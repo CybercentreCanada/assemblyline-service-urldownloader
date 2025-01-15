@@ -11,7 +11,7 @@ from assemblyline_v4_service.common.result import Result
 from assemblyline_v4_service.common.task import Task
 from bs4 import BeautifulSoup
 
-from urldownloader import detect_open_directory
+from urldownloader.urldownloader import detect_open_directory
 
 
 def test_invoiceposs_shop_open_directory():
