@@ -191,10 +191,10 @@ class URLDownloader(ServiceBase):
                 "summary,captcha",
                 "--simple-result",
                 "--url",
+                # We need no-sandbox to run google chrome in a pod
+                "--no-sandbox",
                 request.task.fileinfo.uri_info.uri
             ]
-            if self.no_sandbox:
-                kangooroo_args.insert(-2, "--no-sandbox")
             try:
                 subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, capture_output=True, timeout=self.request_timeout, env=env_variables)
             except subprocess.TimeoutExpired:
