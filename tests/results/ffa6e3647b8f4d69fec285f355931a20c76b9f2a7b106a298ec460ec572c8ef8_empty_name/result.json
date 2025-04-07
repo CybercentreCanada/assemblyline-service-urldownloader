@@ -6,26 +6,11 @@
       {
         "auto_collapse": false,
         "body": [
-          [
-            "response_code",
-            200
-          ],
-          [
-            "requested_url",
-            "https://gklnd.pages.dev/"
-          ],
-          [
-            "requested_url_ip",
-            "172.66.45.31"
-          ],
-          [
-            "actual_url",
-            "https://gklnd.pages.dev/"
-          ],
-          [
-            "actual_url_ip",
-            "172.66.45.31"
-          ]
+          ["response_code", 200],
+          ["requested_url", "https://gklnd.pages.dev/"],
+          ["requested_url_ip", "172.66.45.31"],
+          ["actual_url", "https://gklnd.pages.dev/"],
+          ["actual_url_ip", "172.66.45.31"]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -36,18 +21,10 @@
         "tags": {
           "network": {
             "static": {
-              "domain": [
-                "gklnd.pages.dev"
-              ],
-              "ip": [
-                "172.66.45.31"
-              ],
-              "uri": [
-                "https://gklnd.pages.dev/"
-              ],
-              "uri_path": [
-                "/"
-              ]
+              "domain": ["gklnd.pages.dev"],
+              "ip": ["172.66.45.31"],
+              "uri": ["https://gklnd.pages.dev/"],
+              "uri_path": ["/"]
             }
           }
         },
@@ -260,13 +237,7 @@
           }
         ],
         "body_config": {
-          "column_order": [
-            "Filename",
-            "Size",
-            "mimeType",
-            "url",
-            "SHA256"
-          ]
+          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -328,13 +299,17 @@
       {
         "name": "nvidia.js",
         "sha256": "f84bea5397057e0ab07efc0dd7f7b674783df7234276dc010bb88fb84ddfd4a1"
+      }
+    ],
+    "supplementary": [
+      {
+        "name": "results.json",
+        "sha256": "a40b7a6c9d449df23fccc9e31bf35fb17e7dec3f5ce03bae8e35f826cf85f48c"
       },
       {
         "name": "jupiter.js",
         "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
-      }
-    ],
-    "supplementary": [
+      },
       {
         "name": "f24.png",
         "sha256": "11d4d0aa8bf0ab597bee785cd9d03301787faee4aae43d66ab53b15f0fe7d849"

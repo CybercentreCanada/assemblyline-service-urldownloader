@@ -6,26 +6,17 @@
       {
         "auto_collapse": false,
         "body": [
-          [
-            "response_code",
-            200
-          ],
+          ["response_code", 200],
           [
             "requested_url",
             "https://getsamplefiles.com/download/zip/sample-1.zip"
           ],
-          [
-            "requested_url_ip",
-            "68.183.46.179"
-          ],
+          ["requested_url_ip", "68.183.46.179"],
           [
             "actual_url",
             "https://getsamplefiles.com/download/zip/sample-1.zip"
           ],
-          [
-            "actual_url_ip",
-            "68.183.46.179"
-          ]
+          ["actual_url_ip", "68.183.46.179"]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -36,18 +27,10 @@
         "tags": {
           "network": {
             "static": {
-              "domain": [
-                "getsamplefiles.com"
-              ],
-              "ip": [
-                "68.183.46.179"
-              ],
-              "uri": [
-                "https://getsamplefiles.com/download/zip/sample-1.zip"
-              ],
-              "uri_path": [
-                "/download/zip/sample-1.zip"
-              ]
+              "domain": ["getsamplefiles.com"],
+              "ip": ["68.183.46.179"],
+              "uri": ["https://getsamplefiles.com/download/zip/sample-1.zip"],
+              "uri_path": ["/download/zip/sample-1.zip"]
             }
           }
         },
@@ -92,13 +75,7 @@
           }
         ],
         "body_config": {
-          "column_order": [
-            "Filename",
-            "Size",
-            "mimeType",
-            "url",
-            "SHA256"
-          ]
+          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -119,6 +96,10 @@
       }
     ],
     "supplementary": [
+      {
+        "name": "results.json",
+        "sha256": "21bbde43426f15bb55249fb768839657a472f09bf06f16ad1c9fbb00887bfbed"
+      },
       {
         "name": "screenshot.png",
         "sha256": "10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a"
