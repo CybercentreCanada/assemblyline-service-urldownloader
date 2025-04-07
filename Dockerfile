@@ -5,10 +5,13 @@ ENV SERVICE_PATH=urldownloader.URLDownloader
 ENV KANGOOROO_VERSION=v2.0.1.stable14
 USER root
 
+# TODO: REMOVE ONCE THE STABLE VERSION OF CHROME IS SYNCED AGAIN
+ENV VERS=134.0.6998.165
+
 RUN apt update -y && \
     apt install -y wget default-jre unzip ffmpeg && \
     # Find out what is the latest version of the chrome-for-testing/chromedriver available
-    VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
+    # VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
     # Download + Install google-chrome with the version matching the latest chromedriver
     wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$VERS-1_amd64.deb && \
     apt install -y ./google-chrome-stable_amd64.deb && \
