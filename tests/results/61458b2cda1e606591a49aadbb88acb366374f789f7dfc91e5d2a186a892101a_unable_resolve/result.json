@@ -6,14 +6,8 @@
       {
         "auto_collapse": false,
         "body": [
-          [
-            "response_code",
-            0
-          ],
-          [
-            "requested_url",
-            "http://gacyryw.com/login.php"
-          ]
+          ["response_code", 0],
+          ["requested_url", "http://gacyryw.com/login.php"]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -24,15 +18,9 @@
         "tags": {
           "network": {
             "static": {
-              "domain": [
-                "gacyryw.com"
-              ],
-              "uri": [
-                "http://gacyryw.com/login.php"
-              ],
-              "uri_path": [
-                "/login.php"
-              ]
+              "domain": ["gacyryw.com"],
+              "uri": ["http://gacyryw.com/login.php"],
+              "uri_path": ["/login.php"]
             }
           }
         },
@@ -57,6 +45,10 @@
   "files": {
     "extracted": [],
     "supplementary": [
+      {
+        "name": "results.json",
+        "sha256": "3f95f0575a18723d9c69331816900d5f30813490947da4d8af05c14dfc0a6c5f"
+      },
       {
         "name": "session.har",
         "sha256": "bfdc63178a35371fc2aa61db478b2f86e23cb6112f9dfbeb3826c14f6166ec33"

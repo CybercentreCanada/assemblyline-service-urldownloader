@@ -19,26 +19,11 @@
       {
         "auto_collapse": false,
         "body": [
-          [
-            "response_code",
-            200
-          ],
-          [
-            "requested_url",
-            "http://perdu.com"
-          ],
-          [
-            "requested_url_ip",
-            "172.64.80.1"
-          ],
-          [
-            "actual_url",
-            "http://perdu.com/"
-          ],
-          [
-            "actual_url_ip",
-            "172.64.80.1"
-          ]
+          ["response_code", 200],
+          ["requested_url", "http://perdu.com"],
+          ["requested_url_ip", "172.64.80.1"],
+          ["actual_url", "http://perdu.com/"],
+          ["actual_url_ip", "172.64.80.1"]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -49,19 +34,10 @@
         "tags": {
           "network": {
             "static": {
-              "domain": [
-                "perdu.com"
-              ],
-              "ip": [
-                "172.64.80.1"
-              ],
-              "uri": [
-                "http://perdu.com",
-                "http://perdu.com/"
-              ],
-              "uri_path": [
-                "/"
-              ]
+              "domain": ["perdu.com"],
+              "ip": ["172.64.80.1"],
+              "uri": ["http://perdu.com", "http://perdu.com/"],
+              "uri_path": ["/"]
             }
           }
         },
@@ -106,13 +82,7 @@
           }
         ],
         "body_config": {
-          "column_order": [
-            "Filename",
-            "Size",
-            "mimeType",
-            "url",
-            "SHA256"
-          ]
+          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -133,6 +103,10 @@
       }
     ],
     "supplementary": [
+      {
+        "name": "results.json",
+        "sha256": "3916c365bfad29a6651c0783b1f50ca03d15ab69a7fd2bfa76ef183b4a4276e9"
+      },
       {
         "name": "screenshot.png.thumb",
         "sha256": "07e406815c7a634589ff9c371bf6364aea1c04734f0bd98f04e513e5ea66a2ed"
