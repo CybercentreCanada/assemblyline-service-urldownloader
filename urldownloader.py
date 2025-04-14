@@ -227,22 +227,33 @@ class URLDownloader(ServiceBase):
 
 
     def send_http_request(self, method, request: ServiceRequest, data: dict):
-        try:
 
-            r = requests.request(
+        try:
+            with requests.request(
                 method,
                 request.task.fileinfo.uri_info.uri,
                 headers=data.get("headers", {}),
                 proxies=self.config["proxies"][request.get_param("proxy")],
                 data=data.get("data", None),
                 json=data.get("json", None),
-                cookies = data.get("cookies", None)
-            )
+
+                cookies = data.get("cookies", None),
+                stream = True
+            ) as r:
+
+                requests_content_path = os.path.join(self.working_directory, "requests_content")
+                with open(requests_content_path, "wb") as f:
+
+                    for chunk in r.iter_content(1024):
+                        f.write(chunk)
+
+                return requests_content_path
+
         except ConnectionError:
             error_section = ResultTextSection("Error", parent=request.result)
             error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
             error_section.add_line("This server is currently unavailable")
-            return
+            return None
         except TooManyRedirects as e:
             error_section = ResultTextSection("Too many redirects", parent=request.result)
             error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
@@ -255,13 +266,6 @@ class URLDownloader(ServiceBase):
                 add_tag(redirect_section, "network.static.uri", redirect.url)
             redirect_section.set_column_order(["status", "redirecting_url"])
             return None
-
-        requests_content_path = os.path.join(self.working_directory, "requests_content")
-        with open(requests_content_path, "wb") as f:
-            for chunk in r.iter_content(chunk_size=math.floor(self.service_attributes.docker_config.ram_mb*0.75)):
-                f.write(chunk)
-
-        return requests_content_path
 
 
     def execute(self, request: ServiceRequest) -> None:
@@ -336,6 +340,7 @@ class URLDownloader(ServiceBase):
 
 
                 requests_content_path = self.send_http_request("GET", request, data)
+
 
                 file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False)
                 if file_info["type"].startswith("archive"):
