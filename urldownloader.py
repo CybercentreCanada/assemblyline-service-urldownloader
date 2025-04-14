@@ -222,10 +222,7 @@ class URLDownloader(ServiceBase):
                 )
             )
 
-
-        with open(results_filepath, "r") as f:
-            results = json.load(f)
-            return results, output_folder, results_filepath
+        return output_folder, results_filepath
 
 
 
@@ -292,7 +289,10 @@ class URLDownloader(ServiceBase):
                 ignored_params_section.update_items(headers)
 
             # use Kangooroo to fetch URL
-            results, output_folder, results_filepath = self.execute_kangooroo(request)
+            output_folder, results_filepath = self.execute_kangooroo(request)
+
+            with open(results_filepath, "r") as f:
+                results = json.load(f)
 
             if (results_filepath):
                 request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
