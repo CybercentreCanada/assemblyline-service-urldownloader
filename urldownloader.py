@@ -258,7 +258,8 @@ class URLDownloader(ServiceBase):
 
         requests_content_path = os.path.join(self.working_directory, "requests_content")
         with open(requests_content_path, "wb") as f:
-            f.write(r.content)
+            for chunk in r.iter_content(chunk_size=math.floor(self.service_attributes.docker_config.ram_mb*0.75)):
+                f.write(chunk)
 
         return requests_content_path
 
