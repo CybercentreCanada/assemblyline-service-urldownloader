@@ -236,7 +236,8 @@ class URLDownloader(ServiceBase):
                 proxies=self.config["proxies"][request.get_param("proxy")],
                 data=data.get("data", None),
                 json=data.get("json", None),
-                cookies = data.get("cookies", None)
+                cookies = data.get("cookies", None),
+                stream = True
             )
         except ConnectionError:
             error_section = ResultTextSection("Error", parent=request.result)
@@ -258,7 +259,7 @@ class URLDownloader(ServiceBase):
 
         requests_content_path = os.path.join(self.working_directory, "requests_content")
         with open(requests_content_path, "wb") as f:
-            for chunk in r.iter_content(chunk_size=math.floor(self.service_attributes.docker_config.ram_mb*0.75)):
+            for chunk in r.iter_content():
                 f.write(chunk)
 
         return requests_content_path
