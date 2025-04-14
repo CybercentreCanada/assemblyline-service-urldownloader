@@ -222,11 +222,10 @@ class URLDownloader(ServiceBase):
                 )
             )
 
-        results = None
+
         with open(results_filepath, "r") as f:
             results = json.load(f)
-
-        return results, output_folder, results_filepath
+            return results, output_folder, results_filepath
 
 
 
@@ -298,6 +297,12 @@ class URLDownloader(ServiceBase):
             if (results_filepath):
                 request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
 
+            if results is None:
+                raise Exception(
+                    (
+                        "No Kangooroo results found. "
+                    )
+                )
 
             result_summary = results.get("summary", {})
             result_experiment = results.get("experiment", {})
