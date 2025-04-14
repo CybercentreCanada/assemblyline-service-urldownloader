@@ -182,7 +182,7 @@ class URLDownloader(ServiceBase):
             timeout_section.add_line(
                 f"Timeout of {self.request_timeout} seconds was not enough to process the query fully."
             )
-            return None, None, None
+            return None, None
 
         url_md5 = hashlib.md5(request.task.fileinfo.uri_info.uri.encode()).hexdigest()
 
@@ -296,6 +296,8 @@ class URLDownloader(ServiceBase):
 
             if (results_filepath):
                 request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
+            else:
+                return None
 
             if results is None:
                 raise Exception(
