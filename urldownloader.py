@@ -176,7 +176,7 @@ class URLDownloader(ServiceBase):
         if self.no_sandbox:
             kangooroo_args.insert(-2, "--no-sandbox")
         try:
-            subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, capture_output=True, timeout=self.request_timeout, env=env_variables)
+            subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER,  timeout=self.request_timeout, env=env_variables)
         except subprocess.TimeoutExpired:
             timeout_section = ResultTextSection("Request timed out", parent=request.result)
             timeout_section.add_line(
@@ -227,7 +227,7 @@ class URLDownloader(ServiceBase):
 
 
     def send_http_request(self, method, request: ServiceRequest, data: dict):
-
+        print("We are sending HTTP REQUEST")
         try:
             with requests.request(
                 method,
@@ -311,6 +311,8 @@ class URLDownloader(ServiceBase):
                         "No Kangooroo results found. "
                     )
                 )
+            # Main result section
+            print("WE are now processing new files ")
 
             result_summary = results.get("summary", {})
             result_experiment = results.get("experiment", {})
@@ -354,7 +356,7 @@ class URLDownloader(ServiceBase):
                     request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
 
 
-            # Main result section
+            print("process request url")
 
             requested_url = result_summary.get("requestedUrl", {})
             actual_url = result_summary.get("actualUrl", {})
@@ -393,6 +395,7 @@ class URLDownloader(ServiceBase):
                 sandbox_details["analysis_metadata"]["window_size"] = result_params["windowSize"]
 
             # Screenshot section
+            print("SCRENNSHOT UPLOAD")
             screenshot_path = os.path.join(output_folder, "screenshot.png")
             if os.path.exists(screenshot_path):
                 screenshot_section = ResultImageSection(
@@ -406,6 +409,7 @@ class URLDownloader(ServiceBase):
                 screenshot_section.promote_as_screenshot()
 
             # favicon section
+            print("FAVICON UPLOAD")
             favicon_path = os.path.join(output_folder, "favicon.ico")
             if os.path.exists(favicon_path):
                 try:
@@ -427,6 +431,7 @@ class URLDownloader(ServiceBase):
                     # Kangooroo is sometime giving html page as favicon...
                     pass
 
+            print("SOURCE HTML")
             source_path = os.path.join(output_folder, "source.html")
             if os.path.exists(source_path):
                 with open(source_path, "rb") as f:
@@ -580,12 +585,13 @@ class URLDownloader(ServiceBase):
                     if entry["response"]["status"] == 207 and downloads[content_md5]["mimeType"].startswith("text/xml"):
                         detect_webdav_listing(request, content)
 
-                    if downloads[content_md5]["url"] in target_urls:
-                        try:
-                            soup = BeautifulSoup(content, features="lxml")
-                            detect_open_directory(request, soup)
-                        except Exception:
-                            pass
+                    # temporary remove this beautifulsoup code to avoid memory error
+                    # if downloads[content_md5]["url"] in target_urls:
+                    #     try:
+                    #         soup = BeautifulSoup(content, features="lxml")
+                    #         detect_open_directory(request, soup)
+                    #     except Exception:
+                    #         pass
 
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
