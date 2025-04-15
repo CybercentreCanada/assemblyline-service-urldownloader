@@ -227,7 +227,7 @@ class URLDownloader(ServiceBase):
 
 
     def send_http_request(self, method, request: ServiceRequest, data: dict):
-        print("We are sending HTTP REQUEST")
+
         try:
             with requests.request(
                 method,
@@ -312,8 +312,6 @@ class URLDownloader(ServiceBase):
                     )
                 )
             # Main result section
-            print("WE are now processing new files ")
-
             result_summary = results.get("summary", {})
             result_experiment = results.get("experiment", {})
             result_params = result_experiment.get("params", {})
@@ -356,7 +354,6 @@ class URLDownloader(ServiceBase):
                     request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
 
 
-            print("process request url")
 
             requested_url = result_summary.get("requestedUrl", {})
             actual_url = result_summary.get("actualUrl", {})
@@ -395,7 +392,6 @@ class URLDownloader(ServiceBase):
                 sandbox_details["analysis_metadata"]["window_size"] = result_params["windowSize"]
 
             # Screenshot section
-            print("SCRENNSHOT UPLOAD")
             screenshot_path = os.path.join(output_folder, "screenshot.png")
             if os.path.exists(screenshot_path):
                 screenshot_section = ResultImageSection(
@@ -409,7 +405,6 @@ class URLDownloader(ServiceBase):
                 screenshot_section.promote_as_screenshot()
 
             # favicon section
-            print("FAVICON UPLOAD")
             favicon_path = os.path.join(output_folder, "favicon.ico")
             if os.path.exists(favicon_path):
                 try:
@@ -431,7 +426,6 @@ class URLDownloader(ServiceBase):
                     # Kangooroo is sometime giving html page as favicon...
                     pass
 
-            print("SOURCE HTML")
             source_path = os.path.join(output_folder, "source.html")
             if os.path.exists(source_path):
                 with open(source_path, "rb") as f:
