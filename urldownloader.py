@@ -244,7 +244,7 @@ class URLDownloader(ServiceBase):
                 requests_content_path = os.path.join(self.working_directory, "requests_content")
                 with open(requests_content_path, "wb") as f:
 
-                    for chunk in r.iter_content(1024):
+                    for chunk in r.iter_content(None):
                         f.write(chunk)
 
                 return requests_content_path
