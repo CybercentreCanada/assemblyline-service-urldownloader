@@ -21,9 +21,8 @@ RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LA
 
     # Download + unzip the latest chromedriver
     wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chromedriver-linux64.zip && \
-    unzip ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
+    unzip -j -d /opt/al_service/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm -f ./chrome-linux64.zip ./chromedriver-linux64.zip && \
-    mv ./chromedriver-linux64/chromedriver /usr/bin/chromedriver && \
     # Cleanup
     rm -rf /tmp/* && \
 
