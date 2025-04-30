@@ -214,13 +214,6 @@ class URLDownloader(ServiceBase):
                 output_folder = os.path.join(kangooroo_config["output_folder"], possible_folders[0])
 
         results_filepath = os.path.join(output_folder, "results.json")
-        if not os.path.exists(results_filepath):
-            raise Exception(
-                (
-                    "No Kangooroo results.json found. Kangooroo may have been OOMKilled. "
-                    "Check for memory usage and increase limit as needed."
-                )
-            )
 
         return output_folder, results_filepath
 
@@ -296,10 +289,16 @@ class URLDownloader(ServiceBase):
             # use Kangooroo to fetch URL
             output_folder, results_filepath = self.execute_kangooroo(request)
 
-            if (results_filepath):
-                request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
+            if not os.path.exists(results_filepath):
+                raise Exception(
+                    (
+                        "No Kangooroo results.json found. Kangooroo may have been OOMKilled. "
+                        "Check for memory usage and increase limit as needed."
+                    )
+                )
             else:
-                return None
+                request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
+
 
 
             with open(results_filepath, "r") as f:
@@ -434,6 +433,11 @@ class URLDownloader(ServiceBase):
                 soup = BeautifulSoup(data, features="lxml")
                 if soup.title and soup.title.string:
                     http_result["title"] = soup.title.string
+
+                try:
+                    detect_open_directory(request, soup)
+                except Exception:
+                    pass
 
             # Find any downloaded file
             with open(os.path.join(output_folder, "session.har"), "r") as f:
@@ -579,13 +583,6 @@ class URLDownloader(ServiceBase):
                     if entry["response"]["status"] == 207 and downloads[content_md5]["mimeType"].startswith("text/xml"):
                         detect_webdav_listing(request, content)
 
-                    # temporary remove this beautifulsoup code to avoid memory error
-                    # if downloads[content_md5]["url"] in target_urls:
-                    #     try:
-                    #         soup = BeautifulSoup(content, features="lxml")
-                    #         detect_open_directory(request, soup)
-                    #     except Exception:
-                    #         pass
 
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
@@ -672,7 +669,7 @@ class URLDownloader(ServiceBase):
                     error_section.add_line(f"{response_url}: {response_error}")
         else:
             # Non-GET request
-            requests_content_path = self.send_http_request(self, method, request, data)
+            requests_content_path = self.send_http_request(method, request, data)
 
             if not requests_content_path:
                 return
