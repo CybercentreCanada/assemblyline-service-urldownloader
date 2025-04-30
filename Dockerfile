@@ -14,7 +14,7 @@ RUN apt update -y && \
 # Find out what is the latest version of the chromedriver & chome from chrome-for-testing available
 RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
     # Download + Install google-chrome with the version matching the latest chromedriver
-    mkdir -p /opt/google && \
+    mkdir -p /opt/google /opt/al_service/kangooroo && \
     wget -O ./chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chrome-linux64.zip && \
     unzip ./chrome-linux64.zip && \
     while read pkg; do apt-get satisfy -y --no-install-recommends "$pkg"; done < chrome-linux64/deb.deps &&\
@@ -23,14 +23,12 @@ RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LA
 
     # Download + unzip the latest chromedriver
     wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chromedriver-linux64.zip && \
-    unzip ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
+    unzip -j -d /opt/al_service/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm -f ./chrome-linux64.zip ./chromedriver-linux64.zip && \
-    mv ./chromedriver-linux64/chromedriver /usr/bin/chromedriver && \
     # Cleanup
     rm -rf /tmp/* && \
 
     # Download and install Kangooroo from Github
-    mkdir /opt/al_service/kangooroo && \
     wget -O ./KangoorooStandalone.zip https://github.com/CybercentreCanada/kangooroo/releases/download/$KANGOOROO_VERSION/KangoorooStandalone.zip && \
     unzip -j ./KangoorooStandalone.zip KangoorooStandalone/lib/* -d /opt/al_service/kangooroo/lib && \
     unzip -j ./KangoorooStandalone.zip KangoorooStandalone/bin/* -d /opt/al_service/kangooroo/bin && \
