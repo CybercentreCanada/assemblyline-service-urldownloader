@@ -121,7 +121,6 @@ class URLDownloader(ServiceBase):
         self.identify = Identify(use_cache=False)
         self.request_timeout = self.config.get("request_timeout", 150)
         self.do_not_download_regexes = [re.compile(x) for x in self.config.get("do_not_download_regexes", [])]
-        self.no_sandbox = self.config.get("no_sandbox", False)
         with open(os.path.join(KANGOOROO_FOLDER, "default_conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
 
