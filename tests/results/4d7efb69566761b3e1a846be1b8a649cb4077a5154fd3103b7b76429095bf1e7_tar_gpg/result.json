@@ -6,11 +6,26 @@
       {
         "auto_collapse": false,
         "body": [
-          ["response_code", 200],
-          ["requested_url", "http://refreshmet.com/Package.tar.gpg"],
-          ["requested_url_ip", "185.161.209.243"],
-          ["actual_url", "http://refreshmet.com/Package.tar.gpg"],
-          ["actual_url_ip", "185.161.209.243"]
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "http://refreshmet.com/Package.tar.gpg"
+          ],
+          [
+            "requested_url_ip",
+            "185.161.209.243"
+          ],
+          [
+            "actual_url",
+            "http://refreshmet.com/Package.tar.gpg"
+          ],
+          [
+            "actual_url_ip",
+            "185.161.209.243"
+          ]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -21,10 +36,18 @@
         "tags": {
           "network": {
             "static": {
-              "domain": ["refreshmet.com"],
-              "ip": ["185.161.209.243"],
-              "uri": ["http://refreshmet.com/Package.tar.gpg"],
-              "uri_path": ["/Package.tar.gpg"]
+              "domain": [
+                "refreshmet.com"
+              ],
+              "ip": [
+                "185.161.209.243"
+              ],
+              "uri": [
+                "http://refreshmet.com/Package.tar.gpg"
+              ],
+              "uri_path": [
+                "/Package.tar.gpg"
+              ]
             }
           }
         },
@@ -69,7 +92,13 @@
           }
         ],
         "body_config": {
-          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -91,10 +120,6 @@
     ],
     "supplementary": [
       {
-        "name": "results.json",
-        "sha256": "a31b4e82a0a0f0c87d363e62c932d9745a16e492fe3944bd46cf5a6fb9132784"
-      },
-      {
         "name": "screenshot.png",
         "sha256": "10ad37c99897f0fb48a0ea454ea025ac6abc3e02819d88650278d0ff77e2b33a"
       },
@@ -105,6 +130,10 @@
       {
         "name": "screenshot.png.thumb",
         "sha256": "9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26"
+      },
+      {
+        "name": "results.json",
+        "sha256": "a31b4e82a0a0f0c87d363e62c932d9745a16e492fe3944bd46cf5a6fb9132784"
       }
     ]
   },

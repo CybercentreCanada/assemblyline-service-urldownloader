@@ -21,11 +21,26 @@
       {
         "auto_collapse": false,
         "body": [
-          ["response_code", 200],
-          ["requested_url", "https://json.schemastore.org/eslintrc.json"],
-          ["requested_url_ip", "20.42.128.105"],
-          ["actual_url", "https://json.schemastore.org/eslintrc.json"],
-          ["actual_url_ip", "20.42.128.105"]
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "https://json.schemastore.org/eslintrc.json"
+          ],
+          [
+            "requested_url_ip",
+            "20.42.128.105"
+          ],
+          [
+            "actual_url",
+            "https://json.schemastore.org/eslintrc.json"
+          ],
+          [
+            "actual_url_ip",
+            "20.42.128.105"
+          ]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -36,10 +51,18 @@
         "tags": {
           "network": {
             "static": {
-              "domain": ["json.schemastore.org"],
-              "ip": ["20.42.128.105"],
-              "uri": ["https://json.schemastore.org/eslintrc.json"],
-              "uri_path": ["/eslintrc.json"]
+              "domain": [
+                "json.schemastore.org"
+              ],
+              "ip": [
+                "20.42.128.105"
+              ],
+              "uri": [
+                "https://json.schemastore.org/eslintrc.json"
+              ],
+              "uri_path": [
+                "/eslintrc.json"
+              ]
             }
           }
         },
@@ -84,7 +107,13 @@
           }
         ],
         "body_config": {
-          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
