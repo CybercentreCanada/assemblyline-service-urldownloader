@@ -6,26 +6,17 @@
       {
         "auto_collapse": false,
         "body": [
-          [
-            "response_code",
-            404
-          ],
+          ["response_code", 404],
           [
             "requested_url",
             "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
           ],
-          [
-            "requested_url_ip",
-            "142.251.41.46"
-          ],
+          ["requested_url_ip", "142.251.41.46"],
           [
             "actual_url",
             "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
           ],
-          [
-            "actual_url_ip",
-            "67.212.189.210"
-          ]
+          ["actual_url_ip", "67.212.189.210"]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -35,20 +26,12 @@
         "promote_to": null,
         "tags": {
           "file": {
-            "behavior": [
-              "IP Redirection change"
-            ]
+            "behavior": ["IP Redirection change"]
           },
           "network": {
             "static": {
-              "domain": [
-                "google.com",
-                "dcexchanges.com"
-              ],
-              "ip": [
-                "142.251.41.46",
-                "67.212.189.210"
-              ],
+              "domain": ["google.com", "dcexchanges.com"],
+              "ip": ["142.251.41.46", "67.212.189.210"],
               "uri": [
                 "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
                 "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
@@ -121,15 +104,8 @@
         "tags": {
           "network": {
             "static": {
-              "domain": [
-                "google.com",
-                "www.google.com",
-                "dcexchanges.com"
-              ],
-              "ip": [
-                "142.251.41.46",
-                "142.251.41.36"
-              ],
+              "domain": ["google.com", "www.google.com", "dcexchanges.com"],
+              "ip": ["142.251.41.46", "142.251.41.36"],
               "uri": [
                 "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
                 "https://www.google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
@@ -171,13 +147,7 @@
           }
         ],
         "body_config": {
-          "column_order": [
-            "Filename",
-            "Size",
-            "mimeType",
-            "url",
-            "SHA256"
-          ]
+          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -206,6 +176,10 @@
       }
     ],
     "supplementary": [
+      {
+        "name": "results.json",
+        "sha256": "10311e98388ccbca9f05c7f4db14e6b402479510c0207aa41358a118508d93be"
+      },
       {
         "name": "screenshot.png",
         "sha256": "79395ed5de0c4d6ed346417080a6b58ff7dc78905d1966891d54fb6a1a3a9b59"
