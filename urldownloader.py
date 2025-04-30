@@ -158,25 +158,22 @@ class URLDownloader(ServiceBase):
         with tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False, mode="w") as temp_conf:
             yaml.dump(kangooroo_config, temp_conf)
 
-
         # Set up environment variable and commandline arguments for running kangooroo
-        env_variables = {
-            "JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m"
-        }
+        env_variables = {"JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m"}
         kangooroo_args = [
-                "./bin/kangooroo",
-                "--conf-file",
-                temp_conf.name,
-                "-mods",
-                "summary,captcha",
-                "--simple-result",
-                "--url",
-                request.task.fileinfo.uri_info.uri,
+            "./bin/kangooroo",
+            "--conf-file",
+            temp_conf.name,
+            "-mods",
+            "summary,captcha",
+            "--simple-result",
+            "--url",
+            request.task.fileinfo.uri_info.uri,
         ]
         if self.no_sandbox:
             kangooroo_args.insert(-2, "--no-sandbox")
         try:
-            subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER,  timeout=self.request_timeout, env=env_variables)
+            subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, timeout=self.request_timeout, env=env_variables)
         except subprocess.TimeoutExpired:
             request.partial()
             timeout_section = ResultTextSection("Request timed out", parent=request.result)
@@ -218,8 +215,6 @@ class URLDownloader(ServiceBase):
 
         return output_folder, results_filepath
 
-
-
     def send_http_request(self, method, request: ServiceRequest, data: dict):
 
         try:
@@ -230,9 +225,8 @@ class URLDownloader(ServiceBase):
                 proxies=self.config["proxies"][request.get_param("proxy")],
                 data=data.get("data", None),
                 json=data.get("json", None),
-
-                cookies = data.get("cookies", None),
-                stream = True
+                cookies=data.get("cookies", None),
+                stream=True,
             ) as r:
 
                 requests_content_path = os.path.join(self.working_directory, "requests_content")
@@ -255,13 +249,10 @@ class URLDownloader(ServiceBase):
 
             redirect_section = ResultTableSection("Redirections", parent=error_section)
             for redirect in e.response.history:
-                redirect_section.add_row(
-                    TableRow({"status": redirect.status_code, "redirecting_url": redirect.url})
-                )
+                redirect_section.add_row(TableRow({"status": redirect.status_code, "redirecting_url": redirect.url}))
                 add_tag(redirect_section, "network.static.uri", redirect.url)
             redirect_section.set_column_order(["status", "redirecting_url"])
             return None
-
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
@@ -301,17 +292,11 @@ class URLDownloader(ServiceBase):
             else:
                 request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
 
-
-
             with open(results_filepath, "r") as f:
                 results = json.load(f)
 
             if results is None:
-                raise Exception(
-                    (
-                        "No Kangooroo results found. "
-                    )
-                )
+                raise Exception(("No Kangooroo results found. "))
             # Main result section
             result_summary = results.get("summary", {})
             result_experiment = results.get("experiment", {})
@@ -336,14 +321,14 @@ class URLDownloader(ServiceBase):
 
             if download_status == "INCOMPLETE_DOWNLOAD":
 
-                data["headers"] = {** result_summary.get("requestHeaders", {}), **data.get("headers", {})}
+                data["headers"] = {**result_summary.get("requestHeaders", {}), **data.get("headers", {})}
                 data["cookies"] = result_summary.get("sessionCookies", {})
-
 
                 requests_content_path = self.send_http_request("GET", request, data)
 
-
-                file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False)
+                file_info = self.identify.fileinfo(
+                    requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False
+                )
                 if file_info["type"].startswith("archive"):
                     request.add_extracted(
                         requests_content_path,
@@ -353,8 +338,6 @@ class URLDownloader(ServiceBase):
                     )
                 else:
                     request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
-
-
 
             requested_url = result_summary.get("requestedUrl", {})
             actual_url = result_summary.get("actualUrl", {})
@@ -375,18 +358,10 @@ class URLDownloader(ServiceBase):
                 result_section.add_item("actual_url_ip", actual_url["ip"])
                 result_section.add_tag("network.static.ip", actual_url["ip"])
 
-            if (
-                ("ip" in  actual_url
-                and "ip" in requested_url)
-                and actual_url["ip"] != requested_url["ip"]
-            ):
+            if ("ip" in actual_url and "ip" in requested_url) and actual_url["ip"] != requested_url["ip"]:
                 result_section.add_tag("file.behavior", "IP Redirection change")
 
-            if (
-                ("url" in requested_url
-                and "url" in actual_url )
-                and requested_url["url"] != actual_url["url"]
-            ):
+            if ("url" in requested_url and "url" in actual_url) and requested_url["url"] != actual_url["url"]:
                 http_result["redirection_url"] = actual_url["url"]
 
             if result_params.get("windowSize", False):
@@ -585,7 +560,6 @@ class URLDownloader(ServiceBase):
                     if entry["response"]["status"] == 207 and downloads[content_md5]["mimeType"].startswith("text/xml"):
                         detect_webdav_listing(request, content)
 
-
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
 
@@ -599,7 +573,6 @@ class URLDownloader(ServiceBase):
                 json.dump(har_content, f)
 
             request.add_supplementary(modified_har_filepath, "session.har", "Complete session log")
-
 
             if redirects:
                 http_result["redirects"] = []
