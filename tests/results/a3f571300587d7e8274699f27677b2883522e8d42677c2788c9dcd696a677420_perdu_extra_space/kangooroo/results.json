@@ -27,13 +27,13 @@
     },
     "requestedUrl": {
       "url": "http://perdu.com",
-      "urlMd5": "8a9c26db8a9d5ad647bd642887c4bfd2",
+      "urlMd5": "75d53866bcb20465b3287cf237234464",
       "host": "perdu.com",
       "ip": "172.64.80.1"
     },
     "actualUrl": {
       "url": "http://perdu.com/",
-      "urlMd5": "8a9c26db8a9d5ad647bd642887c4bfd2",
+      "urlMd5": "2779b362ad3643cb5e0d409c408feaf2",
       "host": "perdu.com",
       "ip": "172.64.80.1"
     },

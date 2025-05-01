@@ -180,7 +180,7 @@ class URLDownloader(ServiceBase):
             timeout_section.add_line(
                 f"Timeout of {self.request_timeout} seconds was not enough to process the query fully."
             )
-            return None, None
+            return None
 
         url_md5 = hashlib.md5(request.task.fileinfo.uri_info.uri.encode()).hexdigest()
 
@@ -211,9 +211,7 @@ class URLDownloader(ServiceBase):
                 )
                 output_folder = os.path.join(kangooroo_config["output_folder"], possible_folders[0])
 
-        results_filepath = os.path.join(output_folder, "results.json")
-
-        return output_folder, results_filepath
+        return output_folder
 
     def send_http_request(self, method, request: ServiceRequest, data: dict):
 
@@ -280,7 +278,7 @@ class URLDownloader(ServiceBase):
                 ignored_params_section.update_items(headers)
 
             # use Kangooroo to fetch URL
-            output_folder, results_filepath = self.execute_kangooroo(request)
+            output_folder = self.execute_kangooroo(request)
 
             results_filepath = os.path.join(output_folder, "results.json")
 
