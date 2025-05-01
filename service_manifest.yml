@@ -22,7 +22,6 @@ config:
     localhost_proxy:
       http: 127.0.0.1:8080
       https: 127.0.0.1:8080
-  no_sandbox: False
 
 submission_params:
   - default: "no_proxy"

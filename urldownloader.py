@@ -121,7 +121,6 @@ class URLDownloader(ServiceBase):
         self.identify = Identify(use_cache=False)
         self.request_timeout = self.config.get("request_timeout", 150)
         self.do_not_download_regexes = [re.compile(x) for x in self.config.get("do_not_download_regexes", [])]
-        self.no_sandbox = self.config.get("no_sandbox", False)
         with open(os.path.join(KANGOOROO_FOLDER, "default_conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
 
@@ -162,6 +161,8 @@ class URLDownloader(ServiceBase):
         env_variables = {"JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m"}
         kangooroo_args = [
             "./bin/kangooroo",
+            # We need no-sandbox to run google chrome in a pod
+            "--no-sandbox",
             "--conf-file",
             temp_conf.name,
             "-mods",
@@ -170,8 +171,7 @@ class URLDownloader(ServiceBase):
             "--url",
             request.task.fileinfo.uri_info.uri,
         ]
-        if self.no_sandbox:
-            kangooroo_args.insert(-2, "--no-sandbox")
+
         try:
             subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, timeout=self.request_timeout, env=env_variables)
         except subprocess.TimeoutExpired:
@@ -281,6 +281,8 @@ class URLDownloader(ServiceBase):
 
             # use Kangooroo to fetch URL
             output_folder, results_filepath = self.execute_kangooroo(request)
+
+            results_filepath = os.path.join(output_folder, "results.json")
 
             if not os.path.exists(results_filepath):
                 raise Exception(
