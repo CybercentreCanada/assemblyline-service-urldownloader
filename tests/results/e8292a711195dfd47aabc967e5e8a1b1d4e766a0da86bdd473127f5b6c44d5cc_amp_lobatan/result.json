@@ -207,6 +207,10 @@
     ],
     "supplementary": [
       {
+        "name": "results.json",
+        "sha256": "10311e98388ccbca9f05c7f4db14e6b402479510c0207aa41358a118508d93be"
+      },
+      {
         "name": "screenshot.png",
         "sha256": "79395ed5de0c4d6ed346417080a6b58ff7dc78905d1966891d54fb6a1a3a9b59"
       },

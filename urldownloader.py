@@ -124,6 +124,134 @@ class URLDownloader(ServiceBase):
         with open(os.path.join(KANGOOROO_FOLDER, "default_conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
 
+    def execute_kangooroo(self, request: ServiceRequest):
+
+        # Setup configurations for running Kangooroo
+        kangooroo_config = self.default_kangooroo_config.copy()
+        kangooroo_config["temporary_folder"] = os.path.join(self.working_directory, "tmp")
+        os.makedirs(kangooroo_config["temporary_folder"], exist_ok=True)
+        kangooroo_config["output_folder"] = os.path.join(self.working_directory, "output")
+        os.makedirs(kangooroo_config["output_folder"], exist_ok=True)
+
+        if self.config["proxies"][request.get_param("proxy")]:
+            proxy = self.config["proxies"][request.get_param("proxy")]
+            if isinstance(proxy, dict):
+                proxy = proxy[request.task.fileinfo.uri_info.scheme]
+            url_proxy = urlparse(proxy)
+            if not url_proxy.netloc:
+                # If the proxy was written as
+                # "127.0.0.1:8080"
+                # "user@127.0.0.1:8080"
+                # "user:password@127.0.0.1:8080"
+                url_proxy = urlparse(f"http://{proxy}")
+            kangooroo_config["kang-upstream-proxy"]["ip"] = url_proxy.hostname
+            kangooroo_config["kang-upstream-proxy"]["port"] = url_proxy.port
+            if url_proxy.username:
+                kangooroo_config["kang-upstream-proxy"]["username"] = url_proxy.username
+            if url_proxy.password:
+                kangooroo_config["kang-upstream-proxy"]["password"] = url_proxy.password
+        else:
+            kangooroo_config.pop("kang-upstream-proxy", None)
+
+        # create the file that we use to run Kangooroo
+        with tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False, mode="w") as temp_conf:
+            yaml.dump(kangooroo_config, temp_conf)
+
+        # Set up environment variable and commandline arguments for running kangooroo
+        env_variables = {"JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m"}
+        kangooroo_args = [
+            "./bin/kangooroo",
+            # We need no-sandbox to run google chrome in a pod
+            "--no-sandbox",
+            "--conf-file",
+            temp_conf.name,
+            "-mods",
+            "summary,captcha",
+            "--simple-result",
+            "--url",
+            request.task.fileinfo.uri_info.uri,
+        ]
+
+        try:
+            subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, timeout=self.request_timeout, env=env_variables)
+        except subprocess.TimeoutExpired:
+            request.partial()
+            timeout_section = ResultTextSection("Request timed out", parent=request.result)
+            timeout_section.add_line(
+                f"Timeout of {self.request_timeout} seconds was not enough to process the query fully."
+            )
+            return None
+
+        url_md5 = hashlib.md5(request.task.fileinfo.uri_info.uri.encode()).hexdigest()
+
+        output_folder = os.path.join(kangooroo_config["output_folder"], url_md5)
+        if not os.path.exists(output_folder):
+            possible_folders = os.listdir(kangooroo_config["output_folder"])
+            if len(possible_folders) == 0:
+                raise Exception(
+                    (
+                        "No Kangooroo output folder found. Kangooroo may have been OOMKilled. "
+                        "Check for memory usage and increase limit as needed."
+                    )
+                )
+            elif len(possible_folders) != 1:
+                raise Exception(
+                    (
+                        "Multiple Kangooroo output folders found. Unknown situation happened, you can try "
+                        "submitting this URL again to see if it would help."
+                    )
+                )
+            else:
+                url_hash_mismatch = ResultTextSection("URL hash mismatch", parent=request.result)
+                url_hash_mismatch.add_line(
+                    (
+                        f"URL '{request.task.fileinfo.uri_info.uri}' ({url_md5}) was requested "
+                        f"but a different URL was fetched ({possible_folders[0]})."
+                    )
+                )
+                output_folder = os.path.join(kangooroo_config["output_folder"], possible_folders[0])
+
+        return output_folder
+
+    def send_http_request(self, method, request: ServiceRequest, data: dict):
+
+        try:
+            with requests.request(
+                method,
+                request.task.fileinfo.uri_info.uri,
+                headers=data.get("headers", {}),
+                proxies=self.config["proxies"][request.get_param("proxy")],
+                data=data.get("data", None),
+                json=data.get("json", None),
+                cookies=data.get("cookies", None),
+                stream=True,
+            ) as r:
+
+                requests_content_path = os.path.join(self.working_directory, "requests_content")
+                with open(requests_content_path, "wb") as f:
+
+                    for chunk in r.iter_content(None):
+                        f.write(chunk)
+
+                return requests_content_path
+
+        except ConnectionError:
+            error_section = ResultTextSection("Error", parent=request.result)
+            error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
+            error_section.add_line("This server is currently unavailable")
+            return None
+        except TooManyRedirects as e:
+            request.partial()
+            error_section = ResultTextSection("Too many redirects", parent=request.result)
+            error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
+
+            redirect_section = ResultTableSection("Redirections", parent=error_section)
+            for redirect in e.response.history:
+                redirect_section.add_row(TableRow({"status": redirect.status_code, "redirecting_url": redirect.url}))
+                add_tag(redirect_section, "network.static.uri", redirect.url)
+            redirect_section.set_column_order(["status", "redirecting_url"])
+            return None
+
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
         request.result = result
@@ -149,93 +277,11 @@ class URLDownloader(ServiceBase):
                 ignored_params_section.update_items(data)
                 ignored_params_section.update_items(headers)
 
-            kangooroo_config = self.default_kangooroo_config.copy()
-            kangooroo_config["temporary_folder"] = os.path.join(self.working_directory, "tmp")
-            os.makedirs(kangooroo_config["temporary_folder"], exist_ok=True)
-            kangooroo_config["output_folder"] = os.path.join(self.working_directory, "output")
-            os.makedirs(kangooroo_config["output_folder"], exist_ok=True)
-
-            if self.config["proxies"][request.get_param("proxy")]:
-                proxy = self.config["proxies"][request.get_param("proxy")]
-                if isinstance(proxy, dict):
-                    proxy = proxy[request.task.fileinfo.uri_info.scheme]
-                url_proxy = urlparse(proxy)
-                if not url_proxy.netloc:
-                    # If the proxy was written as
-                    # "127.0.0.1:8080"
-                    # "user@127.0.0.1:8080"
-                    # "user:password@127.0.0.1:8080"
-                    url_proxy = urlparse(f"http://{proxy}")
-                kangooroo_config["kang-upstream-proxy"]["ip"] = url_proxy.hostname
-                kangooroo_config["kang-upstream-proxy"]["port"] = url_proxy.port
-                if url_proxy.username:
-                    kangooroo_config["kang-upstream-proxy"]["username"] = url_proxy.username
-                if url_proxy.password:
-                    kangooroo_config["kang-upstream-proxy"]["password"] = url_proxy.password
-            else:
-                kangooroo_config.pop("kang-upstream-proxy", None)
-
-            with tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False, mode="w") as temp_conf:
-                yaml.dump(kangooroo_config, temp_conf)
-
-            env_variables = {
-                "JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m"
-            }
-
-            kangooroo_args = [
-                "./bin/kangooroo",
-                "--conf-file",
-                temp_conf.name,
-                "-mods",
-                "summary,captcha",
-                "--simple-result",
-                "--url",
-                # We need no-sandbox to run google chrome in a pod
-                "--no-sandbox",
-                request.task.fileinfo.uri_info.uri
-            ]
-            try:
-                subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, capture_output=True, timeout=self.request_timeout, env=env_variables)
-            except subprocess.TimeoutExpired:
-                request.partial()
-                timeout_section = ResultTextSection("Request timed out", parent=request.result)
-                timeout_section.add_line(
-                    f"Timeout of {self.request_timeout} seconds was not enough to process the query fully."
-                )
-                return
-
-            url_md5 = hashlib.md5(request.task.fileinfo.uri_info.uri.encode()).hexdigest()
-
-            output_folder = os.path.join(kangooroo_config["output_folder"], url_md5)
-
-            if not os.path.exists(output_folder):
-                # There was a mismatch between what Kangooroo fetched and the URL we requested.
-                possible_folders = os.listdir(kangooroo_config["output_folder"])
-                if len(possible_folders) == 0:
-                    raise Exception(
-                        (
-                            "No Kangooroo output folder found. Kangooroo may have been OOMKilled. "
-                            "Check for memory usage and increase limit as needed."
-                        )
-                    )
-                elif len(possible_folders) != 1:
-                    raise Exception(
-                        (
-                            "Multiple Kangooroo output folders found. Unknown situation happened, you can try "
-                            "submitting this URL again to see if it would help."
-                        )
-                    )
-                else:
-                    url_hash_mismatch = ResultTextSection("URL hash mismatch", parent=request.result)
-                    url_hash_mismatch.add_line(
-                        (
-                            f"URL '{request.task.fileinfo.uri_info.uri}' ({url_md5}) was requested "
-                            f"but a different URL was fetched ({possible_folders[0]})."
-                        )
-                    )
-                    output_folder = os.path.join(kangooroo_config["output_folder"], possible_folders[0])
+            # use Kangooroo to fetch URL
+            output_folder = self.execute_kangooroo(request)
 
             results_filepath = os.path.join(output_folder, "results.json")
+
             if not os.path.exists(results_filepath):
                 raise Exception(
                     (
@@ -243,9 +289,15 @@ class URLDownloader(ServiceBase):
                         "Check for memory usage and increase limit as needed."
                     )
                 )
+            else:
+                request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
+
             with open(results_filepath, "r") as f:
                 results = json.load(f)
 
+            if results is None:
+                raise Exception(("No Kangooroo results found. "))
+            # Main result section
             result_summary = results.get("summary", {})
             result_experiment = results.get("experiment", {})
             result_params = result_experiment.get("params", {})
@@ -264,7 +316,28 @@ class URLDownloader(ServiceBase):
                 "response_code": result_summary["fetchResult"]["response_code"],
             }
 
-            # Main result section
+            # check if kangooroo has unfinished download file. If so, we do a GET request to fetch that file again.
+            download_status = result_execution.get("downloadStatus", None)
+
+            if download_status == "INCOMPLETE_DOWNLOAD":
+
+                data["headers"] = {**result_summary.get("requestHeaders", {}), **data.get("headers", {})}
+                data["cookies"] = result_summary.get("sessionCookies", {})
+
+                requests_content_path = self.send_http_request("GET", request, data)
+
+                file_info = self.identify.fileinfo(
+                    requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False
+                )
+                if file_info["type"].startswith("archive"):
+                    request.add_extracted(
+                        requests_content_path,
+                        file_info["sha256"],
+                        "Archive from the URI",
+                        parent_relation=PARENT_RELATION.DOWNLOADED,
+                    )
+                else:
+                    request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
 
             requested_url = result_summary.get("requestedUrl", {})
             actual_url = result_summary.get("actualUrl", {})
@@ -285,18 +358,10 @@ class URLDownloader(ServiceBase):
                 result_section.add_item("actual_url_ip", actual_url["ip"])
                 result_section.add_tag("network.static.ip", actual_url["ip"])
 
-            if (
-                ("ip" in  actual_url
-                and "ip" in requested_url)
-                and actual_url["ip"] != requested_url["ip"]
-            ):
+            if ("ip" in actual_url and "ip" in requested_url) and actual_url["ip"] != requested_url["ip"]:
                 result_section.add_tag("file.behavior", "IP Redirection change")
 
-            if (
-                ("url" in requested_url
-                and "url" in actual_url )
-                and requested_url["url"] != actual_url["url"]
-            ):
+            if ("url" in requested_url and "url" in actual_url) and requested_url["url"] != actual_url["url"]:
                 http_result["redirection_url"] = actual_url["url"]
 
             if result_params.get("windowSize", False):
@@ -345,6 +410,11 @@ class URLDownloader(ServiceBase):
                 soup = BeautifulSoup(data, features="lxml")
                 if soup.title and soup.title.string:
                     http_result["title"] = soup.title.string
+
+                try:
+                    detect_open_directory(request, soup)
+                except Exception:
+                    pass
 
             # Find any downloaded file
             with open(os.path.join(output_folder, "session.har"), "r") as f:
@@ -490,13 +560,6 @@ class URLDownloader(ServiceBase):
                     if entry["response"]["status"] == 207 and downloads[content_md5]["mimeType"].startswith("text/xml"):
                         detect_webdav_listing(request, content)
 
-                    if downloads[content_md5]["url"] in target_urls:
-                        try:
-                            soup = BeautifulSoup(content, features="lxml")
-                            detect_open_directory(request, soup)
-                        except Exception:
-                            pass
-
                 if "_errorMessage" in entry["response"]:
                     response_errors.append((entry["request"]["url"], entry["response"]["_errorMessage"]))
 
@@ -581,36 +644,11 @@ class URLDownloader(ServiceBase):
                     error_section.add_line(f"{response_url}: {response_error}")
         else:
             # Non-GET request
-            try:
-                r = requests.request(
-                    method,
-                    request.task.fileinfo.uri_info.uri,
-                    headers=data.get("headers", {}),
-                    proxies=self.config["proxies"][request.get_param("proxy")],
-                    data=data.get("data", None),
-                    json=data.get("json", None),
-                )
-            except ConnectionError:
-                error_section = ResultTextSection("Error", parent=request.result)
-                error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
-                error_section.add_line("This server is currently unavailable")
-                return
-            except TooManyRedirects as e:
-                request.partial()
-                error_section = ResultTextSection("Too many redirects", parent=request.result)
-                error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
+            requests_content_path = self.send_http_request(method, request, data)
 
-                redirect_section = ResultTableSection("Redirections", parent=error_section)
-                for redirect in e.response.history:
-                    redirect_section.add_row(
-                        TableRow({"status": redirect.status_code, "redirecting_url": redirect.url})
-                    )
-                    add_tag(redirect_section, "network.static.uri", redirect.url)
-                redirect_section.set_column_order(["status", "redirecting_url"])
+            if not requests_content_path:
                 return
-            requests_content_path = os.path.join(self.working_directory, "requests_content")
-            with open(requests_content_path, "wb") as f:
-                f.write(r.content)
+
             file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False)
             if file_info["type"].startswith("archive"):
                 request.add_extracted(

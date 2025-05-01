@@ -142,6 +142,10 @@
         "sha256": "39d75f4693c1cfe7bf847391d7988dbff5487eba3d8c2be9704a924965dae585"
       },
       {
+        "name": "results.json",
+        "sha256": "6d0797173be63d99d6fbd6aa4f5f033f93c277fdb8367aa8f0606059650b256e"
+      },
+      {
         "name": "session.har",
         "sha256": "fe98f59c82f98db3119d975771c6616fd252a6dc2d8e60a4fa1f57b8ac72a4d6"
       }

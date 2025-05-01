@@ -70,6 +70,10 @@
     "extracted": [],
     "supplementary": [
       {
+        "name": "results.json",
+        "sha256": "5cd0f9b8e539421edebb58b51988e78a77f83b9779f3b15a63d9207e343def75"
+      },
+      {
         "name": "session.har",
         "sha256": "9a6878b14da881bd8b51f0c094bee5982b9e9db0208e2a238b1353576938d066"
       }

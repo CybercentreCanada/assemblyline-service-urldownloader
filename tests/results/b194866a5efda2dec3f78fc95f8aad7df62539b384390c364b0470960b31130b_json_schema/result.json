@@ -135,6 +135,10 @@
     ],
     "supplementary": [
       {
+        "name": "results.json",
+        "sha256": "0550df332d6ec6fb41fc3ce4d5a5efd2f779ecb0c7759854e5c95d4ec68a531e"
+      },
+      {
         "name": "screenshot.png",
         "sha256": "72f6f3f34fb3d12969d3c9d0cc16bba01fc3dc0a8fa0a2ad246c1ce795ddf77d"
       },

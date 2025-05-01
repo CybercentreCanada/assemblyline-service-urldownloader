@@ -130,6 +130,10 @@
       {
         "name": "screenshot.png.thumb",
         "sha256": "9dabc5c5a041cd28730bb156e176f8a479044fcb11b8e3d7dbdaa5ae2124cd26"
+      },
+      {
+        "name": "results.json",
+        "sha256": "a31b4e82a0a0f0c87d363e62c932d9745a16e492fe3944bd46cf5a6fb9132784"
       }
     ]
   },

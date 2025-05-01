@@ -1524,6 +1524,10 @@
         "sha256": "de9d3fd0eb948bd294477d0eda60a73b85caff1794803530d0463193a113da98"
       },
       {
+        "name": "results.json",
+        "sha256": "e174a7d4fc67c7d0468b244e511407b21bd0d73c4abdfa7262ff72b1f38f3ec9"
+      },
+      {
         "name": "458249.gif",
         "sha256": "ef1955ae757c8b966c83248350331bd3a30f658ced11f387f8ebf05ab3368629"
       },

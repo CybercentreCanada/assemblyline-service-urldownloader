@@ -201,6 +201,10 @@
         "sha256": "6fcd497d4a73a14d9005702989d448077ade8db076e48667a52e87364cb03b17"
       },
       {
+        "name": "results.json",
+        "sha256": "d881fdca9b7eacff5949b8e54cf4fca728ec51ffc24f1befc6816b4b918e65b8"
+      },
+      {
         "name": "screenshot.png",
         "sha256": "da8d1c4491eb6d37774bfd06a9006f0ecbb971fa8ae50a56762c150abbeab5e6"
       },
