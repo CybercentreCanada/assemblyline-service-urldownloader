@@ -197,6 +197,7 @@ class URLDownloader(ServiceBase):
             try:
                 subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER, capture_output=True, timeout=self.request_timeout, env=env_variables)
             except subprocess.TimeoutExpired:
+                request.partial()
                 timeout_section = ResultTextSection("Request timed out", parent=request.result)
                 timeout_section.add_line(
                     f"Timeout of {self.request_timeout} seconds was not enough to process the query fully."
@@ -595,6 +596,7 @@ class URLDownloader(ServiceBase):
                 error_section.add_line("This server is currently unavailable")
                 return
             except TooManyRedirects as e:
+                request.partial()
                 error_section = ResultTextSection("Too many redirects", parent=request.result)
                 error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
 
