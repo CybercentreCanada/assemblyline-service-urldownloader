@@ -8,18 +8,26 @@ USER root
 
 
 RUN apt update -y && \
-    apt install -y wget default-jre unzip ffmpeg && \
-    # Find out what is the latest version of the chrome-for-testing/chromedriver available
-    VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
+    apt install -y wget default-jre unzip ffmpeg
+
+
+# Find out what is the latest version of the chromedriver & chome from chrome-for-testing available
+RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
     # Download + Install google-chrome with the version matching the latest chromedriver
-    wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$VERS-1_amd64.deb && \
-    apt install -y ./google-chrome-stable_amd64.deb && \
-    rm -rf /var/lib/apt/lists/* && \
-    mkdir /opt/al_service/kangooroo && \
+    mkdir -p /opt/google /opt/al_service/kangooroo && \
+    wget -O ./chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chrome-linux64.zip && \
+    unzip ./chrome-linux64.zip && \
+    while read pkg; do apt-get satisfy -y --no-install-recommends "$pkg"; done < chrome-linux64/deb.deps &&\
+    mv chrome-linux64 /opt/google/chrome && \
+    ln -s /opt/google/chrome/chrome /usr/bin/google-chrome && \
+
     # Download + unzip the latest chromedriver
     wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chromedriver-linux64.zip && \
     unzip -j -d /opt/al_service/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
-    rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip && \
+    rm -f ./chrome-linux64.zip ./chromedriver-linux64.zip && \
+    # Cleanup
+    rm -rf /tmp/* && \
+
     # Download and install Kangooroo from Github
     wget -O ./KangoorooStandalone.zip https://github.com/CybercentreCanada/kangooroo/releases/download/$KANGOOROO_VERSION/KangoorooStandalone.zip && \
     unzip -j ./KangoorooStandalone.zip KangoorooStandalone/lib/* -d /opt/al_service/kangooroo/lib && \

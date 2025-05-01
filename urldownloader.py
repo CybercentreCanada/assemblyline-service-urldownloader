@@ -178,6 +178,7 @@ class URLDownloader(ServiceBase):
         try:
             subprocess.run(kangooroo_args, cwd=KANGOOROO_FOLDER,  timeout=self.request_timeout, env=env_variables)
         except subprocess.TimeoutExpired:
+            request.partial()
             timeout_section = ResultTextSection("Request timed out", parent=request.result)
             timeout_section.add_line(
                 f"Timeout of {self.request_timeout} seconds was not enough to process the query fully."
@@ -255,6 +256,7 @@ class URLDownloader(ServiceBase):
             error_section.add_line("This server is currently unavailable")
             return None
         except TooManyRedirects as e:
+            request.partial()
             error_section = ResultTextSection("Too many redirects", parent=request.result)
             error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
 
@@ -295,12 +297,11 @@ class URLDownloader(ServiceBase):
 
             # use Kangooroo to fetch URL
             output_folder, results_filepath = self.execute_kangooroo(request)
-
-            if (results_filepath):
+            
+            if results_filepath:
                 request.add_supplementary(results_filepath, "results.json", "Kangooroo Result Output.")
             else:
                 return None
-
 
             with open(results_filepath, "r") as f:
                 results = json.load(f)
@@ -672,9 +673,11 @@ class URLDownloader(ServiceBase):
                     error_section.add_line(f"{response_url}: {response_error}")
         else:
             # Non-GET request
+
             requests_content_path = self.send_http_request(self, method, request, data)
 
             if not requests_content_path:
+
                 return
 
             file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False)
