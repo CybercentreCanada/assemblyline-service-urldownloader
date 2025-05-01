@@ -6,8 +6,14 @@
       {
         "auto_collapse": false,
         "body": [
-          ["response_code", 0],
-          ["requested_url", "http://gacyryw.com/login.php"]
+          [
+            "response_code",
+            0
+          ],
+          [
+            "requested_url",
+            "http://gacyryw.com/login.php"
+          ]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -18,9 +24,15 @@
         "tags": {
           "network": {
             "static": {
-              "domain": ["gacyryw.com"],
-              "uri": ["http://gacyryw.com/login.php"],
-              "uri_path": ["/login.php"]
+              "domain": [
+                "gacyryw.com"
+              ],
+              "uri": [
+                "http://gacyryw.com/login.php"
+              ],
+              "uri_path": [
+                "/login.php"
+              ]
             }
           }
         },

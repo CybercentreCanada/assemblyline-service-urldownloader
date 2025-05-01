@@ -5,25 +5,27 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": "URL 'http://perdu.com ' (8a9c26db8a9d5ad647bd642887c4bfd2) was requested but a different URL was fetched (75d53866bcb20465b3287cf237234464).",
-        "body_config": {},
-        "body_format": "TEXT",
-        "classification": "TLP:C",
-        "depth": 0,
-        "heuristic": null,
-        "promote_to": null,
-        "tags": {},
-        "title_text": "URL hash mismatch",
-        "zeroize_on_tag_safe": false
-      },
-      {
-        "auto_collapse": false,
         "body": [
-          ["response_code", 200],
-          ["requested_url", "http://perdu.com"],
-          ["requested_url_ip", "172.64.80.1"],
-          ["actual_url", "http://perdu.com/"],
-          ["actual_url_ip", "172.64.80.1"]
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "http://perdu.com"
+          ],
+          [
+            "requested_url_ip",
+            "172.64.80.1"
+          ],
+          [
+            "actual_url",
+            "http://perdu.com/"
+          ],
+          [
+            "actual_url_ip",
+            "172.64.80.1"
+          ]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -34,10 +36,19 @@
         "tags": {
           "network": {
             "static": {
-              "domain": ["perdu.com"],
-              "ip": ["172.64.80.1"],
-              "uri": ["http://perdu.com", "http://perdu.com/"],
-              "uri_path": ["/"]
+              "domain": [
+                "perdu.com"
+              ],
+              "ip": [
+                "172.64.80.1"
+              ],
+              "uri": [
+                "http://perdu.com",
+                "http://perdu.com/"
+              ],
+              "uri_path": [
+                "/"
+              ]
             }
           }
         },
@@ -82,7 +93,13 @@
           }
         ],
         "body_config": {
-          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -104,12 +121,12 @@
     ],
     "supplementary": [
       {
-        "name": "results.json",
-        "sha256": "3916c365bfad29a6651c0783b1f50ca03d15ab69a7fd2bfa76ef183b4a4276e9"
-      },
-      {
         "name": "screenshot.png.thumb",
         "sha256": "07e406815c7a634589ff9c371bf6364aea1c04734f0bd98f04e513e5ea66a2ed"
+      },
+      {
+        "name": "results.json",
+        "sha256": "3916c365bfad29a6651c0783b1f50ca03d15ab69a7fd2bfa76ef183b4a4276e9"
       },
       {
         "name": "screenshot.png",

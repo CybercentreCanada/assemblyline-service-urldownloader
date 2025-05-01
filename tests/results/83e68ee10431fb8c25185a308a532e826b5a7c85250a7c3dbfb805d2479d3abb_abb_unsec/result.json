@@ -6,11 +6,26 @@
       {
         "auto_collapse": false,
         "body": [
-          ["response_code", 0],
-          ["requested_url", "http://155.138.224.36/abb/unsec"],
-          ["requested_url_ip", "155.138.224.36"],
-          ["actual_url", "http://155.138.224.36/abb/unsec"],
-          ["actual_url_ip", "155.138.224.36"]
+          [
+            "response_code",
+            0
+          ],
+          [
+            "requested_url",
+            "http://155.138.224.36/abb/unsec"
+          ],
+          [
+            "requested_url_ip",
+            "155.138.224.36"
+          ],
+          [
+            "actual_url",
+            "http://155.138.224.36/abb/unsec"
+          ],
+          [
+            "actual_url_ip",
+            "155.138.224.36"
+          ]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -21,9 +36,15 @@
         "tags": {
           "network": {
             "static": {
-              "ip": ["155.138.224.36"],
-              "uri": ["http://155.138.224.36/abb/unsec"],
-              "uri_path": ["/abb/unsec"]
+              "ip": [
+                "155.138.224.36"
+              ],
+              "uri": [
+                "http://155.138.224.36/abb/unsec"
+              ],
+              "uri_path": [
+                "/abb/unsec"
+              ]
             }
           }
         },

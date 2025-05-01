@@ -6,17 +6,26 @@
       {
         "auto_collapse": false,
         "body": [
-          ["response_code", 200],
+          [
+            "response_code",
+            200
+          ],
           [
             "requested_url",
             "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
           ],
-          ["requested_url_ip", "172.64.151.192"],
+          [
+            "requested_url_ip",
+            "172.64.151.192"
+          ],
           [
             "actual_url",
             "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
           ],
-          ["actual_url_ip", "172.64.151.192"]
+          [
+            "actual_url_ip",
+            "172.64.151.192"
+          ]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -27,12 +36,18 @@
         "tags": {
           "network": {
             "static": {
-              "domain": ["news.slashdot.org"],
-              "ip": ["172.64.151.192"],
+              "domain": [
+                "news.slashdot.org"
+              ],
+              "ip": [
+                "172.64.151.192"
+              ],
               "uri": [
                 "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
               ],
-              "uri_path": ["/comments.pl?sid=11253499&cid=55399795"]
+              "uri_path": [
+                "/comments.pl?sid=11253499&cid=55399795"
+              ]
             }
           }
         },
@@ -1141,7 +1156,13 @@
           }
         ],
         "body_config": {
-          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -1383,10 +1404,6 @@
     ],
     "supplementary": [
       {
-        "name": "results.json",
-        "sha256": "e174a7d4fc67c7d0468b244e511407b21bd0d73c4abdfa7262ff72b1f38f3ec9"
-      },
-      {
         "name": "https://tags.bluekai.com/site/18282?phint=id%3D3476744686053029940",
         "sha256": "0af3aae90b7de9fdceee2ab421378ea2f54c74be81ef43fc6c1790a032755d80"
       },
@@ -1505,6 +1522,10 @@
       {
         "name": "https://ps.eyeota.net/match?bid=r8hrb20&uid=nil&referrer_pid=r8hrb20",
         "sha256": "de9d3fd0eb948bd294477d0eda60a73b85caff1794803530d0463193a113da98"
+      },
+      {
+        "name": "results.json",
+        "sha256": "e174a7d4fc67c7d0468b244e511407b21bd0d73c4abdfa7262ff72b1f38f3ec9"
       },
       {
         "name": "458249.gif",

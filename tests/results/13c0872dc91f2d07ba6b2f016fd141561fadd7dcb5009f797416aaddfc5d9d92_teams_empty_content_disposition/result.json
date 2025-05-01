@@ -6,7 +6,10 @@
       {
         "auto_collapse": false,
         "body": [
-          ["response_code", 200],
+          [
+            "response_code",
+            200
+          ],
           [
             "requested_url",
             "https://teams.microsoft.com/_#/one/viewer/teams_ns/https:~2F~2Fsite.com"
@@ -25,7 +28,10 @@
         "tags": {
           "network": {
             "static": {
-              "domain": ["teams.microsoft.com", "login.microsoftonline.com"],
+              "domain": [
+                "teams.microsoft.com",
+                "login.microsoftonline.com"
+              ],
               "uri": [
                 "https://teams.microsoft.com/_#/one/viewer/teams_ns/https:~2F~2Fsite.com",
                 "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile&client_id=5e3ce6c0-2b1f-4285-8d4b-75ee78787346&redirect_uri=https%3A%2F%2Fteams.microsoft.com%2Fgo&state=eyJpZCI6IjQ5ZDJmNTBkLTMwMWQtNGViYS1iYTE4LWVkMDUyMjA5OWUyNSIsInRzIjoxNzA3MzMxMjgwLCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=1d519987-1d00-4e0f-8192-57b29b1f0655&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.3.4&client-request-id=f6292b46-4681-4496-8e5a-f7cf519c18a7&response_mode=fragment&sso_reload=true"
@@ -78,7 +84,13 @@
           }
         ],
         "body_config": {
-          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -100,16 +112,16 @@
     ],
     "supplementary": [
       {
-        "name": "results.json",
-        "sha256": "7479ae5534e5e3fddd5eb3190ca4c064fa1cff23a9a068be3df1864f27f729f2"
-      },
-      {
         "name": "screenshot.png.thumb",
         "sha256": "1b8b2234234d65230b4a20c8d056286f48369b88138ef5b04b6286e0e6aa0e6c"
       },
       {
         "name": "screenshot.png",
         "sha256": "69453cac4c4b32076c6a9c8c96fb5b9b8021ef518879f6b07645b00cc007863c"
+      },
+      {
+        "name": "results.json",
+        "sha256": "7479ae5534e5e3fddd5eb3190ca4c064fa1cff23a9a068be3df1864f27f729f2"
       },
       {
         "name": "session.har",
