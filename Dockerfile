@@ -6,7 +6,7 @@ ENV KANGOOROO_VERSION=v2.0.1.stable14
 USER root
 
 RUN apt update -y && \
-    apt install -y wget default-jre unzip ffmpeg
+    apt install -y wget default-jre unzip ffmpeg dumb-init
 
 
 # Find out what is the latest version of the chromedriver & chome from chrome-for-testing available
@@ -50,3 +50,7 @@ RUN sed -i -e "s/\$SERVICE_TAG/$version/g" service_manifest.yml
 
 # Switch to assemblyline user
 USER assemblyline
+
+# using dumb-init as entrypoint to remove zombie chrome processes
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+CMD ["python", "/etc/process_handler.py"]
