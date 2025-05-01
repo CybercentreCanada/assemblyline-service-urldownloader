@@ -6,11 +6,26 @@
       {
         "auto_collapse": false,
         "body": [
-          ["response_code", 200],
-          ["requested_url", "https://gklnd.pages.dev/"],
-          ["requested_url_ip", "172.66.45.31"],
-          ["actual_url", "https://gklnd.pages.dev/"],
-          ["actual_url_ip", "172.66.45.31"]
+          [
+            "response_code",
+            200
+          ],
+          [
+            "requested_url",
+            "https://gklnd.pages.dev/"
+          ],
+          [
+            "requested_url_ip",
+            "172.66.45.31"
+          ],
+          [
+            "actual_url",
+            "https://gklnd.pages.dev/"
+          ],
+          [
+            "actual_url_ip",
+            "172.66.45.31"
+          ]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -21,10 +36,18 @@
         "tags": {
           "network": {
             "static": {
-              "domain": ["gklnd.pages.dev"],
-              "ip": ["172.66.45.31"],
-              "uri": ["https://gklnd.pages.dev/"],
-              "uri_path": ["/"]
+              "domain": [
+                "gklnd.pages.dev"
+              ],
+              "ip": [
+                "172.66.45.31"
+              ],
+              "uri": [
+                "https://gklnd.pages.dev/"
+              ],
+              "uri_path": [
+                "/"
+              ]
             }
           }
         },
@@ -237,7 +260,13 @@
           }
         ],
         "body_config": {
-          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
+          "column_order": [
+            "Filename",
+            "Size",
+            "mimeType",
+            "url",
+            "SHA256"
+          ]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -253,10 +282,6 @@
   "files": {
     "extracted": [
       {
-        "name": "jupiter.js",
-        "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
-      },
-      {
         "name": "yaketsuku.mp3",
         "sha256": "0589be7715d2320e559eae6bd26f3528e97450c70293da2e1e8ce45f77f99ab1"
       },
@@ -271,6 +296,10 @@
       {
         "name": "UnknownFilename_261c4ca7",
         "sha256": "261c4ca72e7bec9b49794d577e7fc9a6348f97af405a24b05bce341dbd3786b0"
+      },
+      {
+        "name": "jupiter.js",
+        "sha256": "318698ae5e67c32550d6b40ac09848d598f6317f51a8f09638ba925f6e7cc479"
       },
       {
         "name": "noir.js",
