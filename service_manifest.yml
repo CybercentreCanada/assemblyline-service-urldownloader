@@ -22,6 +22,9 @@ config:
     localhost_proxy:
       http: 127.0.0.1:8080
       https: 127.0.0.1:8080
+  default_browser_settings:
+    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+    window_size: "720x720"
 
 submission_params:
   - default: "no_proxy"
