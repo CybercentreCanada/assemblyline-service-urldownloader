@@ -5,21 +5,6 @@
     "sections": [
       {
         "auto_collapse": false,
-        "body": {
-          "Accept": "application/*"
-        },
-        "body_config": {},
-        "body_format": "KEY_VALUE",
-        "classification": "TLP:C",
-        "depth": 0,
-        "heuristic": null,
-        "promote_to": null,
-        "tags": {},
-        "title_text": "Ignored params",
-        "zeroize_on_tag_safe": false
-      },
-      {
-        "auto_collapse": false,
         "body": [
           [
             "response_code",
