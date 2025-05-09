@@ -6,26 +6,17 @@
       {
         "auto_collapse": false,
         "body": [
-          [
-            "response_code",
-            200
-          ],
+          ["response_code", 200],
           [
             "requested_url",
             "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
           ],
-          [
-            "requested_url_ip",
-            "172.64.151.192"
-          ],
+          ["requested_url_ip", "172.64.151.192"],
           [
             "actual_url",
             "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
           ],
-          [
-            "actual_url_ip",
-            "172.64.151.192"
-          ]
+          ["actual_url_ip", "172.64.151.192"]
         ],
         "body_config": {},
         "body_format": "ORDERED_KEY_VALUE",
@@ -36,18 +27,12 @@
         "tags": {
           "network": {
             "static": {
-              "domain": [
-                "news.slashdot.org"
-              ],
-              "ip": [
-                "172.64.151.192"
-              ],
+              "domain": ["news.slashdot.org"],
+              "ip": ["172.64.151.192"],
               "uri": [
                 "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
               ],
-              "uri_path": [
-                "/comments.pl?sid=11253499&cid=55399795"
-              ]
+              "uri_path": ["/comments.pl?sid=11253499&cid=55399795"]
             }
           }
         },
@@ -1156,13 +1141,7 @@
           }
         ],
         "body_config": {
-          "column_order": [
-            "Filename",
-            "Size",
-            "mimeType",
-            "url",
-            "SHA256"
-          ]
+          "column_order": ["Filename", "Size", "mimeType", "url", "SHA256"]
         },
         "body_format": "TABLE",
         "classification": "TLP:C",
@@ -1204,6 +1183,10 @@
       {
         "name": "imp.min.js",
         "sha256": "199f663b1a66c7a8e537f5dea8d81130275d196fd6a49bcf113bb24890bc7fdc"
+      },
+      {
+        "name": "country.js",
+        "sha256": "ad94744abfc58e8e2ab2b6e22d1b74fab5cc940a39bf168f46b62dcf54550fe4"
       },
       {
         "name": "https://cm.g.doubleclick.net/pixel?google_nid=CPX12&google_cm&google_hm=MzQ3Njc0NDY4NjA1MzAyOTk0MA==",
@@ -1486,10 +1469,6 @@
       {
         "name": "m.gif",
         "sha256": "a065920df8cc4016d67c3a464be90099c9d28ffe7c9e6ee3a18f257efc58cbd7"
-      },
-      {
-        "name": "country.js",
-        "sha256": "ad94744abfc58e8e2ab2b6e22d1b74fab5cc940a39bf168f46b62dcf54550fe4"
       },
       {
         "name": "https://engagefront.theweathernetwork.com/pxl?stid&id=b1609564-a417-4927-abaf-ad2136bd7392&gpp=&gpp_sid=",
