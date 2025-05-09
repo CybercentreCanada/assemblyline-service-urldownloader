@@ -1,8 +1,6 @@
 # YAML Format
 # http://www.yaml.org/start.html
 
-version: "2.0.1"
-
 kang-upstream-proxy:
   ip: "192.168.0.1"
   port: 8080
