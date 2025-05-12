@@ -47,9 +47,9 @@ def testServiceConfigurationDefault(mock_run):
 
     run_args = mock_run.call_args.args[0]
     conf_file_path = run_args[3]
-    broser_setting_name = run_args[8]
+    broser_setting_type = run_args[8]
 
-    assert broser_setting_name == "DEFAULT"
+    assert broser_setting_type == "DEFAULT"
 
     with open(conf_file_path, "r") as tmp_conf_file:
         conf_file_data = yaml.safe_load(tmp_conf_file)
@@ -76,9 +76,9 @@ def testServiceConfigurationDefault(mock_run):
 
     run_args = mock_run.call_args.args[0]
     conf_file_path = run_args[3]
-    broser_setting_name = run_args[8]
+    broser_setting_type = run_args[8]
 
-    assert broser_setting_name == "CUSTOM"
+    assert broser_setting_type == "CUSTOM"
 
     with open(conf_file_path, "r") as tmp_conf_file:
         conf_file_data = yaml.safe_load(tmp_conf_file)

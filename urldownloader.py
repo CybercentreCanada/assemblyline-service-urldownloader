@@ -287,7 +287,6 @@ class URLDownloader(ServiceBase):
             if data:
                 ignored_params_section = ResultKeyValueSection("Ignored params", parent=request.result)
                 ignored_params_section.update_items(data)
-                # ignored_params_section.update_items(headers)
 
             # use Kangooroo to fetch URL
             output_folder = self.execute_kangooroo(request, headers, browser_settings)
