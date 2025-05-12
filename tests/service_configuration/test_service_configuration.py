@@ -4,7 +4,6 @@ import os
 
 from assemblyline.odm.messages.task import FileInfo
 from assemblyline.odm.models.file import URIInfo
-from assemblyline_service_utilities.testing.helper import TestHelper
 from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.task import Task
 import yaml
@@ -62,6 +61,7 @@ def test_service_conf_custom(mock_run):
             ud.config.get("default_browser_settings", None)["window_size"]
             == conf_file_data["browser_settings"]["DEFAULT"]["window_size"]
         )
+        assert "CUSTOM" not in conf_file_data["browser_settings"]
 
     os.remove(conf_file_path)
 
@@ -148,5 +148,8 @@ def test_service_conf_default(mock_run):
         assert service_default_user_agent == conf_file_data["browser_settings"]["DEFAULT"]["user_agent"]
 
         assert user_custom_window_size == conf_file_data["browser_settings"]["CUSTOM"]["window_size"]
+
+        assert "user_agent" not in conf_file_data["browser_settings"]["CUSTOM"]
+        assert "window_size" not in conf_file_data["browser_settings"]["DEFAULT"]
 
     os.remove(conf_file_path)
