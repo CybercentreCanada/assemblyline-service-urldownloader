@@ -85,7 +85,7 @@ browser_settings:
 
 # request headers
 headers:
-    sec-ch-ua-platform: Windows
+    test-platform: Windows
 ```
 
 The values set by the URI file will override the values set by `default_browser_settings`.
@@ -100,7 +100,7 @@ uri: https://sample_webpage.com/
 window_size: 1280x720
 user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36
 request_headers:
-    sec-ch-ua-platform: Windows
+    test-platform: Windows
 ```
 
 Users have the option to change only the settings that are relevant to them and URLDownloader will use the values in `default_browser_settings` for the rest.
@@ -122,7 +122,15 @@ uri: https://sample_webpage.com/
 window_size: 2000x2000 # from URI file
 user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Mobile/15E148 Safari/604.1 # from default settings
 request_headers: # from default settings
-    "Sec-CH-UA-Mobile": "?1"
+    Sec-CH-UA-Mobile: ?1
 ```
 
 Users can check the settings used by each submission by looking at the file `Service Results > URLDownloader > Supplementary files > results.json (kangooroo Result Output)`.
+
+#### Notes on some special cases:
+
+- If headers is not specified or is empty in the Assemblyline URI file, then the default request headers value will be used.
+- If headers is defined in the Assemblyline URI file, only the values in headers will be used for request headers.
+- Everything defined in the URI file will take precedent over default values.
+- Any extra fields defined in the Assemblyline URI file will be ignored.
+- User can define both browser_settings.user_agent and define "User-Agent" field inside headers. Only the value of "User-Agent" in headers will be used in request headers.
