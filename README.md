@@ -9,10 +9,6 @@ _Service Variables_ and _User Specified Parameters_ can be found in the **Parame
 
 More information on service management can be found in our documentation and more specifically [here](https://cybercentrecanada.github.io/assemblyline4_docs/administration/service_management/#service-variables) for service variables.
 
-<!-- # Kubernetes VS Docker deployment
-
-In Kubernetes, there is a chance that you do not need to configure the no_sandbox option. If you are executing URLDownloader in a docker-compose setup, and have problem with it always finishing with an error (TimeoutExpired), you can change the "no_sandbox" service variable from the default False to True. This option will be passed on to the google-chrome process and may resolve your issue. -->
-
 ## How to configure a proxy
 
 The URLDownloader service can be configured to use many proxies (or not) and allow the submitting user to pick from a list of proxies. If you want to force a proxy, you can also have a single entry in the list of choices, and that will make it mandatory. URLDownloader does not rely on the system configuration because we have situations where we have multiple proxies and want to fetch content from different places. It could also happen that the proxies from which we want to fetch be different be different from the proxy used by the rest of the system.
@@ -77,10 +73,10 @@ Here is an example of `default_browser_settings [json]` service variable:
 ```
 
 Users can also modify these settings per URL submission by submitting an Assemblyline URI file.
-Here is an example:
+Here is an example file **Assemblyline URI file 1**:
 
 ```
-# Assemblyline URI file 1
+# Assemblyline URI file
 uri: https://sample_webpage.com/
 
 browser_settings:
@@ -108,10 +104,10 @@ request_headers:
 ```
 
 Users have the option to change only the settings that are relevant to them and URLDownloader will use the values in `default_browser_settings` for the rest.
-For example, given this URI file:
+For example, given this **Assemblyline URI file 2**:
 
 ```
-# Assemblyline URI file 2
+# Assemblyline URI file
 uri: https://sample_webpage.com/
 
 browser_settings:

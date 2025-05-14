@@ -121,6 +121,8 @@ class URLDownloader(ServiceBase):
         self.identify = Identify(use_cache=False)
         self.request_timeout = self.config.get("request_timeout", 150)
         self.do_not_download_regexes = [re.compile(x) for x in self.config.get("do_not_download_regexes", [])]
+
+    def reload_default_kangooroo_conf(self):
         with open(os.path.join(KANGOOROO_FOLDER, "default_conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
 
@@ -128,7 +130,7 @@ class URLDownloader(ServiceBase):
             self.default_kangooroo_config["browser_settings"]["DEFAULT"] = self.config["default_browser_settings"]
 
     def execute_kangooroo(self, request: ServiceRequest, headers: dict, browser_settings: dict):
-
+        self.reload_default_kangooroo_conf()
         # Setup configurations for running Kangooroo
         kangooroo_config = self.default_kangooroo_config.copy()
         kangooroo_config["temporary_folder"] = os.path.join(self.working_directory, "tmp")

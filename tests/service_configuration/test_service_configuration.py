@@ -100,6 +100,40 @@ def test_service_conf_custom(mock_run):
 
     os.remove(conf_file_path)
 
+    # request_headers should be set in headers variable not in browser_setting
+    # the values browser_settings.request_headers should be ignored
+    test_browser_setting = {"window_size": "AxB", "request_headers": {"item_A": "A"}}
+
+    # Custom should be run with new custom headings.
+    try:
+        ud.execute_kangooroo(mock_request, {}, test_browser_setting)
+    except Exception:
+        pass
+
+    run_args = mock_run.call_args.args[0]
+    conf_file_path = run_args[3]
+    browser_setting_type = run_args[8]
+
+    assert browser_setting_type == "CUSTOM"
+
+    with open(conf_file_path, "r") as tmp_conf_file:
+        conf_file_data = yaml.safe_load(tmp_conf_file)
+        assert (
+            ud.config.get("default_browser_settings", None)["user_agent"]
+            == conf_file_data["browser_settings"]["DEFAULT"]["user_agent"]
+        )
+
+        assert (
+            ud.config.get("default_browser_settings", None)["window_size"]
+            == conf_file_data["browser_settings"]["DEFAULT"]["window_size"]
+        )
+
+        assert conf_file_data["browser_settings"]["CUSTOM"]
+        assert "user_agent" not in conf_file_data["browser_settings"]["CUSTOM"]
+        assert not conf_file_data["browser_settings"]["CUSTOM"]["request_headers"]
+
+    os.remove(conf_file_path)
+
 
 @patch("urldownloader.subprocess.run")
 def test_service_conf_default(mock_run):
