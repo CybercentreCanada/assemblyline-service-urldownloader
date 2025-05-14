@@ -13,7 +13,7 @@ os.chdir(os.path.join(os.path.dirname(__file__), "../.."))
 service_class = load_module_by_path("urldownloader.URLDownloader", ".")
 
 
-def create_mock_reqeust():
+def create_mock_request():
     mock_request = create_autospec(ServiceRequest)
     mock_request.file_name = "testfile1"
     mock_request.file_type = "uri/http"
@@ -41,7 +41,7 @@ def create_mock_reqeust():
 @patch("urldownloader.subprocess.run")
 def test_default_config_have_default_value(mock_run):
     ud = service_class()
-    mock_request = create_mock_reqeust()
+    mock_request = create_mock_request()
 
     # Default should be run when no task param set for uri
     try:
@@ -76,7 +76,7 @@ def test_default_config_have_default_value(mock_run):
 def test_ignore_custom_request_headers_value(mock_run):
 
     ud = service_class()
-    mock_request = create_mock_reqeust()
+    mock_request = create_mock_request()
 
     # request_headers should be set in headers variable not in browser_setting
     # the values browser_settings.request_headers should be ignored
@@ -117,7 +117,7 @@ def test_ignore_custom_request_headers_value(mock_run):
 @patch("urldownloader.subprocess.run")
 def test_empty_headers_bad_setting_get_empty_header_dict(mock_run):
     ud = service_class(config={"default_browser_settings": {"request_headers": {"keyA": "valueA"}}})
-    mock_request = create_mock_reqeust()
+    mock_request = create_mock_request()
 
     # Custom should be run with new custom headings.
     try:
@@ -144,7 +144,7 @@ def test_empty_headers_bad_setting_get_empty_header_dict(mock_run):
 def test_custom_config_have_custom_value(mock_run):
 
     ud = service_class()
-    mock_request = create_mock_reqeust()
+    mock_request = create_mock_request()
 
     test_header = {"keyA": "keyB"}
     test_browser_setting = {"window_size": "0x0", "user_agent": "UA"}
@@ -190,7 +190,7 @@ def test_default_conf_custom_conf_merge_browser_settings(mock_run):
 
     ud = service_class(config={"default_browser_settings": {"user_agent": service_default_user_agent}})
 
-    mock_request = create_mock_reqeust()
+    mock_request = create_mock_request()
 
     # Default should be run when no task param set for uri
     try:

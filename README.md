@@ -129,8 +129,8 @@ Users can check the settings used by each submission by looking at the file `Ser
 
 #### Notes on some special cases:
 
-- If headers is not specified or is empty in the Assemblyline URI file, then the default request headers value will be used.
-- If headers is defined in the Assemblyline URI file, only the values in headers will be used for request headers.
-- Everything defined in the URI file will take precedent over default values.
+- If `headers` is not specified or is empty in the Assemblyline URI file, then the `default_browser_settings.request_headers` value will be used.
+- If `headers` is defined in the Assemblyline URI file, only the values in `headers` will be used for request headers.
+- Everything defined in the URI file will take precedent over values defined in `default_browser_settings`.
 - Any extra fields defined in the Assemblyline URI file will be ignored.
-- User can define both browser_settings.user_agent and define "User-Agent" field inside headers. Only the value of "User-Agent" in headers will be used in request headers.
+- User can define both `browser_settings.user_agent` and define "User-Agent" field inside headers. Only the value of "User-Agent" in `headers` will be used in request headers.
