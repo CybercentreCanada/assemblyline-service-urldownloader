@@ -51,7 +51,7 @@ After configuring the service proxies, you can look toward the top, under User S
 You will be able to add the name of the key you added (`my_new_proxy` in this example) so that the users can select it.
 The entry with a star is going to be the default selection if a user does not configure it. You can delete all other entries from here to force a single one.
 
-## Modifying Browser Parameters
+## Modifying Browser Settings
 
 You can configure the following browser settings in URLDownloader:
 
@@ -60,9 +60,9 @@ You can configure the following browser settings in URLDownloader:
 - Request headers (`headers`/`request_headers`): Request headers used to fetch URLs.
 
 Administrators can set the default values for these settings from the URLDownloader configuration page in the **Service Variables** section.
-These settings will be used by every single submissions to URLDownloader.
+These settings will be used by every single submissions sent to URLDownloader.
 
-Here is an example for `default_browser_settings [json]` service variable:
+Here is an example of `default_browser_settings [json]` service variable:
 
 ```
 # iPhone 11 Pro configuration:
@@ -100,6 +100,7 @@ Using the above `default_browser_settings` and _Assemblyline URI file 1_ as an e
 ```
 uri: https://sample_webpage.com/
 
+# settings from Assemblyline URI file 1
 window_size: 1280x720
 user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36
 request_headers:
