@@ -121,12 +121,15 @@ class URLDownloader(ServiceBase):
         self.identify = Identify(use_cache=False)
         self.request_timeout = self.config.get("request_timeout", 150)
         self.do_not_download_regexes = [re.compile(x) for x in self.config.get("do_not_download_regexes", [])]
+
         with open(os.path.join(KANGOOROO_FOLDER, "default_conf.yml"), "r") as f:
             self.default_kangooroo_config = yaml.safe_load(f)
 
-    def execute_kangooroo(self, request: ServiceRequest):
+        if self.config["default_browser_settings"]:
+            self.default_kangooroo_config["browser_settings"]["DEFAULT"] = self.config["default_browser_settings"]
 
-        # Setup configurations for running Kangooroo
+    def execute_kangooroo(self, request: ServiceRequest, headers: dict, browser_settings: dict):
+
         kangooroo_config = self.default_kangooroo_config.copy()
         kangooroo_config["temporary_folder"] = os.path.join(self.working_directory, "tmp")
         os.makedirs(kangooroo_config["temporary_folder"], exist_ok=True)
@@ -153,6 +156,12 @@ class URLDownloader(ServiceBase):
         else:
             kangooroo_config.pop("kang-upstream-proxy", None)
 
+        browser_setting_type = "DEFAULT"
+        if headers or browser_settings:
+            browser_setting_type = "CUSTOM"
+            browser_settings["request_headers"] = headers
+            kangooroo_config["browser_settings"]["CUSTOM"] = browser_settings
+
         # create the file that we use to run Kangooroo
         with tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False, mode="w") as temp_conf:
             yaml.dump(kangooroo_config, temp_conf)
@@ -168,6 +177,8 @@ class URLDownloader(ServiceBase):
             "-mods",
             "summary,captcha",
             "--simple-result",
+            "--browser-setting",
+            browser_setting_type,
             "--url",
             request.task.fileinfo.uri_info.uri,
         ]
@@ -272,13 +283,13 @@ class URLDownloader(ServiceBase):
                 # This would cause a fork_exec issue. We will return an empty result instead.
                 return
             headers = data.pop("headers", {})
-            if data or headers:
+            browser_settings = data.pop("browser_settings", {})
+            if data:
                 ignored_params_section = ResultKeyValueSection("Ignored params", parent=request.result)
                 ignored_params_section.update_items(data)
-                ignored_params_section.update_items(headers)
 
             # use Kangooroo to fetch URL
-            output_folder = self.execute_kangooroo(request)
+            output_folder = self.execute_kangooroo(request, headers, browser_settings)
 
             results_filepath = os.path.join(output_folder, "results.json")
 
