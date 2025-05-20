@@ -44,7 +44,7 @@ _Service Variables_ and _User Specified Parameters_ can be found in the **Parame
 
 More information on service management can be found in our documentation and more specifically [here](https://cybercentrecanada.github.io/assemblyline4_docs/administration/service_management/#service-variables) for service variables.
 
-## How to configure a proxy
+## How to configure proxies
 
 The URLDownloader service can be configured to use zero to many proxies, and it allows users to pick from a list of proxies for their URL submissions.
 An administrator can force a proxy on all submissions by configuring a single entry in the proxy list to make it mandatory.
@@ -176,7 +176,7 @@ General Assemblyline documentation can be found at: https://cybercentrecanada.gi
 
 # Service URLDownloader
 
-Ce service télécharge des URL potentiellement malveillantes.
+Ce service télécharge des URL potentiellement malveillantes. Il utilise le programme Java [Kangooroo](https://github.com/CybercentreCanada/kangooroo).
 
 ## Variantes et étiquettes d'image
 
@@ -209,9 +209,9 @@ Pour ajouter ce service à votre déploiement d'Assemblyline, suivez ceci
 ## Configuration du service URLDownloader
 
 Les administrateurs peuvent trouver la page de configuration d'URLDownloader en allant sur la page **Administration > Services**, et en cliquant sur **URLDownloader** (ou en allant directement sur `/admin/services/URLDownloader`).
-Les _variables de service_ et les _paramètres spécifiés par l'utilisateur_ se trouvent dans l'onglet **Paramètres**.
+Les _Variables de service_ et les _Paramètres spécifiés par l'utilisateur_ se trouvent dans l'onglet **Paramètres**.
 
-## Comment configurer un proxy
+## Comment configurer les proxys
 
 Le service URLDownloader peut être configuré pour utiliser de zéro à plusieurs proxys, et il permet aux utilisateurs de choisir parmi une liste de proxys pour leurs soumissions d'URL.
 Un administrateur peut forcer l'utilisation d'un proxy pour toutes les soumissions en configurant une seule entrée dans la liste des proxys pour la rendre obligatoire.
