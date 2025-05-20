@@ -8,9 +8,11 @@ from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.task import Task
 import yaml
 
+# from urldownloader.urldownloader import URLDownloader
+
 # from urldownloader import URLDownloader
 os.chdir(os.path.join(os.path.dirname(__file__), "../.."))
-service_class = load_module_by_path("urldownloader.URLDownloader", ".")
+service_class = load_module_by_path("urldownloader.urldownloader.URLDownloader", ".")
 
 
 def create_mock_request():
@@ -38,7 +40,7 @@ def create_mock_request():
     return mock_request
 
 
-@patch("urldownloader.subprocess.run")
+@patch("subprocess.run")
 def test_default_config_have_default_value(mock_run):
     ud = service_class()
     mock_request = create_mock_request()
@@ -72,7 +74,7 @@ def test_default_config_have_default_value(mock_run):
     os.remove(conf_file_path)
 
 
-@patch("urldownloader.subprocess.run")
+@patch("subprocess.run")
 def test_ignore_custom_request_headers_value(mock_run):
 
     ud = service_class()
@@ -114,7 +116,7 @@ def test_ignore_custom_request_headers_value(mock_run):
     os.remove(conf_file_path)
 
 
-@patch("urldownloader.subprocess.run")
+@patch("subprocess.run")
 def test_empty_headers_bad_setting_get_empty_header_dict(mock_run):
     ud = service_class(config={"default_browser_settings": {"request_headers": {"keyA": "valueA"}}})
     mock_request = create_mock_request()
@@ -140,7 +142,7 @@ def test_empty_headers_bad_setting_get_empty_header_dict(mock_run):
         assert conf_file_data["browser_settings"]["CUSTOM"]["request_headers"] == {}
 
 
-@patch("urldownloader.subprocess.run")
+@patch("subprocess.run")
 def test_custom_config_have_custom_value(mock_run):
 
     ud = service_class()
@@ -182,7 +184,7 @@ def test_custom_config_have_custom_value(mock_run):
     os.remove(conf_file_path)
 
 
-@patch("urldownloader.subprocess.run")
+@patch("subprocess.run")
 def test_default_conf_custom_conf_merge_browser_settings(mock_run):
 
     service_default_user_agent = "DEFAULT_USER_AGENT"

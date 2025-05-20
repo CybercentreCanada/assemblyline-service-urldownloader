@@ -18,7 +18,9 @@ RESULTS_FOLDER = os.path.join(os.path.dirname(__file__), "results")
 SAMPLES_FOLDER = os.path.join(os.path.dirname(__file__), "samples")
 
 # Initialize test helper
-service_class = load_module_by_path("urldownloader.URLDownloader", os.path.join(os.path.dirname(__file__), ".."))
+service_class = load_module_by_path(
+    "urldownloader.urldownloader.URLDownloader", os.path.join(os.path.dirname(__file__), "..")
+)
 th = TestHelper(service_class, RESULTS_FOLDER, SAMPLES_FOLDER)
 
 kangooroo_parser = argparse.ArgumentParser()
@@ -40,7 +42,7 @@ def drop_kangooroo_files(sample, kangooroo_args, **kwargs):
 
 
 @pytest.mark.parametrize("sample", th.result_list())
-@patch("urldownloader.subprocess.run")
+@patch("subprocess.run")
 def test_sample(mock_run, sample):
     def wrap_drop_kangooroo_files(*args, **kwargs):
         drop_kangooroo_files(sample, *args, **kwargs)

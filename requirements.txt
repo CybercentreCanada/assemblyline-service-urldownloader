@@ -1,5 +1,7 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 assemblyline-service-utilities
+assemblyline-v4-service
+assemblyline
 beautifulsoup4
 lxml
 

@@ -129,7 +129,6 @@ class URLDownloader(ServiceBase):
             self.default_kangooroo_config["browser_settings"]["DEFAULT"] = self.config["default_browser_settings"]
 
     def execute_kangooroo(self, request: ServiceRequest, headers: dict, browser_settings: dict):
-
         kangooroo_config = self.default_kangooroo_config.copy()
         kangooroo_config["temporary_folder"] = os.path.join(self.working_directory, "tmp")
         os.makedirs(kangooroo_config["temporary_folder"], exist_ok=True)
@@ -191,7 +190,6 @@ class URLDownloader(ServiceBase):
             timeout_section.add_line(
                 f"Timeout of {self.request_timeout} seconds was not enough to process the query fully."
             )
-            return None
 
         url_md5 = hashlib.md5(request.task.fileinfo.uri_info.uri.encode()).hexdigest()
 

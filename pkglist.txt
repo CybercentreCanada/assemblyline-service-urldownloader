@@ -1,0 +1,5 @@
+wget
+default-jre
+unzip
+ffmpeg
+dumb-init
