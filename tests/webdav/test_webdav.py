@@ -7,7 +7,7 @@ from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.result import Result
 from assemblyline_v4_service.common.task import Task
 
-from urldownloader import detect_webdav_listing
+from urldownloader.urldownloader import detect_webdav_listing
 
 
 def test_webdav_Downloads():
