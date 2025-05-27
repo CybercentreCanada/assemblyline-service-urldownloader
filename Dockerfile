@@ -19,7 +19,9 @@ RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LA
     mkdir -p /opt/google /opt/al_service/urldownloader/kangooroo && \
     wget -O ./chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chrome-linux64.zip && \
     unzip ./chrome-linux64.zip && \
-    while read pkg; do apt-get satisfy -y --no-install-recommends "$pkg"; done < chrome-linux64/deb.deps &&\
+    apt update -y && \
+    while read pkg; do apt satisfy -y --no-install-recommends "$pkg"; done < chrome-linux64/deb.deps && \
+    rm -rf /var/lib/apt/lists/* && \
     mv chrome-linux64 /opt/google/chrome && \
     ln -s /opt/google/chrome/chrome /usr/bin/google-chrome && \
 
