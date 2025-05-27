@@ -176,7 +176,7 @@ General Assemblyline documentation can be found at: https://cybercentrecanada.gi
 
 # Service URLDownloader
 
-Ce service télécharge des URL potentiellement malveillantes. Il utilise le programme Java [Kangooroo](https://github.com/CybercentreCanada/kangooroo).
+Ce service télécharge des URL potentiellement malicieuses. Il utilise le programme Java [Kangooroo](https://github.com/CybercentreCanada/kangooroo).
 
 ## Variantes et étiquettes d'image
 

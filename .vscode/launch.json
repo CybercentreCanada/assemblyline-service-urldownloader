@@ -9,8 +9,12 @@
       "type": "python",
       "request": "launch",
       "module": "assemblyline_v4_service.dev.run_service_once",
-      "cwd": "${workspaceFolder}/al-services/assemblyline-service-urldownloader/",
-      "args": ["-d", "urldownloader.urldownloader.URLDownloader", "${file}"],
+      "cwd": "${workspaceFolder}",
+      "args": [
+      "-d",
+      "urldownloading.urldownloading.Urldownloading",
+      "${file}"
+    ],
       "justMyCode": false
     },
     {
@@ -25,7 +29,7 @@
         "TASKING_DIR": "/tmp/urldownloader"
       },
       "console": "internalConsole",
-      "cwd": "${workspaceFolder}/al-services/assemblyline-service-urldownloader/",
+      "cwd": "${workspaceFolder}",
       "justMyCode": false
     }
   ]
