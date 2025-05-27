@@ -3,11 +3,15 @@ FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
 ENV KANGOOROO_VERSION=v2.0.1.stable18
+
+# Install apt dependencies
 USER root
-
-RUN apt update -y && \
-    apt install -y wget default-jre unzip ffmpeg dumb-init
-
+COPY pkglist.txt /tmp/setup/
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+    $(grep -vE "^\s*(#|$)" /tmp/setup/pkglist.txt | tr "\n" " ") && \
+    rm -rf /tmp/setup/pkglist.txt /var/lib/apt/lists/*
 
 # Find out what is the latest version of the chromedriver & chome from chrome-for-testing available
 RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
@@ -33,15 +37,18 @@ RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LA
     rm -f ./KangoorooStandalone.zip
 
 
-# Switch to assemblyline user
+# Install python dependencies
 USER assemblyline
+COPY requirements.txt requirements.txt
+RUN pip install \
+    --no-cache-dir \
+    --user \
+    --requirement requirements.txt && \
+    rm -rf ~/.cache/pip
 
 # Copy service code
 WORKDIR /opt/al_service
 COPY . .
-
-# Install python dependencies
-RUN pip install --no-cache-dir --user --requirement requirements.txt && rm -rf ~/.cache/pip
 
 # Patch version in manifest
 ARG version=1.0.0.dev1
