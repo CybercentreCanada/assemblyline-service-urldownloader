@@ -4,7 +4,7 @@ set -euo pipefail
 docker build \
     --pull \
     --build-arg branch=stable \
-    -t ${PWD##*/}:gentests \
+    -t ${PWD##*/}:pytest \
     -f ./Dockerfile \
     .
 
@@ -20,5 +20,5 @@ docker run \
     -v /usr/share/ca-certificates/mozilla:/usr/share/ca-certificates/mozilla \
     -v $(pwd)/tests/:/opt/al_service/tests/ \
     $MOUNT_SAMPLES \
-    ${PWD##*/}:gentests \
-    bash -c "pip install -U -r tests/requirements.txt; python /opt/al_service/tests/gentests.py"
+    ${PWD##*/}:pytest \
+    bash -c "pip install -U -r tests/requirements.txt; pytest -p no:cacheprovider --durations=10 -rsx -vv -x"
