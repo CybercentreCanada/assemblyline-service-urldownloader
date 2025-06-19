@@ -3,7 +3,7 @@ FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
 ENV KANGOOROO_VERSION=v2.0.1.stable18
-ENV VERS=136.0.7103.49
+ENV VERS=135.0.7049.114
 
 # Install apt dependencies
 USER root
