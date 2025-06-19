@@ -5,7 +5,7 @@ ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
 ENV KANGOOROO_VERSION=v2.0.1.stable18
 ENV VERS=135.0.7049.114
 
-# Install apt dependencies
+# # Install apt dependencies
 USER root
 COPY pkglist.txt /tmp/setup/
 RUN apt-get update && \
@@ -14,30 +14,25 @@ RUN apt-get update && \
     $(grep -vE "^\s*(#|$)" /tmp/setup/pkglist.txt | tr "\n" " ") && \
     rm -rf /tmp/setup/pkglist.txt /var/lib/apt/lists/*
 
-# Find out what is the latest version of the chromedriver & chome from chrome-for-testing available
-# RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
-# Download + Install google-chrome with the version matching the latest chromedriver
-RUN mkdir -p /opt/google /opt/al_service/urldownloader/kangooroo && \
-    wget -O ./chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chrome-linux64.zip && \
-    unzip ./chrome-linux64.zip && \
-    apt update -y && \
-    while read pkg; do apt satisfy -y --no-install-recommends "$pkg"; done < chrome-linux64/deb.deps && \
-    rm -rf /var/lib/apt/lists/* && \
-    mv chrome-linux64 /opt/google/chrome && \
-    ln -s /opt/google/chrome/chrome /usr/bin/google-chrome && \
 
-    # Download + unzip the latest chromedriver
+
+RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$VERS-1_amd64.deb && \
+    apt update -y && \
+    apt install -y ./google-chrome-stable_amd64.deb && \
+    rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /opt/al_service/urldownloader/kangooroo && \
     wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chromedriver-linux64.zip && \
     unzip -j -d /opt/al_service/urldownloader/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
-    rm -f ./chrome-linux64.zip ./chromedriver-linux64.zip && \
-    # Cleanup
-    rm -rf /tmp/* && \
+    rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip && \
 
     # Download and install Kangooroo from Github
     wget -O ./KangoorooStandalone.zip https://github.com/CybercentreCanada/kangooroo/releases/download/$KANGOOROO_VERSION/KangoorooStandalone.zip && \
     unzip -j ./KangoorooStandalone.zip KangoorooStandalone/lib/* -d /opt/al_service/urldownloader/kangooroo/lib && \
     unzip -j ./KangoorooStandalone.zip KangoorooStandalone/bin/* -d /opt/al_service/urldownloader/kangooroo/bin && \
     rm -f ./KangoorooStandalone.zip
+
+
+
 
 
 # Install python dependencies
