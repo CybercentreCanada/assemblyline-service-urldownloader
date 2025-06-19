@@ -3,6 +3,7 @@ FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
 ENV KANGOOROO_VERSION=v2.0.1.stable18
+ENV VERS=136.0.7103.49
 
 # Install apt dependencies
 USER root
@@ -14,9 +15,9 @@ RUN apt-get update && \
     rm -rf /tmp/setup/pkglist.txt /var/lib/apt/lists/*
 
 # Find out what is the latest version of the chromedriver & chome from chrome-for-testing available
-RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
-    # Download + Install google-chrome with the version matching the latest chromedriver
-    mkdir -p /opt/google /opt/al_service/urldownloader/kangooroo && \
+# RUN VERS=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE) && \
+# Download + Install google-chrome with the version matching the latest chromedriver
+RUN mkdir -p /opt/google /opt/al_service/urldownloader/kangooroo && \
     wget -O ./chrome-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chrome-linux64.zip && \
     unzip ./chrome-linux64.zip && \
     apt update -y && \
