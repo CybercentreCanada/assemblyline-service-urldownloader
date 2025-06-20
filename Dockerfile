@@ -30,7 +30,9 @@ RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/
     wget -O ./KangoorooStandalone.zip https://github.com/CybercentreCanada/kangooroo/releases/download/$KANGOOROO_VERSION/KangoorooStandalone.zip && \
     unzip -j ./KangoorooStandalone.zip KangoorooStandalone/lib/* -d /opt/al_service/urldownloader/kangooroo/lib && \
     unzip -j ./KangoorooStandalone.zip KangoorooStandalone/bin/* -d /opt/al_service/urldownloader/kangooroo/bin && \
-    rm -f ./KangoorooStandalone.zip
+    rm -f ./KangoorooStandalone.zip && \
+    # Cleanup everything
+    rm -rf /tmp/*
 
 
 
