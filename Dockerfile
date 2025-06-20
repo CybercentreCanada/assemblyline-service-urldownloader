@@ -6,7 +6,7 @@ ENV KANGOOROO_VERSION=v2.0.1.stable19
 # latest version of chrome that we tested
 ENV CHROME_VERSION=135.0.7049.114
 
-# # Install apt dependencies
+# Install apt dependencies
 USER root
 COPY pkglist.txt /tmp/setup/
 RUN apt-get update && \
@@ -14,8 +14,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     $(grep -vE "^\s*(#|$)" /tmp/setup/pkglist.txt | tr "\n" " ") && \
     rm -rf /tmp/setup/pkglist.txt /var/lib/apt/lists/*
-
-
 
 RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$CHROME_VERSION-1_amd64.deb && \
     apt update -y && \
@@ -33,10 +31,6 @@ RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/
     rm -f ./KangoorooStandalone.zip && \
     # Cleanup everything
     rm -rf /tmp/*
-
-
-
-
 
 # Install python dependencies
 USER assemblyline
