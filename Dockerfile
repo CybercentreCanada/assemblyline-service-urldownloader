@@ -2,8 +2,9 @@ ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
-ENV KANGOOROO_VERSION=v2.0.1.stable18
-ENV VERS=135.0.7049.114
+ENV KANGOOROO_VERSION=v2.0.1.stable19
+# latest version of chrome that we tested
+ENV CHROME_VERSION=135.0.7049.114
 
 # # Install apt dependencies
 USER root
@@ -16,12 +17,12 @@ RUN apt-get update && \
 
 
 
-RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$VERS-1_amd64.deb && \
+RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$CHROME_VERSION-1_amd64.deb && \
     apt update -y && \
     apt install -y ./google-chrome-stable_amd64.deb && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /opt/al_service/urldownloader/kangooroo && \
-    wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$VERS/linux64/chromedriver-linux64.zip && \
+    wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip && \
     unzip -j -d /opt/al_service/urldownloader/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip && \
 
