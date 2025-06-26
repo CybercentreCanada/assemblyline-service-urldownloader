@@ -19,7 +19,7 @@ RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/
     apt update -y && \
     apt install -y ./google-chrome-stable_amd64.deb && \
     rm -rf /var/lib/apt/lists/* && \
-    mkdir -p /opt/al_service/urldownloader/kangooroo && \
+    mkdir -p /opt/al_service/urldownloader/kangooroo /etc/opt/chrome/policies/managed && \
     wget -O ./chromedriver-linux64.zip https://storage.googleapis.com/chrome-for-testing-public/$CHROME_VERSION/linux64/chromedriver-linux64.zip && \
     unzip -j -d /opt/al_service/urldownloader/kangooroo ./chromedriver-linux64.zip chromedriver-linux64/chromedriver && \
     rm -f ./google-chrome-stable_current_amd64.deb ./chromedriver-linux64.zip && \
@@ -31,6 +31,8 @@ RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/
     rm -f ./KangoorooStandalone.zip && \
     # Cleanup everything
     rm -rf /tmp/*
+
+COPY chrome_policies/managed_policies.json /etc/opt/chrome/policies/managed/managed_policies.json
 
 # Install python dependencies
 USER assemblyline
