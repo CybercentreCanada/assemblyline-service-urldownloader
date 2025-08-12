@@ -2,7 +2,7 @@ ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
-ENV KANGOOROO_VERSION=v2.0.1.stable19
+ENV KANGOOROO_VERSION=v2.0.1.stable20
 # latest version of chrome that we tested
 ENV CHROME_VERSION=135.0.7049.114
 
