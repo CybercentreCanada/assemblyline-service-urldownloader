@@ -275,7 +275,7 @@ class URLDownloader(ServiceBase):
                 return
 
         method = data.pop("method", "GET")
-        if method == "GET":
+        if method == "GET" and not request.get_param("force_requests"):
             if "\x00" in request.task.fileinfo.uri_info.uri:
                 # We won't try to fetch URIs with a null byte using subprocess.
                 # This would cause a fork_exec issue. We will return an empty result instead.
@@ -659,7 +659,7 @@ class URLDownloader(ServiceBase):
                 return
 
             file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False)
-            if file_info["type"].startswith("archive"):
+            if request.get_param("force_requests") or file_info["type"].startswith("archive"):
                 request.add_extracted(
                     requests_content_path,
                     file_info["sha256"],
