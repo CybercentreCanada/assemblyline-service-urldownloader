@@ -652,7 +652,6 @@ class URLDownloader(ServiceBase):
                 for response_url, response_error in response_errors:
                     error_section.add_line(f"{response_url}: {response_error}")
         else:
-            # Non-GET request
             requests_content_path = self.send_http_request(method, request, data)
 
             if not requests_content_path:
