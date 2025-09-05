@@ -116,6 +116,7 @@ def detect_webdav_listing(request: ServiceRequest, content: bytes):
 
 
 def parse_refresh_header(header_value):
+    # Refresh Header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Refresh
     try:
         refresh = header_value.split(";", 1)
         if int(refresh[0]) <= 15 and refresh[1].startswith("url="):
