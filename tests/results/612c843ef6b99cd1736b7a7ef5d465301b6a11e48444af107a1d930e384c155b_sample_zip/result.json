@@ -105,7 +105,21 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "getsamplefiles.com"
+              ],
+              "uri": [
+                "https://getsamplefiles.com/download/zip/sample-1.zip"
+              ],
+              "uri_path": [
+                "/download/zip/sample-1.zip"
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -145,6 +159,11 @@
           "heur_id": null,
           "signatures": [],
           "value": "getsamplefiles.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "getsamplefiles.com"
         }
       ],
       "network.static.ip": [
@@ -159,9 +178,19 @@
           "heur_id": null,
           "signatures": [],
           "value": "https://getsamplefiles.com/download/zip/sample-1.zip"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://getsamplefiles.com/download/zip/sample-1.zip"
         }
       ],
       "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/download/zip/sample-1.zip"
+        },
         {
           "heur_id": null,
           "signatures": [],

@@ -273,7 +273,68 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "gklnd.pages.dev",
+                "www.googletagmanager.com"
+              ],
+              "uri": [
+                "https://gklnd.pages.dev/ai2.mp3",
+                "https://gklnd.pages.dev/tapa.css",
+                "https://gklnd.pages.dev/f24.png",
+                "https://gklnd.pages.dev/noir.js",
+                "https://gklnd.pages.dev/mnc.png",
+                "https://gklnd.pages.dev/msmm.png",
+                "https://gklnd.pages.dev/set.png",
+                "https://gklnd.pages.dev/nvidia.js",
+                "https://gklnd.pages.dev/vsc.png",
+                "https://gklnd.pages.dev/jupiter.js",
+                "https://gklnd.pages.dev/progress.js",
+                "https://gklnd.pages.dev/bx1.png",
+                "https://gklnd.pages.dev/bel.png",
+                "https://gklnd.pages.dev/main.js",
+                "https://gklnd.pages.dev/fulls.js",
+                "https://gklnd.pages.dev/btn.js",
+                "https://gklnd.pages.dev/esc.js",
+                "https://gklnd.pages.dev/dm.png",
+                "https://gklnd.pages.dev/cs.png",
+                "https://gklnd.pages.dev/pcm.png",
+                "https://gklnd.pages.dev/re.gif",
+                "https://gklnd.pages.dev/_Fm7-alert.mp3",
+                "https://gklnd.pages.dev/yaketsuku.mp3",
+                "https://www.googletagmanager.com/gtag/js?id=G-32LVP12FP1"
+              ],
+              "uri_path": [
+                "/ai2.mp3",
+                "/tapa.css",
+                "/f24.png",
+                "/noir.js",
+                "/mnc.png",
+                "/msmm.png",
+                "/set.png",
+                "/nvidia.js",
+                "/vsc.png",
+                "/jupiter.js",
+                "/progress.js",
+                "/bx1.png",
+                "/bel.png",
+                "/main.js",
+                "/fulls.js",
+                "/btn.js",
+                "/esc.js",
+                "/dm.png",
+                "/cs.png",
+                "/pcm.png",
+                "/re.gif",
+                "/_Fm7-alert.mp3",
+                "/yaketsuku.mp3",
+                "/gtag/js?id=G-32LVP12FP1"
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -409,6 +470,16 @@
           "heur_id": null,
           "signatures": [],
           "value": "gklnd.pages.dev"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "gklnd.pages.dev"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "www.googletagmanager.com"
         }
       ],
       "network.static.ip": [
@@ -423,6 +494,126 @@
           "heur_id": null,
           "signatures": [],
           "value": "https://gklnd.pages.dev/"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/_Fm7-alert.mp3"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/ai2.mp3"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/bel.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/btn.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/bx1.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/cs.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/dm.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/esc.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/f24.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/fulls.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/jupiter.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/main.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/mnc.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/msmm.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/noir.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/nvidia.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/pcm.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/progress.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/re.gif"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/set.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/tapa.css"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/vsc.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://gklnd.pages.dev/yaketsuku.mp3"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://www.googletagmanager.com/gtag/js?id=G-32LVP12FP1"
         }
       ],
       "network.static.uri_path": [
@@ -430,6 +621,126 @@
           "heur_id": null,
           "signatures": [],
           "value": "/"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/_Fm7-alert.mp3"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/ai2.mp3"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/bel.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/btn.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/bx1.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/cs.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/dm.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/esc.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/f24.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/fulls.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/gtag/js?id=G-32LVP12FP1"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/jupiter.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/main.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/mnc.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/msmm.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/noir.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/nvidia.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/pcm.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/progress.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/re.gif"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/set.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/tapa.css"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/vsc.png"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/yaketsuku.mp3"
         }
       ]
     },
