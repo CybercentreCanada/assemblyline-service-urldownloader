@@ -170,6 +170,10 @@ Users can check the settings used by each submission by looking at the file `Ser
 - Any extra fields defined in the Assemblyline URI file will be ignored.
 - If both `browser_settings.user_agent` and "User-Agent" field is defined in `headers`. Only the value of "User-Agent" in `headers` will be used in request headers.
 
+## Using Python Requests
+
+The URLDownloader service uses Kangooroo to handle GET requests, leveraging a real Chrome instance to mimic human behaviour more closely and get as much information as possible. If a user knows that the URL needs to be simply fetched by any mean, they can use the `force_requests` submission parameter. This will use the Requests library to make a single direct fetch for the specified URL, without the overhead and analytics included in the full Kangooroo execution.
+
 ## Documentation
 
 General Assemblyline documentation can be found at: https://cybercentrecanada.github.io/assemblyline4_docs/
@@ -336,6 +340,10 @@ Les utilisateurs peuvent vérifier les paramètres utilisés par chaque soumissi
 - Tout ce qui est défini dans le fichier URI sera prioritaire sur les valeurs définies dans `default_browser_settings`.
 - Tout champ supplémentaire défini dans le fichier URI de la ligne d'assemblage sera ignoré.
 - Si le champ `browser_settings.user_agent` et le champ « User-Agent » sont tous deux définis dans `headers`. Seule la valeur de « User-Agent » dans `headers` sera utilisée dans les en-têtes de la requête.
+
+## Utiliser la librairie Requests
+
+URLDownloader utilise Kangooroo pour effectuer les requêtes GET, utilisant une installation complète de Chrome pour se rapprocher d'une utilisation plus humaine d'un navigateur et obtenir le plus d'information possible. Si un utilisateur sait qu'une URL doit simplement être téléchargée, il est possible d'utiliser le paramètre de soumission nommé `force_requests`. Ce paramètre forcera l'utilisation de la librairie Requests dans tous les cas afin de faire un téléchargement de la ressource spécifiée sans coûts supplémentaires pour les analyses provenant de Kangooroo.
 
 ## Documentation
 

@@ -46,6 +46,10 @@ submission_params:
     name: extract_unmatched_filetype
     type: bool
     value: true
+  - default: false
+    name: force_requests
+    type: bool
+    value: false
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG
