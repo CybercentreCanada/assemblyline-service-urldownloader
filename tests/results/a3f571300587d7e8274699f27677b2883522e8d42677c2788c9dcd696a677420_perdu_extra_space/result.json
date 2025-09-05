@@ -119,7 +119,21 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "perdu.com"
+              ],
+              "uri": [
+                "http://perdu.com/"
+              ],
+              "uri_path": [
+                "/"
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -159,6 +173,11 @@
           "heur_id": null,
           "signatures": [],
           "value": "perdu.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "perdu.com"
         }
       ],
       "network.static.ip": [
@@ -178,9 +197,19 @@
           "heur_id": null,
           "signatures": [],
           "value": "http://perdu.com/"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "http://perdu.com/"
         }
       ],
       "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/"
+        },
         {
           "heur_id": null,
           "signatures": [],

@@ -105,7 +105,21 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "json.schemastore.org"
+              ],
+              "uri": [
+                "https://json.schemastore.org/eslintrc.json"
+              ],
+              "uri_path": [
+                "/eslintrc.json"
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -145,6 +159,11 @@
           "heur_id": null,
           "signatures": [],
           "value": "json.schemastore.org"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "json.schemastore.org"
         }
       ],
       "network.static.ip": [
@@ -159,9 +178,19 @@
           "heur_id": null,
           "signatures": [],
           "value": "https://json.schemastore.org/eslintrc.json"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://json.schemastore.org/eslintrc.json"
         }
       ],
       "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/eslintrc.json"
+        },
         {
           "heur_id": null,
           "signatures": [],

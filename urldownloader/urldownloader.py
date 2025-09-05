@@ -657,6 +657,13 @@ class URLDownloader(ServiceBase):
                         )
                     )
 
+                    if download_params["url"] != "Unknown URL":
+                        add_tag(
+                            content_section if added else safelisted_section,
+                            "network.static.uri",
+                            download_params["url"],
+                        )
+
                 if content_section.body:
                     request.result.add_section(content_section)
                 if safelisted_section.body:

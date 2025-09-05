@@ -174,7 +174,26 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "www.google.com",
+                "andbaco.com",
+                "0nlinejfk2.ecm-chlna.net"
+              ],
+              "uri": [
+                "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+                "https://andbaco.com/SnIBYCS/bleh@bleh.com",
+                "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com"
+              ],
+              "uri_path": [
+                "/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com",
+                "/SnIBYCS/bleh@bleh.com"
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -233,7 +252,22 @@
         {
           "heur_id": null,
           "signatures": [],
+          "value": "0nlinejfk2.ecm-chlna.net"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
           "value": "andbaco.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "andbaco.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "www.google.com"
         },
         {
           "heur_id": null,
@@ -272,7 +306,22 @@
         {
           "heur_id": null,
           "signatures": [],
+          "value": "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
           "value": "https://andbaco.com/SnIBYCS/bleh@bleh.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://andbaco.com/SnIBYCS/bleh@bleh.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com"
         },
         {
           "heur_id": null,
@@ -290,6 +339,16 @@
           "heur_id": null,
           "signatures": [],
           "value": "/SnIBYCS/bleh@bleh.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/SnIBYCS/bleh@bleh.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com"
         },
         {
           "heur_id": null,

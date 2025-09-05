@@ -184,7 +184,26 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "google.com",
+                "www.google.com",
+                "dcexchanges.com"
+              ],
+              "uri": [
+                "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
+                "https://www.google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
+                "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+              ],
+              "uri_path": [
+                "/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
+                "/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -248,12 +267,27 @@
         {
           "heur_id": null,
           "signatures": [],
+          "value": "dcexchanges.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
           "value": "google.com"
         },
         {
           "heur_id": null,
           "signatures": [],
           "value": "google.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "google.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "www.google.com"
         },
         {
           "heur_id": null,
@@ -297,12 +331,27 @@
         {
           "heur_id": null,
           "signatures": [],
+          "value": "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
           "value": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
         },
         {
           "heur_id": null,
           "signatures": [],
           "value": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "https://www.google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
         },
         {
           "heur_id": null,
@@ -320,6 +369,16 @@
           "heur_id": null,
           "signatures": [],
           "value": "/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
         },
         {
           "heur_id": null,

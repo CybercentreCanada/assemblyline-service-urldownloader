@@ -105,7 +105,21 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "refreshmet.com"
+              ],
+              "uri": [
+                "http://refreshmet.com/Package.tar.gpg"
+              ],
+              "uri_path": [
+                "/Package.tar.gpg"
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -145,6 +159,11 @@
           "heur_id": null,
           "signatures": [],
           "value": "refreshmet.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "refreshmet.com"
         }
       ],
       "network.static.ip": [
@@ -159,9 +178,19 @@
           "heur_id": null,
           "signatures": [],
           "value": "http://refreshmet.com/Package.tar.gpg"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "http://refreshmet.com/Package.tar.gpg"
         }
       ],
       "network.static.uri_path": [
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/Package.tar.gpg"
+        },
         {
           "heur_id": null,
           "signatures": [],
