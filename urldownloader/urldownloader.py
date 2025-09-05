@@ -115,6 +115,18 @@ def detect_webdav_listing(request: ServiceRequest, content: bytes):
         add_tag(webdav_section, "network.static.uri", link)
 
 
+def parse_refresh_header(header_value):
+    # Refresh Header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Refresh
+    try:
+        refresh = header_value.split(";", 1)
+        if int(refresh[0]) <= 15 and refresh[1].startswith("url="):
+            return refresh[1][4:]
+    except Exception:
+        # We weren't able to parse the refresh header value
+        pass
+    return ""
+
+
 class URLDownloader(ServiceBase):
     def __init__(self, config=None) -> None:
         super().__init__(config)
@@ -447,6 +459,17 @@ class URLDownloader(ServiceBase):
 
                 # Figure out if there is an http redirect
                 if entry["response"]["status"] in [301, 302, 303, 307, 308]:
+                    redirecting_to = ""
+                    if "redirectURL" in entry["response"]:
+                        redirecting_to = entry["response"]["redirectURL"]
+                    if not redirecting_to and "Location" in response_headers:
+                        redirecting_to = response_headers["Location"]
+                    if not redirecting_to and "Refresh" in response_headers:
+                        if refresh := parse_refresh_header(response_headers["Refresh"]):
+                            redirecting_to = refresh
+                    if not redirecting_to and "refresh" in response_headers:
+                        if refresh := parse_refresh_header(response_headers["refresh"]):
+                            redirecting_to = refresh
                     redirects.append(
                         {
                             "status": entry["response"]["status"],
@@ -454,33 +477,23 @@ class URLDownloader(ServiceBase):
                             "redirecting_ip": (
                                 entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
                             ),
-                            "redirecting_to": (
-                                entry["response"]["redirectURL"]
-                                if "redirectURL" in entry["response"]
-                                else "Not Available"
-                            ),
+                            "redirecting_to": redirecting_to if redirecting_to else "Not Available",
                         }
                     )
 
                 # Some redirects and hidden in the headers with 200 response codes
                 if "refresh" in response_headers:
-                    try:
-                        refresh = response_headers["refresh"].split(";", 1)
-                        if int(refresh[0]) <= 15 and refresh[1].startswith("url="):
-                            redirects.append(
-                                {
-                                    "status": entry["response"]["status"],
-                                    "redirecting_url": entry["request"]["url"],
-                                    "redirecting_ip": (
-                                        entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
-                                    ),
-                                    "redirecting_to": refresh[1][4:],
-                                }
-                            )
-
-                    except Exception:
-                        # Maybe log that we weren't able to parse the refresh
-                        pass
+                    if refresh := parse_refresh_header(response_headers["refresh"]):
+                        redirects.append(
+                            {
+                                "status": entry["response"]["status"],
+                                "redirecting_url": entry["request"]["url"],
+                                "redirecting_ip": (
+                                    entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
+                                ),
+                                "redirecting_to": refresh,
+                            }
+                        )
 
                 # Find all content that was downloaded from the servers
                 if "size" in entry["response"]["content"] and entry["response"]["content"]["size"] != 0:
@@ -589,8 +602,10 @@ class URLDownloader(ServiceBase):
                 for redirect in redirects:
                     redirect_section.add_row(TableRow(redirect))
                     add_tag(redirect_section, "network.static.uri", redirect["redirecting_url"])
-                    redirect_section.add_tag("network.static.ip", redirect["redirecting_ip"])
-                    add_tag(redirect_section, "network.static.uri", redirect["redirecting_to"])
+                    if redirect["redirecting_ip"] != "Not Available":
+                        redirect_section.add_tag("network.static.ip", redirect["redirecting_ip"])
+                    if redirect["redirecting_to"] != "Not Available":
+                        add_tag(redirect_section, "network.static.uri", redirect["redirecting_to"])
                     http_result["redirects"].append(
                         {"from_url": redirect["redirecting_url"], "to_url": redirect["redirecting_to"]}
                     )
