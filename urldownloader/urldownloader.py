@@ -347,6 +347,14 @@ class URLDownloader(ServiceBase):
 
                 requests_content_path = self.send_http_request("GET", request, data)
 
+                incomplete_download_section = ResultTextSection("Incomplete download detected", parent=request.result)
+                incomplete_download_section.add_lines(
+                    [
+                        "Kangooroo was not able to complete the download within the allocated time.",
+                        "The file has been downloaded again using a direct HTTP GET request.",
+                    ]
+                )
+
                 file_info = self.identify.fileinfo(
                     requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False
                 )
@@ -358,6 +366,9 @@ class URLDownloader(ServiceBase):
                         parent_relation=PARENT_RELATION.DOWNLOADED,
                     )
                 else:
+                    incomplete_download_section.add_line(
+                        f"Downloaded file of type {file_info['type']} was added as supplementary."
+                    )
                     request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
 
             requested_url = result_summary.get("requestedUrl", {})
