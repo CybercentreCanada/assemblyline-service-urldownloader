@@ -370,19 +370,10 @@
         "heuristic": null,
         "promote_to": null,
         "tags": {
-          "file": {
-            "string": {
-              "extracted": [
-                "/pixel/bounce/?pid=r8hrb20&t=gif",
-                "/AdServer/ImgSync?p=0&rdf=1"
-              ]
-            }
-          },
           "network": {
             "static": {
               "domain": [
                 "px.ads.linkedin.com",
-                "2Fnews.slashdot.org",
                 "www.linkedin.com",
                 "ps.eyeota.net",
                 "ml314.com",
@@ -1217,9 +1208,6 @@
                 "engagefront.theweathernetwork.com",
                 "image8.pubmatic.com"
               ],
-              "ip": [
-                "2.5.3.51"
-              ],
               "uri": [
                 "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795",
                 "https://d3tglifpd8whs6.cloudfront.net/js/prebid/slash-homepage/slash-homepage.min.js",
@@ -1759,24 +1747,7 @@
   "results": {
     "heuristics": [],
     "tags": {
-      "file.string.extracted": [
-        {
-          "heur_id": null,
-          "signatures": [],
-          "value": "/AdServer/ImgSync?p=0&rdf=1"
-        },
-        {
-          "heur_id": null,
-          "signatures": [],
-          "value": "/pixel/bounce/?pid=r8hrb20&t=gif"
-        }
-      ],
       "network.static.domain": [
-        {
-          "heur_id": null,
-          "signatures": [],
-          "value": "2Fnews.slashdot.org"
-        },
         {
           "heur_id": null,
           "signatures": [],
@@ -2163,11 +2134,6 @@
           "heur_id": null,
           "signatures": [],
           "value": "198.148.27.131"
-        },
-        {
-          "heur_id": null,
-          "signatures": [],
-          "value": "2.5.3.51"
         },
         {
           "heur_id": null,
