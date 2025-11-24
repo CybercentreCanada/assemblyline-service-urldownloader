@@ -97,7 +97,21 @@
         "depth": 0,
         "heuristic": null,
         "promote_to": null,
-        "tags": {},
+        "tags": {
+          "network": {
+            "static": {
+              "domain": [
+                "statics.teams.cdn.office.net"
+              ],
+              "uri": [
+                "https://statics.teams.cdn.office.net/hashed/lazy-ng1-mod-calling-bot-service.min-bc95c5d.js"
+              ],
+              "uri_path": [
+                "/hashed/lazy-ng1-mod-calling-bot-service.min-bc95c5d.js"
+              ]
+            }
+          }
+        },
         "title_text": "Downloaded Content",
         "zeroize_on_tag_safe": false
       }
@@ -141,6 +155,11 @@
         {
           "heur_id": null,
           "signatures": [],
+          "value": "statics.teams.cdn.office.net"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
           "value": "teams.microsoft.com"
         }
       ],
@@ -153,6 +172,11 @@
         {
           "heur_id": null,
           "signatures": [],
+          "value": "https://statics.teams.cdn.office.net/hashed/lazy-ng1-mod-calling-bot-service.min-bc95c5d.js"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
           "value": "https://teams.microsoft.com/_#/one/viewer/teams_ns/https:~2F~2Fsite.com"
         }
       ],
@@ -161,6 +185,11 @@
           "heur_id": null,
           "signatures": [],
           "value": "/_#/one/viewer/teams_ns/https:~2F~2Fsite.com"
+        },
+        {
+          "heur_id": null,
+          "signatures": [],
+          "value": "/hashed/lazy-ng1-mod-calling-bot-service.min-bc95c5d.js"
         },
         {
           "heur_id": null,

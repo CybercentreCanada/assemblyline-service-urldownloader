@@ -115,6 +115,18 @@ def detect_webdav_listing(request: ServiceRequest, content: bytes):
         add_tag(webdav_section, "network.static.uri", link)
 
 
+def parse_refresh_header(header_value):
+    # Refresh Header: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Refresh
+    try:
+        refresh = header_value.split(";", 1)
+        if int(refresh[0]) <= 15 and refresh[1].startswith("url="):
+            return refresh[1][4:]
+    except Exception:
+        # We weren't able to parse the refresh header value
+        pass
+    return ""
+
+
 class URLDownloader(ServiceBase):
     def __init__(self, config=None) -> None:
         super().__init__(config)
@@ -275,7 +287,7 @@ class URLDownloader(ServiceBase):
                 return
 
         method = data.pop("method", "GET")
-        if method == "GET":
+        if method == "GET" and not request.get_param("force_requests"):
             if "\x00" in request.task.fileinfo.uri_info.uri:
                 # We won't try to fetch URIs with a null byte using subprocess.
                 # This would cause a fork_exec issue. We will return an empty result instead.
@@ -335,6 +347,14 @@ class URLDownloader(ServiceBase):
 
                 requests_content_path = self.send_http_request("GET", request, data)
 
+                incomplete_download_section = ResultTextSection("Incomplete download detected", parent=request.result)
+                incomplete_download_section.add_lines(
+                    [
+                        "Kangooroo was not able to complete the download within the allocated time.",
+                        "The file has been downloaded again using a direct HTTP GET request.",
+                    ]
+                )
+
                 file_info = self.identify.fileinfo(
                     requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False
                 )
@@ -346,6 +366,9 @@ class URLDownloader(ServiceBase):
                         parent_relation=PARENT_RELATION.DOWNLOADED,
                     )
                 else:
+                    incomplete_download_section.add_line(
+                        f"Downloaded file of type {file_info['type']} was added as supplementary."
+                    )
                     request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
 
             requested_url = result_summary.get("requestedUrl", {})
@@ -447,6 +470,17 @@ class URLDownloader(ServiceBase):
 
                 # Figure out if there is an http redirect
                 if entry["response"]["status"] in [301, 302, 303, 307, 308]:
+                    redirecting_to = ""
+                    if "redirectURL" in entry["response"]:
+                        redirecting_to = entry["response"]["redirectURL"]
+                    if not redirecting_to and "Location" in response_headers:
+                        redirecting_to = response_headers["Location"]
+                    if not redirecting_to and "Refresh" in response_headers:
+                        if refresh := parse_refresh_header(response_headers["Refresh"]):
+                            redirecting_to = refresh
+                    if not redirecting_to and "refresh" in response_headers:
+                        if refresh := parse_refresh_header(response_headers["refresh"]):
+                            redirecting_to = refresh
                     redirects.append(
                         {
                             "status": entry["response"]["status"],
@@ -454,33 +488,23 @@ class URLDownloader(ServiceBase):
                             "redirecting_ip": (
                                 entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
                             ),
-                            "redirecting_to": (
-                                entry["response"]["redirectURL"]
-                                if "redirectURL" in entry["response"]
-                                else "Not Available"
-                            ),
+                            "redirecting_to": redirecting_to if redirecting_to else "Not Available",
                         }
                     )
 
                 # Some redirects and hidden in the headers with 200 response codes
                 if "refresh" in response_headers:
-                    try:
-                        refresh = response_headers["refresh"].split(";", 1)
-                        if int(refresh[0]) <= 15 and refresh[1].startswith("url="):
-                            redirects.append(
-                                {
-                                    "status": entry["response"]["status"],
-                                    "redirecting_url": entry["request"]["url"],
-                                    "redirecting_ip": (
-                                        entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
-                                    ),
-                                    "redirecting_to": refresh[1][4:],
-                                }
-                            )
-
-                    except Exception:
-                        # Maybe log that we weren't able to parse the refresh
-                        pass
+                    if refresh := parse_refresh_header(response_headers["refresh"]):
+                        redirects.append(
+                            {
+                                "status": entry["response"]["status"],
+                                "redirecting_url": entry["request"]["url"],
+                                "redirecting_ip": (
+                                    entry["serverIPAddress"] if "serverIPAddress" in entry else "Not Available"
+                                ),
+                                "redirecting_to": refresh,
+                            }
+                        )
 
                 # Find all content that was downloaded from the servers
                 if "size" in entry["response"]["content"] and entry["response"]["content"]["size"] != 0:
@@ -589,8 +613,10 @@ class URLDownloader(ServiceBase):
                 for redirect in redirects:
                     redirect_section.add_row(TableRow(redirect))
                     add_tag(redirect_section, "network.static.uri", redirect["redirecting_url"])
-                    redirect_section.add_tag("network.static.ip", redirect["redirecting_ip"])
-                    add_tag(redirect_section, "network.static.uri", redirect["redirecting_to"])
+                    if redirect["redirecting_ip"] != "Not Available":
+                        redirect_section.add_tag("network.static.ip", redirect["redirecting_ip"])
+                    if redirect["redirecting_to"] != "Not Available":
+                        add_tag(redirect_section, "network.static.uri", redirect["redirecting_to"])
                     http_result["redirects"].append(
                         {"from_url": redirect["redirecting_url"], "to_url": redirect["redirecting_to"]}
                     )
@@ -642,6 +668,13 @@ class URLDownloader(ServiceBase):
                         )
                     )
 
+                    if download_params["url"] != "Unknown URL":
+                        add_tag(
+                            content_section if added else safelisted_section,
+                            "network.static.uri",
+                            download_params["url"],
+                        )
+
                 if content_section.body:
                     request.result.add_section(content_section)
                 if safelisted_section.body:
@@ -652,14 +685,13 @@ class URLDownloader(ServiceBase):
                 for response_url, response_error in response_errors:
                     error_section.add_line(f"{response_url}: {response_error}")
         else:
-            # Non-GET request
             requests_content_path = self.send_http_request(method, request, data)
 
             if not requests_content_path:
                 return
 
             file_info = self.identify.fileinfo(requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False)
-            if file_info["type"].startswith("archive"):
+            if request.get_param("force_requests") or file_info["type"].startswith("archive"):
                 request.add_extracted(
                     requests_content_path,
                     file_info["sha256"],
