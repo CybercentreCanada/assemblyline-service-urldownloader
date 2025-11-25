@@ -1,5 +1,6 @@
 {
   "HttpsOnlyMode": "disallowed",
   "AIModeSettings": 1,
-  "HttpsUpgradesEnabled": false
+  "HttpsUpgradesEnabled": false,
+  "GenAiDefaultSettings": 2
 }
