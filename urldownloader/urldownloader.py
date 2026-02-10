@@ -32,7 +32,7 @@ from assemblyline_v4_service.common.result import (
 from assemblyline_v4_service.common.task import PARENT_RELATION
 from bs4 import BeautifulSoup
 from PIL import UnidentifiedImageError
-from requests.exceptions import ConnectionError, TooManyRedirects
+from requests.exceptions import ConnectionError, ConnectTimeout, TooManyRedirects
 
 KANGOOROO_FOLDER = os.path.join(os.path.dirname(__file__), "kangooroo")
 
@@ -178,7 +178,7 @@ class URLDownloader(ServiceBase):
             yaml.dump(kangooroo_config, temp_conf)
 
         # Set up environment variable and commandline arguments for running kangooroo
-        env_variables = {"JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb*0.75)}m"}
+        env_variables = {"JAVA_OPTS": f"-Xmx{math.floor(self.service_attributes.docker_config.ram_mb * 0.75)}m"}
         kangooroo_args = [
             "./bin/kangooroo",
             # We need no-sandbox to run google chrome in a pod
@@ -235,22 +235,20 @@ class URLDownloader(ServiceBase):
         return output_folder
 
     def send_http_request(self, method, request: ServiceRequest, data: dict):
-
         try:
             with requests.request(
                 method,
                 request.task.fileinfo.uri_info.uri,
                 headers=data.get("headers", {}),
+                timeout=self.request_timeout,
                 proxies=self.config["proxies"][request.get_param("proxy")],
                 data=data.get("data", None),
                 json=data.get("json", None),
                 cookies=data.get("cookies", None),
                 stream=True,
             ) as r:
-
                 requests_content_path = os.path.join(self.working_directory, "requests_content")
                 with open(requests_content_path, "wb") as f:
-
                     for chunk in r.iter_content(None):
                         f.write(chunk)
 
@@ -260,6 +258,14 @@ class URLDownloader(ServiceBase):
             error_section = ResultTextSection("Error", parent=request.result)
             error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
             error_section.add_line("This server is currently unavailable")
+            return None
+        except ConnectTimeout:
+            request.partial()
+            error_section = ResultTextSection("Connection timed out", parent=request.result)
+            error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
+            error_section.add_line(
+                f"Timeout of {self.request_timeout} seconds was not enough to get an answer from the server."
+            )
             return None
         except TooManyRedirects as e:
             request.partial()
@@ -341,35 +347,41 @@ class URLDownloader(ServiceBase):
             download_status = result_execution.get("downloadStatus", None)
 
             if download_status == "INCOMPLETE_DOWNLOAD":
-
                 data["headers"] = {**result_summary.get("requestHeaders", {}), **data.get("headers", {})}
                 data["cookies"] = result_summary.get("sessionCookies", {})
 
                 requests_content_path = self.send_http_request("GET", request, data)
 
                 incomplete_download_section = ResultTextSection("Incomplete download detected", parent=request.result)
-                incomplete_download_section.add_lines(
-                    [
-                        "Kangooroo was not able to complete the download within the allocated time.",
-                        "The file has been downloaded again using a direct HTTP GET request.",
-                    ]
+                incomplete_download_section.add_line(
+                    "Kangooroo was not able to complete the download within the allocated time."
                 )
-
-                file_info = self.identify.fileinfo(
-                    requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False
-                )
-                if file_info["type"].startswith("archive"):
-                    request.add_extracted(
-                        requests_content_path,
-                        file_info["sha256"],
-                        "Archive from the URI",
-                        parent_relation=PARENT_RELATION.DOWNLOADED,
+                if requests_content_path is None:
+                    incomplete_download_section.add_line(
+                        "A direct HTTP GET request was tried to download the file again but it failed as well."
                     )
                 else:
                     incomplete_download_section.add_line(
-                        f"Downloaded file of type {file_info['type']} was added as supplementary."
+                        "The file has been downloaded again using a direct HTTP GET request."
                     )
-                    request.add_supplementary(requests_content_path, file_info["sha256"], "Full content from the URI")
+
+                    file_info = self.identify.fileinfo(
+                        requests_content_path, skip_fuzzy_hashes=True, calculate_entropy=False
+                    )
+                    if file_info["type"].startswith("archive"):
+                        request.add_extracted(
+                            requests_content_path,
+                            file_info["sha256"],
+                            "Archive from the URI",
+                            parent_relation=PARENT_RELATION.DOWNLOADED,
+                        )
+                    else:
+                        incomplete_download_section.add_line(
+                            f"Downloaded file of type {file_info['type']} was added as supplementary."
+                        )
+                        request.add_supplementary(
+                            requests_content_path, file_info["sha256"], "Full content from the URI"
+                        )
 
             requested_url = result_summary.get("requestedUrl", {})
             actual_url = result_summary.get("actualUrl", {})
