@@ -50,6 +50,10 @@ submission_params:
     name: force_requests
     type: bool
     value: false
+  - default: false
+    name: only_submitted_url
+    type: bool
+    value: false
 
 docker_config:
   image: ${REGISTRY}cccs/assemblyline-service-urldownloader:$SERVICE_TAG

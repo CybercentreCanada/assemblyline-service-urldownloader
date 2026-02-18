@@ -280,8 +280,11 @@ class URLDownloader(ServiceBase):
             return None
 
     def execute(self, request: ServiceRequest) -> None:
-        result = Result()
-        request.result = result
+        request.result = Result()
+
+        if request.task.depth != 0 and request.get_param("only_submitted_url"):
+            request.partial()
+            return
 
         with open(request.file_path, "r") as f:
             data = yaml.safe_load(f)
