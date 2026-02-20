@@ -241,7 +241,7 @@ class URLDownloader(ServiceBase):
         requests_content_path = os.path.join(self.working_directory, "requests_content")
         try:
             proxy_mounts = {
-                f"{scheme}://": httpx.HTTPTransport(proxy=f"{scheme}://{proxy}")
+                f"{scheme}://": httpx.HTTPTransport(proxy=f"http://{proxy}" if "://" not in proxy else proxy)
                 for scheme, proxy in self.config["proxies"][request.get_param("proxy")].items()
             }
             with (
