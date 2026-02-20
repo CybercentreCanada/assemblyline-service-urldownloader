@@ -4,6 +4,7 @@ assemblyline-v4-service
 assemblyline
 beautifulsoup4
 lxml
+httpx
 
 # install open AI whisper to use captcha solver for Kangooroo
 torch
