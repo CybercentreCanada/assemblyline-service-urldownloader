@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from urllib.parse import urlparse
 
-import requests
+import httpx
 import yaml
 from assemblyline.common.identify import Identify
 from assemblyline.odm.base import DATEFORMAT
@@ -31,8 +31,10 @@ from assemblyline_v4_service.common.result import (
 )
 from assemblyline_v4_service.common.task import PARENT_RELATION
 from bs4 import BeautifulSoup
+from httpx._exceptions import ConnectError, ConnectTimeout, TooManyRedirects
 from PIL import UnidentifiedImageError
-from requests.exceptions import ConnectionError, ConnectTimeout, TooManyRedirects
+
+from urldownloader.httpx_logger import log_httpx
 
 KANGOOROO_FOLDER = os.path.join(os.path.dirname(__file__), "kangooroo")
 
@@ -235,26 +237,34 @@ class URLDownloader(ServiceBase):
         return output_folder
 
     def send_http_request(self, method, request: ServiceRequest, data: dict):
+        requests_log = tempfile.NamedTemporaryFile(dir=self.working_directory, delete=False)
+        requests_content_path = os.path.join(self.working_directory, "requests_content")
         try:
-            with requests.request(
-                method,
-                request.task.fileinfo.uri_info.uri,
-                headers=data.get("headers", {}),
-                timeout=self.request_timeout,
-                proxies=self.config["proxies"][request.get_param("proxy")],
-                data=data.get("data", None),
-                json=data.get("json", None),
-                cookies=data.get("cookies", None),
-                stream=True,
-            ) as r:
-                requests_content_path = os.path.join(self.working_directory, "requests_content")
+            proxy_mounts = {
+                f"{scheme}://": httpx.HTTPTransport(proxy=f"{scheme}://{proxy}")
+                for scheme, proxy in self.config["proxies"][request.get_param("proxy")].items()
+            }
+            with (
+                log_httpx(requests_log.name),
+                httpx.Client(mounts=proxy_mounts) as client,
+                client.stream(
+                    method,
+                    request.task.fileinfo.uri_info.uri,
+                    headers=data.get("headers", {}),
+                    timeout=self.request_timeout,
+                    data=data.get("data", None),
+                    json=data.get("json", None),
+                    cookies=data.get("cookies", None),
+                    follow_redirects=True,
+                ) as r,
+            ):
                 with open(requests_content_path, "wb") as f:
-                    for chunk in r.iter_content(None):
+                    for chunk in r.iter_bytes():
                         f.write(chunk)
 
                 return requests_content_path
 
-        except ConnectionError:
+        except ConnectError:
             error_section = ResultTextSection("Error", parent=request.result)
             error_section.add_line(f"Cannot connect to {request.task.fileinfo.uri_info.hostname}")
             error_section.add_line("This server is currently unavailable")
@@ -278,6 +288,11 @@ class URLDownloader(ServiceBase):
                 add_tag(redirect_section, "network.static.uri", redirect.url)
             redirect_section.set_column_order(["status", "redirecting_url"])
             return None
+        finally:
+            if os.path.exists(requests_log.name) and os.path.getsize(requests_log.name) > 0:
+                request.add_supplementary(
+                    requests_log.name, "requests_log.log", "Log of the HTTP request made using httpx."
+                )
 
     def execute(self, request: ServiceRequest) -> None:
         result = Result()
