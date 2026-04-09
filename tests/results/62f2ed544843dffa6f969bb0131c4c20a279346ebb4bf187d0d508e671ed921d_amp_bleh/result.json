@@ -7,28 +7,43 @@
         "auto_collapse": false,
         "body": [
           [
-            "response_code",
-            200
+            "ORDERED_KEY_VALUE",
+            [
+              [
+                "response_code",
+                200
+              ],
+              [
+                "requested_url",
+                "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com"
+              ],
+              [
+                "requested_url_ip",
+                "142.251.41.36"
+              ],
+              [
+                "actual_url",
+                "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com"
+              ],
+              [
+                "actual_url_ip",
+                "200.58.110.234"
+              ]
+            ],
+            {}
           ],
           [
-            "requested_url",
-            "https://www.google.com/amp/s/andbaco.com/SnIBYCS/bleh@bleh.com"
-          ],
-          [
-            "requested_url_ip",
-            "142.251.41.36"
-          ],
-          [
-            "actual_url",
-            "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com"
-          ],
-          [
-            "actual_url_ip",
-            "200.58.110.234"
+            "URL",
+            [
+              {
+                "url": "/file/viewer/91a6177e1131df1cbc0bf773e47f6b4d795187bd1edbf8a66e44a69d6185544f"
+              }
+            ],
+            {}
           ]
         ],
         "body_config": {},
-        "body_format": "ORDERED_KEY_VALUE",
+        "body_format": "MULTI",
         "classification": "TLP:C",
         "depth": 0,
         "heuristic": null,
@@ -204,6 +219,10 @@
       {
         "name": "https://0nlinejfk2.ecm-chlna.net//?username=bleh@bleh.com",
         "sha256": "67cb6a4fac39c8d2746c9f4b49f9babcf02857ba22adfa4a4f76cd5077cb0b6b"
+      },
+      {
+        "name": "source.html",
+        "sha256": "91a6177e1131df1cbc0bf773e47f6b4d795187bd1edbf8a66e44a69d6185544f"
       },
       {
         "name": "bleh@bleh.com",

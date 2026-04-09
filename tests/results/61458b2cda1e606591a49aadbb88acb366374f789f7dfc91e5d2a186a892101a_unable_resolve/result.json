@@ -7,16 +7,22 @@
         "auto_collapse": false,
         "body": [
           [
-            "response_code",
-            0
-          ],
-          [
-            "requested_url",
-            "http://gacyryw.com/login.php"
+            "ORDERED_KEY_VALUE",
+            [
+              [
+                "response_code",
+                0
+              ],
+              [
+                "requested_url",
+                "http://gacyryw.com/login.php"
+              ]
+            ],
+            {}
           ]
         ],
         "body_config": {},
-        "body_format": "ORDERED_KEY_VALUE",
+        "body_format": "MULTI",
         "classification": "TLP:C",
         "depth": 0,
         "heuristic": null,
