@@ -488,7 +488,7 @@ class URLDownloader(ServiceBase):
                 result_section.add_section_part(uri_section)
                 with open(source_path, "rb") as f:
                     sha256hash = hashlib.sha256(f.read()).hexdigest()
-                    uri_section.add_url(f"/file/viewer/{sha256hash}")
+                    uri_section.add_url(f"/file/viewer/{sha256hash}", "Final HTML source code of the page")
 
             # Find any downloaded file
             with open(os.path.join(output_folder, "session.har"), "r") as f:
