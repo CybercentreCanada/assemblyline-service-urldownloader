@@ -18,20 +18,20 @@ TH = TestHelper(service_class, None)
 
 
 @pytest.mark.parametrize(
-    "no_browser, force_requests, kangooroo, http_request",
+    "no_browser, force_requests",
     [
-        (None, None, True, False),
-        (None, False, True, False),
-        (None, True, False, True),
-        (False, None, True, False),
-        (True, None, False, True),
-        (False, False, True, False),
-        (False, True, False, True),
-        (True, False, False, True),
-        (True, True, False, True),
+        (None, None),
+        (None, False),
+        (None, True),
+        (False, None),
+        (True, None),
+        (False, False),
+        (False, True),
+        (True, False),
+        (True, True),
     ],
 )
-def test_no_browser(no_browser, force_requests, kangooroo, http_request):
+def test_no_browser(no_browser, force_requests):
     with (
         tempfile.TemporaryDirectory() as temp_dir,
         patch.object(urldownloader.urldownloader.URLDownloader, "execute_kangooroo") as mock_kangooroo,
@@ -52,12 +52,9 @@ def test_no_browser(no_browser, force_requests, kangooroo, http_request):
         except Exception:
             pass
 
-        if kangooroo:
-            mock_kangooroo.assert_called_once()
-        else:
+        if no_browser or force_requests:
             mock_kangooroo.assert_not_called()
-
-        if http_request:
             mock_http_request.assert_called_once()
         else:
+            mock_kangooroo.assert_called_once()
             mock_http_request.assert_not_called()
