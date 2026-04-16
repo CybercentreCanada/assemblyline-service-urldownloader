@@ -7,28 +7,44 @@
         "auto_collapse": false,
         "body": [
           [
-            "response_code",
-            404
+            "ORDERED_KEY_VALUE",
+            [
+              [
+                "response_code",
+                404
+              ],
+              [
+                "requested_url",
+                "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+              ],
+              [
+                "requested_url_ip",
+                "142.251.41.46"
+              ],
+              [
+                "actual_url",
+                "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
+              ],
+              [
+                "actual_url_ip",
+                "67.212.189.210"
+              ]
+            ],
+            {}
           ],
           [
-            "requested_url",
-            "https://google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
-          ],
-          [
-            "requested_url_ip",
-            "142.251.41.46"
-          ],
-          [
-            "actual_url",
-            "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ=="
-          ],
-          [
-            "actual_url_ip",
-            "67.212.189.210"
+            "URL",
+            [
+              {
+                "name": "Final HTML source code of the page",
+                "url": "/file/viewer/a775e3a167a1b367a9ce665e0b0e755e92a6ded6be9460bd750be67655e98915"
+              }
+            ],
+            {}
           ]
         ],
         "body_config": {},
-        "body_format": "ORDERED_KEY_VALUE",
+        "body_format": "MULTI",
         "classification": "TLP:C",
         "depth": 0,
         "heuristic": null,
@@ -218,6 +234,10 @@
       {
         "name": "https://www.google.com/amp/s/dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",
         "sha256": "3a0597439fbcb969fb742fa848a81d1881195ea6d803093699e6e4f55f81c8e7"
+      },
+      {
+        "name": "source.html",
+        "sha256": "a775e3a167a1b367a9ce665e0b0e755e92a6ded6be9460bd750be67655e98915"
       },
       {
         "name": "https://dcexchanges.com/wpfiles/lobatan/YmxlaEBoZXJlLmNvbQ==",

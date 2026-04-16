@@ -7,28 +7,44 @@
         "auto_collapse": false,
         "body": [
           [
-            "response_code",
-            200
+            "ORDERED_KEY_VALUE",
+            [
+              [
+                "response_code",
+                200
+              ],
+              [
+                "requested_url",
+                "https://json.schemastore.org/eslintrc.json"
+              ],
+              [
+                "requested_url_ip",
+                "20.42.128.105"
+              ],
+              [
+                "actual_url",
+                "https://json.schemastore.org/eslintrc.json"
+              ],
+              [
+                "actual_url_ip",
+                "20.42.128.105"
+              ]
+            ],
+            {}
           ],
           [
-            "requested_url",
-            "https://json.schemastore.org/eslintrc.json"
-          ],
-          [
-            "requested_url_ip",
-            "20.42.128.105"
-          ],
-          [
-            "actual_url",
-            "https://json.schemastore.org/eslintrc.json"
-          ],
-          [
-            "actual_url_ip",
-            "20.42.128.105"
+            "URL",
+            [
+              {
+                "name": "Final HTML source code of the page",
+                "url": "/file/viewer/7253b762cbc8b6fa150a461edfe5aee6040892212e9c0da97da216c85058dc5c"
+              }
+            ],
+            {}
           ]
         ],
         "body_config": {},
-        "body_format": "ORDERED_KEY_VALUE",
+        "body_format": "MULTI",
         "classification": "TLP:C",
         "depth": 0,
         "heuristic": null,
@@ -130,6 +146,10 @@
       {
         "name": "eslintrc.json",
         "sha256": "3b1002d80ab18760190e4c3931e4c985bd0a82a4253bf2d2286669656e91a1f5"
+      },
+      {
+        "name": "source.html",
+        "sha256": "7253b762cbc8b6fa150a461edfe5aee6040892212e9c0da97da216c85058dc5c"
       }
     ],
     "supplementary": [

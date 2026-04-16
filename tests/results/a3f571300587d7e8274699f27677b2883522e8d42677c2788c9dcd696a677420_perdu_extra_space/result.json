@@ -20,28 +20,44 @@
         "auto_collapse": false,
         "body": [
           [
-            "response_code",
-            200
+            "ORDERED_KEY_VALUE",
+            [
+              [
+                "response_code",
+                200
+              ],
+              [
+                "requested_url",
+                "http://perdu.com"
+              ],
+              [
+                "requested_url_ip",
+                "172.64.80.1"
+              ],
+              [
+                "actual_url",
+                "http://perdu.com/"
+              ],
+              [
+                "actual_url_ip",
+                "172.64.80.1"
+              ]
+            ],
+            {}
           ],
           [
-            "requested_url",
-            "http://perdu.com"
-          ],
-          [
-            "requested_url_ip",
-            "172.64.80.1"
-          ],
-          [
-            "actual_url",
-            "http://perdu.com/"
-          ],
-          [
-            "actual_url_ip",
-            "172.64.80.1"
+            "URL",
+            [
+              {
+                "name": "Final HTML source code of the page",
+                "url": "/file/viewer/346c0076db3a42a85a11cdc83ddfd1c4e60e7c8168430cadbc44d3967585ffb7"
+              }
+            ],
+            {}
           ]
         ],
         "body_config": {},
-        "body_format": "ORDERED_KEY_VALUE",
+        "body_format": "MULTI",
         "classification": "TLP:C",
         "depth": 0,
         "heuristic": null,
@@ -144,6 +160,10 @@
       {
         "name": "http://perdu.com/",
         "sha256": "208e330c75ffd93949be0258660973bef8223917f036325020f3a4c51b4ca430"
+      },
+      {
+        "name": "source.html",
+        "sha256": "346c0076db3a42a85a11cdc83ddfd1c4e60e7c8168430cadbc44d3967585ffb7"
       }
     ],
     "supplementary": [

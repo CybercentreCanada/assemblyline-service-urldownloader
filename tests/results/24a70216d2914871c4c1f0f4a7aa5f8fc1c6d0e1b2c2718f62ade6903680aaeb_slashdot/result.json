@@ -7,28 +7,44 @@
         "auto_collapse": false,
         "body": [
           [
-            "response_code",
-            200
+            "ORDERED_KEY_VALUE",
+            [
+              [
+                "response_code",
+                200
+              ],
+              [
+                "requested_url",
+                "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+              ],
+              [
+                "requested_url_ip",
+                "172.64.151.192"
+              ],
+              [
+                "actual_url",
+                "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
+              ],
+              [
+                "actual_url_ip",
+                "172.64.151.192"
+              ]
+            ],
+            {}
           ],
           [
-            "requested_url",
-            "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
-          ],
-          [
-            "requested_url_ip",
-            "172.64.151.192"
-          ],
-          [
-            "actual_url",
-            "https://news.slashdot.org/comments.pl?sid=11253499&cid=55399795"
-          ],
-          [
-            "actual_url_ip",
-            "172.64.151.192"
+            "URL",
+            [
+              {
+                "name": "Final HTML source code of the page",
+                "url": "/file/viewer/7da783db8eeb445b1a709769dc45941a8401a5ea92aa22ccebf26a66c718df97"
+              }
+            ],
+            {}
           ]
         ],
         "body_config": {},
-        "body_format": "ORDERED_KEY_VALUE",
+        "body_format": "MULTI",
         "classification": "TLP:C",
         "depth": 0,
         "heuristic": null,
@@ -1503,6 +1519,10 @@
       {
         "name": "https://pbid.pro-market.net/engine",
         "sha256": "79ecee018f875bbb96ee0c0f8f06fc4e4371c1ac450d9294a04cbee4db599db6"
+      },
+      {
+        "name": "source.html",
+        "sha256": "7da783db8eeb445b1a709769dc45941a8401a5ea92aa22ccebf26a66c718df97"
       },
       {
         "name": "https://match.adsrvr.org/track/cmf/generic?ttd_pid=crosspixel&ttd_tpi=1",

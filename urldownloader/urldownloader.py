@@ -21,13 +21,15 @@ from assemblyline_service_utilities.common.tag_helper import add_tag
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.request import ServiceRequest
 from assemblyline_v4_service.common.result import (
+    OrderedKVSectionBody,
     Result,
     ResultImageSection,
     ResultKeyValueSection,
-    ResultOrderedKeyValueSection,
+    ResultMultiSection,
     ResultTableSection,
     ResultTextSection,
     TableRow,
+    URLSectionBody,
 )
 from assemblyline_v4_service.common.task import PARENT_RELATION
 from bs4 import BeautifulSoup
@@ -405,19 +407,22 @@ class URLDownloader(ServiceBase):
             actual_url = result_summary.get("actualUrl", {})
 
             target_urls = [requested_url["url"]]
-            result_section = ResultOrderedKeyValueSection("Results", parent=request.result)
-            result_section.add_item("response_code", result_summary["fetchResult"]["response_code"])
-            result_section.add_item("requested_url", requested_url["url"])
+
+            result_section = ResultMultiSection("Results", parent=request.result)
+            kv_section = OrderedKVSectionBody()
+            result_section.add_section_part(kv_section)
+            kv_section.add_item("response_code", result_summary["fetchResult"]["response_code"])
+            kv_section.add_item("requested_url", requested_url["url"])
             add_tag(result_section, "network.static.uri", requested_url["url"])
             if "ip" in requested_url:
-                result_section.add_item("requested_url_ip", requested_url["ip"])
+                kv_section.add_item("requested_url_ip", requested_url["ip"])
                 result_section.add_tag("network.static.ip", requested_url["ip"])
             if actual_url:
                 target_urls.append(actual_url["url"])
-                result_section.add_item("actual_url", actual_url["url"])
+                kv_section.add_item("actual_url", actual_url["url"])
                 add_tag(result_section, "network.static.uri", actual_url["url"])
             if "ip" in actual_url:
-                result_section.add_item("actual_url_ip", actual_url["ip"])
+                kv_section.add_item("actual_url_ip", actual_url["ip"])
                 result_section.add_tag("network.static.ip", actual_url["ip"])
 
             if ("ip" in actual_url and "ip" in requested_url) and actual_url["ip"] != requested_url["ip"]:
@@ -477,6 +482,13 @@ class URLDownloader(ServiceBase):
                     detect_open_directory(request, soup)
                 except Exception:
                     pass
+
+                request.add_extracted(source_path, "source.html", "Final HTML source code of the page")
+                uri_section = URLSectionBody()
+                result_section.add_section_part(uri_section)
+                with open(source_path, "rb") as f:
+                    sha256hash = hashlib.sha256(f.read()).hexdigest()
+                    uri_section.add_url(f"/file/viewer/{sha256hash}", "Final HTML source code of the page")
 
             # Find any downloaded file
             with open(os.path.join(output_folder, "session.har"), "r") as f:

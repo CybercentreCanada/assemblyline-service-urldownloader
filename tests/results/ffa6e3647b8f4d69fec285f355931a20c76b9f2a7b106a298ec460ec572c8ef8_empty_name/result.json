@@ -7,28 +7,44 @@
         "auto_collapse": false,
         "body": [
           [
-            "response_code",
-            200
+            "ORDERED_KEY_VALUE",
+            [
+              [
+                "response_code",
+                200
+              ],
+              [
+                "requested_url",
+                "https://gklnd.pages.dev/"
+              ],
+              [
+                "requested_url_ip",
+                "172.66.45.31"
+              ],
+              [
+                "actual_url",
+                "https://gklnd.pages.dev/"
+              ],
+              [
+                "actual_url_ip",
+                "172.66.45.31"
+              ]
+            ],
+            {}
           ],
           [
-            "requested_url",
-            "https://gklnd.pages.dev/"
-          ],
-          [
-            "requested_url_ip",
-            "172.66.45.31"
-          ],
-          [
-            "actual_url",
-            "https://gklnd.pages.dev/"
-          ],
-          [
-            "actual_url_ip",
-            "172.66.45.31"
+            "URL",
+            [
+              {
+                "name": "Final HTML source code of the page",
+                "url": "/file/viewer/8c510c34736c12d431ba326491fd9864ffa71a95d9a5f6ee7cc583538bf4fd95"
+              }
+            ],
+            {}
           ]
         ],
         "body_config": {},
-        "body_format": "ORDERED_KEY_VALUE",
+        "body_format": "MULTI",
         "classification": "TLP:C",
         "depth": 0,
         "heuristic": null,
@@ -381,6 +397,10 @@
       {
         "name": "fulls.js",
         "sha256": "88e460ada551f268bcce9fc4ef0c8c23cbd4864d5b70324db4f7c89e55d262e9"
+      },
+      {
+        "name": "source.html",
+        "sha256": "8c510c34736c12d431ba326491fd9864ffa71a95d9a5f6ee7cc583538bf4fd95"
       },
       {
         "name": "_Fm7-alert.mp3",
