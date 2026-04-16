@@ -47,7 +47,7 @@ submission_params:
     type: bool
     value: true
   - default: false
-    name: force_requests
+    name: no_browser
     type: bool
     value: false
   - default: false
