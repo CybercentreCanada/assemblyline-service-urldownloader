@@ -1,5 +1,5 @@
 ARG branch=latest
-FROM cccs/assemblyline-v4-service-base:$branch
+FROM cccs/assemblyline-rust-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
 ENV KANGOOROO_VERSION=v2.0.1.stable21
@@ -57,4 +57,4 @@ USER assemblyline
 
 # using dumb-init as entrypoint to remove zombie chrome processes
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-CMD ["python", "/etc/process_handler.py"]
+CMD ["/usr/bin/assemblyline-service-client"]
