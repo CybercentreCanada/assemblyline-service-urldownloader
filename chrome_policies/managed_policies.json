@@ -1,6 +1,58 @@
 {
   "HttpsOnlyMode": "disallowed",
-  "AIModeSettings": 1,
   "HttpsUpgradesEnabled": false,
-  "GenAiDefaultSettings": 2
+
+  "AIModeSettings": 1,
+  "GenAiDefaultSettings": 2,
+  "SearchContentSharingSettings": 1,
+  "GenAILocalFoundationalModelSettings": 1,
+  "AutofillPredictionSettings": 2,
+  "ChromeSuggestionsSettings": 1,
+  "DevToolsGenAiSettings": 2,
+  "GeminiSettings": 1,
+  "GeminiSparkSettings": 1,
+  "SmartTabSharingSettings": 1,
+
+  "UpdateOnZeroWindowEnabled": false,
+  "FloatingWorkspaceEnabled": false,
+  "FloatingWorkspaceV2Enabled": false,
+  "ComponentUpdatesEnabled": false,
+  "DeviceAutoUpdateDisabled": true,
+  "DeviceAutoUpdateP2PEnabled": false,
+  "DeviceExtendedAutoUpdateEnabled": false,
+
+  "LoginAuthenticationBehavior": 1,
+  "DeviceAuthenticationFlowAutoReloadInterval": 0,
+  "GaiaLockScreenOfflineSigninTimeLimitDays": -1,
+  "GaiaOfflineSigninTimeLimitDays": -1,
+  "BoundSessionCredentialsEnabled": false,
+  "DeviceSecondFactorAuthentication": false,
+  "SamlInSessionPasswordChangeEnabled": false,
+  "CloudAPAuthEnabled": 0,
+  "BrowserSignin": 0,
+
+  "SystemTimezoneAutomaticDetection": 1,
+  "BrowserNetworkTimeQueriesEnabled": false,
+  "DefaultGeolocationSetting": 2,
+
+  "ReportDeviceTimezoneInfo": false,
+  "ReportDeviceOsUpdateStatus": false,
+  "ReportDeviceCrashReportInfo": false,
+  "ReportDeviceActivityTimes": false,
+  "DeviceMetricsReportingEnabled": false,
+  "ReportDeviceCpuInfo": false,
+  "ReportDeviceMemoryInfo": false,
+  "ReportDeviceNetworkConfiguration": false,
+  "ReportDeviceNetworkStatus": false,
+  "ReportDeviceSessionStatus": false,
+  "ReportDeviceStorageStatus": false,
+  "ReportDeviceUsers": false,
+  "ReportDeviceVersionInfo": false,
+
+  "SafeBrowsingSurveysEnabled": false,
+  "SafeBrowsingProxiedRealTimeChecksAllowed": false,
+  "SafeBrowsingProtectionLevel": 0,
+  "SafeBrowsingExtendedReportingEnabled": false,
+  "SafeBrowsingDeepScanningEnabled": false
+
 }

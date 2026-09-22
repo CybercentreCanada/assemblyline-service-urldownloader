@@ -2,9 +2,9 @@ ARG branch=latest
 FROM cccs/assemblyline-v4-service-base:$branch
 
 ENV SERVICE_PATH=urldownloader.urldownloader.URLDownloader
-ENV KANGOOROO_VERSION=v2.0.1.stable21
+ENV KANGOOROO_VERSION=v2.0.1.stable22
 # latest version of chrome that we tested
-ENV CHROME_VERSION=153.0.8010.52
+ENV CHROME_VERSION=149.0.7827.155
 
 # Install apt dependencies
 USER root
@@ -14,6 +14,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     $(grep -vE "^\s*(#|$)" /tmp/setup/pkglist.txt | tr "\n" " ") && \
     rm -rf /tmp/setup/pkglist.txt /var/lib/apt/lists/*
+
+
 
 RUN wget -O ./google-chrome-stable_amd64.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_$CHROME_VERSION-1_amd64.deb && \
     apt update -y && \
