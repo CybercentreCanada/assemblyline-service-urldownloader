@@ -1505,6 +1505,10 @@
         "sha256": "61c32059a5e94075a7ecff678b33907966fc9cfa384daa01aa057f872da14dbb"
       },
       {
+        "name": "utsync.ashx",
+        "sha256": "656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438"
+      },
+      {
         "name": "dda4-1-9.js",
         "sha256": "747aea5fe62af2ffb4944f7cf436ad2433433e40d21a3e41848028d4f889030b"
       },
@@ -1685,10 +1689,6 @@
       {
         "name": "sdicon.woff",
         "sha256": "625cd71745541c37495055244a8c139e6f3c784b0f5262503ee0f304ee52944e"
-      },
-      {
-        "name": "utsync.ashx",
-        "sha256": "656196f132096f69d2518758b20c57a21ab5786c60d6000320bfaef12f6e0438"
       },
       {
         "name": "__utm.gif",
